@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Alert, Button, Loader, VariantType } from "@openfun/cunningham-react";
+import { Alert, Button, VariantType } from "@openfun/cunningham-react";
 import { usePlaylist } from "@/src/hooks/usePlaylist";
 import { useAuth } from "@/src/context/AuthProvider";
 import { usePlaylistCreationContext } from "@/src/context/PlaylistCreationContext";
@@ -17,8 +17,6 @@ import { useMounted } from "@/src/hooks/useMounted";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-export const breadcrumbLabel = "Playlist";
-
 export default function PlaylistPage() {
   const params = useParams();
   const router = useRouter();
@@ -27,7 +25,7 @@ export default function PlaylistPage() {
     usePlaylist();
   const { user } = useAuth();
   const mounted = useMounted();
-  const { lastCreatedPlaylist, setLastCreatedPlaylist } =
+  const { lastCreatedPlaylist } =
     usePlaylistCreationContext();
 
   const playlistJustCreated =
@@ -35,7 +33,7 @@ export default function PlaylistPage() {
 
   useEffect(() => {
     if (!slug) return;
-    fetchOne(slug);
+    void fetchOne(slug);
   }, [fetchOne, slug]);
 
   // Si on vient juste de créer la playlist, on réutilise celle du contexte
@@ -47,7 +45,6 @@ export default function PlaylistPage() {
   const {
     filters,
     setFilters,
-    videos,
     users,
     types,
     disciplines,

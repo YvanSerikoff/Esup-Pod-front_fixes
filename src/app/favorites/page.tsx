@@ -49,7 +49,7 @@ export default function FavoritesPlaylistPage() {
       }
     };
 
-    loadFavorites();
+    void loadFavorites();
 
     return () => {
       cancelled = true;

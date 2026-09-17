@@ -3,7 +3,7 @@
 import { Alert, VariantType } from "@openfun/cunningham-react";
 import BackButton from "@/src/components/BackButton/BackButton";
 import { useChannel } from "@/src/hooks/useChannel";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -21,6 +21,7 @@ import VideoFilters, {
 } from "@/src/components/video/filters/VideoFilters";
 import { useTheme } from "@/src/hooks/useTheme";
 import { useMounted } from "@/src/hooks/useMounted";
+import Image from "next/image";
 
 export const breadcrumbLabel = "Chaine";
 
@@ -148,7 +149,7 @@ export default function Channel() {
 
   useEffect(() => {
     if (!channelSlug) return;
-    fetchChannel(channelSlug);
+    void fetchChannel(channelSlug);
   }, [fetchChannel, channelSlug]);
 
   useEffect(() => {
@@ -176,7 +177,7 @@ export default function Channel() {
         <CenteredLoader />
       ) : (
         <>
-          <img
+          <Image
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
             alt={`${channel.title} banner`}
             style={{

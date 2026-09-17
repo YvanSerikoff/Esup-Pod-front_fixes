@@ -11,9 +11,7 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import { useVideoListFilters } from "@/src/hooks/useVideoListFilters";
 import { Alert, VariantType } from "@openfun/cunningham-react";
-import BackButton from "@/src/components/BackButton/BackButton";
 
-import type { Video } from "@/src/types";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 

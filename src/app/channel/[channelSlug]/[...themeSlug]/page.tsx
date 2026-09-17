@@ -5,7 +5,7 @@ import BackButton from "@/src/components/BackButton/BackButton";
 import { useTheme } from "@/src/hooks/useTheme";
 import { useChannel } from "@/src/hooks/useChannel";
 import type { Theme } from "@/src/types";
-import { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -21,6 +21,7 @@ import VideoFilters, {
 } from "@/src/components/video/filters/VideoFilters";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useMounted } from "@/src/hooks/useMounted";
+import Image from "next/image";
 
 export const breadcrumbLabel = "Thème";
 
@@ -125,7 +126,8 @@ export default function Theme() {
     [filteredThemeVideos, user],
   );
 
-  const baseChildThemes = (theme?.children ?? []) as Theme[];
+  const baseChildThemes = useMemo(
+  () => (theme?.children ?? []) as Theme[], [theme?.children],);
 
   const parentTheme = theme?.parent
     ? (allThemes.find((item) => item.id === theme.parent) ?? null)
@@ -212,12 +214,12 @@ export default function Theme() {
 
   useEffect(() => {
     if (!slug) return;
-    fetchTheme(slug);
+    void fetchTheme(slug);
   }, [fetchTheme, slug]);
 
   useEffect(() => {
     if (!theme) return;
-    fetchThemes();
+    void fetchThemes();
   }, [fetchThemes, theme]);
 
   useEffect(() => {
@@ -230,7 +232,7 @@ export default function Theme() {
 
   useEffect(() => {
     if (!channelSlug) return;
-    fetchChannel(channelSlug);
+    void fetchChannel(channelSlug);
   }, [channelSlug, fetchChannel]);
 
   if (!theme || !mounted || !themeItemVideos) {
@@ -257,7 +259,7 @@ export default function Theme() {
             {useThemeError}
           </Alert>
         )}
-        <img
+        <Image
           src={theme.banner || "/default_theme_banner.png"}
           alt={`${theme.title} banner`}
           style={{
