@@ -10,7 +10,6 @@ import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import styles from "../styles.module.css";
 import CollectionFilters from "@/src/components/collection/filters/CollectionFilters";
 import CollectionDisplay from "@/src/components/collection/display/CollectionDisplay";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
@@ -55,7 +54,6 @@ export default function Theme() {
   const {
     filters: videoFilters,
     setFilters: setVideoFilters,
-    videos,
     users: videoUsers,
     types,
     disciplines,

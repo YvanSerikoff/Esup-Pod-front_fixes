@@ -9,7 +9,7 @@ import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useCollectionListFilters } from "@/src/hooks/useCollectionListFilters";
 import { useTranslation } from "@/src/hooks/useTranslation";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import CollectionDisplay from "@/src/components/collection/display/CollectionDisplay";
 import { useMounted } from "@/src/hooks/useMounted";
 

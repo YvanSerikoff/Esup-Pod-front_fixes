@@ -9,7 +9,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import styles from "./styles.module.css";
 import CollectionDisplay from "@/src/components/collection/display/CollectionDisplay";
 import VideoDisplay from "@/src/components/video/display/VideoDisplay";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
