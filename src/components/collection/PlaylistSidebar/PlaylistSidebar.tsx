@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import type { Playlist } from "@/src/types";
 import styles from "./styles.module.css";
 import { truncateVideoTitle } from "@/src/constants/string";
+import Image from "next/image";
 
 type PlaylistSidebarProps = {
   playlist: Playlist;
@@ -53,7 +54,7 @@ export default function PlaylistSidebar({
               onClick={() => handleClick(video.slug)}
             >
               <span className={styles.playlistSidebarIndex}>{index + 1}</span>
-              <img
+              <Image
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={video.title}
                 className={styles.playlistSidebarThumbnail}

@@ -43,6 +43,7 @@ const SearchForm = dynamic(
 );
 
 import { useTranslation } from "@/src/hooks/useTranslation";
+import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
 /*  Menu Préférences Unifié (Thème, Langue, Paramètres)               */
@@ -324,7 +325,9 @@ export default function Navbar() {
 
         <div className="">
           <Link className={styles.navbar_logo} key="accueil-link" href="/">
-            <img className="pr-sm pl-sm" src={appLogo} alt="Logo Esup-Pod — Retour à l'accueil" />
+              {appLogo && (
+                  <Image className="pr-sm pl-sm" src={appLogo} alt="Logo Esup-Pod — Retour à l'accueil"/>
+              )}
             <strong>{appTitle}</strong>
           </Link>
         </div>

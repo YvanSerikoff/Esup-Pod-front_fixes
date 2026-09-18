@@ -20,7 +20,6 @@ import { useDressings } from "@/src/hooks/useDressing";
 import { authFetch } from "@/src/api/authFetch";
 import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
-import { requestJson } from "@/src/utils/requestJson";
 import type { Video } from "@/src/types";
 
 /* ------------------------------------------------------------------
@@ -47,7 +46,6 @@ type CreatePanelProps = {
 };
 
 function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
-  const { accessToken, refresh } = useAuth();
   const { createDressing } = useDressings();
 
   const [title, setTitle] = useState("");

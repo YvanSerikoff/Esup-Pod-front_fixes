@@ -7,10 +7,12 @@ import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
 import ErrorIcon from "@mui/icons-material/Error";
 import Tooltip from "@mui/material/Tooltip";
+import Image from "next/image";
 
 /* Définit les colonnes du tableau de vidéos.*/
 export function getVideoGridColumns(
-selectable: boolean = false, t?: (key: string) => string, onSelectAll?: ((checked: boolean) => void) | undefined, isAllSelected?: boolean,
+  selectable: boolean = false,
+  t?: (key: string) => string,
 ): Column<VideoDisplayRow>[] {
   const tr = (key: string, fallback: string) => (t ? t(key) : fallback);
 
@@ -40,7 +42,7 @@ selectable: boolean = false, t?: (key: string) => string, onSelectAll?: ((checke
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles.thumbnailWrapper}>
           {row.thumbnailUrl && !row.thumbnailUrl.includes("default_thumbnail") ? (
-            <img
+            <Image
               className={styles.thumbnail}
               src={row.thumbnailUrl}
               alt={row.title}

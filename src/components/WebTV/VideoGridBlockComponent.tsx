@@ -27,6 +27,7 @@ interface VideoGridBlockProps {
 }
 
 import { useTranslation } from "@/src/hooks/useTranslation";
+import Image from "next/image";
 
 export default function VideoGridBlockComponent({
   block,
@@ -100,7 +101,7 @@ export default function VideoGridBlockComponent({
               >
                 <div className={styles.thumbnailContainer}>
                   {video.thumbnail ? (
-                    <img
+                    <Image
                       src={video.thumbnail}
                       alt={video.title}
                       className={styles.thumbnailImage}

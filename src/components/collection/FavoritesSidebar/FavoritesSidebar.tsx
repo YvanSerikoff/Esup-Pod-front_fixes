@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import type { Video } from "@/src/types";
 import styles from "./styles.module.css";
+import Image from "next/image";
 
 type FavoritesSidebarProps = {
   videos: Video[];
@@ -47,7 +48,7 @@ export default function FavoritesSidebar({
               onClick={() => handleClick(video.slug)}
             >
               <span className={styles.favoritesSidebarIndex}>{index + 1}</span>
-              <img
+              <Image
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={video.title}
                 className={styles.favoritesSidebarThumbnail}

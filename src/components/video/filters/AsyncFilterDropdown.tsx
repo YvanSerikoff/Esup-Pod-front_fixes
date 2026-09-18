@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import FilterDropdown from "./FilterDropdown"; // We'll extract FilterDropdown
 
 export type AsyncFilterDropdownProps = {

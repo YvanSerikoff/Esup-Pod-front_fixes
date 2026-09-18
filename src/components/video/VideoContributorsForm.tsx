@@ -19,10 +19,15 @@ import CircularProgress from "@mui/material/CircularProgress";
 import styles from "../../app/video/edit/[slug]/styles.module.css";
 
 // Custom debounce
-function debounce(func: Function, timeout = 300) {
-  let timer: any;
-  return (...args: any[]) => {
+function debounce<T extends (...args: never[]) => void>(
+  func: T,
+  timeout = 300
+) {
+  let timer: ReturnType<typeof setTimeout>;
+
+  return (...args: Parameters<T>) => {
     clearTimeout(timer);
+
     timer = setTimeout(() => {
       func(...args);
     }, timeout);

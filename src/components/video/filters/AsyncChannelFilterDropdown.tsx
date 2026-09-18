@@ -28,23 +28,21 @@ export default function AsyncChannelFilterDropdown({
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   useEffect(() => {
-    let active = true;
     const loadSelectedChannel = async () => {
       if (!selectedChannelId) {
         setSelectedOption(null);
         return;
       }
-      
+
       const existing = options.find((o) => o.value === selectedChannelId) || (selectedOption?.value === selectedChannelId ? selectedOption : null);
       if (existing) {
         setSelectedOption(existing);
       } else {
-        setSelectedOption({ label: `Chaîne ${selectedChannelId}`, value: selectedChannelId });
+        setSelectedOption({label: `Chaîne ${selectedChannelId}`, value: selectedChannelId});
       }
     };
-    loadSelectedChannel();
-    return () => { active = false; };
-  }, [selectedChannelId]);
+    void loadSelectedChannel();
+  }, [options, selectedChannelId, selectedOption]);
 
   const fetchOptions = useMemo(
     () =>
@@ -66,13 +64,9 @@ export default function AsyncChannelFilterDropdown({
   );
 
   useEffect(() => {
-    let active = true;
     if (open) {
-      fetchOptions(inputValue);
+      void fetchOptions(inputValue);
     }
-    return () => {
-      active = false;
-    };
   }, [inputValue, open, fetchOptions]);
 
   return (

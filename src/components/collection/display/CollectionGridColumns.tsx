@@ -3,6 +3,7 @@ import type { Column } from "@openfun/cunningham-react";
 import type { CollectionDisplayRow } from "./types";
 import styles from "./styles.module.css";
 import PlaylistCardActionMenu from "../PlaylistActionMenu";
+import Image from "next/image";
 
 interface GetCollectionGridColumnsOptions {
   rows: CollectionDisplayRow[];
@@ -22,7 +23,7 @@ export function getCollectionGridColumns({
       enableSorting: false,
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles.thumbnailWrapper}>
-          <img className={styles.thumbnail} src={row.thumbnailUrl} alt={row.title} />
+          <Image className={styles.thumbnail} src={row.thumbnailUrl} alt={row.title} />
         </Link>
       ),
     },

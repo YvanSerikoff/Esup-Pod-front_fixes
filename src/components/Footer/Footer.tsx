@@ -4,6 +4,7 @@ import { useAppInfo } from "@/src/hooks/useAppInfo";
 import Link from "next/link";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
+import Image from "next/image";
 
 export default function Footer() {
   const { info } = useAppInfo();
@@ -16,7 +17,7 @@ export default function Footer() {
       <div className={styles.footer_content}>
         <div className={styles.footer_contact_univ}>
           <div className={styles.footer_contact_univ_logo}>
-            <img src="/logoEsup.svg" alt="Logo etablissement"></img>
+            <Image src="/logoEsup.svg" alt="Logo etablissement"></Image>
           </div>
           <address>
             <p>
@@ -38,9 +39,9 @@ export default function Footer() {
         </div>
         <div className={styles.footer_extra_link}>
           <div className={styles.footer_extra_link_icons}>
-            <img src="/facebook_icon.png" alt="Facebook" />
-            <img src="/x_icon.png" alt="X" />
-            <img src="/linkedin_icon.png" alt="Linkedin" />
+            <Image src="/facebook_icon.png" alt="Facebook" />
+            <Image src="/x_icon.png" alt="X" />
+            <Image src="/linkedin_icon.png" alt="Linkedin" />
           </div>
           <div className={styles.footer_link_esup}>
             <a href="https://github.com/EsupPortail/Esup-Pod-front" target="_blank" rel="noreferrer">{t("footer.esupProject")}</a>

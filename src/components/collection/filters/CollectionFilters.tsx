@@ -135,7 +135,7 @@ export default function CollectionFilters({
         value: u.username,
       }));
     },
-    [fetchUsers]
+    [config?.authentication, fetchUsers]
   );
 
   const fetchChannelsOptions = useCallback(
@@ -157,7 +157,7 @@ export default function CollectionFilters({
         value: username,
       };
     });
-  }, [value.ownerUsernames, users]);
+  }, [value.ownerUsernames, users, config?.authentication]);
 
   const selectedChannel =
     channels.find((channel) => String(channel.id) === String(value.channel)) ??
