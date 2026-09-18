@@ -2,7 +2,6 @@
 
 import { useState, useMemo, useCallback } from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -55,13 +54,6 @@ type SelectOption = {
   label: string;
   value: string;
 };
-
-const ORDERING_OPTIONS: SelectOption[] = [
-  { label: "Plus récentes", value: "-created_at" },
-  { label: "Plus anciennes", value: "created_at" },
-  { label: "Titre A-Z", value: "title" },
-  { label: "Titre Z-A", value: "-title" },
-];
 
 const haveSameValues = <T extends string | number>(
   currentValues: T[],
@@ -136,7 +128,6 @@ export default function VideoFilters({
   types,
   disciplines,
   tags,
-  channels,
   showUserFilter = true,
   showChannelFilter = true,
   onChange,
@@ -174,7 +165,7 @@ export default function VideoFilters({
         value: u.username,
       }));
     },
-    [fetchUsers]
+    [config?.authentication, fetchUsers]
   );
 
   const fetchChannelsOptions = useCallback(
@@ -238,7 +229,7 @@ export default function VideoFilters({
         value: username,
       };
     });
-  }, [value.ownerUsernames, users]);
+  }, [config?.authentication, value.ownerUsernames, users]);
 
   const selectedTypes = typeOptions.filter((option) =>
     value.typeSlugs.includes(String(option.value)),
