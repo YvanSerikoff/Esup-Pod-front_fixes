@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       };
     }
   } catch (error) {
-    console.error("Erreur lors de la récupération des métadonnées de la vidéo :", error);
+    console.error("Error fetching video metadata :", error);
   }
 
   return {
