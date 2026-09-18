@@ -5,7 +5,7 @@ import BackButton from "@/src/components/BackButton/BackButton";
 import { useTheme } from "@/src/hooks/useTheme";
 import { useChannel } from "@/src/hooks/useChannel";
 import type { Theme } from "@/src/types";
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -26,8 +26,7 @@ import Image from "next/image";
 export const breadcrumbLabel = "Thème";
 
 export default function Theme() {
-  const [value, setValue] = useState("childThemes");
-  const didSetInitialTab = useRef(false);
+  const [value, setValue] = useState<string | null>(null);
   const { user } = useAuth();
   const mounted = useMounted();
 
@@ -129,6 +128,9 @@ export default function Theme() {
   const baseChildThemes = useMemo(
   () => (theme?.children ?? []) as Theme[], [theme?.children],);
 
+  const defaultTab = baseChildThemes.length > 0 ? "childThemes" : "unclassified";
+  const selectedTab = value ?? defaultTab;
+
   const parentTheme = theme?.parent
     ? (allThemes.find((item) => item.id === theme.parent) ?? null)
     : null;
@@ -193,16 +195,6 @@ export default function Theme() {
     collectionFilters.channel,
   ]);
 
-  const handleTabValue = () => {
-    const hasVideos = themeItems.length > 0;
-    const hasChildren = baseChildThemes.length > 0;
-    if (hasChildren) {
-      setValue("childThemes");
-    } else if (hasVideos) {
-      setValue("unclassified");
-    }
-  };
-
   useEffect(() => {
     if (!theme?.default_order) return;
 
@@ -221,14 +213,6 @@ export default function Theme() {
     if (!theme) return;
     void fetchThemes();
   }, [fetchThemes, theme]);
-
-  useEffect(() => {
-    if (didSetInitialTab.current) return;
-    if (!theme) return;
-
-    handleTabValue();
-    didSetInitialTab.current = true;
-  }, [theme, themeItems.length, baseChildThemes.length]);
 
   useEffect(() => {
     if (!channelSlug) return;
@@ -294,7 +278,7 @@ export default function Theme() {
         ) : (
           <Box sx={{ width: "100%", typography: "body1" }}>
             <Tabs
-              value={value}
+              value={selectedTab}
               onChange={handleChange}
               aria-label="Contenus de la chaine"
             >
@@ -312,7 +296,7 @@ export default function Theme() {
             </Tabs>
 
             <Box sx={{ mt: 2 }}>
-              {value === "unclassified" && (
+              {selectedTab === "unclassified" && (
                 <div>
                   <h2>Videos non classées</h2>
                   {useVideoError && (
@@ -363,7 +347,7 @@ export default function Theme() {
                 </div>
               )}
 
-              {value === "childThemes" && (
+              {selectedTab === "childThemes" && (
                 <div>
                   <h2>Sous-thèmes</h2>
 
