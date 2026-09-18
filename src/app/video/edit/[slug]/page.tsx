@@ -3,16 +3,10 @@
 import * as React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Link from "next/link";
+import Image from "next/image";
 import { Controller, useForm, useWatch, FieldErrors } from "react-hook-form";
 import Box from "@mui/material/Box";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
 import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import TextField from "@mui/material/TextField";
@@ -57,7 +51,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import { CURSUS_OPTIONS } from "@/src/constants/cursus";
 import {
   LanguageSubtitle,
   SUBTITLE_LANGUAGE_OPTIONS,
@@ -66,7 +59,6 @@ import {
 import {
   DEFAULT_VIDEO_LICENSE_OPTIONS,
   VideoStatus,
-  VIDEO_STATUS_OPTIONS,
 } from "@/src/constants/video";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -83,15 +75,12 @@ import TuneIcon from "@mui/icons-material/Tune";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import SaveIcon from "@mui/icons-material/Save";
 import CloseIcon from "@mui/icons-material/Close";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import ClosedCaptionIcon from "@mui/icons-material/ClosedCaption";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import StyleIcon from "@mui/icons-material/Style";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import GroupIcon from "@mui/icons-material/Group";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SubtitlesIcon from "@mui/icons-material/Subtitles";
@@ -132,9 +121,6 @@ function buildThemeOptions(themes: Theme[]): ThemeOption[] {
   };
   return walk(themes);
 }
-
-// Desktop stepper steps (index 0 = Importation, 1 = Détails, 2 = Eléments vidéo, 3 = Visibilité)
-const ALL_STEPS = ["Importation", "Détails", "Éléments Video", "Visibilité"];
 
 // Mobile step keys
 const MOBILE_STEPS = [
@@ -209,7 +195,7 @@ export default function EditVideo() {
   const { data: video, isLoading: useVideoLoading, error, refetch } = useVideo(getVideoSlug ?? "", isAuthenticated);
   const useVideoError = error?.message ?? null;
   const { fetchAll: fetchUsers, users } = useUsers();
-  const { fetchAll: fetchDisciplines, discipline: disciplines } = useDiscipline();
+  const { fetchAll: fetchDisciplines } = useDiscipline();
   const { addSubtitle, deleteSubtitle, useSubtitleLoading, useSubtitleError } = useSubtitle();
   const { fetchAll: fetchTypes, types } = useTypes();
   const { tags, fetchAll: fetchTags } = useTags();
@@ -573,9 +559,6 @@ export default function EditVideo() {
   };
 
   /* -------------------------- Sous-titres -------------------------- */
-  const usedSubtitleLanguages = new Set(
-    (video?.subtitles ?? []).map((s) => s.language.toLowerCase()),
-  );
 
   const handleAddSubtitle = async () => {
     setformError(null);
@@ -992,9 +975,12 @@ export default function EditVideo() {
           {/* Preview zone */}
           {(thumbnailPreview ?? video?.thumbnail) ? (
             <div className={styles.vignette_preview_card}>
-              <img
-                src={thumbnailPreview || video?.thumbnail || undefined}
+              <Image
+                src={thumbnailPreview || video?.thumbnail || ""}
                 alt="Vignette"
+                fill
+                sizes="(max-width: 480px) 100vw, 480px"
+                unoptimized
                 className={styles.vignette_preview_img}
               />
               <div className={styles.vignette_overlay}>
@@ -1548,9 +1534,11 @@ export default function EditVideo() {
           {/* Media 16:9 */}
           <div className={styles.live_card_media_wrapper}>
             {(thumbnailPreview || video?.thumbnail) ? (
-              <img
-                src={thumbnailPreview || video?.thumbnail || undefined}
+              <Image
+                src={thumbnailPreview || video?.thumbnail || ""}
                 alt="Aperçu"
+                width={640}
+                height={360}
                 className={styles.live_card_img}
               />
             ) : (
