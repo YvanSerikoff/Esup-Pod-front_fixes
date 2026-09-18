@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useCallback } from "react";
 import { useAuth } from "@/src/context/AuthProvider";
 import { authFetch } from "@/src/api/authFetch";
 import { requestJson } from "@/src/utils/requestJson";
@@ -249,8 +248,8 @@ export function useDuplicateVideo() {
       }
       return requestJson<Video>(response);
     },
-    onSuccess: (newVideo) => {
-      queryClient.invalidateQueries({ queryKey: ["videos"] });
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["videos"] });
     },
   });
 }
