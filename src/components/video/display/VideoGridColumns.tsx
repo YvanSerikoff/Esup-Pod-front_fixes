@@ -43,6 +43,8 @@ export function getVideoGridColumns(
         <Link href={row.href} className={styles.thumbnailWrapper}>
           {row.thumbnailUrl && !row.thumbnailUrl.includes("default_thumbnail") ? (
             <Image
+              width={100}
+              height={100}
               className={styles.thumbnail}
               src={row.thumbnailUrl}
               alt={row.title}

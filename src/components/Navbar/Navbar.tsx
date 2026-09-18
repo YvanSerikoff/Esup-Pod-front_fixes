@@ -326,7 +326,7 @@ export default function Navbar() {
         <div className="">
           <Link className={styles.navbar_logo} key="accueil-link" href="/">
               {appLogo && (
-                  <Image className="pr-sm pl-sm" src={appLogo} alt="Logo Esup-Pod — Retour à l'accueil"/>
+                  <Image width={39} height={39} className="pr-sm pl-sm" src={appLogo} alt="Logo Esup-Pod — Retour à l'accueil"/>
               )}
             <strong>{appTitle}</strong>
           </Link>

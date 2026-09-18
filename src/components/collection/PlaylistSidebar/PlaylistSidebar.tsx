@@ -55,6 +55,8 @@ export default function PlaylistSidebar({
             >
               <span className={styles.playlistSidebarIndex}>{index + 1}</span>
               <Image
+                width={100}
+                height={100}
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={video.title}
                 className={styles.playlistSidebarThumbnail}

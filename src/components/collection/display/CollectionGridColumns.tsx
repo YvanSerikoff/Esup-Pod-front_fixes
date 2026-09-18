@@ -23,7 +23,7 @@ export function getCollectionGridColumns({
       enableSorting: false,
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles.thumbnailWrapper}>
-          <Image className={styles.thumbnail} src={row.thumbnailUrl} alt={row.title} />
+          <Image width={100} height={100} className={styles.thumbnail} src={row.thumbnailUrl} alt={row.title} />
         </Link>
       ),
     },
