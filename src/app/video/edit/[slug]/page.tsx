@@ -1537,8 +1537,6 @@ export default function EditVideo() {
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
                 alt={t("accessibility.preview")}
-                width={640}
-                height={360}
                 className={styles.live_card_img}
               />
             ) : (

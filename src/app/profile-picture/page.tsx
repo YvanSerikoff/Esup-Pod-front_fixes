@@ -148,8 +148,6 @@ export default function UserProfilePicture() {
               <Image
                 src={currentPictureUrl!}
                 alt={t("accessibility.currentProfilePicture")}
-                width={160}
-                height={160}
               />
             ) : (
               !isInitializing && (

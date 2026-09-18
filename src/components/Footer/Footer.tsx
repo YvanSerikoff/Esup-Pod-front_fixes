@@ -18,11 +18,11 @@ export default function Footer() {
         <div className={styles.footer_contact_univ}>
           <div className={styles.footer_contact_univ_logo}>
             <Image
-            src="/logoEsup.svg"
-            alt={t("accessibility.institutionLogo")}
-            width={39}
-            height={39}
-          />
+              src="/logoEsup.svg"
+              alt={t("accessibility.institutionLogo")}
+              className={styles.footer_contact_univ_logo_image}
+              fill
+            />
           </div>
           <address>
             <p>
@@ -44,9 +44,15 @@ export default function Footer() {
         </div>
         <div className={styles.footer_extra_link}>
           <div className={styles.footer_extra_link_icons}>
-            <Image src="/facebook_icon.png" alt={t("accessibility.facebookLogo")} width={39} height={39} />
-            <Image src="/x_icon.png" alt={t("accessibility.xLogo")} width={39} height={39} />
-            <Image src="/linkedin_icon.png" alt={t("accessibility.linkedinLogo")} width={39} height={39} />
+            <span className={styles.footer_extra_link_icon}>
+              <Image src="/facebook_icon.png" alt={t("accessibility.facebookLogo")} fill />
+            </span>
+            <span className={styles.footer_extra_link_icon}>
+              <Image src="/x_icon.png" alt={t("accessibility.xLogo")} fill />
+            </span>
+            <span className={styles.footer_extra_link_icon}>
+              <Image src="/linkedin_icon.png" alt={t("accessibility.linkedinLogo")} fill />
+            </span>
           </div>
           <div className={styles.footer_link_esup}>
             <a href="https://github.com/EsupPortail/Esup-Pod-front" target="_blank" rel="noreferrer">{t("footer.esupProject")}</a>

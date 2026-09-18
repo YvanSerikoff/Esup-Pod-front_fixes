@@ -22,7 +22,14 @@
   font-style: normal;
 }
 .footer_contact_univ_logo {
+  position: relative;
   height: 42px;
+  width: 150px;
+}
+
+.footer_contact_univ_logo_image {
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer_link a,
@@ -40,9 +47,22 @@
   padding-top: var(--c--globals--spacings--xs);
 }
 
+.footer_extra_link_icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer_extra_link_icons img {
-  padding-right: var(--c--globals--spacings--xxs);
+  object-fit: contain;
+}
+
+.footer_extra_link_icon {
+  position: relative;
+  display: inline-block;
   height: 25px;
+  width: 25px;
+  margin-right: var(--c--globals--spacings--xxs);
 }
 .footer_link_esup {
   display: flex;

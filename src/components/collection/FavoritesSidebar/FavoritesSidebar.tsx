@@ -51,8 +51,6 @@ export default function FavoritesSidebar({
             >
               <span className={styles.favoritesSidebarIndex}>{index + 1}</span>
               <Image
-                width={100}
-                height={100}
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("accessibility.videoThumbnail", { title: video.title })}
                 className={styles.favoritesSidebarThumbnail}

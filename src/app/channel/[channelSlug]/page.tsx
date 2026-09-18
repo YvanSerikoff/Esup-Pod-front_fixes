@@ -184,13 +184,7 @@ export default function Channel() {
           <Image
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
             alt={t("accessibility.channelBanner", { title: channel.title })}
-            style={{
-              width: "100%",
-              height: "200px",
-              objectFit: "cover",
-              borderRadius: "8px",
-              marginBottom: "2rem",
-            }}
+            className="pod-image-banner"
           />{" "}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
             <Avatar
