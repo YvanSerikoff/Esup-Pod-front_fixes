@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../../context/SidebarProvider";
 import styles from "./styles.module.css";
@@ -30,6 +30,7 @@ const MenuItem = (props: MenuItemProps) => {
   const [open, setOpen] = useState(isChildActive);
   const isNavigable = !isExpandable && Boolean(link);
   const isMobile = useMediaQuery("(max-width: 1024px)");
+  const isOpen = sidebarOpen && (open || isChildActive);
 
   const isSelfActive = isNavigable && Boolean(link) && (
     pathname === link || (Boolean(link) && link !== "/" && Boolean(pathname?.startsWith(link!)))
@@ -37,7 +38,7 @@ const MenuItem = (props: MenuItemProps) => {
 
   function handleClick() {
     if (isExpandable && sidebarOpen) {
-      setOpen(!open);
+      setOpen(!isOpen);
       return;
     }
 
@@ -45,14 +46,6 @@ const MenuItem = (props: MenuItemProps) => {
       handleFixSidebar();
     }
   }
-
-  useEffect(() => {
-    if (!sidebarOpen) {
-      setOpen(false);
-    } else if (isChildActive) {
-      setOpen(true);
-    }
-  }, [sidebarOpen, isChildActive]);
 
   const isChildItem = !Icon;
 
@@ -63,7 +56,7 @@ const MenuItem = (props: MenuItemProps) => {
       onClick={handleClick}
       component={isNavigable ? Link : "div"}
       href={isNavigable ? link : undefined}
-      selected={isSelfActive || (isExpandable && open)}
+      selected={isSelfActive || (isExpandable && isOpen)}
       sx={{
         position: "relative",
         transition: "all 0.2s ease",
@@ -121,14 +114,14 @@ const MenuItem = (props: MenuItemProps) => {
         inset={!Icon}
       />
       {/* Display the expand menu if the item has children */}
-      {isExpandable && sidebarOpen && !open && (
+      {isExpandable && sidebarOpen && !isOpen && (
         <IconExpandMore
           style={{
             color: isChildActive ? "#3b82f6" : "var(--c--contextuals--content--semantic--neutral--primary)",
           }}
         />
       )}
-      {isExpandable && sidebarOpen && open && (
+      {isExpandable && sidebarOpen && isOpen && (
         <IconExpandLess
           style={{
             color: isChildActive ? "#3b82f6" : "var(--c--contextuals--content--semantic--neutral--primary)",
@@ -139,7 +132,7 @@ const MenuItem = (props: MenuItemProps) => {
   );
 
   const MenuItemChildren = isExpandable && sidebarOpen ? (
-    <Collapse in={open} timeout="auto" unmountOnExit>
+    <Collapse in={isOpen} timeout="auto" unmountOnExit>
       <Divider />
       <List component="div" disablePadding>
         {items.map((item, index) => (

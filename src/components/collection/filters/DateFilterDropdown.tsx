@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { MouseEvent } from "react";
 import Box from "@mui/material/Box";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -33,12 +33,6 @@ export default function DateFilterDropdown({
   const [localGte, setLocalGte] = useState(createdAtGte);
   const [localLte, setLocalLte] = useState(createdAtLte);
   const isMobile = useMediaQuery("(max-width: 600px)");
-
-  // Sync state if props change outside
-  useEffect(() => {
-    setLocalGte(createdAtGte);
-    setLocalLte(createdAtLte);
-  }, [createdAtGte, createdAtLte]);
 
   const isActive = Boolean(createdAtGte || createdAtLte);
 

@@ -1,5 +1,5 @@
 // cunningham.ts
-export default {
+const cunninghamConfig = {
   themes: {
     default: {
       components: {
@@ -57,3 +57,5 @@ export default {
     },
   },
 };
+
+export default cunninghamConfig;

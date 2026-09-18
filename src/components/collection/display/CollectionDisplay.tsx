@@ -49,15 +49,16 @@ export default function CollectionDisplay({
   onPageChange,
   loading = false,
 }: CollectionDisplayProps) {
-  const [view, setView] = useState<CollectionViewMode>(defaultView);
-
-  useEffect(() => {
-    if (!storageKey) return;
-    const storedView = window.localStorage.getItem(storageKey);
-    if (storedView === "cards" || storedView === "grid") {
-      setView(storedView);
+  const [view, setView] = useState<CollectionViewMode>(() => {
+    if (typeof window === "undefined" || !storageKey) {
+      return defaultView;
     }
-  }, [storageKey]);
+
+    const storedView = window.localStorage.getItem(storageKey);
+    return storedView === "cards" || storedView === "grid"
+      ? storedView
+      : defaultView;
+  });
 
   const handleChangeView = (nextView: CollectionViewMode) => {
     setView(nextView);

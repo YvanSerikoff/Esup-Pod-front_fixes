@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { MouseEvent } from "react";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
@@ -60,10 +60,6 @@ export default function FilterDropdown({
 
   // Local selected state for deferred multi-select updates (Vinted-style commit button)
   const [localSelectedValues, setLocalSelectedValues] = useState<string[]>(selectedValues);
-
-  useEffect(() => {
-    setLocalSelectedValues(selectedValues);
-  }, [selectedValues]);
 
   const searchText = onSearchChange ? (searchValue ?? "") : localSearchText;
 

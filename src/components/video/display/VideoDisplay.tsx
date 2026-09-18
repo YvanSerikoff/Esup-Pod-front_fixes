@@ -29,15 +29,15 @@ export default function VideosDisplay({
   onSelectAll,
 }: VideosDisplayProps) {
   const { t } = useTranslation();
-  const [view, setView] = useState<VideoViewMode>(defaultView);
-
-  useEffect(() => {
-    if (!storageKey) return;
-    const storedView = window.localStorage.getItem(storageKey);
-    if (storedView === "cards" || storedView === "grid") {
-      setView(storedView);
+  const [view, setView] = useState<VideoViewMode>(() => {
+    if (typeof window !== "undefined" && storageKey) {
+      const storedView = window.localStorage.getItem(storageKey);
+      if (storedView === "cards" || storedView === "grid") {
+        return storedView;
+      }
     }
-  }, [storageKey]);
+    return defaultView;
+  });
 
   const handleChangeView = (nextView: VideoViewMode) => {
     setView(nextView);

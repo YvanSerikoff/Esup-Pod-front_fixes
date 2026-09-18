@@ -47,8 +47,6 @@ export default function VideoGridBlockComponent({
 
   useEffect(() => {
     if (providedVideos) {
-      setVideos(providedVideos.slice(0, limit));
-      setLoading(false);
       return;
     }
 
@@ -82,16 +80,20 @@ export default function VideoGridBlockComponent({
   }, [block, providedVideos, limit]);
 
   const showViews = config?.video?.show_views !== false;
+  const displayedVideos = providedVideos
+    ? providedVideos.slice(0, limit)
+    : videos;
+  const isLoading = providedVideos ? false : loading;
 
   return (
     <section className={styles.blockWrapper}>
       {!isHero && <div className={styles.sectionBadgeHeader}>{displayTitle}</div>}
 
-      {loading ? (
+      {isLoading ? (
         <div style={{ padding: "1rem", color: "#666" }}>{t("common.loading")}</div>
-      ) : videos.length > 0 ? (
+      ) : displayedVideos.length > 0 ? (
         <div className={isHero ? styles.heroGrid : styles.videosGrid}>
-          {videos.map((video, index) => {
+          {displayedVideos.map((video, index) => {
             const fallbackColor = cardColors[index % cardColors.length];
             return (
               <Link
