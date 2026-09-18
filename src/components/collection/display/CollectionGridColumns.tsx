@@ -7,11 +7,14 @@ import Image from "next/image";
 
 interface GetCollectionGridColumnsOptions {
   rows: CollectionDisplayRow[];
+  t?: (key: string, params?: Record<string, string | number>) => string;
 }
 
 export function getCollectionGridColumns({
   rows,
+  t,
 }: GetCollectionGridColumnsOptions): Column<CollectionDisplayRow>[] {
+  const translate = t ?? ((key: string) => key);
   const hasPlaylistRows = rows.some((row) => row.type === "playlist");
   const hasChannelRows = rows.some((row) => row.type === "channel");
   const hasThemeRows = rows.some((row) => row.type === "theme");
@@ -23,7 +26,7 @@ export function getCollectionGridColumns({
       enableSorting: false,
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles.thumbnailWrapper}>
-          <Image width={100} height={100} className={styles.thumbnail} src={row.thumbnailUrl} alt={row.title} />
+          <Image width={100} height={100} className={styles.thumbnail} src={row.thumbnailUrl} alt={translate("accessibility.collectionThumbnail", { title: row.title })} />
         </Link>
       ),
     },

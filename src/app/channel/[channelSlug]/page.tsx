@@ -22,10 +22,12 @@ import VideoFilters, {
 import { useTheme } from "@/src/hooks/useTheme";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Chaine";
 
 export default function Channel() {
+  const { t } = useTranslation();
   const [value, setValue] = useState("themes");
   const mounted = useMounted();
   const didSetInitialTab = useRef(false);
@@ -181,7 +183,7 @@ export default function Channel() {
         <>
           <Image
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
-            alt={`${channel.title} banner`}
+            alt={t("accessibility.channelBanner", { title: channel.title })}
             style={{
               width: "100%",
               height: "200px",
@@ -193,7 +195,7 @@ export default function Channel() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
             <Avatar
               sx={{ width: 80, height: 80 }}
-              alt={channel.title}
+              alt={t("accessibility.channelLogo", { title: channel.title })}
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
             <Box

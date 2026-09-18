@@ -5,6 +5,7 @@ import type { Playlist } from "@/src/types";
 import styles from "./styles.module.css";
 import { truncateVideoTitle } from "@/src/constants/string";
 import Image from "next/image";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 type PlaylistSidebarProps = {
   playlist: Playlist;
@@ -16,6 +17,7 @@ export default function PlaylistSidebar({
   currentVideoSlug,
 }: PlaylistSidebarProps) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const items = (playlist.items ?? []).filter((item) => !!item.video);
 
@@ -58,7 +60,7 @@ export default function PlaylistSidebar({
                 width={100}
                 height={100}
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
-                alt={video.title}
+                alt={t("accessibility.videoThumbnail", { title: video.title })}
                 className={styles.playlistSidebarThumbnail}
               />
               <div className={styles.playlistSidebarText}>

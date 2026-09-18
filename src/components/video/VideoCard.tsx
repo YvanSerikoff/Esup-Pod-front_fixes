@@ -33,7 +33,7 @@ interface VideosCardProps {
 
 export default function VideoCard(props: VideosCardProps) {
   const { video, isOwner = false, selectable = false, selected = false, onSelectToggle } = props;
-  const { locale } = useTranslation();
+  const { locale, t } = useTranslation();
   const time = secondToMinute(video.duration || 0);
 
   // Détection du contexte : playlist ou favoris
@@ -130,7 +130,7 @@ export default function VideoCard(props: VideosCardProps) {
           <CardMedia
             component="img"
             image={video.thumbnail_url || video.thumbnail || "/default_thumbnail.svg"}
-            alt={video.title}
+            alt={t("accessibility.videoThumbnail", { title: video.title })}
             sx={{
               borderTopLeftRadius: "11px",
               borderTopRightRadius: "11px",

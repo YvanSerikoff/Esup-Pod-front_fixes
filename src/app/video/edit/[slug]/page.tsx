@@ -977,7 +977,7 @@ export default function EditVideo() {
             <div className={styles.vignette_preview_card}>
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
-                alt="Vignette"
+                alt={t("accessibility.thumbnail")}
                 fill
                 sizes="(max-width: 480px) 100vw, 480px"
                 unoptimized
@@ -1536,7 +1536,7 @@ export default function EditVideo() {
             {(thumbnailPreview || video?.thumbnail) ? (
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
-                alt="Aperçu"
+                alt={t("accessibility.preview")}
                 width={640}
                 height={360}
                 className={styles.live_card_img}

@@ -22,10 +22,12 @@ import VideoFilters, {
 import { useAuth } from "@/src/context/AuthProvider";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Thème";
 
 export default function Theme() {
+  const { t } = useTranslation();
   const [value, setValue] = useState<string | null>(null);
   const { user } = useAuth();
   const mounted = useMounted();
@@ -245,7 +247,7 @@ export default function Theme() {
         )}
         <Image
           src={theme.banner || "/default_theme_banner.png"}
-          alt={`${theme.title} banner`}
+            alt={t("accessibility.themeBanner", { title: theme.title })}
           style={{
             width: "100%",
             height: "200px",

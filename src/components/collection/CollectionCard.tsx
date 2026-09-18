@@ -10,6 +10,7 @@ import type { Channel, Theme } from "@/src/types";
 import { truncateVideoTitle } from "@/src/constants/string";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import StyleIcon from "@mui/icons-material/Style";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export type CollectionCardType = "channel" | "theme";
 
@@ -18,6 +19,7 @@ type CollectionCardProps =
   | { type: "theme"; theme: Theme; themeHref?: string };
 
 export default function CollectionCard(props: CollectionCardProps) {
+  const { t } = useTranslation();
   if (props.type === "channel") {
     const { channel } = props;
     const channelVideosCount = (channel as Channel & { videos_count?: number }).videos_count ?? 0;
@@ -59,7 +61,7 @@ export default function CollectionCard(props: CollectionCardProps) {
           <CardMedia
             component="img"
             image={channel.logo || channel.banner || "/default_channel_logo.png"}
-            alt={channel.title}
+            alt={t("accessibility.channelLogo", { title: channel.title })}
             sx={{
               borderTopLeftRadius: "11px",
               borderTopRightRadius: "11px",
@@ -158,7 +160,7 @@ export default function CollectionCard(props: CollectionCardProps) {
         <CardMedia
           component="img"
           image={theme.banner || "/default_theme_banner.png"}
-          alt={theme.title}
+          alt={t("accessibility.themeBanner", { title: theme.title })}
           sx={{
             borderTopLeftRadius: "11px",
             borderTopRightRadius: "11px",

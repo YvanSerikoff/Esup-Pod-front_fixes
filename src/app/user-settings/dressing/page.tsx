@@ -3,6 +3,7 @@
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import { Alert, VariantType, Button } from "@openfun/cunningham-react";
 import { useWatermarks } from "@/src/hooks/useDressing";
+import { useTranslation } from "@/src/hooks/useTranslation";
 import { useState, useRef } from "react";
 import styles from "./dressing.module.css";
 import Image from "next/image";
@@ -12,6 +13,7 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 export default function DressingSettings() {
   const { isAuthenticated, isInitializing } = useRequireAuth("/login");
   const { watermarks, isLoading, error, uploadWatermark, deleteWatermark } = useWatermarks();
+  const { t } = useTranslation();
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -85,7 +87,7 @@ export default function DressingSettings() {
           {watermarks.map((wm) => (
             <div key={wm.id} className={styles.watermarkCard}>
               <div className={styles.watermarkPreview}>
-                <Image width={100} height={100} src={wm.image} alt="Watermark" fill style={{ objectFit: "contain" }} />
+                <Image width={100} height={100} src={wm.image} alt={t("accessibility.watermark")} fill style={{ objectFit: "contain" }} />
               </div>
               <div className={styles.watermarkActions}>
                 <span className={styles.dateLabel}>

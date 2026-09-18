@@ -107,7 +107,7 @@ export default function VideoGridBlockComponent({
                       width={100}
                       height={100}
                       src={video.thumbnail}
-                      alt={video.title}
+                      alt={t("accessibility.videoThumbnail", { title: video.title })}
                       className={styles.thumbnailImage}
                     />
                   ) : (

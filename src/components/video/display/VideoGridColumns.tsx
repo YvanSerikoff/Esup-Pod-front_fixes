@@ -12,9 +12,9 @@ import Image from "next/image";
 /* Définit les colonnes du tableau de vidéos.*/
 export function getVideoGridColumns(
   selectable: boolean = false,
-  t?: (key: string) => string,
+  t?: (key: string, params?: Record<string, string | number>) => string,
 ): Column<VideoDisplayRow>[] {
-  const tr = (key: string, fallback: string) => (t ? t(key) : fallback);
+  const tr = (key: string, fallback: string, params?: Record<string, string | number>) => (t ? t(key, params) : fallback);
 
   return [
     ...(selectable
@@ -47,7 +47,7 @@ export function getVideoGridColumns(
               height={100}
               className={styles.thumbnail}
               src={row.thumbnailUrl}
-              alt={row.title}
+              alt={tr("accessibility.videoThumbnail", row.title, { title: row.title })}
             />
           ) : (
             <div className={styles.defaultThumbnailPoster}>

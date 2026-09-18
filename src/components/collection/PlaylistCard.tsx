@@ -12,6 +12,7 @@ import { timeAgo } from "@/src/constants/date";
 import { truncateVideoTitle } from "@/src/constants/string";
 
 import PlaylistActionMenu from "./PlaylistActionMenu";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 type PlaylistCardProps = {
   playlist: Playlist;
@@ -24,6 +25,7 @@ export default function PlaylistCard({
   href,
   isOwner,
 }: PlaylistCardProps) {
+  const { t } = useTranslation();
   const playlistHref = href ?? `/playlist/${playlist.slug}`;
   const videosCount = playlist.items?.length ?? 0;
   const playlistThumbnail =
@@ -132,7 +134,7 @@ export default function PlaylistCard({
             <CardMedia
               component="img"
               image={playlistThumbnail}
-              alt={playlist.title}
+              alt={t("accessibility.playlistThumbnail", { title: playlist.title })}
               className="playlist-image"
               sx={{
                 borderTopLeftRadius: "11px",

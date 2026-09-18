@@ -6,6 +6,7 @@ import { Alert, Button, FileUploader, VariantType } from "@openfun/cunningham-re
 import { authFetch } from "@/src/api/authFetch";
 import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
+import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "./styles.module.css";
 
 export const breadcrumbLabel = "Changer ma photo de profil";
@@ -19,6 +20,7 @@ export default function UserProfilePicture() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useTranslation();
 
   const currentPictureUrl = user?.userpicture
     ? `${BACKEND_URL.replace(/\/$/, "")}/${user.userpicture.replace(/^\//, "")}`
@@ -141,11 +143,11 @@ export default function UserProfilePicture() {
         <div className={styles.picture_form}>
           <div className={styles.picture_preview}>
             {previewUrl ? (
-              <Image src={previewUrl} alt="Apercu" width={160} height={160} />
+              <Image src={previewUrl} alt={t("accessibility.profilePreview")} width={160} height={160} />
             ) : user?.userpicture ? (
               <Image
                 src={currentPictureUrl!}
-                alt="Photo actuelle"
+                alt={t("accessibility.currentProfilePicture")}
                 width={160}
                 height={160}
               />
