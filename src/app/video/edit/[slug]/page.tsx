@@ -1825,8 +1825,6 @@ export default function EditVideo() {
   /* -----------------------------------------------------------------------
    *  DESKTOP: 2-column layout with stepper
    * --------------------------------------------------------------------- */
-  // Map desktop activeStep (1,2,3) to form panel (0,1,2)
-  const formPanelIndex = activeStep - 1; // 0=Détails, 1=Éléments, 2=Visibilité
 
   return (
     <div>

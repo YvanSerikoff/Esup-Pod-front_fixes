@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Paper from "@mui/material/Paper";
 import { useVideo, useDeleteVideo } from "@/src/hooks/useVideos";

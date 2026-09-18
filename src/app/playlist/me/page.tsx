@@ -1,6 +1,6 @@
 "use client";
 
-import { Alert, Button, Loader, VariantType } from "@openfun/cunningham-react";
+import { Alert, Button, VariantType } from "@openfun/cunningham-react";
 import { useEffect, useMemo } from "react";
 import BackButton from "@/src/components/BackButton/BackButton";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";

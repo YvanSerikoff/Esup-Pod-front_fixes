@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import IconButton from "@mui/joy/IconButton";
+import { useEffect, useMemo, useState } from "react";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
@@ -17,7 +16,6 @@ import styles from "./styles.module.css";
 import type { Playlist } from "@/src/types";
 import { usePlaylist } from "@/src/hooks/usePlaylist";
 import { useFavorites } from "@/src/hooks/useFavorites";
-import { Tooltip } from "@mui/material";
 
 interface PlaylistActionMenuProps {
   playlists: Playlist[];
@@ -46,7 +44,9 @@ export default function PlaylistActionMenu({
   const [error, setError] = useState<string | null>(null);
 
   // Etat local : map slug -> bool indiquant si la vidéo est dans la playlist.
-  const [checkedMap, setCheckedMap] = useState<Record<string, boolean>>({});
+  const [checkedOverrides, setCheckedOverrides] = useState<
+    Record<string, boolean>
+  >({});
 
   //Message success qui s’affiche 5 secondes.
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
@@ -64,16 +64,16 @@ export default function PlaylistActionMenu({
     return () => clearTimeout(timeout);
   }, [infoMessage]);
 
-  // Synchro playlists -> checkedMap
-  useEffect(() => {
+  // Derive membership from playlists and preserve optimistic updates locally.
+  const checkedMap = useMemo(() => {
     const next: Record<string, boolean> = {};
     playlists.forEach((playlist) => {
       const contains =
         playlist.items?.some((item) => item.video.id === videoId) ?? false;
-      next[playlist.slug] = contains;
+      next[playlist.slug] = checkedOverrides[playlist.slug] ?? contains;
     });
-    setCheckedMap(next);
-  }, [playlists, videoId]);
+    return next;
+  }, [checkedOverrides, playlists, videoId]);
 
   useEffect(() => {
     if (!favorites.length) {
@@ -104,7 +104,7 @@ export default function PlaylistActionMenu({
       if (!isInPlaylist) {
         // Ajouter la vidéo à la playlist
         await addVideo(playlist.slug, { video_id: videoId });
-        setCheckedMap((prev) => ({
+        setCheckedOverrides((prev) => ({
           ...prev,
           [playlist.slug]: true,
         }));
@@ -113,7 +113,7 @@ export default function PlaylistActionMenu({
       } else {
         // Retirer la vidéo de la playlist
         await deleteVideo(playlist.slug, { video_id: videoId });
-        setCheckedMap((prev) => ({
+        setCheckedOverrides((prev) => ({
           ...prev,
           [playlist.slug]: false,
         }));

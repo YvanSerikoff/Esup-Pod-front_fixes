@@ -1,7 +1,7 @@
 "use client";
 
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
-import { Alert, VariantType, Button, Modal, ModalSize, Input } from "@openfun/cunningham-react";
+import { Alert, VariantType, Button } from "@openfun/cunningham-react";
 import { useWatermarks } from "@/src/hooks/useDressing";
 import { useState, useRef } from "react";
 import styles from "./dressing.module.css";

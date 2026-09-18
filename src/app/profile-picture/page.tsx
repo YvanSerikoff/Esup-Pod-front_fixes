@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Alert, Button, FileUploader, VariantType } from "@openfun/cunningham-react";
 import { authFetch } from "@/src/api/authFetch";
 import { getRoutes } from "@/src/api/routes";
@@ -24,14 +25,10 @@ export default function UserProfilePicture() {
     : null;
 
   useEffect(() => {
-    if (!file) {
-      setPreviewUrl(null);
-      return;
-    }
-    const objectUrl = URL.createObjectURL(file);
-    setPreviewUrl(objectUrl);
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [file]);
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
 
   // 1) Nouvel handler dans le composant
   const handleDeletePicture = async () => {
@@ -144,10 +141,10 @@ export default function UserProfilePicture() {
         <div className={styles.picture_form}>
           <div className={styles.picture_preview}>
             {previewUrl ? (
-              <img src={previewUrl} alt="Apercu" width={160} height={160} />
+              <Image src={previewUrl} alt="Apercu" width={160} height={160} />
             ) : user?.userpicture ? (
-              <img
-                src={currentPictureUrl ?? undefined}
+              <Image
+                src={currentPictureUrl!}
                 alt="Photo actuelle"
                 width={160}
                 height={160}
@@ -168,6 +165,9 @@ export default function UserProfilePicture() {
               const selectedFile = event.target.value?.[0] ?? null;
               setError(null);
               setFile(selectedFile);
+              setPreviewUrl(
+                selectedFile ? URL.createObjectURL(selectedFile) : null,
+              );
             }}
             accept=".jpg, .jpeg, .png, .webp"
             text={

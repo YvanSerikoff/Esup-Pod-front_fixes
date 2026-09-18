@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Paper from "@mui/material/Paper";
-import { Loader, Alert, Button, VariantType } from "@openfun/cunningham-react";
+import { Alert, Button, VariantType } from "@openfun/cunningham-react";
 import { usePlaylist } from "@/src/hooks/usePlaylist";
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import styles from "./styles.module.css";

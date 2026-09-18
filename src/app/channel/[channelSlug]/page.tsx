@@ -3,7 +3,7 @@
 import { Alert, VariantType } from "@openfun/cunningham-react";
 import BackButton from "@/src/components/BackButton/BackButton";
 import { useChannel } from "@/src/hooks/useChannel";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -119,7 +119,7 @@ export default function Channel() {
   // Thèmes de base pour cette chaîne
   const channelAllThemes = baseChannelThemes;
 
-  const handleTabValue = () => {
+  const handleTabValue = useCallback(() => {
     const hasThemes = channelAllThemes.length > 0;
     const hasUnclassifiedVideos = visibleAndPublicVideos.length > 0;
 
@@ -131,7 +131,7 @@ export default function Channel() {
     if (hasUnclassifiedVideos) {
       setValue("unclassified");
     }
-  };
+  }, [channelAllThemes.length, visibleAndPublicVideos.length]);
 
   useEffect(() => {
     if (!channel?.id) return;
@@ -156,9 +156,11 @@ export default function Channel() {
     if (didSetInitialTab.current) return;
     if (!channel || !hasLoadedBaseThemes || useVideoLoading) return;
 
-    handleTabValue();
     didSetInitialTab.current = true;
-  }, [channel, hasLoadedBaseThemes, useVideoLoading, channelAllThemes.length, visibleAndPublicVideos.length]);
+    const timeoutId = window.setTimeout(handleTabValue, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [channel, hasLoadedBaseThemes, useVideoLoading, handleTabValue]);
 
   if (
     !channel ||

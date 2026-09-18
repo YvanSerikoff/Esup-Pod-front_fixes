@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import PlaylistSidebar from "@/src/components/collection/PlaylistSidebar/PlaylistSidebar";
 import FavoritesSidebar from "@/src/components/collection/FavoritesSidebar/FavoritesSidebar";
@@ -21,7 +21,6 @@ import {
   formatDateWithTime,
   formatDateOnly,
   formatTime,
-  timeAgo,
   secondToMinute,
 } from "@/src/constants/date";
 import PlaylistActionMenu from "./playlistActionMenu";
@@ -32,11 +31,6 @@ import { getUserDisplayName, getVideoOwnerDisplayName } from "@/src/constants/us
 import { getLanguageLabel } from "@/src/constants/language";
 import { requestJson } from "@/src/utils/requestJson";
 import type { User, Video } from "@/src/types";
-import DownloadIcon from "@mui/icons-material/Download";
-import ShareIcon from "@mui/icons-material/Share";
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import FlagIcon from "@mui/icons-material/Flag";
 import EditIcon from "@mui/icons-material/Edit";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
@@ -49,12 +43,6 @@ import VideoDownloadMenu from "@/src/components/video/VideoDownloadMenu";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import { useVideoPermissions } from "@/src/hooks/useVideoPermission";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 
@@ -116,10 +104,10 @@ export default function Video() {
   const { data: video, isLoading: useVideoLoading, error } = useVideo(slug ?? "");
   const useVideoError = error?.message ?? null;
   const { mutateAsync: unlockVideoMutation } = useUnlockVideo();
-  const unlockVideo = async (videoSlug: string, payload?: { password?: string; hash?: string }) => {
+  const unlockVideo = useCallback(async (videoSlug: string, payload?: { password?: string; hash?: string }) => {
     await unlockVideoMutation({ slug: videoSlug, payload });
     return true;
-  };
+  }, [unlockVideoMutation]);
   const time = secondToMinute(video?.duration || 0);
   const { accessToken, refresh, user } = useAuth();
   const authRequired =
@@ -148,15 +136,11 @@ export default function Video() {
   const [unlockError, setUnlockError] = useState<string | null>(null);
   const [isUnlocking, setIsUnlocking] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [streamToken, setStreamToken] = useState<string | null>(null);
-  const [isCopied, setIsCopied] = useState(false);
+  const [streamToken, setStreamToken] = useState<{
+    slug: string;
+    token: string;
+  } | null>(null);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
   const [mobileTab, setMobileTab] = useState("description");
 
   const [isMobile, setIsMobile] = useState(false);
@@ -222,8 +206,8 @@ export default function Video() {
     if (!video) return "";
     if (video.video_url) return video.video_url;
     const baseStreamUrl = getRoutes().video.stream(video.slug);
-    if (streamToken) {
-      return `${baseStreamUrl}?token=${streamToken}`;
+    if (streamToken?.slug === video.slug) {
+      return `${baseStreamUrl}?token=${streamToken.token}`;
     }
     return "";
   }, [video, streamToken]);
@@ -310,7 +294,6 @@ export default function Video() {
   useEffect(() => {
     if (!video) return;
     if (video.video_url) {
-      setStreamToken(null);
       return;
     }
 
@@ -326,7 +309,7 @@ export default function Video() {
         );
         if (response.ok) {
           const data = await requestJson<{ stream_token: string }>(response);
-          setStreamToken(data.stream_token);
+          setStreamToken({ slug: video.slug, token: data.stream_token });
         }
       } catch (err) {
         console.error("Failed to fetch stream token", err);

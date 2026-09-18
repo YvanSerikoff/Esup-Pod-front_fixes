@@ -2,7 +2,7 @@
 
 import { useForm, useWatch, FieldErrors } from "react-hook-form";
 import { Alert, Button, VariantType } from "@openfun/cunningham-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import BackButton from "@/src/components/BackButton/BackButton";
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
@@ -12,7 +12,6 @@ import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import type { PlaylistRequest } from "@/src/types";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import TextField from "@mui/material/TextField";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Dialog from "@mui/material/Dialog";
@@ -68,7 +67,6 @@ export default function EditPlaylist() {
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
     control,
     reset,
     setValue,
@@ -84,9 +82,20 @@ export default function EditPlaylist() {
     },
   });
 
-  const initialValuesRef = useRef<EditPlaylistFormValues | null>(null);
-  const isPublic = watch("is_public");
+  const initialValues = useMemo<EditPlaylistFormValues | null>(() => {
+    if (!playlist) return null;
+
+    return {
+      title: playlist.title ?? "",
+      description: playlist.description ?? "",
+      is_public: playlist.is_public ?? true,
+      password: "",
+      default_order: playlist.default_order ?? "created_at",
+      is_password_required: playlist.is_protected ?? false,
+    };
+  }, [playlist]);
   const watchedValues = useWatch({ control });
+  const isPublic = watchedValues.is_public ?? true;
 
   // Si playlist privée, on désactive le mdp
   useEffect(() => {
@@ -103,27 +112,15 @@ export default function EditPlaylist() {
   }, [fetchOne, isAuthenticated, slug]);
 
   useEffect(() => {
-    if (!playlist) return;
+    if (initialValues) reset(initialValues);
+  }, [initialValues, reset]);
 
-    const initialValues: EditPlaylistFormValues = {
-      title: playlist.title ?? "",
-      description: playlist.description ?? "",
-      is_public: playlist.is_public ?? true,
-      password: "",
-      default_order: playlist.default_order ?? "created_at",
-      is_password_required: playlist.is_protected ?? false,
-    };
-
-    initialValuesRef.current = initialValues;
-    reset(initialValues);
-  }, [playlist, reset]);
-
-  const hasUnsavedChanges = useMemo(() => {
-    if (!initialValuesRef.current) return false;
+  const hasUnsavedChanges = (() => {
+    if (!initialValues) return false;
     return (
-      JSON.stringify(initialValuesRef.current) !== JSON.stringify(watchedValues)
+      JSON.stringify(initialValues) !== JSON.stringify(watchedValues)
     );
-  }, [watchedValues]);
+  })();
 
   /* Alert si le user quitte la page sans enregistrer */
   useEffect(() => {
