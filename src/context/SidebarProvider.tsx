@@ -38,16 +38,23 @@ export default function SidebarProvider({ children }: { children: React.ReactNod
 
   useEffect(() => {
     if (isMobile) {
-      setSideBarOpen(false);
-      setSideBarFixed(false);
-      return;
+      const timeoutId = window.setTimeout(() => {
+        setSideBarOpen(false);
+        setSideBarFixed(false);
+      }, 0);
+
+      return () => window.clearTimeout(timeoutId);
     }
 
     const savedValue = localStorage.getItem(SIDEBAR_FIXED_STORAGE_KEY);
     const nextSidebarFixed = savedValue === null ? true : savedValue === "true";
 
-    setSideBarFixed(nextSidebarFixed);
-    setSideBarOpen(nextSidebarFixed);
+    const timeoutId = window.setTimeout(() => {
+      setSideBarFixed(nextSidebarFixed);
+      setSideBarOpen(nextSidebarFixed);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, [isMobile]);
 
   // Desktop only: persist fixed state

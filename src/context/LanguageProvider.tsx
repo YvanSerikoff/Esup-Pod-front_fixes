@@ -29,22 +29,23 @@ const LanguageContext = createContext<LanguageContextType>({
   supportedLocales,
 });
 
+function getInitialLocale(): SupportedLocale {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem(STORAGE_KEY) as SupportedLocale;
+    if (stored && dictionaries[stored]) {
+      return stored;
+    }
+  }
+
+  return "fr";
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<SupportedLocale>("fr");
+  const [locale, setLocaleState] = useState<SupportedLocale>(getInitialLocale);
 
   useEffect(() => {
-    // Read stored language from localStorage or Cookie
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem(STORAGE_KEY) as SupportedLocale;
-      if (stored && dictionaries[stored]) {
-        setLocaleState(stored);
-        dayjs.locale(stored);
-      } else {
-        setLocaleState("fr");
-        dayjs.locale("fr");
-      }
-    }
-  }, []);
+    dayjs.locale(locale);
+  }, [locale]);
 
   const changeLocale = useCallback((newLocale: SupportedLocale) => {
     if (!dictionaries[newLocale]) return;

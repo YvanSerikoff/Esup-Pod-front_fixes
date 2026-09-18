@@ -42,7 +42,11 @@ export function AppConfigProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    fetchConfig();
+    const timeoutId = window.setTimeout(() => {
+      void fetchConfig();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, [fetchConfig]);
 
   return (

@@ -11,7 +11,6 @@ import { useQuery, useInfiniteQuery, useMutation, useQueryClient } from "@tansta
 
 type UpdatePlaylistPayload = Partial<PlaylistRequest>;
 type PlaylistItemPayload = { video_id: number };
-type ReorderPayload = { ordering: number[] };
 
 export function usePlaylistList(
   params?: CollectionListParams,
@@ -180,15 +179,15 @@ export function usePlaylist() {
     createPlaylist: createMut.mutateAsync,
     updatePlaylist: useCallback(async (slug: string, payload: UpdatePlaylistPayload) => {
       return updateMut.mutateAsync({ slug, payload });
-    }, [updateMut.mutateAsync]),
+    }, [updateMut]),
     deletePlaylist: deleteMut.mutateAsync,
     addVideo: useCallback(async (slug: string, payload: PlaylistItemPayload) => {
       return addVideoMut.mutateAsync({ slug, payload });
-    }, [addVideoMut.mutateAsync]),
+    }, [addVideoMut]),
     deleteVideo: useCallback(async (slug: string, payload: PlaylistItemPayload) => {
       return deleteVideoMut.mutateAsync({ slug, payload });
-    }, [deleteVideoMut.mutateAsync]),
-    reorder: useCallback(async (_slug: string, _payload: ReorderPayload) => null, []),
+    }, [deleteVideoMut]),
+    reorder: useCallback(async () => null, []),
     addVideoToState: useCallback(() => { }, []),
     removeVideoFromState: useCallback(() => { }, []),
   };

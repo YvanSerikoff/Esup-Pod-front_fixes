@@ -4,6 +4,7 @@ import {
   useContext,
   createContext,
   useEffect,
+  useCallback,
   useMemo,
   useState,
   useRef,
@@ -119,7 +120,7 @@ export default function AuthProvider(props: AuthProviderProps) {
 
 
 
-  const persistTokens = (token: string | null, refreshValue: string | null) => {
+  const persistTokens = useCallback((token: string | null, refreshValue: string | null) => {
     setAccessToken(token);
     setRefreshToken(refreshValue);
 
@@ -129,19 +130,23 @@ export default function AuthProvider(props: AuthProviderProps) {
     if (token && refreshValue) {
       hasForcedLogoutRef.current = false;
     }
-    token
-      ? localStorage.setItem(ACCESS_TOKEN_KEY, token)
-      : localStorage.removeItem(ACCESS_TOKEN_KEY);
-    refreshValue
-      ? localStorage.setItem(REFRESH_TOKEN_KEY, refreshValue)
-      : localStorage.removeItem(REFRESH_TOKEN_KEY);
-  };
+    if (token) {
+      localStorage.setItem(ACCESS_TOKEN_KEY, token);
+    } else {
+      localStorage.removeItem(ACCESS_TOKEN_KEY);
+    }
+    if (refreshValue) {
+      localStorage.setItem(REFRESH_TOKEN_KEY, refreshValue);
+    } else {
+      localStorage.removeItem(REFRESH_TOKEN_KEY);
+    }
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     persistTokens(null, null);
     setUser(null);
     setLogoutInfo(null);
-  };
+  }, [persistTokens]);
 
   /**
    * Déconnexion forcée + redirection vers la page de login
@@ -151,7 +156,7 @@ export default function AuthProvider(props: AuthProviderProps) {
    * plusieurs fois en cas de multiples requêtes concurrentes qui
    * échouent en même temps.
    */
-  const forceLogoutAndRedirectToLogin = () => {
+  const forceLogoutAndRedirectToLogin = useCallback(() => {
     if (hasForcedLogoutRef.current) {
       return;
     }
@@ -171,24 +176,27 @@ export default function AuthProvider(props: AuthProviderProps) {
     router.replace(
       `/login?reason=auth&redirect=${encodeURIComponent(currentPath)}`,
     );
-  };
+  }, [logout, router]);
 
-  const verify = async (token?: string | null) => {
-    const tokenToVerify = token ?? accessToken;
-    if (!tokenToVerify) return false;
-    try {
-      await requestJson(getRoutes().auth.token.verify, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: tokenToVerify }),
-      });
-      return true;
-    } catch {
-      return false;
-    }
-  };
+  const verify = useCallback(
+    async (token?: string | null) => {
+      const tokenToVerify = token ?? accessToken;
+      if (!tokenToVerify) return false;
+      try {
+        await requestJson(getRoutes().auth.token.verify, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: tokenToVerify }),
+        });
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    [accessToken],
+  );
 
-  const refresh = async (token?: string | null) => {
+  const refresh = useCallback(async (token?: string | null) => {
     const tokenToRefresh = token ?? refreshToken;
     if (!tokenToRefresh) return null;
     try {
@@ -210,7 +218,7 @@ export default function AuthProvider(props: AuthProviderProps) {
       forceLogoutAndRedirectToLogin();
       return null;
     }
-  };
+  }, [forceLogoutAndRedirectToLogin, persistTokens, refreshToken]);
 
   const loadAuthDataWithToken = async (
     token: string,
@@ -243,28 +251,14 @@ export default function AuthProvider(props: AuthProviderProps) {
     }
   };
 
-  const reloadAuthData = async () => {
+  const reloadAuthData = useCallback(async () => {
     if (!accessToken) {
       setUser(null);
       setLogoutInfo(null);
       return;
     }
     await loadAuthDataWithToken(accessToken, refresh);
-  };
-
-  const logIn = async (username: string, password: string) => {
-    const data = await requestJson<{ access: string; refresh: string }>(
-      getRoutes().auth.token.create,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      },
-    );
-
-    persistTokens(data.access, data.refresh);
-    await loadAuthDataWithToken(data.access, () => refresh(data.refresh));
-  };
+  }, [accessToken, refresh]);
 
   useEffect(() => {
     const init = async () => {
@@ -303,30 +297,38 @@ export default function AuthProvider(props: AuthProviderProps) {
   }, []);
 
   const value = useMemo<AuthContextValue>(
-    () => ({
-      accessToken,
-      refreshToken,
-      isAuthenticated: Boolean(accessToken),
-      isInitializing,
-      user,
-      authConfig,
-      logoutUrl,
-      isAuthDataLoading,
-      logIn,
-      logout,
-      refresh,
-      verify,
-      reloadAuthData,
-    }),
-    [
-      accessToken,
-      refreshToken,
-      isInitializing,
-      user,
-      authConfig,
-      logoutUrl,
-      isAuthDataLoading,
-    ],
+    () => {
+      const logIn = async (username: string, password: string) => {
+        const data = await requestJson<{ access: string; refresh: string }>(
+          getRoutes().auth.token.create,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          },
+        );
+
+        persistTokens(data.access, data.refresh);
+        await loadAuthDataWithToken(data.access, () => refresh(data.refresh));
+      };
+
+      return {
+        accessToken,
+        refreshToken,
+        isAuthenticated: Boolean(accessToken),
+        isInitializing,
+        user,
+        authConfig,
+        logoutUrl,
+        isAuthDataLoading,
+        logIn,
+        logout,
+        refresh,
+        verify,
+        reloadAuthData,
+      };
+    },
+    [accessToken, refreshToken, isInitializing, user, authConfig, logoutUrl, isAuthDataLoading, logout, refresh, verify, reloadAuthData, persistTokens],
   );
 
   return (
