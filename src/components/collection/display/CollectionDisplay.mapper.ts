@@ -88,7 +88,6 @@ export function mapCollectionsToDisplayRows({
   channels = [],
   themes = [],
   playlists = [],
-  videos = [],
   channelSlug,
   basePath,
   currentUserId,

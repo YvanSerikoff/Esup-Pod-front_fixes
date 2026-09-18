@@ -21,7 +21,7 @@ type CommentsProps = {
 };
 
 export default function Comments({ videoSlug }: CommentsProps) {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   const { user, accessToken } = useAuth();
   const {
     comments,

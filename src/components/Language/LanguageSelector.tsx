@@ -15,7 +15,7 @@ interface LanguageSelectorProps {
   className?: string;
 }
 
-export function LanguageSelector({ variant = "dropdown", className }: LanguageSelectorProps) {
+export function LanguageSelector({ className }: LanguageSelectorProps) {
   const { locale, setLocale, supportedLocales } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

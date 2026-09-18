@@ -4,17 +4,13 @@ import VideoActionMenu from "@/src/components/video/VideoActionMenu";
 import type { VideoDisplayRow } from "./types";
 import styles from "./styles.module.css";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
-import DownloadingIcon from "@mui/icons-material/Downloading";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
 import ErrorIcon from "@mui/icons-material/Error";
 import Tooltip from "@mui/material/Tooltip";
 
 /* Définit les colonnes du tableau de vidéos.*/
 export function getVideoGridColumns(
-  selectable: boolean = false,
-  t?: (key: string) => string,
-  onSelectAll?: (checked: boolean) => void,
-  isAllSelected: boolean = false
+selectable: boolean = false, t?: (key: string) => string, onSelectAll?: ((checked: boolean) => void) | undefined, isAllSelected?: boolean,
 ): Column<VideoDisplayRow>[] {
   const tr = (key: string, fallback: string) => (t ? t(key) : fallback);
 

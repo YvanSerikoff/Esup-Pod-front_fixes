@@ -284,7 +284,6 @@ export default function Navbar() {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 1024px)");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const router = useRouter();
   const { config } = useAppConfig();
   const canUpload = (config as any)?.video?.allow_authenticated_upload !== false || user?.is_staff;
 

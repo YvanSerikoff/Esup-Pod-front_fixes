@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import CardActions from "@mui/material/CardActions";
 import Link from "next/link";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import type { Playlist } from "@/src/types";

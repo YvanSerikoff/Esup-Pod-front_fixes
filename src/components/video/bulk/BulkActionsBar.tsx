@@ -6,7 +6,6 @@ import {
   Button,
   Modal,
   ModalSize,
-  VariantType,
 } from "@openfun/cunningham-react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -21,7 +20,6 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import BlockIcon from "@mui/icons-material/Block";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -216,7 +214,6 @@ export default function BulkActionsBar({
   selectedVideos,
   types,
   disciplines,
-  tags,
   channels,
   onApplySuccess,
   onClearSelection,
