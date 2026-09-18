@@ -17,7 +17,12 @@ export default function Footer() {
       <div className={styles.footer_content}>
         <div className={styles.footer_contact_univ}>
           <div className={styles.footer_contact_univ_logo}>
-            <Image src="/logoEsup.svg" alt="Logo etablissement"></Image>
+            <Image
+            src="/logoEsup.svg"
+            alt="Logo etablissement"
+            width={39}
+            height={39}
+          />
           </div>
           <address>
             <p>
