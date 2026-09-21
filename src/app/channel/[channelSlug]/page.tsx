@@ -183,13 +183,13 @@ export default function Channel() {
         <>
           <Image
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
-            alt={t("accessibility.channelBanner", { title: channel.title })}
+            alt={t("a11y.channelBanner", { title: channel.title })}
             className="pod-image-banner"
           />{" "}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
             <Avatar
               sx={{ width: 80, height: 80 }}
-              alt={t("accessibility.channelLogo", { title: channel.title })}
+              alt={t("a11y.channelLogo", { title: channel.title })}
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
             <Box

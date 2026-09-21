@@ -19,7 +19,7 @@ export default function Footer() {
           <div className={styles.footer_contact_univ_logo}>
             <Image
               src="/logoEsup.svg"
-              alt={t("accessibility.institutionLogo")}
+              alt={t("a11y.institutionLogo")}
               className={styles.footer_contact_univ_logo_image}
               fill
             />
@@ -45,13 +45,13 @@ export default function Footer() {
         <div className={styles.footer_extra_link}>
           <div className={styles.footer_extra_link_icons}>
             <span className={styles.footer_extra_link_icon}>
-              <Image src="/facebook_icon.png" alt={t("accessibility.facebookLogo")} fill />
+              <Image src="/facebook_icon.png" alt={t("a11y.facebookLogo")} fill />
             </span>
             <span className={styles.footer_extra_link_icon}>
-              <Image src="/x_icon.png" alt={t("accessibility.xLogo")} fill />
+              <Image src="/x_icon.png" alt={t("a11y.xLogo")} fill />
             </span>
             <span className={styles.footer_extra_link_icon}>
-              <Image src="/linkedin_icon.png" alt={t("accessibility.linkedinLogo")} fill />
+              <Image src="/linkedin_icon.png" alt={t("a11y.linkedinLogo")} fill />
             </span>
           </div>
           <div className={styles.footer_link_esup}>

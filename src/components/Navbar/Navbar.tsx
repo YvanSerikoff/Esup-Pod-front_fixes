@@ -326,7 +326,7 @@ export default function Navbar() {
         <div className="">
           <Link className={styles.navbar_logo} key="accueil-link" href="/">
               {appLogo &&
-                <Image width={100} height={100} className="pr-sm pl-sm" src={appLogo} alt={t("accessibility.homeLogo")}/>
+                <Image width={100} height={100} className="pr-sm pl-sm" src={appLogo} alt={t("a11y.homeLogo")}/>
             }
             <strong>{appTitle}</strong>
           </Link>

@@ -247,7 +247,7 @@ export default function Theme() {
         )}
         <Image
           src={theme.banner || "/default_theme_banner.png"}
-            alt={t("accessibility.themeBanner", { title: theme.title })}
+            alt={t("a11y.themeBanner", { title: theme.title })}
           className="pod-image-banner"
         />{" "}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>

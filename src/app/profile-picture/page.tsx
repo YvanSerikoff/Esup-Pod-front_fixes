@@ -143,11 +143,11 @@ export default function UserProfilePicture() {
         <div className={styles.picture_form}>
           <div className={styles.picture_preview}>
             {previewUrl ? (
-              <Image src={previewUrl} alt={t("accessibility.profilePreview")} width={160} height={160} />
+              <Image src={previewUrl} alt={t("a11y.profilePreview")} width={160} height={160} />
             ) : user?.userpicture ? (
               <Image
                 src={currentPictureUrl!}
-                alt={t("accessibility.currentProfilePicture")}
+                alt={t("a11y.currentProfilePicture")}
               />
             ) : (
               !isInitializing && (

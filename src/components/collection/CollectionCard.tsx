@@ -61,7 +61,7 @@ export default function CollectionCard(props: CollectionCardProps) {
           <CardMedia
             component="img"
             image={channel.logo || channel.banner || "/default_channel_logo.png"}
-            alt={t("accessibility.channelLogo", { title: channel.title })}
+            alt={t("a11y.channelLogo", { title: channel.title })}
             sx={{
               borderTopLeftRadius: "11px",
               borderTopRightRadius: "11px",
@@ -160,7 +160,7 @@ export default function CollectionCard(props: CollectionCardProps) {
         <CardMedia
           component="img"
           image={theme.banner || "/default_theme_banner.png"}
-          alt={t("accessibility.themeBanner", { title: theme.title })}
+          alt={t("a11y.themeBanner", { title: theme.title })}
           sx={{
             borderTopLeftRadius: "11px",
             borderTopRightRadius: "11px",

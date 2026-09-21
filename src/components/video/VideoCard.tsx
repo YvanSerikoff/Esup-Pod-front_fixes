@@ -130,7 +130,7 @@ export default function VideoCard(props: VideosCardProps) {
           <CardMedia
             component="img"
             image={video.thumbnail_url || video.thumbnail || "/default_thumbnail.svg"}
-            alt={t("accessibility.videoThumbnail", { title: video.title })}
+            alt={t("a11y.videoThumbnail", { title: video.title })}
             sx={{
               borderTopLeftRadius: "11px",
               borderTopRightRadius: "11px",

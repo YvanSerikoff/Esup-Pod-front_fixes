@@ -134,7 +134,7 @@ export default function PlaylistCard({
             <CardMedia
               component="img"
               image={playlistThumbnail}
-              alt={t("accessibility.playlistThumbnail", { title: playlist.title })}
+              alt={t("a11y.playlistThumbnail", { title: playlist.title })}
               className="playlist-image"
               sx={{
                 borderTopLeftRadius: "11px",

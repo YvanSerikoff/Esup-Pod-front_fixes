@@ -87,7 +87,7 @@ export default function DressingSettings() {
           {watermarks.map((wm) => (
             <div key={wm.id} className={styles.watermarkCard}>
               <div className={styles.watermarkPreview}>
-                <Image src={wm.image} alt={t("accessibility.watermark")} fill style={{ objectFit: "contain" }} />
+                <Image src={wm.image} alt={t("a11y.watermark")} fill style={{ objectFit: "contain" }} />
               </div>
               <div className={styles.watermarkActions}>
                 <span className={styles.dateLabel}>
