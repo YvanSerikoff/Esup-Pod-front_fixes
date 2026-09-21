@@ -1537,6 +1537,9 @@ export default function EditVideo() {
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
                 alt={t("accessibility.preview")}
+                fill
+                sizes="(max-width: 480px) 100vw, 480px"
+                unoptimized
                 className={styles.live_card_img}
               />
             ) : (
