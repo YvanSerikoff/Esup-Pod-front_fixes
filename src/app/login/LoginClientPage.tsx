@@ -62,7 +62,7 @@ function LoginContent() {
   /* ------------------------------------------------------------------ */
 
   return (
-    <div className={styles.login_content}>
+    <div className={styles["login-content"]}>
       {/* ==== Avertissement ==== */}
       {authRequired && (
         <div role="alert" aria-live="polite">
@@ -112,7 +112,7 @@ function LoginContent() {
       </div>
 
       {config?.authentication?.use_local_auth !== false && (
-        <form className={styles.login_form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles["login-form"]} onSubmit={handleSubmit(onSubmit)}>
           {/* ==== Formulaire ==== */}
         <Input
           id="login-username"

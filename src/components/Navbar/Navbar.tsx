@@ -151,7 +151,7 @@ export function LoginButton() {
   return (
     <Link key="login-link" href="/login">
       <Button
-        className={styles.navbar_button}
+        className={styles["navbar-button"]}
         icon={
           <span className="material-icons" aria-hidden="true">
             person
@@ -162,7 +162,7 @@ export function LoginButton() {
         size="medium"
         aria-label={t("common.login")}
       >
-        <span className={styles.navbar_button_display}>{t("common.login")}</span>
+        <span className={styles["navbar-button-display"]}>{t("common.login")}</span>
       </Button>
     </Link>
   );
@@ -198,7 +198,7 @@ export function AuthMenu({
 
   return (
     <div>
-      <div className={styles.navbar_profil}>
+      <div className={styles["navbar-profil"]}>
         <Tooltip title={user.is_staff ? `${user.username} (Admin)` : user.username} arrow>
           <IconButton
             onClick={handleClickMenu}
@@ -308,12 +308,12 @@ export default function Navbar() {
         ) : (
           <>
         {/* ------- Bouton d’ouverture/fermeture du menu principal ------- */}
-        <div className={styles.navbar_item}>
+        <div className={styles["navbar-item"]}>
           <button
             type="button"
             aria-label="Menu principal"
             onClick={handleFixSidebar}
-            className={styles.navbar_button_menu}
+            className={styles["navbar-button-menu"]}
           >
             {sidebarOpen ? (
               <MenuOpenIcon aria-hidden="true" />
@@ -324,7 +324,7 @@ export default function Navbar() {
         </div>
 
         <div className="">
-          <Link className={styles.navbar_logo} key="accueil-link" href="/">
+          <Link className={styles["navbar-logo"]} key="accueil-link" href="/">
               {appLogo &&
                 <Image width={100} height={100} className="pr-sm pl-sm" src={appLogo} alt={t("a11y.homeLogo")}/>
             }
@@ -334,14 +334,14 @@ export default function Navbar() {
 
         {/* ------------------- Recherche (desktop) ------------------- */}
         {!isMobile && (
-          <div className={styles.navbar_search}>
+          <div className={styles["navbar-search"]}>
             <SearchForm />
           </div>
         )}
 
         {/* ------------------- Recherche (mobile) ------------------- */}
         {isMobile && (
-          <div className={styles.navbar_search_mobile}>
+          <div className={styles["navbar-search-mobile"]}>
             <IconButton
               aria-label="Ouvrir la recherche"
               onClick={() => setIsSearchOpen(true)}
@@ -355,16 +355,16 @@ export default function Navbar() {
 
         {/* ------------------- Bouton “Ajouter une vidéo” ------------------- */}
         {accessToken && user && !isInitializing && canUpload && (
-          <div className={styles.navbar_add_video}>
+          <div className={styles["navbar-add-video"]}>
             <Button
-              className={styles.navbar_button}
+              className={styles["navbar-button"]}
               icon={<AddCircleOutlineIcon aria-hidden="true" />}
               iconPosition="right"
               variant="primary"
               size="medium"
               href="/video/add"
             >
-              <span className={styles.navbar_button_display}>
+              <span className={styles["navbar-button-display"]}>
                 {t("common.addVideo")}
               </span>
             </Button>
