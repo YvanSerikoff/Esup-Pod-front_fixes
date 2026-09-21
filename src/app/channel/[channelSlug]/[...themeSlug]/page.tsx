@@ -246,6 +246,8 @@ export default function Theme() {
           </Alert>
         )}
         <Image
+            width={1200}
+            height={300}
           src={theme.banner || "/default_theme_banner.png"}
             alt={t("a11y.themeBanner", { title: theme.title })}
           className="pod-image-banner"
