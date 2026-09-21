@@ -2,7 +2,7 @@ import type { TranslationKeys } from "./fr";
 
 export const en: TranslationKeys = {
   common: {
-    loading: "Loading...",
+    loading: "Loading…",
     search: "Search",
     login: "Login",
     logout: "Logout",
@@ -70,7 +70,7 @@ export const en: TranslationKeys = {
     noRecentVideos: "No recent public videos 🥺",
   },
   navbar: {
-    searchPlaceholder: "Search ...",
+    searchPlaceholder: "Search …",
     addVideo: "Add video",
     settings: "Display & accessibility",
     login: "Login",
@@ -99,7 +99,7 @@ export const en: TranslationKeys = {
   webtv: {
     liveTitle: "Live",
     noLive: "No live stream currently broadcast",
-    loadingContent: "Loading WebTV content...",
+    loadingContent: "Loading WebTV content…",
     noContent: "No content available",
     climateActu: "News: Climate",
     seriesEmission: "Series / Shows",
@@ -118,7 +118,7 @@ export const en: TranslationKeys = {
     lightModeLabel: "Light mode",
   },
   filters: {
-    searchPlaceholder: "Search video...",
+    searchPlaceholder: "Search video…",
     search: "Search",
     sort: "Sort",
     author: "Author",
@@ -172,12 +172,12 @@ export const en: TranslationKeys = {
   videoAction: {
     edit: "Edit video",
     duplicate: "Duplicate",
-    duplicating: "Duplicating...",
+    duplicating: "Duplicating…",
     delete: "Delete video",
   },
   videoPlayer: {
     unableToLoad: "Unable to load video.",
-    encodingInProgress: "Video encoding in progress...",
+    encodingInProgress: "Video encoding in progress…",
     retry: "Retry",
   },
   videoPage: {
@@ -235,9 +235,9 @@ export const en: TranslationKeys = {
     title: "Comments",
     count: "{count} comment",
     countPlural: "{count} comments",
-    addPlaceholder: "Add a comment...",
+    addPlaceholder: "Add a comment…",
     submit: "Comment",
-    submitting: "Publishing...",
+    submitting: "Publishing…",
     reply: "Reply",
     delete: "Delete",
     disabled: "Comments are disabled for this video.",
@@ -250,7 +250,7 @@ export const en: TranslationKeys = {
     showRepliesPlural: "{count} replies",
   },
   videoEdit: {
-    pageTitle: "Edit video \"{title}\"",
+    pageTitle: "Edit video “{title}”",
     pageTitleDefault: "Edit video",
     duplicate: "Duplicate",
     save: "Save",
@@ -337,11 +337,11 @@ export const en: TranslationKeys = {
     restrictionsHeader: "Restrictions",
     restrictionsSub: "Choose to make your video public, unlisted, or private.",
     draftPrivateTitle: "Draft / Private",
-    draftPrivateDesc: "In ’Draft / Private’ mode, content appears nowhere and no one else can view it.",
+    draftPrivateDesc: "In “Draft / Private” mode, content appears nowhere and no one else can view it.",
     restrictedTitle: "Restricted Access",
-    restrictedDesc: "In ’Restricted Access’ mode, you can set viewing restrictions for the video.",
+    restrictedDesc: "In “Restricted Access” mode, you can set viewing restrictions for the video.",
     publicTitle: "Public",
-    publicDesc: "In ’Public’ mode, the content is visible to everyone.",
+    publicDesc: "In “Public” mode, the content is visible to everyone.",
     noSourceDraftNotice: "Without a source file, only Draft / Private mode is allowed. Restricted Access and Public modes are disabled.",
     restrictionOptions: "Restriction options:",
     authRequiredLabel: "Authentication required",
@@ -389,7 +389,7 @@ export const en: TranslationKeys = {
     pageDescription: "Manage your video watermarks and branding overlays to embed them directly into your videos.",
     myWatermarks: "My Watermarks",
     addWatermark: "Add a Watermark",
-    uploading: "Uploading...",
+    uploading: "Uploading…",
     noWatermarks: "You haven’t uploaded any watermark yet.",
     deleteConfirm: "Are you sure you want to delete this watermark?",
     loadError: "Error loading watermarks.",

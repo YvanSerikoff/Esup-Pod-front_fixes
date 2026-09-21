@@ -1,6 +1,6 @@
 export const fr = {
   common: {
-    loading: "Chargement...",
+    loading: "Chargement…",
     search: "Rechercher",
     login: "Connexion",
     logout: "Déconnexion",
@@ -68,7 +68,7 @@ export const fr = {
     noRecentVideos: "Aucune vidéo publique récente 🥺",
   },
   navbar: {
-    searchPlaceholder: "Rechercher ...",
+    searchPlaceholder: "Rechercher …",
     addVideo: "Ajouter une vidéo",
     settings: "Affichage et accessibilité",
     login: "Connexion",
@@ -97,7 +97,7 @@ export const fr = {
   webtv: {
     liveTitle: "Direct",
     noLive: "Aucun direct en cours",
-    loadingContent: "Chargement des contenus WebTV...",
+    loadingContent: "Chargement des contenus WebTV…",
     noContent: "Aucun contenu disponible",
     climateActu: "Actu : Climat",
     seriesEmission: "Séries / Émissions",
@@ -116,7 +116,7 @@ export const fr = {
     lightModeLabel: "Mode clair",
   },
   filters: {
-    searchPlaceholder: "Rechercher une vidéo...",
+    searchPlaceholder: "Rechercher une vidéo…",
     search: "Recherche",
     sort: "Tri",
     author: "Auteur",
@@ -170,12 +170,12 @@ export const fr = {
   videoAction: {
     edit: "Éditer la vidéo",
     duplicate: "Dupliquer",
-    duplicating: "Duplication...",
+    duplicating: "Duplication…",
     delete: "Supprimer la vidéo",
   },
   videoPlayer: {
     unableToLoad: "Impossible de charger la vidéo.",
-    encodingInProgress: "Vidéo en cours d’encodage...",
+    encodingInProgress: "Vidéo en cours d’encodage…",
     retry: "Réessayer",
   },
   videoPage: {
@@ -235,7 +235,7 @@ export const fr = {
     countPlural: "{count} commentaires",
     addPlaceholder: "Ajouter un commentaire",
     submit: "Commenter",
-    submitting: "Publication...",
+    submitting: "Publication…",
     reply: "Répondre",
     delete: "Supprimer",
     disabled: "Les commentaires sont désactivés pour cette vidéo.",
@@ -248,7 +248,7 @@ export const fr = {
     showRepliesPlural: "{count} réponses",
   },
   videoEdit: {
-    pageTitle: "Éditer la vidéo « {title} »",
+    pageTitle: "Éditer la vidéo « {title} »",
     pageTitleDefault: "Éditer la vidéo",
     duplicate: "Dupliquer",
     save: "Enregistrer",
@@ -335,11 +335,11 @@ export const fr = {
     restrictionsHeader: "Restrictions",
     restrictionsSub: "Choisissez de rendre votre vidéo publique, non répertoriée ou privée.",
     draftPrivateTitle: "Brouillon / Privé",
-    draftPrivateDesc: "En mode « Brouillon / Privé », le contenu n’apparaît nulle part et personne d’autre que vous ne peut le voir.",
+    draftPrivateDesc: "En mode « Brouillon / Privé », le contenu n’apparaît nulle part et personne d’autre que vous ne peut le voir.",
     restrictedTitle: "Accès restreint",
-    restrictedDesc: "En mode « Accès restreint », vous pouvez choisir les restrictions pour la vidéo.",
+    restrictedDesc: "En mode « Accès restreint », vous pouvez choisir les restrictions pour la vidéo.",
     publicTitle: "Public",
-    publicDesc: "Dans le mode « Public », le contenu est visible par tout le monde.",
+    publicDesc: "Dans le mode « Public », le contenu est visible par tout le monde.",
     noSourceDraftNotice: "Sans fichier source, seuls les modes Brouillon / Privé sont autorisés. Les modes Accès restreint et Public sont désactivés.",
     restrictionOptions: "Options de restriction :",
     authRequiredLabel: "Authentification requise",
@@ -387,7 +387,7 @@ export const fr = {
     pageDescription: "Gérez vos filigranes (watermarks) et éléments visuels pour les incruster directement dans vos vidéos.",
     myWatermarks: "Mes Filigranes",
     addWatermark: "Ajouter un filigrane",
-    uploading: "Envoi en cours...",
+    uploading: "Envoi en cours…",
     noWatermarks: "Vous n’avez pas encore envoyé de filigrane.",
     deleteConfirm: "Êtes-vous sûr de vouloir supprimer ce filigrane ?",
     loadError: "Erreur lors du chargement des filigranes.",

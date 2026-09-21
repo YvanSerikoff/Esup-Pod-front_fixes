@@ -2,7 +2,7 @@ import type { TranslationKeys } from "./fr";
 
 export const es: TranslationKeys = {
   common: {
-    loading: "Cargando...",
+    loading: "Cargando…",
     search: "Buscar",
     login: "Iniciar sesión",
     logout: "Cerrar sesión",
@@ -70,7 +70,7 @@ export const es: TranslationKeys = {
     noRecentVideos: "No hay vídeos públicos recientes 🥺",
   },
   navbar: {
-    searchPlaceholder: "Buscar ...",
+    searchPlaceholder: "Buscar …",
     addVideo: "Añadir vídeo",
     settings: "Visualización y accesibilidad",
     login: "Iniciar sesión",
@@ -99,7 +99,7 @@ export const es: TranslationKeys = {
   webtv: {
     liveTitle: "Directo",
     noLive: "No hay transmisiones en directo en este momento",
-    loadingContent: "Cargando contenido de WebTV...",
+    loadingContent: "Cargando contenido de WebTV…",
     noContent: "No hay contenido disponible",
     climateActu: "Noticias: Clima",
     seriesEmission: "Series / Programas",
@@ -118,7 +118,7 @@ export const es: TranslationKeys = {
     lightModeLabel: "Modo claro",
   },
   filters: {
-    searchPlaceholder: "Buscar video...",
+    searchPlaceholder: "Buscar video…",
     search: "Búsqueda",
     sort: "Ordenar",
     author: "Autor",
@@ -172,12 +172,12 @@ export const es: TranslationKeys = {
   videoAction: {
     edit: "Editar video",
     duplicate: "Duplicar",
-    duplicating: "Duplicando...",
+    duplicating: "Duplicando…",
     delete: "Eliminar video",
   },
   videoPlayer: {
     unableToLoad: "No se puede cargar el video.",
-    encodingInProgress: "Codificación de video en curso...",
+    encodingInProgress: "Codificación de video en curso…",
     retry: "Reintentar",
   },
   videoPage: {
@@ -235,9 +235,9 @@ export const es: TranslationKeys = {
     title: "Comentarios",
     count: "{count} comentario",
     countPlural: "{count} comentarios",
-    addPlaceholder: "Agregar un comentario...",
+    addPlaceholder: "Agregar un comentario…",
     submit: "Comentar",
-    submitting: "Publicando...",
+    submitting: "Publicando…",
     reply: "Responder",
     delete: "Eliminar",
     disabled: "Los comentarios están desactivados para este video.",
@@ -389,7 +389,7 @@ export const es: TranslationKeys = {
     pageDescription: "Gestione sus marcas de agua y elementos de imagen para incrustarlos directamente en sus vídeos.",
     myWatermarks: "Mis Marcas de agua",
     addWatermark: "Añadir una marca de agua",
-    uploading: "Subiendo...",
+    uploading: "Subiendo…",
     noWatermarks: "Aún no ha subido ninguna marca de agua.",
     deleteConfirm: "¿Está seguro de que desea eliminar esta marca de agua?",
     loadError: "Error al cargar las marcas de agua.",
