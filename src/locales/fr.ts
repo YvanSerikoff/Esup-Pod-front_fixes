@@ -68,7 +68,7 @@ export const fr = {
     noRecentVideos: "Aucune vidéo publique récente 🥺",
   },
   navbar: {
-    searchPlaceholder: "Rechercher …",
+    searchPlaceholder: "Rechercher…",
     addVideo: "Ajouter une vidéo",
     settings: "Affichage et accessibilité",
     login: "Connexion",

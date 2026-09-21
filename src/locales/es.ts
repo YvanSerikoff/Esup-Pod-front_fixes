@@ -70,7 +70,7 @@ export const es: TranslationKeys = {
     noRecentVideos: "No hay vídeos públicos recientes 🥺",
   },
   navbar: {
-    searchPlaceholder: "Buscar …",
+    searchPlaceholder: "Buscar…",
     addVideo: "Añadir vídeo",
     settings: "Visualización y accesibilidad",
     login: "Iniciar sesión",
