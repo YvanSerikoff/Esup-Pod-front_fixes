@@ -249,6 +249,7 @@ export default function Theme() {
           src={theme.banner || "/default_theme_banner.png"}
             alt={t("a11y.themeBanner", { title: theme.title })}
           className="pod-image-banner"
+          fill
         />{" "}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 2 }}>

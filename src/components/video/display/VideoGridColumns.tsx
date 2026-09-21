@@ -45,6 +45,7 @@ export function getVideoGridColumns(
             <Image
               width={100}
               height={100}
+              unoptimized
               className={styles.thumbnail}
               src={row.thumbnailUrl}
               alt={tr("a11y.videoThumbnail", row.title, { title: row.title })}

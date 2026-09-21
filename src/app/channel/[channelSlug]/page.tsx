@@ -185,6 +185,7 @@ export default function Channel() {
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
             alt={t("a11y.channelBanner", { title: channel.title })}
             className="pod-image-banner"
+            fill
           />{" "}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
             <Avatar

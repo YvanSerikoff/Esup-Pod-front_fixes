@@ -60,6 +60,8 @@ export default function PlaylistSidebar({
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 className={styles.playlistSidebarThumbnail}
+                width={64}
+                height={36}
               />
               <div className={styles.playlistSidebarText}>
                 <p className={styles.playlistSidebarVideoTitle}>

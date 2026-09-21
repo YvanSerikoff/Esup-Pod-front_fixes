@@ -36,14 +36,22 @@ export default function AsyncUserFilterDropdown({
       // In a real scenario, we might need a fetchUsersByUsernames endpoint.
       // For now, we fall back to usernames if we don't have the full object.
       // But we can try to find them if they exist in the options.
-      const currentSelected = selectedUsernames.map((username) => {
-        const existing = options.find((o) => o.value === username) || selectedOptions.find((o) => o.value === username);
-        return existing || {label: username, value: username};
+      setSelectedOptions((previousSelected) => {
+        const currentSelected = selectedUsernames.map((username) => {
+          const existing =
+            options.find((o) => o.value === username) ||
+            previousSelected.find((o) => o.value === username);
+          return existing || { label: username, value: username };
+        });
+        const valuesDiffer =
+          currentSelected.length !== previousSelected.length ||
+          currentSelected.some((option, index) => option.value !== previousSelected[index]?.value);
+
+        return valuesDiffer ? currentSelected : previousSelected;
       });
-      setSelectedOptions(currentSelected);
     };
     void loadSelectedUsers();
-  }, [options, selectedOptions, selectedUsernames]);
+  }, [options, selectedUsernames]);
 
   const fetchOptions = useMemo(
     () =>

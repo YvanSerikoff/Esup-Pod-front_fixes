@@ -53,6 +53,8 @@ export default function FavoritesSidebar({
               <Image
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
+                width={64}
+                height={36}
                 className={styles.favoritesSidebarThumbnail}
               />
               <div className={styles.favoritesSidebarText}>
