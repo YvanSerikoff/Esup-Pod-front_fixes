@@ -26,7 +26,7 @@ export default function Footer() {
           <div className={styles["footer-contact-univ-logo"]}>
             <Image
               src="/logoEsup.svg"
-              alt={t("accessibility.institutionLogo")}
+              alt={t("a11y.institutionLogo")}
               className={styles["footer-contact-univ-logo-image"]}
               fill
             />
@@ -53,27 +53,27 @@ export default function Footer() {
           <div className={styles["footer-extra-link-icons"]}>
             <span className={styles["footer-extra-link-icon"]}>
               <a href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(current_uri)}`} target="_blank" rel="noreferrer">
-                <Image src="/facebook_icon.png" alt={t("accessibility.facebookLogo")} fill />
+                <Image src="/facebook_icon.png" alt={t("a11y.facebookLogo")} fill />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a href={`https://twitter.com/share?url=${encodeURIComponent(current_uri)}`} target="_blank" rel="noreferrer">
-                <Image src="/x_icon.png" alt={t("accessibility.xLogo")} fill />
+                <Image src="/x_icon.png" alt={t("a11y.xLogo")} fill />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(current_uri)}`} target="_blank" rel="noreferrer">
-              <Image src="/linkedin_icon.png" alt={t("accessibility.linkedinLogo")} fill />
+              <Image src="/linkedin_icon.png" alt={t("a11y.linkedinLogo")} fill />
             </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`https://bsky.app/intent/compose?text=${encodeURIComponent(current_uri)}`} target="_blank" rel="noreferrer">
-              <Image src="/bluesky_icon.png" alt={t("accessibility.blueskyLogo")} fill />
+              <Image src="/bluesky_icon.png" alt={t("a11y.blueskyLogo")} fill />
             </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`${encodeURIComponent(current_uri)}`} target="_blank" rel="noreferrer">
-              <Image src="/mastodon_icon.png" alt={t("accessibility.mastodonLogo")} fill />
+              <Image src="/mastodon_icon.png" alt={t("a11y.mastodonLogo")} fill />
             </a>
             </span>
           </div>

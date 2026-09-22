@@ -29,7 +29,7 @@ export function getCollectionGridColumns({
           <Image
             className={styles.thumbnail}
             src={row.thumbnailUrl}
-            alt={translate("a11y.collectionThumbnail", { title: row.title })}
+            alt={translate("accessibility.collectionThumbnail", { title: row.title })}
             width={56}
             height={34}
           />

@@ -34,11 +34,13 @@ export const fr = {
     viewCards: "Cartes",
     viewTable: "Tableau",
   },
-  accessibility: {
+  a11y: {
     institutionLogo: "Logo de l’établissement",
     facebookLogo: "Logo Facebook",
     xLogo: "Logo X",
     linkedinLogo: "Logo LinkedIn",
+    blueskyLogo: "Logo Bluesky",
+    mastodonLogo: "Logo Mastodon",
     homeLogo: "Logo Esup-Pod, retour à l’accueil",
     channelBanner: "Bannière de la chaîne {title}",
     channelLogo: "Logo de la chaîne {title}",

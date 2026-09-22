@@ -36,11 +36,13 @@ export const es: TranslationKeys = {
     viewCards: "Tarjetas",
     viewTable: "Tabla",
   },
-  accessibility: {
+  a11y: {
     institutionLogo: "Logotipo de la institución",
     facebookLogo: "Logotipo de Facebook",
     xLogo: "Logotipo de X",
     linkedinLogo: "Logotipo de LinkedIn",
+    blueskyLogo: "Logotipo de Bluesky",
+    mastodonLogo: "Logotipo de Mastodon",
     homeLogo: "Logotipo de Esup-Pod, volver al inicio",
     channelBanner: "Banner del canal {title}",
     channelLogo: "Logotipo del canal {title}",
