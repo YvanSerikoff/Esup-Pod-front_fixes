@@ -104,6 +104,7 @@ export default function VideoGridBlockComponent({
                 <div className={styles.thumbnailContainer}>
                   {video.thumbnail ? (
                     <Image
+                    unoptimized
                       width={100}
                       height={100}
                       src={video.thumbnail}

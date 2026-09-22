@@ -246,6 +246,7 @@ export default function Theme() {
           </Alert>
         )}
         <Image
+        unoptimized
             width={1200}
             height={300}
           src={theme.banner || "/default_theme_banner.png"}

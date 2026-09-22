@@ -116,7 +116,7 @@ const SideBar = () => {
       {/* ----- Bouton de fermeture (mobile) ----- */}
       {isMobile && (
         <Button
-          className={styles.button_close}
+          className={styles["button-close"]}
           onClick={handleFixSidebar}
           aria-label={t("sidebar.closeMenu")}
         >
@@ -153,7 +153,7 @@ const SideBar = () => {
           <>
             <h3
               id="sidebar-title"
-              className={styles.menu_title}
+              className={styles["menu-title"]}
               style={{
                 display: sidebarOpen ? "block" : "none",
                 color: "var(--text-color-brand)",

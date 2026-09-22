@@ -51,8 +51,8 @@ export function PlaylistForm({
 
   return (
     <>
-      <div className={styles.form_actions}>
-        <div className={styles.form_actions_buttons}>
+      <div className={styles["form-actions"]}>
+        <div className={styles["form-actions-buttons"]}>
           {secondaryActions}
           <Button
             fullWidth={isMobile}
@@ -111,7 +111,7 @@ export function PlaylistForm({
       />
 
       {/* ---------- Visibilité de la playlist ---------- */}
-      <fieldset className={styles.restreint_fields}>
+      <fieldset className={styles["restreint-fields"]}>
         <legend>Restrictions d’accès</legend>
         <Controller
           name="is_public"

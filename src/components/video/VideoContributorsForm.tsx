@@ -98,10 +98,10 @@ export default function VideoContributorsForm({ videoId }: { videoId: number }) 
   };
 
   return (
-    <div className={styles.element_card}>
-      <div className={styles.element_card_info}>
-        <span className={styles.element_card_title}>Contributeurs & Intervenants</span>
-        <span className={styles.element_card_desc}>
+    <div className={styles["element-card"]}>
+      <div className={styles["element-card_info"]}>
+        <span className={styles["element-card_title"]}>Contributeurs & Intervenants</span>
+        <span className={styles["element-card_desc"]}>
           Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.
         </span>
       </div>

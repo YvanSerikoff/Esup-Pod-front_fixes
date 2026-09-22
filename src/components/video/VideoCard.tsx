@@ -166,7 +166,7 @@ export default function VideoCard(props: VideosCardProps) {
                 {video.title}
               </Typography>
 
-              <div className={styles.video_icons} style={{ display: "flex", flexShrink: 0, gap: "6px", alignItems: "center", marginTop: "2px" }}>
+              <div className={styles["video-icons"]} style={{ display: "flex", flexShrink: 0, gap: "6px", alignItems: "center", marginTop: "2px" }}>
                 {video.encoding_status == "ER" && isOwner && (
                   <Tooltip title="Erreur d'encodage">
                     <ErrorIcon color="error" sx={{ fontSize: "1.1rem" }} />

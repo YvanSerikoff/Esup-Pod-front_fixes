@@ -73,7 +73,7 @@ function VideoPageSkeleton() {
   return (
     <div>
       <div style={{ width: 100, height: 40, backgroundColor: "#e0e0e0", borderRadius: 4, marginBottom: 20 }} />
-      <div className={styles["main-video_content"]}>
+      <div className={styles["main-video-content"]}>
         <section style={{ display: "flex", flexDirection: "column", gap: "1.5rem", padding: "10px", minWidth: "70%" }}>
           <div className="skeleton-block" style={{ width: "100%", aspectRatio: "16 / 9", borderRadius: 8 }} />
           <div className="skeleton-block" style={{ width: "60%", height: 32, borderRadius: 4 }} />
@@ -82,7 +82,7 @@ function VideoPageSkeleton() {
             <div className="skeleton-block" style={{ width: "30%", height: 32, borderRadius: 4 }} />
           </div>
         </section>
-        <aside className={styles.sidebar}>
+        <aside className={styles["sidebar"]}>
           <div className="skeleton-block" style={{ width: "100%", height: 300, borderRadius: 8 }} />
         </aside>
       </div>

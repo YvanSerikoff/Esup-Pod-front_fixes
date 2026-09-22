@@ -5,19 +5,23 @@ import Link from "next/link";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 import Image from "next/image";
-import {useSyncExternalStore} from "react";
+import { useSyncExternalStore } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Footer() {
   const { info } = useAppInfo();
   const { t } = useTranslation();
   const projectName = info?.project ?? "Esup.Pod";
   const version = info?.version ?? "N/A";
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-    const current_uri = useSyncExternalStore(
+  const origin = useSyncExternalStore(
     () => () => {},
-    () => window.location.href,
+    () => window.location.origin,
     () => "",
   );
+  const current_uri = `${origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
 
   return (
     <footer className={`${styles.footer} ${styles["sidebarFixed"]}`} id="footer">

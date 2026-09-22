@@ -48,7 +48,7 @@ export function getVideoGridColumns(
               unoptimized
               className={styles.thumbnail}
               src={row.thumbnailUrl}
-              alt={tr("accessibility.videoThumbnail", row.title, { title: row.title })}
+              alt={tr("a11y.videoThumbnail", row.title, { title: row.title })}
             />
           ) : (
             <div className={styles.defaultThumbnailPoster}>

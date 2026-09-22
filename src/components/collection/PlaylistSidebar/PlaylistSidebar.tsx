@@ -57,6 +57,7 @@ export default function PlaylistSidebar({
             >
               <span className={styles.playlistSidebarIndex}>{index + 1}</span>
               <Image
+              unoptimized
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 className={styles.playlistSidebarThumbnail}

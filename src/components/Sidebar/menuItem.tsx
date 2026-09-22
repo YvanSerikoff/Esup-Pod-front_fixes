@@ -52,7 +52,7 @@ const MenuItem = (props: MenuItemProps) => {
   const MenuItemRoot = (
     <ListItemButton
       key={name}
-      className={styles.menu_item}
+      className={styles["menu-item"]}
       onClick={handleClick}
       component={isNavigable ? Link : "div"}
       href={isNavigable ? link : undefined}

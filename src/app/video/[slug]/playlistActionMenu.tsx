@@ -45,7 +45,7 @@ export default function PlaylistActionMenu({
 
   // Etat local : map slug -> bool indiquant si la vidéo est dans la playlist.
   const [checkedOverrides, setCheckedOverrides] = useState<
-    Record<string, boolean>
+    Record<number, Record<string, boolean>>
   >({});
 
   //Message success qui s’affiche 5 secondes.
@@ -67,10 +67,11 @@ export default function PlaylistActionMenu({
   // Derive membership from playlists and preserve optimistic updates locally.
   const checkedMap = useMemo(() => {
     const next: Record<string, boolean> = {};
+    const videoOverrides = checkedOverrides[videoId] ?? {};
     playlists.forEach((playlist) => {
       const contains =
         playlist.items?.some((item) => item.video.id === videoId) ?? false;
-      next[playlist.slug] = checkedOverrides[playlist.slug] ?? contains;
+      next[playlist.slug] = videoOverrides[playlist.slug] ?? contains;
     });
     return next;
   }, [checkedOverrides, playlists, videoId]);
@@ -106,7 +107,10 @@ export default function PlaylistActionMenu({
         await addVideo(playlist.slug, { video_id: videoId });
         setCheckedOverrides((prev) => ({
           ...prev,
-          [playlist.slug]: true,
+          [videoId]: {
+            ...prev[videoId],
+            [playlist.slug]: true,
+          },
         }));
         setInfoKind("added");
         setInfoMessage(`Vidéo ajoutée à la playlist « ${playlist.title} ».`);
@@ -115,7 +119,10 @@ export default function PlaylistActionMenu({
         await deleteVideo(playlist.slug, { video_id: videoId });
         setCheckedOverrides((prev) => ({
           ...prev,
-          [playlist.slug]: false,
+          [videoId]: {
+            ...prev[videoId],
+            [playlist.slug]: false,
+          },
         }));
         setInfoKind("removed");
         setInfoMessage(`Vidéo retirée de la playlist « ${playlist.title} ».`);

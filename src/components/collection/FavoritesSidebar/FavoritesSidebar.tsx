@@ -51,6 +51,7 @@ export default function FavoritesSidebar({
             >
               <span className={styles.favoritesSidebarIndex}>{index + 1}</span>
               <Image
+              unoptimized
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 width={64}
