@@ -158,8 +158,10 @@ export default function Channel() {
     if (didSetInitialTab.current) return;
     if (!channel || !hasLoadedBaseThemes || useVideoLoading) return;
 
-    didSetInitialTab.current = true;
-    const timeoutId = window.setTimeout(handleTabValue, 0);
+    const timeoutId = window.setTimeout(() => {
+      handleTabValue();
+      didSetInitialTab.current = true;
+    }, 0);
 
     return () => window.clearTimeout(timeoutId);
   }, [channel, hasLoadedBaseThemes, useVideoLoading, handleTabValue]);

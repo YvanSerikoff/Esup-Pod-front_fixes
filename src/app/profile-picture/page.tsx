@@ -115,8 +115,9 @@ export default function UserProfilePicture() {
 
       if (res.status === 200) {
         setSuccess("Image de profil mise a jour avec succès ! 🥳");
-        setFile(null);
       }
+      setFile(null);
+      setPreviewUrl(null);
       await reloadAuthData();
       setFile(null);
     } catch (err: unknown) {
