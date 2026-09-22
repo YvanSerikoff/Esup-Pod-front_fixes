@@ -43,7 +43,7 @@ export default function DeletePlaylistPage() {
   }
 
   return (
-    <div className={styles.delete_container}>
+    <div className={styles["delete-container"]}>
       <Paper sx={{ p: 4, maxWidth: 520, width: "100%" }}>
         <h2>Supprimer la liste de lecture</h2>
 
@@ -51,7 +51,7 @@ export default function DeletePlaylistPage() {
 
         {usePlaylistError ? (
           <div>
-            <Alert type={VariantType.ERROR} className={styles.delete_error_alert}>
+            <Alert type={VariantType.ERROR} className={styles["delete-error-alert"]}>
               {usePlaylistError ?? "Playlist introuvable."}
             </Alert>
             <Button
@@ -70,7 +70,7 @@ export default function DeletePlaylistPage() {
               Cette action est définitive.
             </p>
 
-            <div className={styles.buttons_action}>
+            <div className={styles["buttons-action"]}>
               <Button
                 color="brand"
                 variant="secondary"

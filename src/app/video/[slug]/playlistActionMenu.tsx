@@ -178,7 +178,7 @@ export default function PlaylistActionMenu({
     <>
       <div style={{ display: "flex", gap: "0.25rem" }}>
         <button
-          className={styles.action_pill}
+          className={styles["action-pill"]}
           aria-describedby={id}
           onClick={handlePlaylistButtonClick}
         >
@@ -186,7 +186,7 @@ export default function PlaylistActionMenu({
         </button>
 
         <button
-          className={styles.action_pill}
+          className={styles["action-pill"]}
           onClick={handleToggleFavorite}
         >
           {favorite ? (

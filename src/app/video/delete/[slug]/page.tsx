@@ -40,7 +40,7 @@ export default function DeleteVideoPage() {
   }
 
   return (
-    <div className={styles.delete_container}>
+    <div className={styles["delete-container"]}>
       <Paper sx={{ p: 4, maxWidth: 520, width: "100%" }}>
         <h2>Supprimer la vidéo</h2>
 
@@ -48,7 +48,7 @@ export default function DeleteVideoPage() {
 
         {useVideoError ? (
           <div>
-            <Alert type={VariantType.ERROR} className={styles.delete_alert}>
+            <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
               {useVideoError ?? "Vidéo introuvable."}
             </Alert>
             <Button
@@ -60,7 +60,7 @@ export default function DeleteVideoPage() {
             </Button>
           </div>
         ) : !isOwnerOrCoOwner ? (
-          <Alert type={VariantType.ERROR} className={styles.delete_alert}>
+          <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
             Vous ne pouvez pas accéder à cette page
           </Alert>
         ) : video ? (
@@ -71,7 +71,7 @@ export default function DeleteVideoPage() {
               Cette action est définitive.
             </p>
 
-            <div className={styles.buttons_action}>
+            <div className={styles["buttons-action"]}>
               <Button
                 color="brand"
                 variant="secondary"

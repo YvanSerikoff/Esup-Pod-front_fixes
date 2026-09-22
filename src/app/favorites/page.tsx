@@ -222,10 +222,10 @@ export default function FavoritesPlaylistPage() {
       <BackButton label={t("common.back")} />
 
       <div>
-        <div className={styles.title_row}>
+        <div className={styles["title-row"]}>
           <h1>{t("favorites.title")}</h1>
           {favoriteVideos.length > 0 && (
-            <div className={styles.start_favorites_button}>
+            <div className={styles["start-favorites-button"]}>
               <Button
                 color="brand"
                 variant="primary"

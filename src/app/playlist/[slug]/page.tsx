@@ -147,16 +147,16 @@ export default function PlaylistPage() {
   return (
     <div>
       <BackButton label="Retour" />
-      <div className={styles.playlist_content}>
+      <div className={styles["playlist-content"]}>
         {playlistJustCreated && (
           <Alert type={VariantType.SUCCESS} aria-live="polite">
             Votre liste de lecture a été créée avec succès! 🥳
           </Alert>
         )}
-        <div className={styles.playlist_header_row}>
+        <div className={styles["playlist-header-row"]}>
           <div>
             <h1>{capitalize(effectivePlaylist?.title ?? "")}</h1>
-            <div className={styles.playlist_actions}>
+            <div className={styles["playlist-actions"]}>
               <Button
                 color="brand"
                 variant="primary"
@@ -192,12 +192,12 @@ export default function PlaylistPage() {
               )}
             </div>
             {effectivePlaylist.description && (
-              <div className={styles.playlist_description}>
+              <div className={styles["playlist-description"]}>
                 <p>{effectivePlaylist.description}</p>
               </div>
             )}
 
-            <dl className={styles.playlist_infos_details}>
+            <dl className={styles["playlist-infos-details"]}>
               <div>
                 <dt>{timeAgo(effectivePlaylist?.created_at)}</dt>
               </div>

@@ -140,8 +140,8 @@ export default function UserProfilePicture() {
         </Alert>
       )}
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.picture_form}>
-          <div className={styles.picture_preview}>
+        <div className={styles["picture-form"]}>
+          <div className={styles["picture-preview"]}>
             {previewUrl ? (
               <Image
                 src={previewUrl}
@@ -185,7 +185,7 @@ export default function UserProfilePicture() {
           />
           <div></div>
           <Button
-            className={styles.submit_button}
+            className={styles["submit-button"]}
             fullWidth
             variant="primary"
             type="submit"

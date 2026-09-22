@@ -172,12 +172,12 @@ export default function AddVideo() {
           />
           {errors.videoFile && <p id="videoFile-error" style={{ color: "red", marginTop: "0.25rem" }}>{errors.videoFile.message}</p>}
 
-          <fieldset className={styles.bloc_terms}>
+          <fieldset className={styles["bloc-terms"]}>
             <legend>Conditions d&apos;utilisation</legend>
             <p><b>Attention ! Assurez‑vous de respecter le code de la propriété intellectuelle avant de publier une vidéo :</b></p>
             <p>Je confirme que je dispose des autorisations nécessaires signées par les parties concernées par la publication de ce média, en ce compris le consentement relatif au droit à l&apos;image et au traitement des données personnelles. Je certifie que l&apos;ensemble des personnes concernées ont bénéficié d&apos;une information complète relative au traitement de leurs données personnelles, conformément aux dispositions des articles 13 et 14 du RGPD.</p>
             <Checkbox
-              className={styles.bloc_terms_checkbox}
+              className={styles["bloc-terms-checkbox"]}
               label="J'atteste de respecter le code de la propriété intellectuelle en publiant ma vidéo."
               fullWidth
               state={errors.acceptTerm ? "error" : "default"}

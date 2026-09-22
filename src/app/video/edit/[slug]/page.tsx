@@ -821,7 +821,7 @@ export default function EditVideo() {
 
           <button
             type="button"
-            className={`${styles.action_pill_btn} ${styles.primary}`}
+            className={`${styles["action-pill-btn"]} ${styles.primary}`}
             style={{ alignSelf: "flex-start" }}
             disabled={!sourceFile || sourceUploading}
             onClick={handleSourceChange}
@@ -842,9 +842,9 @@ export default function EditVideo() {
         control={control}
         rules={{ required: "Le titre est obligatoire." }}
         render={({ field }) => (
-          <div className={styles.input_group}>
-            <label className={styles.input_label}>
-              {t("videoEdit.titleLabel")} <span className={styles.required_star}>*</span>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>
+              {t("videoEdit.titleLabel")} <span className={styles["required-star"]}>*</span>
             </label>
             <TextField
               {...field}
@@ -864,8 +864,8 @@ export default function EditVideo() {
         name="description"
         control={control}
         render={({ field }) => (
-          <div className={styles.input_group}>
-            <label className={styles.input_label}>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>
               {t("videoEdit.descriptionLabel")}
             </label>
             <TextField
@@ -887,9 +887,9 @@ export default function EditVideo() {
         name="language"
         control={control}
         render={({ field }) => (
-          <div className={styles.input_group}>
-            <label className={styles.input_label}>
-              {t("videoEdit.mainLanguageLabel")} <span className={styles.required_star}>*</span>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>
+              {t("videoEdit.mainLanguageLabel")} <span className={styles["required-star"]}>*</span>
             </label>
             <TextField
               {...field}
@@ -918,8 +918,8 @@ export default function EditVideo() {
             ? field.value.split(",").map((t) => t.trim()).filter(Boolean)
             : [];
           return (
-            <div className={styles.input_group}>
-              <label className={styles.input_label}>{t("videoEdit.tagsLabel")}</label>
+            <div className={styles["input-group"]}>
+              <label className={styles["input-label"]}>{t("videoEdit.tagsLabel")}</label>
               <Autocomplete
                 multiple
                 freeSolo
@@ -969,27 +969,27 @@ export default function EditVideo() {
       />
 
       {/* Thumbnail */}
-      <div className={styles.input_group}>
-        <label className={styles.input_label}>{t("videoEdit.thumbnailLabel")}</label>
-        <div className={styles.vignette_area}>
+      <div className={styles["input-group"]}>
+        <label className={styles["input-label"]}>{t("videoEdit.thumbnailLabel")}</label>
+        <div className={styles["vignette-area"]}>
           {/* Preview zone */}
           {(thumbnailPreview ?? video?.thumbnail) ? (
-            <div className={styles.vignette_preview_card}>
+            <div className={styles["vignette-preview-card"]}>
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
                 alt={t("a11y.thumbnail")}
                 fill
                 sizes="(max-width: 480px) 100vw, 480px"
                 unoptimized
-                className={styles.vignette_preview_img}
+                className={styles["vignette-preview-img"]}
               />
-              <div className={styles.vignette_overlay}>
-                <label htmlFor="thumbnail-input" className={styles.vignette_overlay_btn}>
+              <div className={styles["vignette-overlay"]}>
+                <label htmlFor="thumbnail-input" className={styles["vignette-overlay-btn"]}>
                   <UploadFileIcon fontSize="small" /> {t("videoEdit.changeBtn")}
                 </label>
                 <button
                   type="button"
-                  className={`${styles.vignette_overlay_btn} ${styles.vignette_overlay_btn_danger}`}
+                  className={`${styles["vignette-overlay-btn"]} ${styles["vignette-overlay-btn-danger"]}`}
                   onClick={removeThumbnail}
                 >
                   <DeleteOutlineIcon fontSize="small" /> {t("videoEdit.deleteBtn")}
@@ -997,12 +997,12 @@ export default function EditVideo() {
               </div>
             </div>
           ) : (
-            <label htmlFor="thumbnail-input" className={styles.vignette_empty_zone}>
-              <div className={styles.vignette_empty_icon}>
+            <label htmlFor="thumbnail-input" className={styles["vignette-empty-zone"]}>
+              <div className={styles["vignette-empty-icon"]}>
                 <UploadFileIcon style={{ fontSize: 32, color: "var(--c--globals--colors--primary-600, #00818a)" }} />
               </div>
-              <span className={styles.vignette_empty_title}>{t("videoEdit.uploadThumbnailBtn")}</span>
-              <span className={styles.vignette_empty_hint}>{t("videoEdit.thumbnailDimensionsHint")}</span>
+              <span className={styles["vignette-empty-title"]}>{t("videoEdit.uploadThumbnailBtn")}</span>
+              <span className={styles["vignette-empty-hint"]}>{t("videoEdit.thumbnailDimensionsHint")}</span>
             </label>
           )}
           <input
@@ -1017,7 +1017,7 @@ export default function EditVideo() {
             }}
           />
         </div>
-        <p className={styles.vignette_helper_text}>
+        <p className={styles["vignette-helper-text"]}>
           {t("videoEdit.thumbnailCopyrightHelper")}
         </p>
         {errors.thumbnail && (
@@ -1033,9 +1033,9 @@ export default function EditVideo() {
           name="owner"
           control={control}
           render={({ field }) => (
-            <div className={styles.input_group}>
-              <label className={styles.input_label}>
-                {t("videoEdit.ownerLabel")} <span className={styles.required_star}>*</span>
+            <div className={styles["input-group"]}>
+              <label className={styles["input-label"]}>
+                {t("videoEdit.ownerLabel")} <span className={styles["required-star"]}>*</span>
               </label>
               <Autocomplete
                 options={users}
@@ -1057,8 +1057,8 @@ export default function EditVideo() {
         name="co_owners"
         control={control}
         render={({ field }) => (
-          <div className={styles.input_group}>
-            <label className={styles.input_label}>{t("videoEdit.coOwnersLabel")}</label>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>{t("videoEdit.coOwnersLabel")}</label>
             <Autocomplete
               multiple
               options={availableCoOwners}
@@ -1080,8 +1080,8 @@ export default function EditVideo() {
         name="license"
         control={control}
         render={({ field }) => (
-          <div className={styles.input_group}>
-            <label className={styles.input_label}>{t("videoEdit.licenseLabel")}</label>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>{t("videoEdit.licenseLabel")}</label>
             <TextField {...field} select fullWidth variant="outlined" helperText={t("videoEdit.licenseHelper")} InputProps={{ style: { borderRadius: '8px' } }}>
               {licenseOptions.map((opt) => (
                 <MenuItem key={opt.value} value={opt.value}>{opt.label}</MenuItem>
@@ -1094,6 +1094,9 @@ export default function EditVideo() {
       {/* Channel & Themes */}
       {channelsOptions.length > 0 && (
         <>
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>{t("videoEdit.channelLabel")}</label>
+          </div>
           <Divider />
           <Controller
             name="channel"
@@ -1119,6 +1122,9 @@ export default function EditVideo() {
             )}
           />
 
+          <div className={styles["input-group"]}>
+            <label className={styles["input-label"]}>{t("videoEdit.themesLabel")}</label>
+          </div>
           {selectedChannel !== "" && themeOptions.length > 0 && (
             <Controller
               name="themes"
@@ -1215,19 +1221,19 @@ export default function EditVideo() {
 
     return (
       <>
-        <div className={styles.elements_list}>
+        <div className={styles["elements-list"]}>
           {/* Sous-titres manuels */}
-          <div className={styles.element_card}>
-            <div className={styles.element_card_info}>
-              <span className={styles.element_card_title}>{t("videoEdit.subtitlesTitle")}</span>
-              <span className={styles.element_card_desc}>
+          <div className={styles["element-card"]}>
+            <div className={styles["element-card-info"]}>
+              <span className={styles["element-card-title"]}>{t("videoEdit.subtitlesTitle")}</span>
+              <span className={styles["element-card-desc"]}>
                 {t("videoEdit.subtitlesDesc")}
                 {video?.subtitles?.length ? ` — ${video.subtitles.length} active(s)` : ""}
               </span>
             </div>
-            <div className={styles.element_card_actions}>
+            <div className={styles["element-card-actions"]}>
               <button
-                className={styles.element_action_btn}
+                className={styles["element-action-btn"]}
                 type="button"
                 disabled={!video}
                 onClick={() => setSubtitlesModalOpen(true)}
@@ -1238,16 +1244,16 @@ export default function EditVideo() {
           </div>
 
           {/* Documents joints */}
-          <div className={styles.element_card}>
-            <div className={styles.element_card_info}>
-              <span className={styles.element_card_title}>{t("videoEdit.documentsTitle")}</span>
-              <span className={styles.element_card_desc}>
+          <div className={styles["element-card"]}>
+            <div className={styles["element-card-info"]}>
+              <span className={styles["element-card-title"]}>{t("videoEdit.documentsTitle")}</span>
+              <span className={styles["element-card-desc"]}>
                 {t("videoEdit.documentsDesc")}
               </span>
             </div>
-            <div className={styles.element_card_actions}>
+            <div className={styles["element-card-actions"]}>
               <button
-                className={styles.element_action_btn}
+                className={styles["element-action-btn"]}
                 type="button"
                 disabled={!video}
                 onClick={() => setDocumentsModalOpen(true)}
@@ -1258,16 +1264,16 @@ export default function EditVideo() {
           </div>
 
           {/* Contributeurs */}
-          <div className={styles.element_card}>
-            <div className={styles.element_card_info}>
-              <span className={styles.element_card_title}>{t("videoEdit.contributorsTitle")}</span>
-              <span className={styles.element_card_desc}>
+          <div className={styles["element-card"]}>
+            <div className={styles["element-card-info"]}>
+              <span className={styles["element-card-title"]}>{t("videoEdit.contributorsTitle")}</span>
+              <span className={styles["element-card-desc"]}>
                 {t("videoEdit.contributorsDesc")}
               </span>
             </div>
-            <div className={styles.element_card_actions}>
+            <div className={styles["element-card-actions"]}>
               <button
-                className={styles.element_action_btn}
+                className={styles["element-action-btn"]}
                 type="button"
                 disabled={!video}
                 onClick={() => setContributorsModalOpen(true)}
@@ -1278,16 +1284,16 @@ export default function EditVideo() {
           </div>
 
           {/* Chapitrage */}
-          <div className={styles.element_card} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
-            <div className={styles.element_card_info}>
-              <span className={styles.element_card_title}>{t("videoEdit.chaptersTitle")}</span>
-              <span className={styles.element_card_desc}>
+          <div className={styles["element-card"]} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
+            <div className={styles["element-card-info"]}>
+              <span className={styles["element-card-title"]}>{t("videoEdit.chaptersTitle")}</span>
+              <span className={styles["element-card-desc"]}>
                 {t("videoEdit.chaptersDesc")}
               </span>
             </div>
-            <div className={styles.element_card_actions}>
+            <div className={styles["element-card-actions"]}>
               <button
-                className={styles.element_action_btn}
+                className={styles["element-action-btn"]}
                 type="button"
                 disabled={!hasEncodedSource}
                 onClick={() => setChaptersModalOpen(true)}
@@ -1299,16 +1305,16 @@ export default function EditVideo() {
 
           {/* Habillage */}
           {config?.dressing?.use_dressing !== false && (
-            <div className={styles.element_card} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
-              <div className={styles.element_card_info}>
-                <span className={styles.element_card_title}>{t("videoEdit.dressingTitle")}</span>
-                <span className={styles.element_card_desc}>
+            <div className={styles["element-card"]} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
+              <div className={styles["element-card-info"]}>
+                <span className={styles["element-card-title"]}>{t("videoEdit.dressingTitle")}</span>
+                <span className={styles["element-card-desc"]}>
                   {t("videoEdit.dressingDesc")}
                 </span>
               </div>
-              <div className={styles.element_card_actions}>
+              <div className={styles["element-card-actions"]}>
                 <button
-                  className={styles.element_action_btn}
+                  className={styles["element-action-btn"]}
                   type="button"
                   disabled={!hasEncodedSource}
                   onClick={() => setDressingModalOpen(true)}
@@ -1320,16 +1326,16 @@ export default function EditVideo() {
           )}
 
           {/* Découpage */}
-          <div className={styles.element_card} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
-            <div className={styles.element_card_info}>
-              <span className={styles.element_card_title}>{t("videoEdit.trimTitle")}</span>
-              <span className={styles.element_card_desc}>
+          <div className={styles["element-card"]} style={{ opacity: hasEncodedSource ? 1 : 0.65 }}>
+            <div className={styles["element-card-info"]}>
+              <span className={styles["element-card-title"]}>{t("videoEdit.trimTitle")}</span>
+              <span className={styles["element-card-desc"]}>
                 {t("videoEdit.trimDesc")}
               </span>
             </div>
-            <div className={styles.element_card_actions}>
+            <div className={styles["element-card-actions"]}>
               <button
-                className={styles.element_action_btn}
+                className={styles["element-action-btn"]}
                 type="button"
                 disabled={!hasEncodedSource}
                 onClick={() => router.push(`/video/edit/${getVideoSlug}/trim`)}
@@ -1360,17 +1366,17 @@ export default function EditVideo() {
         )}
 
         {/* Restrictions section */}
-        <div className={styles.visibility_section}>
+        <div className={styles["visibility-section"]}>
           <button
             type="button"
-            className={styles.visibility_section_header}
+            className={styles["visibility-section-header"]}
             onClick={() => setRestrictionExpanded(!restrictionExpanded)}
           >
             <span>{t("videoEdit.restrictionsHeader")}</span>
             <ExpandMoreIcon style={{ transform: restrictionExpanded ? "rotate(180deg)" : "none", transition: "0.2s" }} />
           </button>
           {restrictionExpanded && (
-            <div className={styles.visibility_section_content}>
+            <div className={styles["visibility-section-content"]}>
               <p style={{ fontSize: "0.8rem", color: "var(--text-color-muted, #94a3b8)", margin: "0 0 8px" }}>
                 {t("videoEdit.restrictionsSub")}
               </p>
@@ -1379,25 +1385,25 @@ export default function EditVideo() {
                 control={control}
                 render={({ field }) => (
                   <RadioGroup {...field}>
-                    <div className={styles.radio_option}>
+                    <div className={styles["radio-option"]}>
                       <Radio value="DR" size="small" sx={{ mt: "-3px" }} />
-                      <div className={styles.radio_option_content}>
+                      <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.draftPrivateTitle")}</h4>
                         <p>{t("videoEdit.draftPrivateDesc")}</p>
                       </div>
                     </div>
                     <Divider />
-                    <div className={styles.radio_option} style={!hasSource ? { opacity: 0.45, cursor: "not-allowed" } : undefined}>
+                    <div className={styles["radio-option"]} style={!hasSource ? { opacity: 0.45, cursor: "not-allowed" } : undefined}>
                       <Radio value="RE" size="small" disabled={!hasSource} sx={{ mt: "-3px" }} />
-                      <div className={styles.radio_option_content}>
+                      <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.restrictedTitle")}</h4>
                         <p>{t("videoEdit.restrictedDesc")}</p>
                       </div>
                     </div>
                     <Divider />
-                    <div className={styles.radio_option} style={!hasSource ? { opacity: 0.45, cursor: "not-allowed" } : undefined}>
+                    <div className={styles["radio-option"]} style={!hasSource ? { opacity: 0.45, cursor: "not-allowed" } : undefined}>
                       <Radio value="PU" size="small" disabled={!hasSource} sx={{ mt: "-3px" }} />
-                      <div className={styles.radio_option_content}>
+                      <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.publicTitle")}</h4>
                         <p>{t("videoEdit.publicDesc")}</p>
                       </div>
@@ -1448,15 +1454,15 @@ export default function EditVideo() {
         </div>
 
         {/* Diffusion config */}
-        <div className={styles.visibility_section}>
-          <button type="button" className={styles.visibility_section_header} onClick={() => setDiffusionExpanded(!diffusionExpanded)}>
+        <div className={styles["visibility-section"]}>
+          <button type="button" className={styles["visibility-section-header"]} onClick={() => setDiffusionExpanded(!diffusionExpanded)}>
             <div>
               <span>{t("videoEdit.diffusionTitle")}</span>
             </div>
             <ExpandMoreIcon style={{ transform: diffusionExpanded ? "rotate(180deg)" : "none", transition: "0.2s" }} />
           </button>
           {diffusionExpanded && (
-            <div className={styles.visibility_section_content}>
+            <div className={styles["visibility-section-content"]}>
               <Controller
                 name="allow_downloading"
                 control={control}
@@ -1487,15 +1493,15 @@ export default function EditVideo() {
         </div>
 
         {/* Advanced */}
-        <div className={styles.visibility_section}>
-          <button type="button" className={styles.visibility_section_header} onClick={() => setAdvancedExpanded(!advancedExpanded)}>
+        <div className={styles["visibility-section"]}>
+          <button type="button" className={styles["visibility-section-header"]} onClick={() => setAdvancedExpanded(!advancedExpanded)}>
             <div>
               <span>{t("videoEdit.advancedOptionsTitle")}</span>
             </div>
             <ExpandMoreIcon style={{ transform: advancedExpanded ? "rotate(180deg)" : "none", transition: "0.2s" }} />
           </button>
           {advancedExpanded && (
-            <div className={styles.visibility_section_content}>
+            <div className={styles["visibility-section-content"]}>
               <Controller
                 name="is_360"
                 control={control}
@@ -1529,10 +1535,10 @@ export default function EditVideo() {
     const viewsCount = video?.views ?? 0;
 
     return (
-      <div className={styles.preview_card_wrapper}>
-        <div className={styles.live_card_container}>
+      <div className={styles["preview-card-wrapper"]}>
+        <div className={styles["live-card-container"]}>
           {/* Media 16:9 */}
-          <div className={styles.live_card_media_wrapper}>
+          <div className={styles["live-card-media-wrapper"]}>
             {(thumbnailPreview || video?.thumbnail) ? (
               <Image
                 src={thumbnailPreview || video?.thumbnail || ""}
@@ -1540,26 +1546,26 @@ export default function EditVideo() {
                 fill
                 sizes="(max-width: 480px) 100vw, 480px"
                 unoptimized
-                className={styles.live_card_img}
+                className={styles["live-card-img"]}
               />
             ) : (
-              <div className={styles.live_card_media_placeholder}>
+              <div className={styles["live-card-media-placeholder"]}>
                 <OndemandVideoIcon style={{ fontSize: 40, opacity: 0.3 }} />
               </div>
             )}
 
             {/* Duration bubble */}
             {video?.duration && (
-              <div className={styles.live_card_duration}>
+              <div className={styles["live-card-duration"]}>
                 {formatTime(secondToMinute(video.duration))}
               </div>
             )}
 
             {/* Encoding overlay if active */}
             {video?.encoding_status && video.encoding_status !== "DO" && (
-              <div className={styles.live_card_encoding_overlay}>
-                <div className={styles.live_card_encoding_progress_bar} style={{ width: video.encoding_status === "PE" ? "30%" : "65%" }}></div>
-                <div className={styles.live_card_encoding_text}>
+              <div className={styles["live-card-encoding-overlay"]}>
+                <div className={styles["live-card-encoding-progress-bar"]} style={{ width: video.encoding_status === "PE" ? "30%" : "65%" }}></div>
+                <div className={styles["live-card-encoding-text"]}>
                   {video.encoding_status_label || "Encodage..."}
                 </div>
               </div>
@@ -1567,19 +1573,19 @@ export default function EditVideo() {
           </div>
 
           {/* Details below */}
-          <div className={styles.live_card_details}>
+          <div className={styles["live-card-details"]}>
             <Avatar sx={{ width: 32, height: 32, mt: 0.5, bgcolor: "var(--c--globals--colors--primary-600, #00818a)", fontSize: "0.85rem", fontWeight: 600 }}>
               {liveInitials}
             </Avatar>
 
-            <div className={styles.live_card_info_block}>
-              <div className={styles.live_card_header_row}>
-                <div className={styles.live_card_title} title={titleVal}>
+            <div className={styles["live-card-info-block"]}>
+              <div className={styles["live-card-header-row"]}>
+                <div className={styles["live-card-title"]} title={titleVal}>
                   {titleVal}
                 </div>
 
                 {/* Badges based on form state */}
-                <div className={styles.live_card_badges}>
+                <div className={styles["live-card-badges"]}>
                   {statusVal === "DR" && (
                     <Tooltip title="Vidéo privée">
                       <span className="material-icons" style={{ fontSize: "1rem", color: "var(--c--globals--colors--gray-500)" }}>visibility_off</span>
@@ -1598,11 +1604,11 @@ export default function EditVideo() {
                 </div>
               </div>
 
-              <div className={styles.live_card_meta}>
+              <div className={styles["live-card-meta"]}>
                 {ownerName}
               </div>
 
-              <div className={styles.live_card_stats}>
+              <div className={styles["live-card-stats"]}>
                 {config?.video?.show_views !== false && (
                   <>{viewsCount} {viewsCount > 1 ? "vues" : "vue"} • </>
                 )}
@@ -1628,10 +1634,10 @@ export default function EditVideo() {
 
         <form className={styles.form} noValidate onSubmit={onFormSubmit}>
           {/* Header */}
-          <div className={styles.page_header}>
-            <h1 className={styles.page_title}>Éditer la vidéo</h1>
-            <div className={styles.header_actions}>
-              <button type="submit" className={`${styles.action_pill_btn} ${styles.primary}`} disabled={isSubmitting}>
+          <div className={styles["page-header"]}>
+            <h1 className={styles["page-title"]}>Éditer la vidéo</h1>
+            <div className={styles["header-actions"]}>
+              <button type="submit" className={`${styles["action-pill-btn"]} ${styles.primary}`} disabled={isSubmitting}>
                 <SaveIcon fontSize="small" /> Sauvegarder
               </button>
             </div>
@@ -1652,27 +1658,27 @@ export default function EditVideo() {
 
           {/* Navigation menu or step content */}
           {mobilePanelIndex === null ? (
-            <div className={styles.mobile_menu_list}>
+            <div className={styles["mobile-menu-list"]}>
               {MOBILE_STEPS.map((step) => (
                 <button
                   key={step.label}
                   type="button"
-                  className={styles.mobile_menu_item}
+                  className={styles["mobile-menu-item"]}
                   onClick={() => step.index >= 0 && setMobilePanelIndex(step.index)}
                   disabled={step.index < 0}
                   style={step.index < 0 ? { opacity: 0.5, cursor: "not-allowed" } : undefined}
                 >
-                  <span className={styles.mobile_menu_item_icon}>{step.icon}</span>
+                  <span className={styles["mobile-menu-item-icon"]}>{step.icon}</span>
                   <span>{step.label}</span>
-                  <ChevronRightIcon className={styles.mobile_menu_item_chevron} />
+                  <ChevronRightIcon className={styles["mobile-menu-item-chevron"]} />
                 </button>
               ))}
             </div>
           ) : (
-            <div>
+            <div className={styles["mobile-panel"]}>
               <button
                 type="button"
-                className={styles.mobile_back_btn}
+                className={styles["mobile-back-btn"]}
                 onClick={() => setMobilePanelIndex(null)}
               >
                 <ChevronLeftIcon fontSize="small" />
@@ -1836,32 +1842,32 @@ export default function EditVideo() {
 
       <form className={styles.form} noValidate onSubmit={onFormSubmit}>
         {/* Page header: title + action buttons */}
-        <div className={styles.page_header}>
-          <h1 className={styles.page_title}>
+        <div className={styles["page-header"]}>
+          <h1 className={styles["page-title"]}>
             {video?.title
               ? t("videoEdit.pageTitle", { title: video.title })
               : t("videoEdit.pageTitleDefault")}
           </h1>
-          <div className={styles.header_actions}>
+          <div className={styles["header-actions"]}>
             {config?.video?.use_duplicate !== false && (
-              <button type="button" className={styles.action_pill_btn} onClick={handleDuplicate} disabled={isDuplicating}>
+              <button type="button" className={styles["action-pill-btn"]} onClick={handleDuplicate} disabled={isDuplicating}>
                 <FileCopyIcon fontSize="small" /> {isDuplicating ? t("videoAction.duplicating") : t("videoEdit.duplicate")}
               </button>
             )}
-            <button type="submit" className={`${styles.action_pill_btn} ${styles.primary}`} disabled={isSubmitting}>
+            <button type="submit" className={`${styles["action-pill-btn"]} ${styles.primary}`} disabled={isSubmitting}>
               <SaveIcon fontSize="small" /> {t("videoEdit.save")}
             </button>
-            <button type="button" className={styles.action_pill_btn} onClick={() => openConfirmLeave(() => router.push(`/video/${getVideoSlug}`))}>
+            <button type="button" className={styles["action-pill-btn"]} onClick={() => openConfirmLeave(() => router.push(`/video/${getVideoSlug}`))}>
               <CloseIcon fontSize="small" /> {t("videoEdit.quit")}
             </button>
           </div>
         </div>
 
         {/* Formik-style Stepper with validation indicators */}
-        <div className={styles.stepper_wrapper}>
-          <div className={styles.custom_stepper}>
-            <div className={styles.stepper_line_bg}></div>
-            <div className={styles.stepper_line_progress} style={{ width: `${(activeStep / (ALL_STEPS.length - 1)) * 100}%` }}></div>
+        <div className={styles["stepper-wrapper"]}>
+          <div className={styles["custom-stepper"]}>
+            <div className={styles["stepper-line-bg"]}></div>
+            <div className={styles["stepper-line-progress"]} style={{ width: `${(activeStep / (ALL_STEPS.length - 1)) * 100}%` }}></div>
             {ALL_STEPS.map((label, index) => {
               const isActive = index === activeStep;
 
@@ -1884,13 +1890,13 @@ export default function EditVideo() {
 
               const isError = (index === 1 && !isDetailsValid && (isSubmitted || activeStep > 1));
 
-              let itemClass = styles.stepper_item;
+              let itemClass = styles["stepper-item"];
               if (isError) {
-                itemClass += ` ${styles.stepper_item_error}`;
+                itemClass += ` ${styles["stepper-item-error"]}`;
               } else if (isActive) {
-                itemClass += ` ${styles.stepper_item_active}`;
+                itemClass += ` ${styles["stepper-item-active"]}`;
               } else if (isCompleted) {
-                itemClass += ` ${styles.stepper_item_completed}`;
+                itemClass += ` ${styles["stepper-item-completed"]}`;
               }
 
               let stepDesc = "";
@@ -1912,8 +1918,8 @@ export default function EditVideo() {
                   className={itemClass}
                   onClick={() => handleStepClick(index)}
                 >
-                  <div className={styles.stepper_item_header}>
-                    <div className={styles.stepper_dot}>
+                  <div className={styles["stepper-item-header"]}>
+                    <div className={styles["stepper-dot"]}>
                       {isError ? (
                         <PriorityHighIcon style={{ fontSize: 16 }} />
                       ) : isCompleted && !isActive ? (
@@ -1922,10 +1928,10 @@ export default function EditVideo() {
                         index + 1
                       )}
                     </div>
-                    <span className={styles.stepper_title}>{label}</span>
+                    <span className={styles["stepper-title"]}>{label}</span>
                   </div>
                   <div
-                    className={styles.stepper_description}
+                    className={styles["stepper-description"]}
                     style={
                       isActive
                         ? { color: "#60a5fa", fontWeight: 600 }
@@ -1945,28 +1951,28 @@ export default function EditVideo() {
         </div>
 
         {/* Step header: step title + Previous/Next */}
-        <div className={styles.step_header}>
+        <div className={styles["step-header"]}>
           <div>
-            <h2 className={styles.step_title}>
+            <h2 className={styles["step-title"]}>
               {ALL_STEPS[activeStep]}
             </h2>
             {activeStep === 0 && (
-              <p className={styles.step_sub_title}>{t("videoEdit.importHeaderSub")}</p>
+              <p className={styles["step-sub-title"]}>{t("videoEdit.importHeaderSub")}</p>
             )}
             {activeStep === 1 && (
-              <p className={styles.step_sub_title}>{t("videoEdit.requiredFieldsPrompt")}</p>
+              <p className={styles["step-sub-title"]}>{t("videoEdit.requiredFieldsPrompt")}</p>
             )}
             {activeStep === 2 && (
-              <p className={styles.step_sub_title}>{t("videoEdit.elementsHeaderSub")}</p>
+              <p className={styles["step-sub-title"]}>{t("videoEdit.elementsHeaderSub")}</p>
             )}
             {activeStep === 3 && (
-              <p className={styles.step_sub_title}>{t("videoEdit.visibilityHeaderSub")}</p>
+              <p className={styles["step-sub-title"]}>{t("videoEdit.visibilityHeaderSub")}</p>
             )}
           </div>
-          <div className={styles.step_nav}>
+          <div className={styles["step-nav"]}>
             <button
               type="button"
-              className={styles.step_nav_btn}
+              className={styles["step-nav-btn"]}
               disabled={activeStep <= 1}
               onClick={handlePreviousStep}
             >
@@ -1975,7 +1981,7 @@ export default function EditVideo() {
             {activeStep < ALL_STEPS.length - 1 ? (
               <button
                 type="button"
-                className={styles.step_nav_btn}
+                className={styles["step-nav-btn"]}
                 onClick={handleNextStep}
               >
                 {t("videoEdit.next")}
@@ -1983,7 +1989,7 @@ export default function EditVideo() {
             ) : (
               <button
                 type="button"
-                className={styles.step_nav_btn}
+                className={styles["step-nav-btn"]}
                 onClick={onFormSubmit}
               >
                 {t("common.save")}
@@ -1995,14 +2001,14 @@ export default function EditVideo() {
         <Divider />
 
         {/* 2-column layout */}
-        <div className={styles.form_layout}>
-          <div className={styles.form_left}>
+        <div className={styles["form-layout"]}>
+          <div className={styles["form-left"]}>
             {activeStep === 0 && renderImportStep()}
             {activeStep === 1 && renderDetailsStep()}
             {activeStep === 2 && renderElementsStep()}
             {activeStep === 3 && renderVisibilityStep()}
           </div>
-          <div className={styles.form_right}>
+          <div className={styles["form-right"]}>
             {renderVideoPreview()}
           </div>
         </div>

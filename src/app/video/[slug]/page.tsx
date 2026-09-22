@@ -73,7 +73,7 @@ function VideoPageSkeleton() {
   return (
     <div>
       <div style={{ width: 100, height: 40, backgroundColor: "#e0e0e0", borderRadius: 4, marginBottom: 20 }} />
-      <div className={styles.main_video_content}>
+      <div className={styles["main-video_content"]}>
         <section style={{ display: "flex", flexDirection: "column", gap: "1.5rem", padding: "10px", minWidth: "70%" }}>
           <div className="skeleton-block" style={{ width: "100%", aspectRatio: "16 / 9", borderRadius: 8 }} />
           <div className="skeleton-block" style={{ width: "60%", height: 32, borderRadius: 4 }} />
@@ -443,7 +443,7 @@ export default function Video() {
             {unlockError}
           </Alert>
         )}
-        <div className={styles.unlock_form}>
+        <div className={styles["unlock-form"]}>
           <Input
             label="Mot de passe"
             required={true}
@@ -473,12 +473,12 @@ export default function Video() {
   return (
     <div>
       <BackButton label={t("videoPage.back")} />
-      <div className={styles.main_video_content}>
+      <div className={styles["main-video-content"]}>
         {/* --------------------------------------------------------------
          *  Colonne principale
          * ------------------------------------------------------------ */}
-        <section className={styles.video_main_section}>
-          <div className={styles.video_wrapper}>
+        <section className={styles["video-main-section"]}>
+          <div className={styles["video-wrapper"]}>
           {resolvedStreamUrl ? (
             <VideoPlayer
               video={video}
@@ -501,10 +501,10 @@ export default function Video() {
             </div>
           )}
           </div>
-          <div className={styles.video_title_row}>
+          <div className={styles["video-title-row"]}>
             <h1>{video.title}</h1>
             {config?.video?.show_views !== false && video.views != null && (
-              <span className={styles.video_views}>{video.views} {t("videoPage.views")}</span>
+              <span className={styles["video-views"]}>{video.views} {t("videoPage.views")}</span>
             )}
           </div>
 
@@ -515,36 +515,36 @@ export default function Video() {
           )}
 
           {/* -------------------- Infos vidéo -------------------- */}
-          <div className={styles.video_infos}>
-            <div className={styles.video_infos_header}>
-              <div className={styles.video_infos_header_time}>
+          <div className={styles["video-infos"]}>
+            <div className={styles["video-infos-header"]}>
+              <div className={styles["video-infos-header-time"]}>
                 <span className="material-icons" aria-hidden="true" style={{ fontSize: "18px" }}>
                   calendar_today
                 </span>
                 {formatDateOnly(video.created_at, locale)}
               </div>
-              <div className={styles.video_infos_header_time}>
+              <div className={styles["video-infos-header-time"]}>
                 <span className="material-icons" aria-hidden="true" style={{ fontSize: "18px" }}>
                   access_time
                 </span>
                 {formatTime(time)}
               </div>
 
-              <div className={styles.video_actions_row}>
+              <div className={styles["video-actions-row"]}>
                 {config?.video?.hide_share !== true && (
-                  <VideoShareMenu video={video} className={styles.action_pill} />
+                  <VideoShareMenu video={video} className={styles["action-pill"]} />
                 )}
                 {video.allow_downloading && (
                   <VideoDownloadMenu
                     video={video}
-                    className={styles.action_pill}
+                    className={styles["action-pill"]}
                     onDownloadStreamUrl={(url, res) => handleDownload(url, res)}
                   />
                 )}
                 {user && config?.collection?.use_playlists !== false && (
                   <PlaylistActionMenu playlists={myPlaylists} videoId={video.id} />
                 )}
-                <button className={`${styles.action_pill} ${styles.report_btn}`} disabled title="Fonctionnalité à venir">
+                <button className={`${styles["action-pill"]} ${styles["report-btn"]}`} disabled title="Fonctionnalité à venir">
                   <FlagIcon fontSize="small" /> {t("videoPage.report")}
                 </button>
                 {isOwnerOrCoOwner && canEdit && (
@@ -581,14 +581,14 @@ export default function Video() {
                   <>
                     {video.description && (
                       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "1rem" }}>
-                        <div className={`${styles.video_infos_description} ${!isDescriptionExpanded ? styles.collapsed : ""}`}>
+                        <div className={`${styles["video-infos-description"]} ${!isDescriptionExpanded ? styles.collapsed : ""}`}>
                           <p style={{ margin: 0 }}>{video.description}</p>
                           <p style={{ margin: 0, marginTop: 8, color: "var(--c--globals--colors--gray-500)" }}>
                             Mis à jour le : {formatDateWithTime(video.updated_at)}
                           </p>
                         </div>
                         <button 
-                          className={styles.read_more_btn} 
+                          className={styles["read-more-btn"]} 
                           onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                         >
                           {isDescriptionExpanded ? "Voir moins " : "Voir plus "}
@@ -596,7 +596,7 @@ export default function Video() {
                         </button>
                       </div>
                     )}
-                    <div className={styles.video_infos_details}>
+                    <div className={styles["video-infos-details"]}>
                       <div>
                         <dt>Chaîne</dt>
                         <dd>{video.channel ? video.channel : "Aucune"}</dd>
@@ -612,7 +612,7 @@ export default function Video() {
                         <dd>{getLanguageLabel(video.language)}</dd>
                       </div>
                       {video.tags != null && video.tags?.length > 0 && (
-                        <div className={styles.video_infos_details_tags}>
+                        <div className={styles["video-infos-details-tags"]}>
                           <dt>Mots clés</dt>
                           <dd>
                             {video.tags.map((label) => (
@@ -634,28 +634,28 @@ export default function Video() {
                   )
                 )}
                 {mobileTab === 'apropos' && (
-                  <section className={styles.sidebar_card}>
-                    <h2 className={styles.sidebar_card_title}>À propos</h2>
+                  <section className={styles["sidebar-card"]}>
+                    <h2 className={styles["sidebar-card-title"]}>À propos</h2>
                     <Divider sx={{ mb: 2 }} />
-                    <div className={styles.sidebar_list_item}>
+                    <div className={styles["sidebar-list-item"]}>
                       <h4><LibraryBooksIcon fontSize="small" /> Type</h4>
-                      <p className={styles.sidebar_blue_text}>{video.type_name || "Aucun"}</p>
+                      <p className={styles["sidebar-blue-text"]}>{video.type_name || "Aucun"}</p>
                     </div>
-                    <div className={styles.sidebar_list_item}>
+                    <div className={styles["sidebar-list-item"]}>
                       <h4><PieChartIcon fontSize="small" /> Discipline(s)</h4>
                       <ul>
                         {video.discipline_details?.length ? (
                           video.discipline_details.map((d) => (
-                            <li key={d.id} className={styles.sidebar_blue_text}>{d.title}</li>
+                            <li key={d.id} className={styles["sidebar-blue-text"]}>{d.title}</li>
                           ))
                         ) : (
-                          <li className={styles.sidebar_blue_text}>Aucune</li>
+                          <li className={styles["sidebar-blue-text"]}>Aucune</li>
                         )}
                       </ul>
                     </div>
-                    <div className={styles.sidebar_list_item}>
+                    <div className={styles["sidebar-list-item"]}>
                       <h4><SchoolIcon fontSize="small" /> Intervenants</h4>
-                      <p className={styles.sidebar_blue_text}>
+                      <p className={styles["sidebar-blue-text"]}>
                         {getVideoOwnerDisplayName(video, config?.authentication, true)}
                         {coOwnersUsers.length > 0 && <br/>}
                         {coOwnersUsers.length > 0 && coOwnersUsers.map((u) => getUserDisplayName(u, config?.authentication, true)).join(", ")}
@@ -664,15 +664,15 @@ export default function Video() {
                   </section>
                 )}
                 {mobileTab === 'ressources' && video.documents && video.documents.length > 0 && (
-                  <section className={styles.sidebar_card}>
-                    <h2 className={styles.sidebar_card_title}>Ressources</h2>
+                  <section className={styles["sidebar-card"]}>
+                    <h2 className={styles["sidebar-card-title"]}>Ressources</h2>
                     <div>
                       {video.documents.map(doc => (
-                        <a key={doc.id} href={doc.file} target="_blank" rel="noopener noreferrer" className={styles.document_item}>
-                          <InsertDriveFileIcon className={styles.document_icon} />
-                          <div className={styles.document_info}>
-                            <span className={styles.document_title}>{doc.title}</span>
-                            <span className={styles.document_date}>{formatDateWithTime(doc.created_at)}</span>
+                        <a key={doc.id} href={doc.file} target="_blank" rel="noopener noreferrer" className={styles["document-item"]}>
+                          <InsertDriveFileIcon className={styles["document-icon"]} />
+                          <div className={styles["document-info"]}>
+                            <span className={styles["document-title"]}>{doc.title}</span>
+                            <span className={styles["document-date"]}>{formatDateWithTime(doc.created_at)}</span>
                           </div>
                         </a>
                       ))}
@@ -683,7 +683,7 @@ export default function Video() {
             </Box>
           ) : (
             <>
-              <div className={styles.video_infos_details}>
+              <div className={styles["video-infos-details"]}>
                 <div>
                   <dt>{t("videoPage.channel")}</dt>
                   <dd>{video.channel ? video.channel : t("videoPage.none")}</dd>
@@ -699,7 +699,7 @@ export default function Video() {
                   <dd>{getLanguageLabel(video.language)}</dd>
                 </div>
                 {video.tags != null && video.tags?.length > 0 && (
-                  <div className={styles.video_infos_details_tags}>
+                  <div className={styles["video-infos-details-tags"]}>
                     <dt>{t("videoPage.keywords")}</dt>
                     <dd>
                       {video.tags.map((label) => (
@@ -713,14 +713,14 @@ export default function Video() {
               {/* Description */}
               {video.description && (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                  <div className={`${styles.video_infos_description} ${!isDescriptionExpanded ? styles.collapsed : ""}`}>
+                  <div className={`${styles["video-infos-description"]} ${!isDescriptionExpanded ? styles.collapsed : ""}`}>
                     <p style={{ margin: 0 }}>{video.description}</p>
                     <p style={{ margin: 0, marginTop: 8, color: "var(--c--globals--colors--gray-500)" }}>
                       {t("videoPage.updatedAt")} {formatDateWithTime(video.updated_at, locale)}
                     </p>
                   </div>
                   <button 
-                    className={styles.read_more_btn} 
+                    className={styles["read-more-btn"]} 
                     onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                   >
                     {isDescriptionExpanded ? t("videoPage.seeLess") : t("videoPage.seeMore")}
@@ -779,66 +779,66 @@ export default function Video() {
               )}
 
               {/* Section "À propos"*/}
-              <section className={styles.sidebar_card}>
-                <h2 className={styles.sidebar_card_title}>{t("videoPage.about")}</h2>
+              <section className={styles["sidebar-card"]}>
+                <h2 className={styles["sidebar-card-title"]}>{t("videoPage.about")}</h2>
                 <Divider sx={{ mb: 2 }} />
                 
-                <div className={styles.sidebar_list_item}>
+                <div className={styles["sidebar-list-item"]}>
                   <h3><LibraryBooksIcon fontSize="small" /> {t("videoPage.type")}</h3>
-                  <p className={styles.sidebar_blue_text}>{video.type_name || t("videoPage.none")}</p>
+                  <p className={styles["sidebar-blue-text"]}>{video.type_name || t("videoPage.none")}</p>
                 </div>
 
                 {video.date_of_event && (
-                  <div className={styles.sidebar_list_item}>
+                  <div className={styles["sidebar-list-item"]}>
                     <h3><PieChartIcon fontSize="small" aria-hidden="true" /> {t("videoPage.eventDate")}</h3>
-                    <p className={styles.sidebar_blue_text}>{formatDateOnly(video.date_of_event, locale)}</p>
+                    <p className={styles["sidebar-blue-text"]}>{formatDateOnly(video.date_of_event, locale)}</p>
                   </div>
                 )}
 
-                <div className={styles.sidebar_list_item}>
+                <div className={styles["sidebar-list-item"]}>
                   <h3><PieChartIcon fontSize="small" aria-hidden="true" /> {t("videoPage.discipline")}</h3>
                   <ul>
                     {video.discipline_details?.length ? (
                       video.discipline_details.map((d) => (
-                        <li key={d.id} className={styles.sidebar_blue_text}>{d.title}</li>
+                        <li key={d.id} className={styles["sidebar-blue-text"]}>{d.title}</li>
                       ))
                     ) : (
-                      <li className={styles.sidebar_blue_text}>{t("videoPage.none")}</li>
+                      <li className={styles["sidebar-blue-text"]}>{t("videoPage.none")}</li>
                     )}
                   </ul>
                 </div>
 
-                <div className={styles.sidebar_list_item}>
+                <div className={styles["sidebar-list-item"]}>
                   <h4><SchoolIcon fontSize="small" /> {t("videoPage.contributors")}</h4>
-                  <p className={styles.sidebar_blue_text}>
+                  <p className={styles["sidebar-blue-text"]}>
                     {getVideoOwnerDisplayName(video, config?.authentication, true)}
                     {coOwnersUsers.length > 0 && <br />}
                     {coOwnersUsers.length > 0 && coOwnersUsers.map((u) => getUserDisplayName(u, config?.authentication, true)).join(", ")}
                   </p>
                 </div>
 
-                <div className={styles.sidebar_list_item}>
+                <div className={styles["sidebar-list-item"]}>
                   <h3><MonitorIcon fontSize="small" aria-hidden="true" /> {t("videoPage.license")}</h3>
-                  <p className={styles.sidebar_blue_text}>{video.license ?? t("videoPage.none")}</p>
+                  <p className={styles["sidebar-blue-text"]}>{video.license ?? t("videoPage.none")}</p>
                 </div>
 
-                <div className={styles.sidebar_list_item}>
+                <div className={styles["sidebar-list-item"]}>
                   <h3><PieChartIcon fontSize="small" aria-hidden="true" /> {t("videoPage.cursus")}</h3>
-                  <p className={styles.sidebar_blue_text}>{getCursusLabel(video.cursus, t)}</p>
+                  <p className={styles["sidebar-blue-text"]}>{getCursusLabel(video.cursus, t)}</p>
                 </div>
               </section>
 
               {/* Bloc Ressources */}
               {video.documents && video.documents.length > 0 && (
-                <section className={styles.sidebar_card}>
-                  <h2 className={styles.sidebar_card_title}>{t("videoPage.resources")}</h2>
+                <section className={styles["sidebar-card"]}>
+                  <h2 className={styles["sidebar-card-title"]}>{t("videoPage.resources")}</h2>
                   <div>
                     {video.documents.map(doc => (
-                      <a key={doc.id} href={doc.file} target="_blank" rel="noopener noreferrer" className={styles.document_item}>
-                        <InsertDriveFileIcon className={styles.document_icon} aria-hidden="true" />
-                        <div className={styles.document_info}>
-                          <span className={styles.document_title}>{doc.title}</span>
-                          <span className={styles.document_date}>{formatDateWithTime(doc.created_at, locale)}</span>
+                      <a key={doc.id} href={doc.file} target="_blank" rel="noopener noreferrer" className={styles["document-item"]}>
+                        <InsertDriveFileIcon className={styles["document-icon"]} aria-hidden="true" />
+                        <div className={styles["document-info"]}>
+                          <span className={styles["document-title"]}>{doc.title}</span>
+                          <span className={styles["document-date"]}>{formatDateWithTime(doc.created_at, locale)}</span>
                         </div>
                       </a>
                     ))}
