@@ -16,12 +16,16 @@ interface LanguageContextType {
 
 const STORAGE_KEY = "pod_language";
 
+/** * List of supported locales with their labels. */
 const supportedLocales: { code: SupportedLocale; label: string }[] = [
   { code: "fr", label: "Français" },
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
 ];
 
+/**
+ * A context for managing the application's language.
+ */
 const LanguageContext = createContext<LanguageContextType>({
   locale: "fr",
   setLocale: () => {},
@@ -29,6 +33,9 @@ const LanguageContext = createContext<LanguageContextType>({
   supportedLocales,
 });
 
+/**
+ * Get the initial locale from localStorage or default to "fr"
+ */
 function getInitialLocale(): SupportedLocale {
   if (typeof window !== "undefined") {
     const stored = localStorage.getItem(STORAGE_KEY) as SupportedLocale;
@@ -40,6 +47,12 @@ function getInitialLocale(): SupportedLocale {
   return "fr";
 }
 
+/**
+ * A provider component that manages the application's language context.
+ *
+ * @param param0 The children to be wrapped by the provider.
+ * @returns The language provider component.
+ */
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<SupportedLocale>(getInitialLocale);
 
@@ -111,6 +124,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * Custom hook to access the language context.
+ *
+ * @returns The current language context value.
+ */
 export function useLanguage() {
   return useContext(LanguageContext);
 }
