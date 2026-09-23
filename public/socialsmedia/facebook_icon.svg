@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="facebook">
+  <rect width="224" height="224" x="16" y="16" fill="url(#facebook_bg)" rx="70"></rect>
+
+  <g transform="translate(128, 128)">
+    <path fill="url(#facebook_icon)" transform="translate(-32.5, -60)" d="M65 0H43.3C21.7 0 13 14.4 13 36.1V55H0v26h13v65h28.2V81h20.8l3-26H41.2V39.2c0-7.6 3.6-11.4 11.9-11.4H65V0z"></path>
+  </g>
+
+  <defs>
+    <linearGradient id="facebook_bg" x1="16" x2="208" y1="16" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"></stop>
+      <stop offset="1" stop-color="#CBE0FF"></stop>
+    </linearGradient>
+
+    <linearGradient id="facebook_icon" x1="0" x2="65" y1="0" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1877F2"></stop>
+      <stop offset="1" stop-color="#0B51C3"></stop>
+    </linearGradient>
+  </defs>
+</svg>

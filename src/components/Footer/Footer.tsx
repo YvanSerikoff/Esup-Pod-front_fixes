@@ -11,7 +11,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 export default function Footer() {
   const { info } = useAppInfo();
   const { t } = useTranslation();
-  const projectName = info?.project ?? "Esup.Pod";
+  const projectName = info?.project ?? "Esup-Pod";
   const version = info?.version ?? "N/A";
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -46,38 +46,38 @@ export default function Footer() {
           </address>
         </div>
         <div className={styles["footer-link"]}>
-          <Link href="/pages/mentions-legales">{t("footer.legalNotice")}</Link>
-          <Link href="/pages/accessibilite">{t("footer.accessibilityPartially")}</Link>
-          <Link href="/pages/plan-du-site">{t("footer.siteMap")}</Link>
-          <Link href="/pages/utiliser-pod">{t("home.btnUsePod")}</Link>
-          <Link href="/pages/comment-faire">{t("home.btnHowTo")}</Link>
-          <Link href="/pages/droits-auteur">{t("home.btnCopyright")}</Link>
+          <Link href="/pages/legal-notice">{t("footer.legalNotice")}</Link>
+          <Link href="/pages/accessibility">{t("footer.accessibilityPartially")}</Link>
+          <Link href="/pages/site-map">{t("footer.siteMap")}</Link>
+          <Link href="/pages/how-to-use-pod">{t("home.btnUsePod")}</Link>
+          <Link href="/pages/how-to">{t("home.btnHowTo")}</Link>
+          <Link href="/pages/copyright">{t("home.btnCopyright")}</Link>
         </div>
         <div className={styles["footer-extra-link"]}>
           <div className={styles["footer-extra-link-icons"]}>
             <span className={styles["footer-extra-link-icon"]}>
               <a href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-                <Image src="/facebook_icon.png" alt={t("a11y.facebookLogo")} fill />
+                <Image src="/socialsmedia/facebook_icon.svg" alt={t("a11y.facebookLogo")} fill />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a href={`https://twitter.com/share?url=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-                <Image src="/x_icon.png" alt={t("a11y.xLogo")} fill />
+                <Image src="/socialsmedia/x_icon.svg" alt={t("a11y.xLogo")} fill />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/linkedin_icon.png" alt={t("a11y.linkedinLogo")} fill />
+              <Image src="/socialsmedia/linkedin_icon.svg" alt={t("a11y.linkedinLogo")} fill />
             </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`https://bsky.app/intent/compose?text=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/bluesky_icon.png" alt={t("a11y.blueskyLogo")} fill />
+              <Image src="/socialsmedia/bluesky_icon.svg" alt={t("a11y.blueskyLogo")} fill />
             </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
             <a href={`${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/mastodon_icon.png" alt={t("a11y.mastodonLogo")} fill />
+              <Image src="/socialsmedia/mastodon_icon.svg" alt={t("a11y.mastodonLogo")} fill />
             </a>
             </span>
           </div>
