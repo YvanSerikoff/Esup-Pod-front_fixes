@@ -178,7 +178,7 @@ export default function Channel() {
 
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       {useChannelLoading ? (
         <CenteredLoader />
       ) : (

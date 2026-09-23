@@ -139,14 +139,14 @@ export default function PlaylistPage() {
         <Alert type={VariantType.ERROR} canClose>
           {usePlaylistError ?? "Impossible de charger la playlist."}
         </Alert>
-        <BackButton label="Retour" />
+        <BackButton label={t("common.back")} />
       </div>
     );
   }
 
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <div className={styles["playlist-content"]}>
         {playlistJustCreated && (
           <Alert type={VariantType.SUCCESS} aria-live="polite">

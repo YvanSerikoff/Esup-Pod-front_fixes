@@ -14,6 +14,7 @@ import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import styles from "../edit/[slug]/styles.module.css";
 import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import { usePlaylistCreationContext } from "@/src/context/PlaylistCreationContext";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Ajouter une liste de lecture";
 
@@ -47,6 +48,7 @@ export default function AddPlaylist() {
   const [formError, setformError] = useState<string | null>(null);
   const [isDirty, setIsDirty] = useState(false);
   const isMobile = useMediaQuery("(max-width: 932px)");
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -177,7 +179,7 @@ export default function AddPlaylist() {
 
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <h1>Ajouter une liste de lecture</h1>
 
       {(formError || error || usePlaylistError) && (

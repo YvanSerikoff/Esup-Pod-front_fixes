@@ -20,7 +20,7 @@ export default function FlatPage() {
   if (error || !page) {
     return (
       <div className={styles.main}>
-        <BackButton label="Retour" />
+        <BackButton label={t("common.back")} />
         <h1 style={{ marginTop: "1rem" }}>Page introuvable</h1>
         <Alert type={VariantType.ERROR}>
           {error?.message || "La page demandée n'existe pas ou n'a pas encore été configurée pour cette université."}
@@ -31,7 +31,7 @@ export default function FlatPage() {
 
   return (
     <div className={styles.main} style={{ maxWidth: "800px", margin: "0 auto", padding: "2rem" }}>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <h1 style={{ marginTop: "1rem", color: "var(--c--globals--colors--primary-600)" }}>{page.title}</h1>
       <div 
         style={{ marginTop: "2rem", lineHeight: "1.6" }}

@@ -212,7 +212,7 @@ export default function FavoritesPlaylistPage() {
         <Alert canClose type={VariantType.ERROR}>
           {useFavoritesError}
         </Alert>
-        <BackButton label="Retour" />
+        <BackButton label={t("common.back")} />
       </div>
     );
   }

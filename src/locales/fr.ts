@@ -33,6 +33,19 @@ export const fr = {
     displayMode: "Affichage :",
     viewCards: "Cartes",
     viewTable: "Tableau",
+    update: "Mettre à jour",
+  },
+  errors: {
+    error: "Une erreur est survenue",
+    notFound: "Page introuvable",
+    notFoundDesc: "La page que vous recherchez n’existe pas ou a été supprimée.",
+    serverError: "Erreur serveur",
+    serverErrorDesc: "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
+    imageSendError: "Echec de l'envoi de l'image",
+    imageDeleteError: "Echec de la suppression de l'image",
+    notConnected: "Utilisateur non connecté",
+    chooseImage: "Veuillez choisir une image",
+    unableToSection: "Impossible de charger cette section de l'application"
   },
   a11y: {
     institutionLogo: "Logo de l’établissement",
@@ -51,8 +64,23 @@ export const fr = {
     watermark: "Filigrane",
     profilePreview: "Aperçu de la photo de profil",
     currentProfilePicture: "Photo de profil actuelle",
+    newProfilePictureSuccess: "Image de profil mise a jour avec succès",
+    deleteProfilePictureSuccess: "Image de profil supprimée avec succès",
+    deleteProfilePicture: "Supprimer la photo actuelle",
+    chooseImage: "Veuillez sélectionner une image",
+
     thumbnail: "Vignette",
     preview: "Aperçu",
+  },
+  pending:{
+    sending: "Envoi en cours…",
+    deleting: "Suppression en cours…",
+    updating: "Mise à jour en cours…",
+    loading: "Chargement en cours…",
+    encoding: "Encodage en cours…",
+    processing: "Traitement en cours…",
+    saving: "Enregistrement en cours…",
+    publishing: "Publication en cours…",
   },
   home: {
     welcomeSubtitle: "Bienvenue sur votre plateforme POD !",

@@ -20,6 +20,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import type { CollectionOrder } from "@/src/constants/collection";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Éditer la liste de lecture";
 
@@ -43,6 +44,7 @@ const FORM_FIELD_LABELS: Partial<Record<keyof EditPlaylistFormValues, string>> =
   };
 
 export default function EditPlaylist() {
+  const { t } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const isMobile = useMediaQuery("(max-width: 932px)");
@@ -246,14 +248,14 @@ export default function EditPlaylist() {
         <Alert>
           Vous n’avez pas les droits pour modifier cette liste de lecture.
         </Alert>
-        <BackButton label="Retour" />
+        <BackButton label={t("common.back")} />
       </div>
     );
   }
 
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <h1>Éditer la liste de lecture {playlist?.title}</h1>
 
       {/* ---------- Alertes globales ---------- */}

@@ -231,14 +231,14 @@ export default function Theme() {
         <Alert canClose type={VariantType.ERROR}>
           {useThemeError ?? "Impossible de charger ce thème."}
         </Alert>
-        <BackButton label="Retour" />
+        <BackButton label={t("common.back")} />
       </div>
     );
   }
 
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <div>
         {useThemeError && (
           <Alert canClose type={VariantType.ERROR}>

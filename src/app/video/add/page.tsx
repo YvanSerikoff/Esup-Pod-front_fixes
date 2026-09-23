@@ -26,6 +26,7 @@ import BackButton from "@/src/components/BackButton/BackButton";
 import styles from "./styles.module.css";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Ajouter une vidéo";
 
@@ -36,6 +37,7 @@ type AddVideoFormValues = {
 };
 
 export default function AddVideo() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { accessToken, refresh } = useAuth();
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();
@@ -128,7 +130,7 @@ export default function AddVideo() {
 
   return (
     <div>
-      <BackButton label="Retour" onClick={() => router.back()} />
+      <BackButton label={t("common.back")} onClick={() => router.back()} />
       <h1 style={{ fontWeight: 700, fontSize: "1.5rem", marginBottom: 16 }}>Importer une vidéo</h1>
 
       {error && <Alert canClose type={VariantType.ERROR} aria-live="assertive">{error}</Alert>}

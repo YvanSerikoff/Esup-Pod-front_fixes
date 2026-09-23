@@ -1682,7 +1682,7 @@ export default function EditVideo() {
                 onClick={() => setMobilePanelIndex(null)}
               >
                 <ChevronLeftIcon fontSize="small" />
-                {MOBILE_STEPS.find((s) => s.index === mobilePanelIndex)?.label ?? "Retour"}
+                {MOBILE_STEPS.find((s) => s.index === mobilePanelIndex)?.label ?? t("common.back")}
               </button>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {mobilePanelIndex === 0 && renderImportStep()}

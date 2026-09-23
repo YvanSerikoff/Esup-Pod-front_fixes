@@ -38,7 +38,7 @@ export default function UserProfilePicture() {
     setSuccess(null);
 
     if (!user) {
-      setError("Utilisateur non connecté.");
+      setError(t("errors.notConnected"));
       return;
     }
 
@@ -55,15 +55,15 @@ export default function UserProfilePicture() {
 
       if (!res.ok) {
         const message = await res.text();
-        throw new Error(message || "Échec de la suppression de l'image.");
+        throw new Error(message || t("errors.imageDeleteError"));
       }
 
-      setSuccess("Photo de profil supprimée avec succès.");
+      setSuccess(t("a11y.deleteProfilePictureSuccess"));
       await reloadAuthData();
       setFile(null);
       setPreviewUrl(null);
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+      setError(err instanceof Error ? err.message : t("errors.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -75,11 +75,11 @@ export default function UserProfilePicture() {
     setSuccess(null);
 
     if (!user) {
-      setError("Utilisateur non connecté.");
+      setError(t("errors.notConnected"));
       return;
     }
     if (!file) {
-      setError("Veuillez sélectionner une image.");
+      setError(t("errors.chooseImage"));
       return;
     }
 
@@ -110,18 +110,18 @@ export default function UserProfilePicture() {
 
       if (!res.ok) {
         const message = await res.text();
-        throw new Error(message || "Echec de l'envoi de l'image.");
+        throw new Error(message || t("errors.imageSendError"));
       }
 
       if (res.status === 200) {
-        setSuccess("Image de profil mise a jour avec succès ! 🥳");
+        setSuccess(t("a11y.newProfilePictureSuccess"));
       }
       setFile(null);
       setPreviewUrl(null);
       await reloadAuthData();
       setFile(null);
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+      setError(err instanceof Error ? err.message : t("errors.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -168,7 +168,7 @@ export default function UserProfilePicture() {
             )}
           </div>
           <FileUploader
-            bigText="Ajouter une photo de profil"
+            bigText={t("a11y.chooseImage")}
             fullWidth={true}
             state={error ? "error" : "default"}
             onFilesChange={(event) => {
@@ -192,7 +192,7 @@ export default function UserProfilePicture() {
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Envoi..." : "Mettre à jour"}
+            {isSubmitting ? t("pending.sending") : t("common.update")}
           </Button>
 
           {user?.userpicture && (
@@ -203,7 +203,7 @@ export default function UserProfilePicture() {
               disabled={isSubmitting}
               onClick={handleDeletePicture}
             >
-              {isSubmitting ? "Suppression..." : "Supprimer la photo actuelle"}
+              {isSubmitting ? t("pending.deleting") : t("a11y.deleteProfilePicture")}
             </Button>
           )}
         </div>

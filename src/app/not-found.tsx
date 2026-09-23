@@ -7,7 +7,7 @@ import BackButton from "../components/BackButton/BackButton";
 export default function NotFound() {
   return (
     <div>
-      <BackButton label="Retour" />
+      <BackButton label={t("common.back")} />
       <h1>Page introuvable ☹️</h1>
       <Alert type={VariantType.WARNING}>La page demandée n'existe pas.</Alert>
       <Link href="/">
