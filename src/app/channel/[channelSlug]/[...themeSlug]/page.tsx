@@ -273,7 +273,7 @@ export default function Theme() {
       <div>
         {baseChildThemes.length === 0 && themeItems.length === 0 ? (
           <Alert type={VariantType.INFO}>
-            Ce thème n'a aucune vidéo ou sous-thème associé.
+            {t("common.noResults")}
           </Alert>
         ) : (
           <Box sx={{ width: "100%", typography: "body1" }}>
@@ -298,7 +298,7 @@ export default function Theme() {
             <Box sx={{ mt: 2 }}>
               {selectedTab === "unclassified" && (
                 <div>
-                  <h2>Videos non classées</h2>
+                  <h2>{t("channels.unclassified")}</h2>
                   {useVideoError && (
                     <Alert canClose type={VariantType.ERROR}>
                       {useVideoError}
@@ -383,12 +383,11 @@ export default function Theme() {
 
                   {baseChildThemes.length === 0 ? (
                     <Alert type={VariantType.INFO}>
-                      Aucun sous-thème lié à ce thème.
+                      {t("common.noResults")}
                     </Alert>
                   ) : filteredChildThemes.length === 0 ? (
                     <Alert type={VariantType.INFO}>
-                      Aucun sous-thème ne correspond à vos critères de
-                      recherche.
+                      {t("common.noResults")}
                     </Alert>
                   ) : (
                     <CollectionDisplay

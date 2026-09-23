@@ -34,6 +34,7 @@ export const fr = {
     viewCards: "Cartes",
     viewTable: "Tableau",
     update: "Mettre à jour",
+    noResults: "Aucun résultat pour votre recherche",
   },
   errors: {
     error: "Une erreur est survenue",
@@ -411,6 +412,9 @@ export const fr = {
     title: "Chaînes",
     noChannels: "Aucune chaîne disponible pour le moment.",
     noMatchingFilters: "Aucune chaîne ne correspond à vos filtres.",
+    content: "Contenus de la chaîne",
+    noContent: "Cette chaine n'a aucune vidéo ou thème associé",
+    unclassified: "Videos non classées",
   },
   dressingPage: {
     title: "Habillages & Filigranes Vidéo",

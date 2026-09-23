@@ -36,6 +36,7 @@ export const en: TranslationKeys = {
     viewCards: "Cards",
     viewTable: "Table",
     update: "Update",
+    noResults: "No results for your search",
   },
   errors: {
     error: "An error occurred",
@@ -412,6 +413,9 @@ export const en: TranslationKeys = {
     title: "Channels",
     noChannels: "No channels available at the moment.",
     noMatchingFilters: "No channels match your active filters.",
+    content: "Content of the channel",
+    noContent: "This channel has no associated videos or themes.",
+    unclassified: "Unclassified videos",
   },
   dressingPage: {
     title: "Video Branding & Watermarks",

@@ -36,6 +36,7 @@ export const es: TranslationKeys = {
     viewCards: "Tarjetas",
     viewTable: "Tabla",
     update: "Actualizar",
+    noResults: "No hay resultados para su búsqueda",
   },
   errors: {
     error: "Ocurrió un error",
@@ -412,6 +413,9 @@ export const es: TranslationKeys = {
     title: "Canales",
     noChannels: "No hay canales disponibles por el momento.",
     noMatchingFilters: "Ningún canal coincide con sus filtros.",
+    content: "Contenidos del canal",
+    noContent: "Este canal no tiene vídeos ni temas asociados",
+    unclassified: "Vídeos no clasificados",
   },
   dressingPage: {
     title: "Carátulas y Marcas de agua de vídeo",

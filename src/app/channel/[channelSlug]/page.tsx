@@ -214,7 +214,7 @@ export default function Channel() {
                 <Tabs
                   value={value}
                   onChange={handleChange}
-                  aria-label="Contenus de la chaine"
+                  aria-label={t("channels.content")}
                 >
                   <Tab
                     disabled={visibleAndPublicVideos.length === 0}
@@ -235,13 +235,13 @@ export default function Channel() {
                 visibleAndPublicVideos.length === 0 &&
                 channelAllThemes.length === 0 ? (
                   <Alert type={VariantType.INFO}>
-                    Cette chaine n'a aucune vidéo ou thème associé.
+                    {t("channels.noContent")}
                   </Alert>
                 ) : (
                   <Box sx={{ mt: 2 }}>
                     {value === "unclassified" && (
                       <div>
-                        <h2>Videos non classées</h2>
+                        <h2>{t("channels.unclassified")}</h2>
                         {useVideoError && (
                           <Alert canClose type={VariantType.ERROR}>
                             {useVideoError}
@@ -276,8 +276,8 @@ export default function Channel() {
                         {visibleAndPublicVideos.length === 0 && !useVideoLoading ? (
                           <Alert type={VariantType.INFO}>
                             {hasActiveVideoFilters
-                              ? "Aucune vidéo ne correspond à vos filtres."
-                              : "Aucune vidéo liée à cette chaîne."}
+                              ? t("common.noResults")
+                              : t("channels.noContent")}
                           </Alert>
                         ) : (
                           <VideoDisplay
@@ -333,12 +333,11 @@ export default function Channel() {
 
                         {channelAllThemes.length === 0 && !loading && hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
-                            Aucun thème lié à cette chaine.
+                            {t("common.noResults")}
                           </Alert>
                         ) : channelThemes.length === 0 && !loading && hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
-                            Aucun thème ne correspond à vos critères de
-                            recherche.
+                            {t("common.noResults")}
                           </Alert>
                         ) : (
                           <CollectionDisplay
