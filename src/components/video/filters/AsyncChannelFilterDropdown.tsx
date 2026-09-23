@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { useChannel } from "@/src/hooks/useChannel";
+import { useTranslation } from "@/src/hooks/useTranslation";
 import type { Channel } from "@/src/types";
 import { debounce } from "@mui/material/utils";
 
@@ -21,6 +22,7 @@ export default function AsyncChannelFilterDropdown({
   onChange,
 }: AsyncChannelFilterDropdownProps) {
   const { fetchAll } = useChannel();
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<Option[]>([]);
   const [loading, setLoading] = useState(false);
@@ -38,11 +40,11 @@ export default function AsyncChannelFilterDropdown({
       if (existing) {
         setSelectedOption(existing);
       } else {
-        setSelectedOption({label: `Chaîne ${selectedChannelId}`, value: selectedChannelId});
+        setSelectedOption({ label: `${t("videoPage.channel")} ${selectedChannelId}`, value: selectedChannelId });
       }
     };
     void loadSelectedChannel();
-  }, [options, selectedChannelId, selectedOption]);
+  }, [options, selectedChannelId, selectedOption, t]);
 
   const fetchOptions = useMemo(
     () =>
@@ -92,7 +94,7 @@ export default function AsyncChannelFilterDropdown({
           <TextField
             {...params}
             size="small"
-            label="Chaîne"
+            label={t("videoPage.channel")}
             variant="outlined"
             InputProps={{
               ...params.InputProps,
