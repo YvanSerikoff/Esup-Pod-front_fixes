@@ -49,7 +49,7 @@ export default function Footer() {
           <Link href="/pages/legal-notice">{t("footer.legalNotice")}</Link>
           <Link href="/pages/accessibility">{t("footer.accessibilityPartially")}</Link>
           <Link href="/pages/site-map">{t("footer.siteMap")}</Link>
-          <Link href="/pages/how-to-use-pod">{t("home.btnUsePod")}</Link>
+          <Link href="/pages/use-pod">{t("home.btnUsePod")}</Link>
           <Link href="/pages/how-to">{t("home.btnHowTo")}</Link>
           <Link href="/pages/copyright">{t("home.btnCopyright")}</Link>
         </div>
