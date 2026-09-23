@@ -69,7 +69,7 @@ export const es: TranslationKeys = {
     latestVideos: "Últimos vídeos publicados",
     btnAllVideos: "Ver todos los vídeos",
     videoServiceError: "El servicio de vídeo no está disponible temporalmente.",
-    noRecentVideos: "No hay vídeos públicos recientes 🥺",
+    noRecentVideos: "No hay vídeos públicos recientes",
   },
   navbar: {
     searchPlaceholder: "Buscar…",
@@ -274,7 +274,7 @@ export const es: TranslationKeys = {
     mainLanguageHelper: "El idioma principal utilizado en este contenido.",
     thumbnailLabel: "Miniaturas",
     uploadThumbnailBtn: "+ Subir miniatura",
-    thumbnailDimensionsHint: "JPG o PNG · Recomendado: 1280 × 720 px",
+    thumbnailDimensionsHint: "JPG o PNG · Recomendado: 1280 × 720 px",
     thumbnailCopyrightHelper: "La miniatura debe cumplir con las normas de la comunidad. Asegúrese de tener los derechos de autor adecuados.",
     changeBtn: "Cambiar",
     deleteBtn: "Eliminar",
@@ -300,7 +300,7 @@ export const es: TranslationKeys = {
     next: "Siguiente",
 
     // Stepper & Badges
-    noSourceFileBadge: "ℹ️ Info: Sin archivo fuente importado",
+    noSourceFileBadge: "Info: Sin archivo fuente importado",
     incompleteBadge: "Incompleto",
     completedBadge: "Completado",
     stepInProgress: "Paso en curso",

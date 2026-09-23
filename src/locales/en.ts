@@ -69,7 +69,7 @@ export const en: TranslationKeys = {
     latestVideos: "Latest published videos",
     btnAllVideos: "Show all videos",
     videoServiceError: "The video service is temporarily unavailable.",
-    noRecentVideos: "No recent public videos 🥺",
+    noRecentVideos: "No recent public videos",
   },
   navbar: {
     searchPlaceholder: "Search…",
@@ -274,7 +274,7 @@ export const en: TranslationKeys = {
     mainLanguageHelper: "The primary language used in this content.",
     thumbnailLabel: "Thumbnails",
     uploadThumbnailBtn: "+ Upload thumbnail",
-    thumbnailDimensionsHint: "JPG or PNG · Recommended: 1280 × 720 px",
+    thumbnailDimensionsHint: "JPG or PNG · Recommended: 1280 × 720 px",
     thumbnailCopyrightHelper: "The thumbnail must comply with community guidelines. Ensure the image has proper copyright rights.",
     changeBtn: "Change",
     deleteBtn: "Delete",
@@ -300,7 +300,7 @@ export const en: TranslationKeys = {
     next: "Next",
 
     // Stepper & Badges
-    noSourceFileBadge: "ℹ️ Info: No source file uploaded",
+    noSourceFileBadge: "Info: No source file uploaded",
     incompleteBadge: "Incomplete",
     completedBadge: "Completed",
     stepInProgress: "Step in progress",

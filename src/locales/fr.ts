@@ -66,8 +66,8 @@ export const fr = {
     btnCopyright: "Du droit d’auteur",
     latestVideos: "Dernières vidéos publiées",
     btnAllVideos: "Afficher toutes les vidéos",
-    videoServiceError: "Le service vidéo est momentanément indisponible.",
-    noRecentVideos: "Aucune vidéo publique récente 🥺",
+    videoServiceError: "Le service vidéo est momentanément indisponible",
+    noRecentVideos: "Aucune vidéo publique récente",
   },
   navbar: {
     searchPlaceholder: "Rechercher…",
@@ -272,7 +272,7 @@ export const fr = {
     mainLanguageHelper: "La langue principalement utilisée dans ce contenu.",
     thumbnailLabel: "Vignettes",
     uploadThumbnailBtn: "+ Importer une vignette",
-    thumbnailDimensionsHint: "JPG ou PNG · Recommandé : 1280 × 720 px",
+    thumbnailDimensionsHint: "JPG ou PNG · Recommandé : 1280 × 720 px",
     thumbnailCopyrightHelper: "La vignette doit respecter les règles de la communauté. Assurez-vous que l’image a le bon droit d’auteur.",
     changeBtn: "Changer",
     deleteBtn: "Supprimer",
@@ -298,7 +298,7 @@ export const fr = {
     next: "Suivant",
 
     // Stepper & Badges
-    noSourceFileBadge: "ℹ️ Information : Fichier source non importé",
+    noSourceFileBadge: "Information : Fichier source non importé",
     incompleteBadge: "Incomplet",
     completedBadge: "Complété",
     stepInProgress: "Étape en cours",
