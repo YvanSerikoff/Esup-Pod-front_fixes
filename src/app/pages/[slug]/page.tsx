@@ -7,8 +7,10 @@ import { Alert, VariantType } from "@openfun/cunningham-react";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import styles from "../../page.module.css";
 import BackButton from "@/src/components/BackButton/BackButton";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export default function FlatPage() {
+  const { t } = useTranslation();
   const params = useParams();
   const slug = params.slug as string;
   const { data: page, isLoading, error } = usePage(slug);

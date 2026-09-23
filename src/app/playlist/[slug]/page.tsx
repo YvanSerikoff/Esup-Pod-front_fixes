@@ -16,8 +16,10 @@ import { useVideoListFilters } from "@/src/hooks/useVideoListFilters";
 import { useMounted } from "@/src/hooks/useMounted";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export default function PlaylistPage() {
+  const { t } = useTranslation();
   const params = useParams();
   const router = useRouter();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
