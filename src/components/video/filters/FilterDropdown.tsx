@@ -118,10 +118,10 @@ export default function FilterDropdown({
   const popperWidth = isMobile && anchorEl ? anchorEl.clientWidth : 260;
 
   return (
-    <Box className={styles.filterItem}>
+    <Box className={styles["filter-dropdown"]}>
       <ListItemButton
         onClick={handleClick}
-        className={`${styles.filterButton} ${selectedCount > 0 ? styles.active : ""}`}
+        className={`${styles["filter-button"]} ${selectedCount > 0 ? styles["active"] : ""}`}
         aria-expanded={open}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "6px", overflow: "hidden" }}>
@@ -218,7 +218,7 @@ export default function FilterDropdown({
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={250}>
-            <Paper elevation={8} className={styles.filterMenu}>
+            <Paper elevation={8} className={styles["filter-menu"]}>
               <ClickAwayListener onClickAway={handleClose}>
                 <Box>
                   {(options.length > 0 || onSearchChange || isAsync) && (
@@ -249,7 +249,7 @@ export default function FilterDropdown({
                     />
                   )}
 
-                  <FormGroup className={styles.filterOptions}>
+                  <FormGroup className={styles["filter-options"]}>
                     {filteredOptions.map((option) => (
                       <FormControlLabel
                         key={option.value}
@@ -271,7 +271,7 @@ export default function FilterDropdown({
                           )
                         }
                         label={option.label}
-                        className={styles.filterOption}
+                        className={styles["filter-option"]}
                       />
                     ))}
 

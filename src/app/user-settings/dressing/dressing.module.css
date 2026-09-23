@@ -1,4 +1,4 @@
-.headerRow {
+.header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,19 +7,19 @@
   border-bottom: 1px solid var(--c--theme--colors--border);
 }
 
-.headerRow h3 {
+.header-row h3 {
   margin: 0;
   font-size: 1.25rem;
   color: var(--c--theme--colors--primary-text);
 }
 
-.watermarkGrid {
+.watermark-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.watermarkCard {
+.watermark-card {
   border: 1px solid var(--c--theme--colors--border);
   border-radius: 12px;
   overflow: hidden;
@@ -28,12 +28,12 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.watermarkCard:hover {
+.watermark-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
-.watermarkPreview {
+.watermark-preview {
   position: relative;
   width: 100%;
   height: 150px;
@@ -47,23 +47,23 @@
   border-bottom: 1px solid var(--c--theme--colors--border);
 }
 
-.watermarkActions {
+.watermark-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
 
-.dateLabel {
+.date-label {
   font-size: 0.85rem;
   color: var(--c--globals--colors--gray-500);
 }
 
 /* Dark mode compatibility */
-[data-theme="dark"] .watermarkCard {
+[data-theme="dark"] .watermark-card {
   background-color: var(--c--theme--colors--card-bg, #1e1e1e);
 }
-[data-theme="dark"] .watermarkPreview {
+[data-theme="dark"] .watermark-preview {
   background-image: linear-gradient(45deg, #333 25%, transparent 25%),
     linear-gradient(-45deg, #333 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #333 75%),

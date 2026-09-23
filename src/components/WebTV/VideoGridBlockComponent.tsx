@@ -86,22 +86,22 @@ export default function VideoGridBlockComponent({
   const isLoading = providedVideos ? false : loading;
 
   return (
-    <section className={styles.blockWrapper}>
-      {!isHero && <div className={styles.sectionBadgeHeader}>{displayTitle}</div>}
+    <section className={styles["block-wrapper"]}>
+      {!isHero && <div className={styles["section-badge-header"]}>{displayTitle}</div>}
 
       {isLoading ? (
         <div style={{ padding: "1rem", color: "#666" }}>{t("common.loading")}</div>
       ) : displayedVideos.length > 0 ? (
-        <div className={isHero ? styles.heroGrid : styles.videosGrid}>
+        <div className={isHero ? styles.heroGrid : styles["videos-grid"]}>
           {displayedVideos.map((video, index) => {
             const fallbackColor = cardColors[index % cardColors.length];
             return (
               <Link
                 key={video.id}
                 href={`/video/${video.slug}`}
-                className={styles.videoCard}
+                className={styles["video-card"]}
               >
-                <div className={styles.thumbnailContainer}>
+                <div className={styles["thumbnail-container"]}>
                   {video.thumbnail ? (
                     <Image
                     unoptimized
@@ -109,11 +109,11 @@ export default function VideoGridBlockComponent({
                       height={100}
                       src={video.thumbnail}
                       alt={t("a11y.videoThumbnail", { title: video.title })}
-                      className={styles.thumbnailImage}
+                      className={styles["thumbnail-image"]}
                     />
                   ) : (
                     <div
-                      className={styles.thumbnailPlaceholder}
+                      className={styles["thumbnail-placeholder"]}
                       style={{ backgroundColor: fallbackColor }}
                     >
                       <span
@@ -125,10 +125,10 @@ export default function VideoGridBlockComponent({
                     </div>
                   )}
                 </div>
-                <div className={styles.cardBody}>
-                  <h4 className={styles.cardTitle}>{video.title}</h4>
+                <div className={styles["card-body"]}>
+                  <h4 className={styles["card-title"]}>{video.title}</h4>
                   {showViews && video.views_count != null && (
-                    <span className={styles.cardMeta}>
+                    <span className={styles["card-meta"]}>
                       <span
                         className="material-icons"
                         style={{ fontSize: "0.9rem" }}

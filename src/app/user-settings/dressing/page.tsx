@@ -58,7 +58,7 @@ export default function DressingSettings() {
         </div>
       )}
 
-      <div className={styles.headerRow}>
+      <div className={styles["header-row"]}>
         <h3>Mes Filigranes</h3>
         <input 
           type="file" 
@@ -83,14 +83,14 @@ export default function DressingSettings() {
           Vous n'avez pas encore envoyé de filigrane.
         </Alert>
       ) : (
-        <div className={styles.watermarkGrid}>
+        <div className={styles["watermark-grid"]}>
           {watermarks.map((wm) => (
-            <div key={wm.id} className={styles.watermarkCard}>
-              <div className={styles.watermarkPreview}>
+            <div key={wm.id} className={styles["watermark-card"]}>
+              <div className={styles["watermark-preview"]}>
                 <Image src={wm.image} alt={t("a11y.watermark")} fill style={{ objectFit: "contain" }} />
               </div>
-              <div className={styles.watermarkActions}>
-                <span className={styles.dateLabel}>
+              <div className={styles["watermark-actions"]}>
+                <span className={styles["date-label"]}>
                   {new Date(wm.created_at).toLocaleDateString()}
                 </span>
                 <Button 

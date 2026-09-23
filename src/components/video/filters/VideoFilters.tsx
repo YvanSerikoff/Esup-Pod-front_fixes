@@ -72,7 +72,7 @@ const FilterChip = ({
   onDelete: () => void;
 }) => (
   <div
-    className={`${styles.filterButton} ${styles.active}`}
+    className={`${styles["filter-button"]} ${styles["active"]}`}
     onClick={onDelete}
     role="button"
     tabIndex={0}
@@ -273,7 +273,7 @@ export default function VideoFilters({
     secondaryFiltersCount;
 
   return (
-    <div className={styles.filtersContent}>
+    <div className={styles["filters-content"]}>
       {/* Primary horizontal filter row */}
       <div className={styles.row}>
         {/* Search bar */}
@@ -359,7 +359,7 @@ export default function VideoFilters({
 
         {/* Advanced Filters Toggle Button */}
         <div
-          className={`${styles.filterButton} ${showAdvanced || secondaryFiltersCount > 0 ? styles.active : ""}`}
+          className={`${styles["filter-button"]} ${showAdvanced || secondaryFiltersCount > 0 ? styles["active"] : ""}`}
           onClick={() => setShowAdvanced(!showAdvanced)}
           role="button"
           tabIndex={0}
@@ -487,7 +487,7 @@ export default function VideoFilters({
             borderTop: "1px solid rgba(0, 0, 0, 0.12)",
           }}
         >
-          <Box className={styles.chips}>
+          <Box className={styles["chips"]}>
             {value.search.trim() && (
               <FilterChip
                 label={`${t("filters.search")} : ${value.search}`}
@@ -581,7 +581,7 @@ export default function VideoFilters({
             onClick={() => onChange(INITIAL_VIDEO_FILTERS)}
             variant="tertiary"
             size="small"
-            className={styles.clearFiltersBtn}
+            className={styles["clear-filters-btn"]}
           >
             {t("filters.clearFilters")}
           </Button>

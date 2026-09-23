@@ -171,7 +171,7 @@ export default function CollectionFilters({
     (isThemeMode && value.channel ? 1 : 0);
 
   return (
-    <div className={styles.filtersContent}>
+    <div className={styles["filters-content"]}>
       <div className={styles.row}>
         <TextField
           id="collection-filters-search"
@@ -313,7 +313,7 @@ export default function CollectionFilters({
             onClick={() => onChange(INITIAL_COLLECTION_FILTERS)}
             variant="tertiary"
             size="small"
-            className={styles.clearFiltersBtn}
+            className={styles["clear-filters-btn"]}
           >
             Effacer les filtres
           </Button>

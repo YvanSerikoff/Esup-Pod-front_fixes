@@ -1,4 +1,4 @@
-.headerContainer {
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,13 +13,13 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.leftSection {
+.left-section {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.logoLink {
+.logo-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -31,12 +31,12 @@
   letter-spacing: -0.5px;
 }
 
-.logoIcon {
+.logo-icon {
   font-size: 1.8rem;
   color: #ffffff;
 }
 
-.navLinks {
+.nav-links {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -45,7 +45,7 @@
   padding: 0;
 }
 
-.navItem {
+.nav-item {
   color: #e0e0e0;
   text-decoration: none;
   font-size: 0.92rem;
@@ -55,7 +55,7 @@
   align-items: center;
 }
 
-.navItem:hover {
+.nav-item:hover {
   color: #ff4757;
 }
 
@@ -66,13 +66,13 @@
   user-select: none;
 }
 
-.rightSection {
+.right-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.loginBtn {
+.login-btn {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -88,11 +88,11 @@
   transition: background-color 0.2s ease;
 }
 
-.loginBtn:hover {
+.login-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.searchBtn {
+.search-btn {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -108,12 +108,12 @@
   transition: background-color 0.2s ease;
 }
 
-.searchBtn:hover {
+.search-btn:hover {
   background-color: #e03847;
 }
 
 @media (max-width: 900px) {
-  .navLinks {
+  .nav-links {
     display: none;
   }
 }

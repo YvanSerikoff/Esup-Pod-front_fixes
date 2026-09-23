@@ -18,12 +18,12 @@ export default function WebTVLayout() {
   const otherBlocks = blocks.filter((b) => b !== liveBlock);
 
   return (
-    <div className={styles.webTvContainer}>
+    <div className={styles["web-tv-container"]}>
       <WebTVHeader />
 
-      <main className={styles.mainContent}>
+      <main className={styles["main-content"]}>
         {/* Top Hero Section: Left = Direct (Live list), Right = Video Grid */}
-        <section className={styles.heroSection}>
+        <section className={styles["hero-section"]}>
           <div>
             <LiveBlockComponent block={liveBlock} />
           </div>
@@ -70,8 +70,8 @@ export default function WebTVLayout() {
       </main>
 
       {/* Footer */}
-      <footer className={styles.webTvFooter}>
-        <div className={styles.footerLogo}>
+      <footer className={styles["web-tv-footer"]}>
+        <div className={styles["footer-logo"]}>
           <span className="material-icons" style={{ fontSize: "1.5rem" }}>
             school
           </span>

@@ -25,10 +25,10 @@ export function getCollectionGridColumns({
       headerName: "",
       enableSorting: false,
       renderCell: ({ row }) => (
-        <Link href={row.href} className={styles.thumbnailWrapper}>
+        <Link href={row.href} className={styles["thumbnail-wrapper"]}>
           <Image
           unoptimized
-            className={styles.thumbnail}
+            className={styles["thumbnail"]}
             src={row.thumbnailUrl}
             alt={translate("a11y.collectionThumbnail", { title: row.title })}
             width={56}
@@ -41,7 +41,7 @@ export function getCollectionGridColumns({
       field: "title",
       headerName: "Titre",
       renderCell: ({ row }) => (
-        <Link href={row.href} className={styles.tableTitleLink}>
+        <Link href={row.href} className={styles["table-title-link"]}>
           {row.title}
         </Link>
       ),
@@ -50,7 +50,7 @@ export function getCollectionGridColumns({
       field: "typeLabel",
       headerName: "Type",
       renderCell: ({ row }) => (
-        <span className={styles.typeBadge}>
+        <span className={styles["type-badge"]}>
           {row.typeLabel}
         </span>
       ),
@@ -59,7 +59,7 @@ export function getCollectionGridColumns({
       field: "videosCount",
       headerName: "Vidéos",
       renderCell: ({ row }) => (
-        <span className={styles.countBadge}>
+        <span className={styles["count-badge"]}>
           {row.videosCount}
         </span>
       ),
@@ -71,7 +71,7 @@ export function getCollectionGridColumns({
       field: "themesCount",
       headerName: "Thèmes",
       renderCell: ({ row }) => (
-        <span className={styles.countBadge}>
+        <span className={styles["count-badge"]}>
           {row.themesCount}
         </span>
       ),
@@ -83,7 +83,7 @@ export function getCollectionGridColumns({
       field: "subThemesCount",
       headerName: "Sous-thèmes",
       renderCell: ({ row }) => (
-        <span className={styles.countBadge}>
+        <span className={styles["count-badge"]}>
           {row.subThemesCount}
         </span>
       ),
@@ -95,7 +95,7 @@ export function getCollectionGridColumns({
       field: "createdAtValue",
       headerName: "Création",
       renderCell: ({ row }) => (
-        <span className={styles.dateText}>
+        <span className={styles["date-text"]}>
           {row.createdAtLabel}
         </span>
       ),
@@ -105,7 +105,7 @@ export function getCollectionGridColumns({
       field: "updatedAtValue",
       headerName: "Modifiée le",
       renderCell: ({ row }) => (
-        <span className={styles.dateText}>
+        <span className={styles["date-text"]}>
           {row.updatedAtLabel}
         </span>
       ),

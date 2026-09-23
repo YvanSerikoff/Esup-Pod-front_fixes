@@ -106,7 +106,7 @@ export default function VideosDisplay({
       <div className={styles.toolbar}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           {selectable && (
-            <div className={styles.selectAllContainer}>
+            <div className={styles["select-all-container"]}>
               <Checkbox
                 label={t("common.selectAll")}
                 checked={isAllSelected}

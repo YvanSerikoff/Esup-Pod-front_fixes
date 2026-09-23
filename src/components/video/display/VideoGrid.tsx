@@ -68,7 +68,7 @@ export default function VideoGrid({ rows, selectable = false }: VideoGridProps) 
 
   return (
     <DataGrid
-      className={styles.dataGrid}
+      className={styles["data-grid"]}
       rows={sortedRows}
       columns={columns}
       sortModel={sortModel}

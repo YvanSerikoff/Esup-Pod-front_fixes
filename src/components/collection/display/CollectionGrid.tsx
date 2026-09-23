@@ -44,7 +44,7 @@ export default function CollectionGrid({ rows }: CollectionGridProps) {
 
   return (
     <DataGrid
-      className={styles.dataGrid}
+      className={styles["data-grid"]}
       rows={sortedRows}
       columns={getCollectionGridColumns({ rows: sortedRows, t })}
       sortModel={sortModel}

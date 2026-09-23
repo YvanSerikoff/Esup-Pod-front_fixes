@@ -40,18 +40,18 @@ export function getVideoGridColumns(
       field: "thumbnail",
       headerName: "",
       renderCell: ({ row }) => (
-        <Link href={row.href} className={styles.thumbnailWrapper}>
+        <Link href={row.href} className={styles["thumbnail-wrapper"]}>
           {row.thumbnailUrl && !row.thumbnailUrl.includes("default_thumbnail") ? (
             <Image
               width={100}
               height={100}
               unoptimized
-              className={styles.thumbnail}
+              className={styles["thumbnail"]}
               src={row.thumbnailUrl}
               alt={tr("a11y.videoThumbnail", row.title, { title: row.title })}
             />
           ) : (
-            <div className={styles.defaultThumbnailPoster}>
+            <div className={styles["default-thumbnail-poster"]}>
               <span className="material-icons" style={{ fontSize: "18px", color: "#ffffff" }}>
                 play_arrow
               </span>
@@ -64,7 +64,7 @@ export function getVideoGridColumns(
       field: "title",
       headerName: tr("table.title", "TITRE"),
       renderCell: ({ row }) => (
-        <Link href={row.href} className={styles.tableTitleLink}>
+        <Link href={row.href} className={styles["table-title-link"]}>
           {row.title}
         </Link>
       ),
@@ -73,7 +73,7 @@ export function getVideoGridColumns(
       field: "durationLabel",
       headerName: tr("table.duration", "DURÉE"),
       renderCell: ({ row }) => (
-        <span className={styles.countBadge}>
+        <span className={styles["count-badge"]}>
           {row.durationLabel}
         </span>
       ),
@@ -82,7 +82,7 @@ export function getVideoGridColumns(
       field: "createdAtValue",
       headerName: tr("table.dateAdded", "DATE D'AJOUT"),
       renderCell: ({ row }) => (
-        <span className={styles.dateText}>
+        <span className={styles["date-text"]}>
           {row.createdAtLabel}
         </span>
       ),
@@ -94,9 +94,9 @@ export function getVideoGridColumns(
       headerName: tr("table.status", "STATUT"),
       enableSorting: false,
       renderCell: ({ row }) => {
-        if (row.isRestricted) return <span className={`${styles.statusBadge} ${styles.statusRestricted}`}>{tr("table.restricted", "Restreint")}</span>;
-        if (row.hasPassword) return <span className={`${styles.statusBadge} ${styles.statusPassword}`}>{tr("table.password", "Mot de passe")}</span>;
-        return <span className={`${styles.statusBadge} ${styles.statusPublic}`}>{tr("table.public", "Public")}</span>;
+        if (row.isRestricted) return <span className={`${styles["status-badge"]} ${styles["status-restricted"]}`}>{tr("table.restricted", "Restreint")}</span>;
+        if (row.hasPassword) return <span className={`${styles["status-badge"]} ${styles["status-password"]}`}>{tr("table.password", "Mot de passe")}</span>;
+        return <span className={`${styles["status-badge"]} ${styles["status-public"]}`}>{tr("table.public", "Public")}</span>;
       },
     },
     {

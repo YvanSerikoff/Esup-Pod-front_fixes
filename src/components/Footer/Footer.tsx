@@ -24,7 +24,7 @@ export default function Footer() {
   const current_uri = `${origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
 
   return (
-    <footer className={`${styles.footer} ${styles["sidebarFixed"]}`} id="footer">
+    <footer className={`${styles.footer} ${styles["sidebar-fixed"]}`} id="footer">
       <div className={styles["footer-content"]}>
         <div className={styles["footer-contact-univ"]}>
           <div className={styles["footer-contact-univ-logo"]}>

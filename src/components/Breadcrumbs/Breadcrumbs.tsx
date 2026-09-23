@@ -59,7 +59,7 @@ export default function Breadcrumb() {
 
   return (
     <Breadcrumbs className={styles.breadcrumb} aria-label="breadcrumb">
-      <Link underline="hover" className={styles.breadcrumbLink} href="/">
+      <Link underline="hover" className={styles["breadcrumb-link"]} href="/">
         {t("common.home")}
       </Link>
 
@@ -84,7 +84,7 @@ export default function Breadcrumb() {
           <Link
             key={href}
             underline="hover"
-            className={styles.breadcrumbLink}
+            className={styles["breadcrumb-link"]}
             href={href}
             aria-current="page"
           >

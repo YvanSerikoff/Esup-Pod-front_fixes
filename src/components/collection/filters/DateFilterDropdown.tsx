@@ -64,10 +64,10 @@ export default function DateFilterDropdown({
   const popperWidth = isMobile && anchorEl ? anchorEl.clientWidth : 280;
 
   return (
-    <Box className={styles.filterItem}>
+    <Box className={styles["filter-item"]}>
       <ListItemButton
         onClick={handleClick}
-        className={`${styles.filterButton} ${isActive ? styles.active : ""}`}
+        className={`${styles["filter-button"]} ${isActive ? styles.active : ""}`}
         aria-expanded={open}
       >
         <Typography
@@ -98,7 +98,7 @@ export default function DateFilterDropdown({
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={250}>
-            <Paper elevation={8} className={styles.filterMenu}>
+            <Paper elevation={8} className={styles["filter-menu"]}>
               <ClickAwayListener onClickAway={handleClose}>
                 <Box>
                   <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>Sélectionnez une période</Typography>

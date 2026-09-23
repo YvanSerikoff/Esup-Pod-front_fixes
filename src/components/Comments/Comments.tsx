@@ -91,7 +91,7 @@ export default function Comments({ videoSlug }: CommentsProps) {
         <div className={styles.form}>
           <Avatar src={profilePictureUrl}>{initials}</Avatar>
 
-          <div className={styles.formContent}>
+          <div className={styles["form-content"]}>
             <TextArea
               label={t("comments.addPlaceholder")}
               fullWidth
@@ -100,7 +100,7 @@ export default function Comments({ videoSlug }: CommentsProps) {
               onChange={(event) => setContent(event.target.value)}
             />
 
-            <div className={styles.formActions}>
+            <div className={styles["form-actions"]}>
               <Button
                 color="brand"
                 variant="secondary"

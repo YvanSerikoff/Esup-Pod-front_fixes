@@ -54,23 +54,23 @@ export default function Accueil() {
       <h2 className={styles.subtitle}>{t("home.welcomeSubtitle")}</h2>
       
       <div>
-        <div className={styles.welcomeBanner}>
+        <div className={styles["welcome-banner"]}>
           
           {/* Left Text */}
-          <div className={styles.welcomeText}>
+          <div className={styles["welcome-text"]}>
             <p style={{ lineHeight: 1.6 }}>
               {t("home.welcomeIntro")}
             </p>
           </div>
 
           {/* Right Box */}
-          <div className={styles.welcomeGreenBox}>
+          <div className={styles["welcome-green-box"]}>
             <span className="material-icons" style={{ fontSize: "3rem", opacity: 0.9 }}>help_outline</span>
             <div>
-              <Link href="/pages/comment-faire" className={styles.welcomeLinkTitle}>{t("home.howToTitle")}</Link>
+              <Link href="/pages/comment-faire" className={styles["welcome-link-title"]}>{t("home.howToTitle")}</Link>
               <p style={{ fontSize: "0.85rem", lineHeight: 1.4 }}>
                 {t("home.howToDescPrefix")}
-                <Link href="/pages/utiliser-pod" className={styles.welcomeLink}>{t("home.quickGuideLink")}</Link>
+                <Link href="/pages/utiliser-pod" className={styles["welcome-link"]}>{t("home.quickGuideLink")}</Link>
                 {t("home.howToDescSuffix")}
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function Accueil() {
         </div>
 
         {/* Buttons Row */}
-        <div className={styles.actionButtons}>
+        <div className={styles["action-buttons"]}>
           {user && ((config as any)?.video?.allow_authenticated_upload !== false || user?.is_staff) && (
             <Button onClick={() => router.push('/video/add')} icon={<span className="material-icons">add_circle</span>} variant="primary">{t("common.addVideo")}</Button>
           )}

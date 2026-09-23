@@ -20,6 +20,6 @@
   align-items: center;
 }
 
-.linearProgress {
+.linear-progress {
   margin: var(--c--globals--spacings--xl) 0;
 }

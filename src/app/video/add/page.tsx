@@ -138,7 +138,7 @@ export default function AddVideo() {
           <Alert canClose type={VariantType.SUCCESS} aria-live="polite">
             Votre vidéo est en cours de traitement sur POD. Ne fermez pas la page...
           </Alert>
-          <LinearProgress sx={{ padding: "5px" }} className={styles.linearProgress} aria-label="Loading..." />
+          <LinearProgress sx={{ padding: "5px" }} className={styles["linear-progress"]} aria-label="Loading..." />
         </div>
       ) : (
         <form className={styles.form} style={{ display: "flex", flexDirection: "column", gap: "1rem" }} onSubmit={handleSubmit(onSubmitImport)}>

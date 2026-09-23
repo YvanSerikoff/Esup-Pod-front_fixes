@@ -15,11 +15,11 @@ export default function VideoViewToggle({
   const { t } = useTranslation();
 
   return (
-    <div className={styles.toggleWrapper}>
-      <span className={styles.toggleLabel}>{t("common.displayMode")} </span>
+    <div className={styles["toggle-wrapper"]}>
+      <span className={styles["toggle-label"]}>{t("common.displayMode")} </span>
 
       <div
-        className={styles.toggleGroup}
+        className={styles["toggle-group"]}
         role="tablist"
         aria-label="Mode d'affichage des vidéos"
       >
@@ -27,14 +27,14 @@ export default function VideoViewToggle({
           size="small"
           type="button"
           className={
-            view === "cards" ? styles.toggleButtonActive : styles.toggleButton
+            view === "cards" ? styles["toggle-button-active"] : styles["toggle-button"]
           }
           onClick={() => onChange("cards")}
           aria-pressed={view === "cards"}
         >
-          <span className={styles.toggleButtonContent}>
+          <span className={styles["toggle-buttonContent"]}>
             <GridViewIcon fontSize="small" />
-            <span className={styles.toggleText}>{t("common.viewCards")}</span>
+            <span className={styles["toggle-text"]}>{t("common.viewCards")}</span>
           </span>
         </Button>
 
@@ -42,14 +42,14 @@ export default function VideoViewToggle({
           size="small"
           type="button"
           className={
-            view === "grid" ? styles.toggleButtonActive : styles.toggleButton
+            view === "grid" ? styles["toggle-button-active"] : styles["toggle-button"]
           }
           onClick={() => onChange("grid")}
           aria-pressed={view === "grid"}
         >
-          <span className={styles.toggleButtonContent}>
+          <span className={styles["toggle-buttonContent"]}>
             <TableRowsIcon fontSize="small" />
-            <span className={styles.toggleText}>{t("common.viewTable")}</span>
+            <span className={styles["toggle-text"]}>{t("common.viewTable")}</span>
           </span>
         </Button>
       </div>

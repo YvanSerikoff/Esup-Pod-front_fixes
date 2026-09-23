@@ -11,11 +11,11 @@ export default function CollectionViewToggle({
   onChange,
 }: CollectionViewToggleProps) {
   return (
-    <div className={styles.toggleWrapper}>
-      <span className={styles.toggleLabel}>Affichage : </span>
+    <div className={styles["toggle-wrapper"]}>
+      <span className={styles["toggle-label"]}>Affichage : </span>
 
       <div
-        className={styles.toggleGroup}
+        className={styles["toggle-group"]}
         role="tablist"
         aria-label="Mode d'affichage des collections"
       >
@@ -23,14 +23,14 @@ export default function CollectionViewToggle({
           size="small"
           type="button"
           className={
-            view === "cards" ? styles.toggleButtonActive : styles.toggleButton
+            view === "cards" ? styles["toggle-button-active"] : styles["toggle-button"]
           }
           onClick={() => onChange("cards")}
           aria-pressed={view === "cards"}
         >
-          <span className={styles.toggleButtonContent}>
+          <span className={styles["toggle-button-content"]}>
             <GridViewIcon fontSize="small" />
-            <span className={styles.toggleText}>Cartes</span>
+            <span className={styles["toggle-text"]}>Cartes</span>
           </span>
         </Button>
 
@@ -38,14 +38,14 @@ export default function CollectionViewToggle({
           size="small"
           type="button"
           className={
-            view === "grid" ? styles.toggleButtonActive : styles.toggleButton
+            view === "grid" ? styles["toggle-button-active"] : styles["toggle-button"]
           }
           onClick={() => onChange("grid")}
           aria-pressed={view === "grid"}
         >
-          <span className={styles.toggleButtonContent}>
+          <span className={styles["toggle-button-content"]}>
             <TableRowsIcon fontSize="small" />
-            <span className={styles.toggleText}>Tableau</span>
+            <span className={styles["toggle-text"]}>Tableau</span>
           </span>
         </Button>
       </div>

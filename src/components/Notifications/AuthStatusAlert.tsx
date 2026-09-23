@@ -77,8 +77,8 @@ export default function AuthStatusAlert({
       canClose
       type={VariantType.SUCCESS}
       onClose={handleClose}
-      className={`${styles.authStatusAlert} ${
-        isClosing ? styles.isClosing : ""
+      className={`${styles["auth-status-alert"]} ${
+        isClosing ? styles["is-closing"] : ""
       }`.trim()}
     >
       {message}

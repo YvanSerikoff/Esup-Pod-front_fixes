@@ -30,40 +30,40 @@ export default function FavoritesSidebar({
   };
 
   return (
-    <div className={styles.favoritesSidebar}>
-      <header className={styles.favoritesSidebarHeader}>
+    <div className={styles["favorites-sidebar"]}>
+      <header className={styles["favorites-sidebar-header"]}>
         <div>
-          <p className={styles.favoritesSidebarLabel}>Vidéos favorites</p>
+          <p className={styles["favorites-sidebar-label"]}>Vidéos favorites</p>
         </div>
       </header>
 
-      <ul className={styles.favoritesSidebarList}>
+      <ul className={styles["favorites-sidebar-list"]}>
         {videos.map((video, index) => {
           const isActive = video.slug === currentVideoSlug;
 
           return (
             <li
               key={video.id ?? video.slug}
-              className={`${styles.favoritesSidebarItem} ${
-                isActive ? styles.favoritesSidebarItemActive : ""
+              className={`${styles["favorites-sidebar-item"]} ${
+                isActive ? styles["favorites-sidebar-item-active"] : ""
               }`}
               onClick={() => handleClick(video.slug)}
             >
-              <span className={styles.favoritesSidebarIndex}>{index + 1}</span>
+              <span className={styles["favorites-sidebar-index"]}>{index + 1}</span>
               <Image
               unoptimized
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 width={64}
                 height={36}
-                className={styles.favoritesSidebarThumbnail}
+                className={styles["favorites-sidebar-thumbnail"]}
               />
-              <div className={styles.favoritesSidebarText}>
-                <p className={styles.favoritesSidebarVideoTitle}>
+              <div className={styles["favorites-sidebar-text"]}>
+                <p className={styles["favorites-sidebar-video-title"]}>
                   {video.title}
                 </p>
                 {isActive && (
-                  <p className={styles.favoritesSidebarNowPlaying}>
+                  <p className={styles["favorites-sidebar-now-playing"]}>
                     Lecture en cours
                   </p>
                 )}
