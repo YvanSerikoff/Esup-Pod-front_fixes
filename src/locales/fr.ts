@@ -41,6 +41,11 @@ export const fr = {
     add: "Ajouter",
     createdBy: "Créée par",
     latestUpdate: "Mise à jour le :",
+    contributors: "Contributeurs & Intervenants",
+    addContributorsDesc: "Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.",
+    public: "Publique",
+    private: "Privée",
+    passwordProtected: "Protégée par mot de passe",
   },
   errors: {
     error: "Une erreur est survenue",

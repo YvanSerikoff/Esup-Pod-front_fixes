@@ -17,6 +17,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import PersonIcon from "@mui/icons-material/Person";
 import CircularProgress from "@mui/material/CircularProgress";
 import styles from "../../app/video/edit/[slug]/styles.module.css";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 // Custom debounce
 function debounce<T extends (...args: never[]) => void>(
@@ -42,6 +43,7 @@ export default function VideoContributorsForm({ videoId }: { videoId: number }) 
     removeContribution,
   } = useContributions(videoId);
   const { config } = useAppConfig();
+  const { t } = useTranslation();
 
   const roleChoices =
     (config as any)?.completion?.role_choices || [
@@ -100,9 +102,9 @@ export default function VideoContributorsForm({ videoId }: { videoId: number }) 
   return (
     <div className={styles["element-card"]}>
       <div className={styles["element-card_info"]}>
-        <span className={styles["element-card_title"]}>Contributeurs & Intervenants</span>
+        <span className={styles["element-card_title"]}>{t("common.contributors")}</span>
         <span className={styles["element-card_desc"]}>
-          Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.
+          {t("common.addContributorsDesc")}
         </span>
       </div>
       <div style={{ width: "100%", padding: "1rem" }}>

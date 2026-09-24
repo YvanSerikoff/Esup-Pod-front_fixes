@@ -216,11 +216,11 @@ export default function PlaylistPage() {
               </div>
 
               <div>
-                <dt>Statut de la liste de lecture : </dt>
-                {!effectivePlaylist?.is_public && <dd>Privée</dd>}
-                {effectivePlaylist?.is_public && <dd>Publique</dd>}
+                <dt>{t("common.playlistStatus")}</dt>
+                {!effectivePlaylist?.is_public && <dd>{t("common.private")}</dd>}
+                {effectivePlaylist?.is_public && <dd>{t("common.public")}</dd>}
                 {effectivePlaylist?.is_protected && (
-                  <dd>Protégée par mot de passe</dd>
+                  <dd>{t("common.passwordProtected")}</dd>
                 )}
               </div>
             </dl>

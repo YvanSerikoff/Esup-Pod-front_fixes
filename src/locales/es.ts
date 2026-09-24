@@ -43,6 +43,11 @@ export const es: TranslationKeys = {
     add: "Añadir",
     createdBy: "Creado por",
     latestUpdate: "Actualizado el ",
+    contributors: "Colaboradores & Intervinientes",
+    addContributorsDesc: "Añada autores, directores o ponentes a su vídeo.",
+    public: "Público",
+    private: "Privado",
+    passwordProtected: "Protegido con contraseña",
   },
   errors: {
     error: "Ocurrió un error",
