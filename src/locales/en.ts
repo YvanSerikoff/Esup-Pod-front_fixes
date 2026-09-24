@@ -37,6 +37,7 @@ export const en: TranslationKeys = {
     viewTable: "Table",
     update: "Update",
     noResults: "No results for your search",
+    tab: "Dashboard",
   },
   errors: {
     error: "An error occurred",
@@ -431,5 +432,8 @@ export const en: TranslationKeys = {
     fr: "Français",
     en: "English",
     es: "Español",
+  },
+  descritions: {
+    dashboard: "Manage your videos and settings on your Esup POD dashboard.",
   },
 };

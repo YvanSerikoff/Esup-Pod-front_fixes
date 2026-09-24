@@ -35,6 +35,7 @@ export const fr = {
     viewTable: "Tableau",
     update: "Mettre à jour",
     noResults: "Aucun résultat pour votre recherche",
+    tab: "Tableau de bord",
   },
   errors: {
     error: "Une erreur est survenue",
@@ -430,6 +431,9 @@ export const fr = {
     fr: "Français",
     en: "English",
     es: "Español",
+  },
+  descritions: {
+    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup POD.",
   },
 };
 
