@@ -39,7 +39,7 @@ export function getCollectionGridColumns({
     },
     {
       field: "title",
-      headerName: "Titre",
+      headerName: `${t!("table.title")}`,
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles["table-title-link"]}>
           {row.title}
@@ -48,7 +48,7 @@ export function getCollectionGridColumns({
     },
     {
       field: "typeLabel",
-      headerName: "Type",
+      headerName: `${t!("videoPage.type")}`,
       renderCell: ({ row }) => (
         <span className={styles["type-badge"]}>
           {row.typeLabel}
@@ -57,7 +57,7 @@ export function getCollectionGridColumns({
     },
     {
       field: "videosCount",
-      headerName: "Vidéos",
+      headerName: `${t!("common.videos")}`,
       renderCell: ({ row }) => (
         <span className={styles["count-badge"]}>
           {row.videosCount}
@@ -69,7 +69,7 @@ export function getCollectionGridColumns({
   if (hasChannelRows) {
     columns.push({
       field: "themesCount",
-      headerName: "Thèmes",
+      headerName: `${t!("common.theme")}`,
       renderCell: ({ row }) => (
         <span className={styles["count-badge"]}>
           {row.themesCount}
@@ -81,7 +81,7 @@ export function getCollectionGridColumns({
   if (hasThemeRows) {
     columns.push({
       field: "subThemesCount",
-      headerName: "Sous-thèmes",
+      headerName: `${t!("common.subtopics")}`,
       renderCell: ({ row }) => (
         <span className={styles["count-badge"]}>
           {row.subThemesCount}
@@ -93,7 +93,7 @@ export function getCollectionGridColumns({
   if (hasPlaylistRows) {
     columns.push({
       field: "createdAtValue",
-      headerName: "Création",
+      headerName: `${t!("filters.creationDate")}`,
       renderCell: ({ row }) => (
         <span className={styles["date-text"]}>
           {row.createdAtLabel}
@@ -103,7 +103,7 @@ export function getCollectionGridColumns({
 
     columns.push({
       field: "updatedAtValue",
-      headerName: "Modifiée le",
+      headerName: `${t!("videoPage.updatedAt")}`,
       renderCell: ({ row }) => (
         <span className={styles["date-text"]}>
           {row.updatedAtLabel}

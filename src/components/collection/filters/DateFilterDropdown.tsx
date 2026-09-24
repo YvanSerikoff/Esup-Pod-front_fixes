@@ -15,6 +15,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button } from "@openfun/cunningham-react";
 import styles from "@/src/components/video/filters/styles.module.css";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 type DateFilterDropdownProps = {
   createdAtGte: string;
@@ -35,6 +36,8 @@ export default function DateFilterDropdown({
   const isMobile = useMediaQuery("(max-width: 600px)");
 
   const isActive = Boolean(createdAtGte || createdAtLte);
+
+  const { t } = useTranslation();
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -76,7 +79,7 @@ export default function DateFilterDropdown({
           noWrap
           sx={{ color: isActive ? "var(--c--globals--colors--brand--main)" : "inherit" }}
         >
-          {isActive ? "Date (filtre actif)" : "Date de création"}
+          {isActive ? t("filters.activeCreationDate") : t("filters.creationDate")}
         </Typography>
         {open ? (
           <ExpandLessIcon fontSize="small" sx={{ color: isActive ? "var(--c--globals--colors--brand--main)" : "inherit", ml: "auto" }} />
@@ -101,10 +104,10 @@ export default function DateFilterDropdown({
             <Paper elevation={8} className={styles["filter-menu"]}>
               <ClickAwayListener onClickAway={handleClose}>
                 <Box>
-                  <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>Sélectionnez une période</Typography>
+                  <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>{t("filters.selectPeriod")}</Typography>
                   <Box sx={{ display: "flex", flexDirection: "column", gap: 2, px: 1 }}>
                     <TextField
-                      label="Créé après"
+                      label={t("filters.createdAfter")}
                       type="datetime-local"
                       size="small"
                       fullWidth
@@ -113,7 +116,7 @@ export default function DateFilterDropdown({
                       InputLabelProps={{ shrink: true }}
                     />
                     <TextField
-                      label="Créé avant"
+                      label={t("filters.createdBefore")}
                       type="datetime-local"
                       size="small"
                       fullWidth
@@ -135,10 +138,10 @@ export default function DateFilterDropdown({
                     }}
                   >
                     <Button onClick={handleClear} variant="tertiary" size="small" disabled={!localGte && !localLte}>
-                      Effacer
+                      {t("filters.clearFilters")}
                     </Button>
                     <Button onClick={handleApply} variant="primary" size="small">
-                      Afficher
+                      {t("filters.showResults")}
                     </Button>
                   </Box>
                 </Box>

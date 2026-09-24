@@ -24,6 +24,7 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Button } from "@openfun/cunningham-react";
 import styles from "./styles.module.css";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 export type SelectOption = {
   label: string;
@@ -57,6 +58,8 @@ export default function FilterDropdown({
   const [localSearchText, setLocalSearchText] = useState("");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isMobile = useMediaQuery("(max-width: 600px)");
+
+  const { t } = useTranslation();
 
   // Local selected state for deferred multi-select updates (Vinted-style commit button)
   const [localSelectedValues, setLocalSelectedValues] = useState<string[]>(selectedValues);
@@ -225,7 +228,7 @@ export default function FilterDropdown({
                     <TextField
                       fullWidth
                       variant="outlined"
-                      placeholder="Rechercher..."
+                      placeholder={t("navbar.searchPlaceholder")}
                       size="small"
                       value={searchText}
                       onChange={(event) => {
@@ -277,7 +280,7 @@ export default function FilterDropdown({
 
                     {!loading && filteredOptions.length === 0 && (
                       <Typography color="text.secondary" variant="body2" sx={{ p: 1 }}>
-                        Aucun résultat
+                        {t("common.noResults")}
                       </Typography>
                     )}
                   </FormGroup>
@@ -302,7 +305,7 @@ export default function FilterDropdown({
                         size="small"
                         disabled={localSelectedValues.length === 0}
                       >
-                        Effacer
+                        {t("filters.clearFilters")}
                       </Button>
                       <Button
                         onClick={() => {
@@ -312,7 +315,7 @@ export default function FilterDropdown({
                         variant="primary"
                         size="small"
                       >
-                        Afficher
+                        {t("filters.showResults")}
                       </Button>
                     </Box>
                   )}
