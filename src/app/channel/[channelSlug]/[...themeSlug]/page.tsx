@@ -333,8 +333,8 @@ export default function Theme() {
                   {visibleAndPublicThemeVideos.length === 0 && !useVideoLoading ? (
                     <Alert type={VariantType.INFO}>
                       {hasActiveVideoFilters
-                        ? "Aucune vidéo ne correspond à vos filtres."
-                        : "Aucune vidéo liée à ce thème."}
+                        ? t("common.noResults")
+                        : t("common.noResults")}
                     </Alert>
                   ) : (
                     <VideosDisplay

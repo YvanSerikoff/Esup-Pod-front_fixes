@@ -38,6 +38,7 @@ export const es: TranslationKeys = {
     update: "Actualizar",
     noResults: "No hay resultados para su búsqueda",
     tab: "Panel de control",
+    delete: "Eliminar",
   },
   errors: {
     error: "Ocurrió un error",
@@ -433,7 +434,8 @@ export const es: TranslationKeys = {
     en: "English",
     es: "Español",
   },
-  descritions: {
+  descriptions: {
     dashboard: "Gestione sus vídeos y ajustes en su panel de control de Esup POD.",
+    login: "Inicie sesión para acceder a sus vídeos y su espacio personal en Esup POD.",
   },
 };

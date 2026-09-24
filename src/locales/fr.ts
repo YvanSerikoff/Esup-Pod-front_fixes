@@ -36,6 +36,7 @@ export const fr = {
     update: "Mettre à jour",
     noResults: "Aucun résultat pour votre recherche",
     tab: "Tableau de bord",
+    delete: "Supprimer",
   },
   errors: {
     error: "Une erreur est survenue",
@@ -432,8 +433,9 @@ export const fr = {
     en: "English",
     es: "Español",
   },
-  descritions: {
+  descriptions: {
     dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup POD.",
+    login: "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup POD.",
   },
 };
 

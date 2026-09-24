@@ -38,6 +38,7 @@ export const en: TranslationKeys = {
     update: "Update",
     noResults: "No results for your search",
     tab: "Dashboard",
+    delete: "Delete",
   },
   errors: {
     error: "An error occurred",
@@ -433,7 +434,8 @@ export const en: TranslationKeys = {
     en: "English",
     es: "Español",
   },
-  descritions: {
+  descriptions: {
     dashboard: "Manage your videos and settings on your Esup POD dashboard.",
+    login: "Log in to access your videos and personal space on Esup POD.",
   },
 };

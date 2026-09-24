@@ -38,7 +38,7 @@ export default function DressingPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Êtes-vous sûr de vouloir supprimer ce filigrane ?")) {
+    if (confirm(t("dressingPage.confirmDelete"))) {
       await deleteWatermark(id);
     }
   };
@@ -99,7 +99,7 @@ export default function DressingPage() {
                   color="error" 
                   icon={<DeleteIcon />} 
                   onClick={() => handleDelete(wm.id)}
-                  aria-label="Supprimer"
+                  aria-label={t("common.delete")}
                 />
               </div>
             </div>
