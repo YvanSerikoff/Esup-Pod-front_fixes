@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (res.ok) {
       const video = await res.json();
       return {
-        title: `${video.title} | Esup-POD`,
-        description: video.description || "Regarder la vidéo sur Esup-POD",
+        title: `${video.title} | Esup-Pod`,
+        description: video.description || "Regarder la vidéo sur Esup-Pod",
       };
     }
   } catch (error) {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: "Vidéo | Esup-POD",
+    title: "Vidéo | Esup-Pod",
   };
 }
 

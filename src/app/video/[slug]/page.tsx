@@ -247,7 +247,7 @@ export default function Video() {
 
   useEffect(() => {
     if (video?.title) {
-      document.title = `${video.title} | Esup-POD V5`;
+      document.title = `${video.title} | Esup-Pod V5`;
     }
   }, [video?.title]);
 

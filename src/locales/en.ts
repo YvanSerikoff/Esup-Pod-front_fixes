@@ -435,7 +435,7 @@ export const en: TranslationKeys = {
     es: "Español",
   },
   descriptions: {
-    dashboard: "Manage your videos and settings on your Esup-POD dashboard.",
-    login: "Log in to access your videos and personal space on Esup-POD.",
+    dashboard: "Manage your videos and settings on your Esup-Pod dashboard.",
+    login: "Log in to access your videos and personal space on Esup-Pod.",
   },
 };

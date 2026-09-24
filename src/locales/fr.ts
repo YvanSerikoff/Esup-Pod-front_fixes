@@ -434,8 +434,8 @@ export const fr = {
     es: "Español",
   },
   descriptions: {
-    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-POD.",
-    login: "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup-POD.",
+    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-Pod.",
+    login: "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup-Pod.",
   },
 };
 
