@@ -42,16 +42,6 @@ Please follow these steps to have your contribution considered by the maintainer
 * Use the imperative mood ("Move cursor to…" not "Moves cursor to…")
 * Limit the first line to 72 characters or less
 * Reference issues and pull requests liberally after the first line
-* Consider starting the commit message with an applicable emoji:
-  * :art: `:art:` when improving the format/structure of the code
-  * :racehorse: `:racehorse:` when improving performance
-  * :memo: `:memo:` when writing docs
-  * :bug: `:bug:` when fixing a bug
-  * :fire: `:fire:` when removing code or files
-  * :green_heart: `:green_heart:` when fixing the CI build
-  * :white_check_mark: `:white_check_mark:` when adding tests
-  * :arrow_up: `:arrow_up:` when upgrading dependencies
-  * :shirt: `:shirt:` when removing linter warnings
 
 ### Naming Conventions and Case Styles
 
@@ -111,4 +101,4 @@ We are gradually implementing unit tests using **Vitest**.
 * Run the tests: `yarn test`
 * Test files use the `.test.ts` or `.test.tsx` extension and are located in the same folder as the component being tested.
 
-Thank you for your contribution !
+Thank you for your contribution!
