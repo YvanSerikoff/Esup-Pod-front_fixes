@@ -53,25 +53,62 @@ Please follow these steps to have your contribution considered by the maintainer
   * :arrow_up: `:arrow_up:` when upgrading dependencies
   * :shirt: `:shirt:` when removing linter warnings
 
+### Naming Conventions and Case Styles
+
+Use consistent casing across the codebase so files and symbols are easy to read and to distinguish by language:
+
+* **JavaScript / TypeScript**: Use `camelCase` for variables, functions, hooks, and object properties (`usePlaylist`, `fetchVideos`, `selectedVideoId`).
+* **React components**: Use `PascalCase` for component names and file names (`VideoCard.tsx`, `SidebarMenu.tsx`).
+* **Constants / enums / configuration values**: Use `UPPER_SNAKE_CASE` for shared constants when they are truly constant (`API_BASE_URL`, `DEFAULT_LANGUAGE`).
+* **CSS / CSS Modules**: Use `kebab-case` for class names and custom property names (`video-card`, `page-header`, `--brand-primary`).
+* **Files**: Prefer descriptive names that match their purpose; use kebab-case for CSS files when relevant and PascalCase for React component files.
+* **Avoid mixing styles**: Do not use `camelCase` for CSS classes or `kebab-case` for JavaScript identifiers.
+
+### Typography
+
+Please use these typographic characters in all displayed strings:
+
+* Use Apostrophe (’) instead of single quote (')
+  * English samples: don’t, it’s
+  * French samples: J’aime, l’histoire
+* Use the ellipsis (…) instead of 3 dots (...)
+  * English sample: Loading…
+  * French sample: Chargement…
+* Use typographic quotes (“ ”) instead of neutral quotes (" ")
+  * English sample: You can use the “Description” field below.
+  * French sample: Utilisez le champ « Description » ci-dessous
+
+### Languages
+
+The application uses locale files under `src/locales/` as the single source of truth for user-facing text. Every visible string should be defined in the relevant dictionary, then consumed through the translation helper instead of being written directly in components.
+
+* **Source of truth**: Use the files `src/locales/fr.ts`, `src/locales/en.ts`, and `src/locales/es.ts`.
+* **Key structure**: Keep translations grouped by domain (`common`, `auth`, `home`, `preferences`, `filters`, etc.) to match the project conventions.
+* **No hardcoded strings**: Do not write literal text directly in JSX, CSS labels, or UI metadata when a translation key exists.
+* **Examples from the project**: prefer values such as `common.loading`, `auth.loginTitle`, `preferences.languageSectionTitle`, and `home.welcomeSubtitle` instead of raw strings like "Chargement…" or "Login".
+* **Add keys in all locales**: When a new user-facing label is introduced, add it consistently to every locale file to avoid missing translations.
+* **Use existing keys first**: Before creating a new key, check whether an equivalent translation already exists in the dictionary files.
+* **Formatting and typography**: Keep the locale values responsible for punctuation and special characters, such as ellipses and apostrophes, as already used in the existing language files (`Chargement…`, `Bienvenue…`, `Niveau d’études`).
+
 ---
 
 ## Architecture & Conventions (Frontend specific)
 
-Le projet est basé sur **Next.js (App Router)** et **React**.
+This project is based on **Next.js** and **React**.
 
 ### Dos & Don'ts
 
-* **TypeScript :** Le projet est strictement typé. Vérifiez vos types avant de commiter avec `yarn typecheck`.
-* **Linting :** Ne commitez pas de code avec des erreurs ESLint. Utilisez `yarn lint`. (Le projet est configuré avec un hook pre-commit).
-* **Effets secondaires (useEffect) :** Évitez de faire des `setState` de manière synchrone dans un `useEffect`, cela provoque des rendus en cascade.
-* **Requêtes API :** Toute communication backend doit passer par `authFetch` et être encapsulée dans un hook utilisant **React Query**.
-* **Design System :** Le projet utilise **Cunningham**. Pour toute nouvelle intégration, veuillez privilégier Cunningham plutôt que MUI. Si vous modifiez `cunningham.ts`, vous devez recompiler les tokens avec la commande `yarn build-theme`.
+* **TypeScript :** This project is strictly typed. Verify them before commiting with `yarn typecheck`
+* **Liting :** Do not commit code with ESLint errors. Use `yarn lint` to check before commiting. (The project is configured with a pre-commit hook).
+* **Side effects (useEffect) :** Avoid synchronous `setState` in `useEffect`, this triggers cascading renders.
+* **API requests :** All backend communication must go through `authFetch` and be encapsulated in a hook using **React Query**.
+* **Desig System :** This project uses **Cunningham**. For any new integration, please prioritize Cunningham over MUI. If you modify `cunningham.ts`, you need to recompile the tokens with the `yarn build-theme` command.
 
 ### Tests
 
-Nous mettons en place progressivement des tests unitaires avec **Vitest**.
+We are gradually implementing unit tests using **Vitest**.
 
-* Lancer les tests : `yarn test`
-* Les fichiers de tests portent l'extension `.test.ts` ou `.test.tsx` et se situent dans le même dossier que le composant testé.
+* Run the tests: `yarn test`
+* Test files use the `.test.ts` or `.test.tsx` extension and are located in the same folder as the component being tested.
 
-Merci pour votre contribution !
+Thank you for your contribution !
