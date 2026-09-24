@@ -219,7 +219,9 @@ export default function VideoFilters({
     [disciplines, t],
   );
 
-  const selectedChannelLabel = value.channel ? `${t("common.channel")} ${value.channel}` : null;
+  const selectedChannelLabel = value.channel
+    ? t("videoPage.channelWithId", { id: value.channel })
+    : null;
 
   const selectedUsers = useMemo(() => {
     return value.ownerUsernames.map((username) => {
@@ -497,7 +499,7 @@ export default function VideoFilters({
 
             {showChannelFilter && value.channel && (
               <FilterChip
-                label={selectedChannelLabel ?? `${t("common.channel")} : ${value.channel}`}
+                label={selectedChannelLabel ?? t("videoPage.channelWithId", { id: value.channel })}
                 onDelete={() => onChange({ ...value, channel: null })}
               />
             )}

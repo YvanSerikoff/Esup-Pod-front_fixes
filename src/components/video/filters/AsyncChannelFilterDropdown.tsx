@@ -40,7 +40,10 @@ export default function AsyncChannelFilterDropdown({
       if (existing) {
         setSelectedOption(existing);
       } else {
-        setSelectedOption({ label: `${t("videoPage.channel")} ${selectedChannelId}`, value: selectedChannelId });
+        setSelectedOption({
+          label: t("videoPage.channelWithId", { id: selectedChannelId }),
+          value: selectedChannelId,
+        });
       }
     };
     void loadSelectedChannel();

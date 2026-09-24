@@ -219,6 +219,7 @@ export const fr = {
     report: "Signaler",
     editVideo: "Éditer la vidéo",
     channel: "Chaîne",
+    channelWithId: "Chaîne {id}",
     creator: "Créateur",
     mainLanguage: "Langue principale",
     keywords: "Mots clés",

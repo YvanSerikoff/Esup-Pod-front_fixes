@@ -220,6 +220,7 @@ export const en: TranslationKeys = {
     report: "Report",
     editVideo: "Edit video",
     channel: "Channel",
+    channelWithId: "Channel {id}",
     creator: "Creator",
     mainLanguage: "Main language",
     keywords: "Keywords",
