@@ -9,7 +9,7 @@ const t = (key: string) => {
 
 export const metadata: Metadata = {
   title: `${t("common.tab")} | Esup POD`,
-  description: t("descritions.dashboard"),
+  description: t("descriptions.dashboard"),
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

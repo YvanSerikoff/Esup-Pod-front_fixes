@@ -433,7 +433,7 @@ export const en: TranslationKeys = {
     en: "English",
     es: "Español",
   },
-  descritions: {
-    dashboard: "Manage your videos and settings on your Esup POD dashboard.",
+  descriptions: {
+    dashboard: "Manage your videos and settings on your Esup-Pod dashboard.",
   },
 };

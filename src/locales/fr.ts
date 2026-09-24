@@ -432,8 +432,8 @@ export const fr = {
     en: "English",
     es: "Español",
   },
-  descritions: {
-    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup POD.",
+  descriptions: {
+    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-Pod.",
   },
 };
 
