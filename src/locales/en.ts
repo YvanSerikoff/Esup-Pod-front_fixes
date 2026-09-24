@@ -39,6 +39,10 @@ export const en: TranslationKeys = {
     noResults: "No results for your search",
     tab: "Dashboard",
     delete: "Delete",
+    edit: "Edit",
+    add: "Add",
+    createdBy: "Created by",
+    latestUpdate: "Updated on:",
   },
   errors: {
     error: "An error occurred",
@@ -51,6 +55,7 @@ export const en: TranslationKeys = {
     notConnected: "User not connected",
     chooseImage: "Please select an image",
     unableToSection: "Unable to load this section of the application",
+    notConfigured: "The requested page does not exist or has not yet been configured for this university.",
   },
   a11y: {
     institutionLogo: "Institution logo",
@@ -411,6 +416,7 @@ export const en: TranslationKeys = {
     noPlaylists: "You don’t have any playlists yet.",
     noMatchingFilters: "No playlists match your active filters.",
     noPublicPlaylists: "No playlists available at the moment.",
+    playlistCreated: "Playlist created successfully.",
   },
   channels: {
     title: "Channels",

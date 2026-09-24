@@ -39,6 +39,10 @@ export const es: TranslationKeys = {
     noResults: "No hay resultados para su búsqueda",
     tab: "Panel de control",
     delete: "Eliminar",
+    edit: "Editar",
+    add: "Añadir",
+    createdBy: "Creado por",
+    latestUpdate: "Actualizado el ",
   },
   errors: {
     error: "Ocurrió un error",
@@ -51,6 +55,7 @@ export const es: TranslationKeys = {
     notConnected: "Utilizador no conectado",
     chooseImage: "Por favor, seleccione una imagen",
     unableToSection: "No se puede cargar esta sección de la aplicación",
+    notConfigured: "La página solicitada no existe o aún no se ha configurado para esta universidad.",
   },
   a11y: {
     institutionLogo: "Logotipo de la institución",
@@ -411,6 +416,7 @@ export const es: TranslationKeys = {
     noPlaylists: "Aún no tiene ninguna lista de reproducción.",
     noMatchingFilters: "Ninguna lista de reproducción coincide con sus filtros.",
     noPublicPlaylists: "No hay listas de reproducción disponibles por el momento.",
+    playlistCreated: "La lista de reproducción se ha creado correctamente.",
   },
   channels: {
     title: "Canales",

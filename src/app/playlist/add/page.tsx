@@ -27,17 +27,18 @@ type AddPlaylistFormValues = {
   default_order: CollectionOrder;
 };
 
-const FORM_FIELD_LABELS: Partial<Record<keyof AddPlaylistFormValues, string>> =
-  {
-    title: "Titre",
-    description: "Description",
-    is_password_required: "Ajouter un mot de passe",
-    is_public: "Statut",
-    password: "Mot de passe",
-    default_order: "Tri par défault",
+export default function AddPlaylist() {
+  const { t } = useTranslation();
+
+  const FORM_FIELD_LABELS: Partial<Record<keyof AddPlaylistFormValues, string>> = {
+    title: t("common.title"),
+    description: t("common.description"),
+    is_password_required: t("common.isPasswordRequired"),
+    is_public: t("common.isPublic"),
+    password: t("common.password"),
+    default_order: t("common.defaultOrder"),
   };
 
-export default function AddPlaylist() {
   const router = useRouter();
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();
   const { createPlaylist, usePlaylistLoading, usePlaylistError } =
@@ -48,7 +49,6 @@ export default function AddPlaylist() {
   const [formError, setformError] = useState<string | null>(null);
   const [isDirty, setIsDirty] = useState(false);
   const isMobile = useMediaQuery("(max-width: 932px)");
-  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -180,7 +180,7 @@ export default function AddPlaylist() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>Ajouter une liste de lecture</h1>
+      <h1>{t("common.add")}</h1>
 
       {(formError || error || usePlaylistError) && (
         <Alert type={VariantType.ERROR} canClose>

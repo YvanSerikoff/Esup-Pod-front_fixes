@@ -124,7 +124,7 @@ export default function PlaylistPage() {
   if (!slug) {
     return (
       <Alert type={VariantType.ERROR} canClose>
-        Playlist introuvable.
+        {t("common.noResults")}
       </Alert>
     );
   }
@@ -152,7 +152,7 @@ export default function PlaylistPage() {
       <div className={styles["playlist-content"]}>
         {playlistJustCreated && (
           <Alert type={VariantType.SUCCESS} aria-live="polite">
-            Votre liste de lecture a été créée avec succès! 🥳
+            {t("playlist.playlistCreated")}
           </Alert>
         )}
         <div className={styles["playlist-header-row"]}>
@@ -178,7 +178,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/edit/${effectivePlaylist?.slug}`)
                     }
                   >
-                    Éditer la liste de lecture
+                    {t("common.edit")}
                   </Button>
                   <Button
                     color="error"
@@ -188,7 +188,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/delete/${effectivePlaylist?.slug}`)
                     }
                   >
-                    Supprimer la liste de lecture
+                    {t("common.delete")}
                   </Button>
                 </>
               )}
@@ -204,14 +204,14 @@ export default function PlaylistPage() {
                 <dt>{timeAgo(effectivePlaylist?.created_at)}</dt>
               </div>
               <div>
-                <dt>Créée par :</dt>
+                <dt>{t("common.createdBy")}</dt>
                 <dd>
                   {effectivePlaylist?.owner_username ?? "Utilisateur inconnu"}
                 </dd>
               </div>
 
               <div>
-                <dt>Mis à jour le :</dt>
+                <dt>{t("common.latestUpdate")}</dt>
                 <dd>{formatDateWithTime(effectivePlaylist?.updated_at)}</dd>
               </div>
 
@@ -272,11 +272,11 @@ export default function PlaylistPage() {
                 currentUserId={user?.id}
               />
             ) : (
-              <Alert>Aucune vidéo ne correspond à vos filtres.</Alert>
+              <Alert>{t("common.noResults")}</Alert>
             )}
           </div>
         ) : (
-          <Alert>Aucune vidéo dans cette playlist.</Alert>
+          <Alert>{t("common.noResults")}</Alert>
         )}
       </div>
     </div>

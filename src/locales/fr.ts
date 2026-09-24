@@ -37,6 +37,10 @@ export const fr = {
     noResults: "Aucun résultat pour votre recherche",
     tab: "Tableau de bord",
     delete: "Supprimer",
+    edit: "Éditer",
+    add: "Ajouter",
+    createdBy: "Créée par",
+    latestUpdate: "Mise à jour le :",
   },
   errors: {
     error: "Une erreur est survenue",
@@ -48,7 +52,8 @@ export const fr = {
     imageDeleteError: "Echec de la suppression de l'image",
     notConnected: "Utilisateur non connecté",
     chooseImage: "Veuillez choisir une image",
-    unableToSection: "Impossible de charger cette section de l'application"
+    unableToSection: "Impossible de charger cette section de l'application",
+    notConfigured: "La page demandée n'existe pas ou n'a pas encore été configurée pour cette université.",
   },
   a11y: {
     institutionLogo: "Logo de l’établissement",
@@ -410,6 +415,7 @@ export const fr = {
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
     noPublicPlaylists: "Aucune liste de lecture disponible pour le moment.",
+    playlistCreated: "La liste de lecture a été créée avec succès.",
   },
   channels: {
     title: "Chaînes",

@@ -122,9 +122,9 @@ function LoginContent() {
           aria-describedby="username-error"
           aria-required="true"
           {...register("username", {
-            required: "Ce champ est requis.",
+            required: t("auth.usernameRequired"),
             validate: (value) =>
-              value.trim().length > 0 || "Ce champ est requis.",
+              value.trim().length > 0 || t("auth.usernameRequired"),
           })}
         />
         {errors.username && (
@@ -142,9 +142,9 @@ function LoginContent() {
           aria-describedby="password-error"
           aria-required="true"
           {...register("password", {
-            required: "Ce champ est requis.",
+            required: t("auth.passwordRequired"),
             validate: (value) =>
-              value.trim().length > 0 || "Ce champ est requis.",
+              value.trim().length > 0 || t("auth.passwordRequired"),
           })}
         />
         {errors.password && (

@@ -25,7 +25,7 @@ export default function FlatPage() {
         <BackButton label={t("common.back")} />
         <h1 style={{ marginTop: "1rem" }}>Page introuvable</h1>
         <Alert type={VariantType.ERROR}>
-          {error?.message || "La page demandée n'existe pas ou n'a pas encore été configurée pour cette université."}
+          {error?.message || t("errors  .notConfigured")}
         </Alert>
       </div>
     );
