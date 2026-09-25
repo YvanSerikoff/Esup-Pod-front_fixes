@@ -51,6 +51,7 @@ export const en: TranslationKeys = {
     private: "Private",
     passwordProtected: "Password protected",
     find: "Found",
+    webTv: "WebTV",
   },
   errors: {
     error: "An error occurred",

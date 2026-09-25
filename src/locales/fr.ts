@@ -50,6 +50,7 @@ export const fr = {
     private: "Privée",
     passwordProtected: "Protégée par mot de passe",
     find: "trouvée",
+    webTv: "WebTV",
   },
   errors: {
     error: "Une erreur est survenue",

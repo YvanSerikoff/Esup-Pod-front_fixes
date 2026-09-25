@@ -22,7 +22,7 @@ export default function WebTVHeader() {
           <span className="material-icons" style={{ fontSize: "1.8rem" }}>
             layers
           </span>
-          <span>WebTV</span>
+          <span>{t("common.webTv")}</span>
         </Link>
 
         <nav>
