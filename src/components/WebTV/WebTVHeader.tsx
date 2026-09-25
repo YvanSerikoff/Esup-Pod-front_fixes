@@ -108,9 +108,7 @@ export default function WebTVHeader() {
       >
         <div className={styles["dialog-content"]}>
           <div className={styles["dialog-header"]}>
-            <h3 className={styles["dialog-title"]}>
-              Rechercher des contenus
-            </h3>
+            <h3 className={styles["dialog-title"]}>Rechercher des contenus</h3>
             <button
               onClick={() => setIsSearchOpen(false)}
               className={styles["dialog-close"]}
