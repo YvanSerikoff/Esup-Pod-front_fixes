@@ -14,6 +14,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LanguageIcon from "@mui/icons-material/Language";
 import { useSocialNetworks } from "@/src/hooks/useSocialNetworks";
 import type { Video, SocialNetwork } from "@/src/types";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 type Props = {
   video: Video;
@@ -24,6 +25,8 @@ export default function VideoShareMenu({ video, className }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [isCopied, setIsCopied] = useState(false);
   const { socialNetworks } = useSocialNetworks();
+
+  const { t } = useTranslation()
 
   const open = Boolean(anchorEl);
 
@@ -85,7 +88,7 @@ export default function VideoShareMenu({ video, className }: Props) {
   return (
     <>
       <button className={className} onClick={handleClick} type="button">
-        <ShareIcon fontSize="small" /> {isCopied ? "Lien copié !" : "Partager"}
+        <ShareIcon fontSize="small" /> {isCopied ? `${t("videoPage.linkCopied")}` : `${t("videoPage.share")}`}
       </button>
 
       <Menu
@@ -98,7 +101,7 @@ export default function VideoShareMenu({ video, className }: Props) {
           <ListItemIcon>
             <ContentCopyIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Copier le lien</ListItemText>
+          <ListItemText>{t("videoPage.copyLink")}</ListItemText>
         </MenuItem>
 
         {availableNetworks.map((net) => (

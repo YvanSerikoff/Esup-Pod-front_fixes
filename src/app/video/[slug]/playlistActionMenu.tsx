@@ -16,6 +16,7 @@ import styles from "./styles.module.css";
 import type { Playlist } from "@/src/types";
 import { usePlaylist } from "@/src/hooks/usePlaylist";
 import { useFavorites } from "@/src/hooks/useFavorites";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 interface PlaylistActionMenuProps {
   playlists: Playlist[];
@@ -36,6 +37,8 @@ export default function PlaylistActionMenu({
     removeFavoriteForVideo,
     isFavorite,
   } = useFavorites();
+
+  const {t} = useTranslation()
 
   // Ancre Popover (null = fermé)
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -189,7 +192,7 @@ export default function PlaylistActionMenu({
           aria-describedby={id}
           onClick={handlePlaylistButtonClick}
         >
-          <PlaylistAddIcon fontSize="small" /> Playlist
+          <PlaylistAddIcon fontSize="small" /> {t("common.playlist")}
         </button>
 
         <button
@@ -209,7 +212,7 @@ export default function PlaylistActionMenu({
               aria-hidden="true"
             />
           )}
-          Favori
+          {t("videoPage.favorite")}
         </button>
       </div>
 
@@ -237,7 +240,7 @@ export default function PlaylistActionMenu({
             component="h4"
             sx={{ fontSize: "0.9rem", m: 0 }}
           >
-            Ajouter à une liste de lecture
+            {t("videoPage.addToPlaylist")}
           </Typography>
           {error && (
             <Typography
@@ -262,7 +265,7 @@ export default function PlaylistActionMenu({
           }}
         >
           {playlists.length === 0 && (
-            <MenuItem disabled>Aucune playlist disponible</MenuItem>
+            <MenuItem disabled>{t("videoPage.noPlaylistsAvailable")}</MenuItem>
           )}
 
           {playlists.map((playlist) => {

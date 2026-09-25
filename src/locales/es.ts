@@ -136,12 +136,14 @@ export const es: TranslationKeys = {
     mySpace: "Mi Espacio",
     dashboard: "Mi Panel",
     myFavorites: "Mis vídeos favoritos",
+    favorites: "Vídeos favoritos",
     myPlaylists: "Mis listas de reproducción",
     playlists: "Listas de reproducción",
     videoBranding: "Carátulas y Marcas de agua",
     welcome: "Bienvenido",
     welcomeUser: "¡Bienvenido {name}!",
     closeMenu: "Cerrar menú",
+    nowPlaying: "Reproduciendo"
   },
   auth: {
     loginTitle: "Iniciar sesión en mi perfil POD",
@@ -266,6 +268,10 @@ export const es: TranslationKeys = {
     updatedAt: "Actualizado el:",
     seeMore: "Ver más",
     seeLess: "Ver menos",
+    addToPlaylist: "Añadir a una lista de reproducción",
+    noPlaylistsAvailable: "No hay listas de reproducción disponibles",
+    linkCopied: "¡Enlace copiado!",
+    copyLink: "Copiar enlace",
   },
   cursus: {
     L1: "Grado 1.º año",

@@ -33,9 +33,7 @@ export default function FavoritesSidebar({
     <div className={styles["favorites-sidebar"]}>
       <header className={styles["favorites-sidebar-header"]}>
         <div>
-          <p className={styles["favorites-sidebar-label"]}>
-            {t("sidebar.myFavorites")}
-          </p>
+          <p className={styles["favorites-sidebar-label"]}>{t("sidebar.favorites")}</p>
         </div>
       </header>
 
@@ -68,7 +66,7 @@ export default function FavoritesSidebar({
                 </p>
                 {isActive && (
                   <p className={styles["favorites-sidebar-now-playing"]}>
-                    Lecture en cours
+                    {t("sidebar.nowPlaying")}
                   </p>
                 )}
               </div>

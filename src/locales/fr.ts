@@ -140,11 +140,13 @@ export const fr = {
     dashboard: "Mon tableau de bord",
     myFavorites: "Mes vidéos favorites",
     playlists: "Lecture de la liste",
+    favorites : "Vidéos favorites",
     myPlaylists: "Mes listes de lecture",
     videoBranding: "Habillages & Filigranes",
     welcome: "Bienvenue",
     welcomeUser: "Bienvenue {name} !",
     closeMenu: "Fermer le menu",
+    nowPlaying: "Lecture en cours"
   },
   auth: {
     loginTitle: "Connexion à mon profil POD",
@@ -270,6 +272,10 @@ export const fr = {
     updatedAt: "Mis à jour le :",
     seeMore: "Voir plus",
     seeLess: "Voir moins",
+    addToPlaylist: "Ajouter à une liste de lecture",
+    noPlaylistsAvailable: "Aucune playlist disponible",
+    linkCopied: "Lien copié !",
+    copyLink: "Copier le lien",
   },
   cursus: {
     L1: "Licence 1",

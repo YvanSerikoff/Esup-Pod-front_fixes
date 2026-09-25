@@ -137,11 +137,13 @@ export const en: TranslationKeys = {
     dashboard: "My Dashboard",
     myFavorites: "My Favorite Videos",
     playlists: "Playlists",
+    favorites: "Favorite videos",
     myPlaylists: "My Playlists",
     videoBranding: "Video Branding & Watermarks",
     welcome: "Welcome",
     welcomeUser: "Welcome {name}!",
     closeMenu: "Close menu",
+    nowPlaying: "Now playing"
   },
   auth: {
     loginTitle: "Login to my POD profile",
@@ -266,6 +268,10 @@ export const en: TranslationKeys = {
     updatedAt: "Updated on:",
     seeMore: "See more",
     seeLess: "See less",
+    addToPlaylist: "Add to playlist",
+    noPlaylistsAvailable: "No playlists available",
+    linkCopied: "Link copied!",
+    copyLink: "Copy link",
   },
   cursus: {
     L1: "Bachelor 1st year",
