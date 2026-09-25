@@ -299,8 +299,8 @@ export default function Channel() {
                         !useVideoLoading ? (
                           <Alert type={VariantType.INFO}>
                             {hasActiveVideoFilters
-                              ? t("common.noResults")
-                              : t("channels.noContent")}
+                              ? t("favorites.noMatchingFilters")
+                              : t("channels.noVideos")}
                           </Alert>
                         ) : (
                           <VideoDisplay
@@ -362,7 +362,7 @@ export default function Channel() {
                         !loading &&
                         hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
-                            {t("common.noResults")}
+                            {t("themes.noThemes")}
                           </Alert>
                         ) : channelThemes.length === 0 &&
                           !loading &&

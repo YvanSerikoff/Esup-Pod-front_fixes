@@ -445,6 +445,9 @@ export const es: TranslationKeys = {
   playlists: {
     myTitle: "Mis listas de reproducción",
     playlists: "Listas de reproducción",
+    notFound: "Lista de reproducción no encontrada",
+    delete: "Eliminar lista de reproducción",
+    noVideos: "No hay vídeos en esta lista de reproducción",
     playlist: "Lista de reproducción",
     addPlaylist: "Añadir lista de reproducción",
     noPlaylists: "Aún no tiene ninguna lista de reproducción.",
@@ -457,6 +460,8 @@ export const es: TranslationKeys = {
   channels: {
     title: "Canales",
     noChannels: "No hay canales disponibles por el momento.",
+    noVideos: "No hay vídeos liados a este canal.",
+    noThemes: "Ningún tema coincide con sus criterios de búsqueda.",
     noMatchingFilters: "Ningún canal coincide con sus filtros.",
     content: "Contenidos del canal",
     noContent: "Este canal no tiene vídeos ni temas asociados",

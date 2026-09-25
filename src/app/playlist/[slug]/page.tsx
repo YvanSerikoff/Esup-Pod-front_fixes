@@ -129,7 +129,7 @@ export default function PlaylistPage() {
   if (!slug) {
     return (
       <Alert type={VariantType.ERROR} canClose>
-        {t("common.noResults")}
+        {t("playlist.notFound")}
       </Alert>
     );
   }
@@ -193,7 +193,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/delete/${effectivePlaylist?.slug}`)
                     }
                   >
-                    {t("common.delete")}
+                    {t("playlists.delete")}
                   </Button>
                 </>
               )}
@@ -279,7 +279,7 @@ export default function PlaylistPage() {
                 currentUserId={user?.id}
               />
             ) : (
-              <Alert>{t("common.noResults")}</Alert>
+              <Alert>{t("playlists.noVideos")}</Alert>
             )}
           </div>
         ) : (

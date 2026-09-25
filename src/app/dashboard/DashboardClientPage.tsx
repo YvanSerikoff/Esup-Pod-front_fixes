@@ -140,8 +140,8 @@ export default function Dashboard() {
           {videos.length === 0 ? (
             <Alert type={VariantType.INFO}>
               {hasActiveVideoFilters
-                ? t("common.no_results")
-                : t("table.no_videos")}
+                ? t("favorites.noMatchingFilters")
+                : t("table.noVideosFound")}
             </Alert>
           ) : (
             <VideosDisplay

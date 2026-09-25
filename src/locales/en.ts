@@ -445,6 +445,9 @@ export const en: TranslationKeys = {
     myTitle: "My Playlists",
     playlists: "Playlists",
     playlist: "Playlist",
+    delete: "Delete Playlist",
+    noVideos: "No videos in this playlist",
+    notFound: "Playlist not found",
     addPlaylist: "Add Playlist",
     noPlaylists: "You don’t have any playlists yet.",
     noMatchingFilters: "No playlists match your active filters.",
@@ -454,6 +457,8 @@ export const en: TranslationKeys = {
   channels: {
     title: "Channels",
     noChannels: "No channels available at the moment.",
+    noVideos: "No videos linked to this channel.",
+    noThemes: "No themes match your search criteria.",
     noMatchingFilters: "No channels match your active filters.",
     content: "Content of the channel",
     noContent: "This channel has no associated videos or themes.",

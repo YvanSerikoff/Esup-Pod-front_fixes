@@ -459,6 +459,9 @@ export const fr = {
     myTitle: "Mes listes de lecture",
     playlists: "Listes de lecture",
     playlist: "Liste de lecture",
+    delete: "Supprimer la liste de lecture",
+    noVideos: "Aucune vidéo dans cette playlist",
+    notFound: "Playlist introuvable",
     addPlaylist: "Ajouter une liste de lecture",
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
@@ -468,11 +471,13 @@ export const fr = {
   channels: {
     title: "Chaînes",
     noChannels: "Aucune chaîne disponible pour le moment.",
+    noVideos: "Aucune vidéo liée à cette chaîne.",
     noMatchingFilters: "Aucune chaîne ne correspond à vos filtres.",
     content: "Contenus de la chaîne",
     noContent: "Cette chaine n’a aucune vidéo ou thème associé",
     noTheme: "Cette chaine n’a aucun thème associé.",
     unclassified: "Videos non classées",
+    noThemes: "Aucun thème ne correspond à vos critères de recherche.",
   },
   dressingPage: {
     title: "Habillages & Filigranes Vidéo",
