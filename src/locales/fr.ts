@@ -65,7 +65,7 @@ export const fr = {
     chooseImage: "Veuillez choisir une image",
     unableToSection: "Impossible de charger cette section de lapplication",
     notConfigured:
-      "La page demandée n’existe pas ou n’a pas encore été configurée pour cette université.",
+      "La page demandée n’existe pas ou n’a pas encore été configurée pour cette établissement.",
   },
   a11y: {
     institutionLogo: "Logo de l’établissement",
@@ -217,7 +217,7 @@ export const fr = {
     title: "Titre",
     duration: "Durée",
     dateAdded: "Date d’ajout",
-    status: "Status",
+    status: "Statut",
     public: "Public",
     restricted: "Restreint",
     password: "Mot de passe",

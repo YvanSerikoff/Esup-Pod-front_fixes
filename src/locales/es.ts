@@ -65,7 +65,7 @@ export const es: TranslationKeys = {
     chooseImage: "Por favor, seleccione una imagen",
     unableToSection: "No se puede cargar esta sección de la aplicación",
     notConfigured:
-      "La página solicitada no existe o aún no se ha configurado para esta universidad.",
+      "La página solicitada no existe o aún no se ha configurado para esta institución.",
   },
   a11y: {
     institutionLogo: "Logotipo de la institución",
