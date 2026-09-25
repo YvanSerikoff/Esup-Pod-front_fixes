@@ -49,7 +49,8 @@ export const fr = {
     public: "Publique",
     private: "Privée",
     passwordProtected: "Protégée par mot de passe",
-    found: { // Pluralization
+    found: {
+      // Pluralization
       one: "Trouvé",
       other: "Trouvés",
     },
@@ -94,7 +95,7 @@ export const fr = {
 
     thumbnail: "Vignette",
     preview: "Aperçu",
-    chooseVideo: "Sélectionner cette vidéo"
+    chooseVideo: "Sélectionner cette vidéo",
   },
   pending: {
     sending: "Envoi en cours…",
@@ -152,7 +153,7 @@ export const fr = {
     submitLogin: "Connexion",
   },
   webtv: {
-    webtv:"WebTV",
+    webtv: "WebTV",
     liveTitle: "Direct",
     noLive: "Aucun direct en cours",
     loadingContent: "Chargement des contenus WebTV…",
@@ -469,10 +470,10 @@ export const fr = {
     noVideos: "Aucune vidéo dans cette playlist",
     notFound: "Playlist introuvable",
     addPlaylist: "Ajouter une liste de lecture",
-    editPlaylist : "Éditer la liste de lecture.",
-    deletePlaylist : "Supprimer la liste de lecture",
+    editPlaylist: "Éditer la liste de lecture.",
+    deletePlaylist: "Supprimer la liste de lecture",
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
-    noResults : "Playlist introuvable.",
+    noResults: "Playlist introuvable.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
     noPublicPlaylists: "Aucune liste de lecture disponible pour le moment.",
     playlistCreated: "La liste de lecture a été créée avec succès.",
@@ -484,7 +485,7 @@ export const fr = {
     content: "Contenus de la chaîne",
     noContent: "Cette chaine n’a aucune vidéo ou thème associé.",
     noTheme: "Cette chaine n’a aucun thème associé.",
-    noVideos : "Cette chaine n’a aucune vidéo associé.",
+    noVideos: "Cette chaine n’a aucune vidéo associé.",
     unclassified: "Videos non classées",
     noThemes: "Aucun thème ne correspond à vos critères de recherche.",
   },

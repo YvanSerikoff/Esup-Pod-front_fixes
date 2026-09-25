@@ -50,7 +50,8 @@ export const en: TranslationKeys = {
     public: "Public",
     private: "Private",
     passwordProtected: "Password protected",
-    found: { // Pluralization
+    found: {
+      // Pluralization
       one: "Found",
       other: "Found",
     },
@@ -93,7 +94,7 @@ export const en: TranslationKeys = {
     deleteProfilePictureSuccess: "Profile picture deleted successfully",
     thumbnail: "Thumbnail",
     preview: "Preview",
-    chooseVideo: "Select this video"
+    chooseVideo: "Select this video",
   },
   pending: {
     sending: "Sending…",
@@ -149,7 +150,7 @@ export const en: TranslationKeys = {
     submitLogin: "Login",
   },
   webtv: {
-    webtv:"WebTV",
+    webtv: "WebTV",
     liveTitle: "Live",
     noLive: "No live stream currently broadcast",
     loadingContent: "Loading WebTV content…",
@@ -184,7 +185,7 @@ export const en: TranslationKeys = {
     titleAZ: "Title A-Z",
     titleZA: "Title Z-A",
     creationDate: "Creation date",
-    activeCreationDate:"Date (active filter)",
+    activeCreationDate: "Date (active filter)",
     selectPeriod: "Select a period",
     createdAfter: "Created after",
     createdBefore: "Created before",
@@ -453,12 +454,12 @@ export const en: TranslationKeys = {
     playlist: "Playlist",
     delete: "Delete playlist",
     addPlaylist: "Add playlist",
-    editPlaylist : "Edit playlist.",
-    deletePlaylist : "Delete playlist",
+    editPlaylist: "Edit playlist.",
+    deletePlaylist: "Delete playlist",
     noVideos: "No videos in this playlist",
     notFound: "Playlist not found",
     noPlaylists: "You don’t have any playlists yet.",
-    noResults : "Playlist not found.",
+    noResults: "Playlist not found.",
     noMatchingFilters: "No playlists match your active filters.",
     noPublicPlaylists: "No playlists available at the moment.",
     playlistCreated: "Playlist created successfully.",
@@ -470,7 +471,7 @@ export const en: TranslationKeys = {
     content: "Content of the channel",
     noContent: "This channel has no associated videos or themes.",
     noTheme: "This channel has no associated themes.",
-    noVideos : "This channel has no associated videos.",
+    noVideos: "This channel has no associated videos.",
     unclassified: "Unclassified videos",
     noThemes: "Aucun thème ne correspond à vos critères de recherche.",
   },

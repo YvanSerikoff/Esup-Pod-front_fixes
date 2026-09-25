@@ -50,7 +50,8 @@ export const es: TranslationKeys = {
     public: "Público",
     private: "Privado",
     passwordProtected: "Protegido con contraseña",
-    found: { // Pluralization
+    found: {
+      // Pluralization
       one: "Encontrada",
       other: "Encontradas",
     },
@@ -93,7 +94,7 @@ export const es: TranslationKeys = {
     chooseImage: "Vuelve a seleccionar una imagen",
     thumbnail: "Miniatura",
     preview: "Vista previa",
-    chooseVideo: "Seleccionar este vídeo"
+    chooseVideo: "Seleccionar este vídeo",
   },
   pending: {
     sending: "Enviando…",
@@ -149,7 +150,7 @@ export const es: TranslationKeys = {
     submitLogin: "Iniciar sesión",
   },
   webtv: {
-    webtv:"WebTV",
+    webtv: "WebTV",
     liveTitle: "Directo",
     noLive: "No hay transmisiones en directo en este momento",
     loadingContent: "Cargando contenido de WebTV…",
@@ -456,12 +457,14 @@ export const es: TranslationKeys = {
     noVideos: "No hay vídeos en esta lista de reproducción",
     playlist: "Lista de reproducción",
     addPlaylist: "Añadir lista de reproducción",
-    editPlaylist : "Editar lista de reproducción.",
-    deletePlaylist : "Eliminar lista de reproducción",
+    editPlaylist: "Editar lista de reproducción.",
+    deletePlaylist: "Eliminar lista de reproducción",
     noPlaylists: "Aún no tiene ninguna lista de reproducción.",
-    noResults : "Lista de reproducción no encontrada.",
-    noMatchingFilters: "Ninguna lista de reproducción coincide con sus filtros.",
-    noPublicPlaylists: "No hay listas de reproducción disponibles por el momento.",
+    noResults: "Lista de reproducción no encontrada.",
+    noMatchingFilters:
+      "Ninguna lista de reproducción coincide con sus filtros.",
+    noPublicPlaylists:
+      "No hay listas de reproducción disponibles por el momento.",
     playlistCreated: "La lista de reproducción se ha creado correctamente.",
   },
   channels: {
@@ -472,7 +475,7 @@ export const es: TranslationKeys = {
     content: "Contenidos del canal",
     noContent: "Este canal no tiene vídeos ni temas asociados",
     noTheme: "Este canal no tiene ningún tema asociado.",
-    noVideos : "Este canal no tiene ningún vídeo asociado.",
+    noVideos: "Este canal no tiene ningún vídeo asociado.",
     unclassified: "Vídeos no clasificados",
   },
   dressingPage: {
