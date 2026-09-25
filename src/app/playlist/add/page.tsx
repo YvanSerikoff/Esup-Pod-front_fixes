@@ -183,7 +183,7 @@ export default function AddPlaylist() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("playlists.addPlaylist")}</h1>
+      <h1>{t("playlist.addPlaylist")}</h1>
 
       {(formError || error || usePlaylistError) && (
         <Alert type={VariantType.ERROR} canClose>

@@ -129,7 +129,7 @@ export default function PlaylistPage() {
   if (!slug) {
     return (
       <Alert type={VariantType.ERROR} canClose>
-        {t("playlist.notFound")}
+        {t("playlist.noResults")}
       </Alert>
     );
   }
@@ -183,7 +183,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/edit/${effectivePlaylist?.slug}`)
                     }
                   >
-                    {t("common.edit")}
+                    {t("playlist.editPlaylist")}
                   </Button>
                   <Button
                     color="error"
@@ -193,7 +193,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/delete/${effectivePlaylist?.slug}`)
                     }
                   >
-                    {t("playlists.delete")}
+                    {t("playlists.deletePlaylist")}
                   </Button>
                 </>
               )}
@@ -283,7 +283,7 @@ export default function PlaylistPage() {
             )}
           </div>
         ) : (
-          <Alert>{t("common.noResults")}</Alert>
+          <Alert>{t("table.noVideosFound")}</Alert>
         )}
       </div>
     </div>

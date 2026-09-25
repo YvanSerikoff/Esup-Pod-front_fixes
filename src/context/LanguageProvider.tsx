@@ -105,6 +105,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
+      if (params?.count !== undefined && typeof value === "object") {
+        value = Number(params.count) === 1 ? value.one : value.other;
+      }
+
       if (typeof value !== "string") {
         return key;
       }

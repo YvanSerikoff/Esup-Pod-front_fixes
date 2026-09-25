@@ -42,13 +42,13 @@ export default function VideoCard(props: VideosCardProps) {
   const { locale, t } = useTranslation();
   const time = secondToMinute(video.duration || 0);
 
-  // Détection du contexte : playlist ou favoris
+  // Context detection: playlist or favorites
   const pathname = usePathname();
   const params = useParams();
 
   let href = `/video/${video.slug}`;
 
-  //  Si on est dans une page de type /playlist/[slug]
+  // If we are on a /playlist/[slug] page
   if (pathname?.startsWith("/playlist/") && "slug" in params) {
     const rawSlug = (params as { slug?: string | string[] }).slug;
     const playlistSlug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
@@ -58,7 +58,7 @@ export default function VideoCard(props: VideosCardProps) {
     }
   }
 
-  // Si on est sur la page des favoris (/playlist/favorites)
+  // If we are on the favorites page (/playlist/favorites)
   if (pathname === "/playlist/favorites") {
     href = `/video/${video.slug}?favorites=1`;
   }
@@ -91,7 +91,7 @@ export default function VideoCard(props: VideosCardProps) {
             onChange={(e) => {
               onSelectToggle?.((e.target as HTMLInputElement).checked);
             }}
-            aria-label="Sélectionner cette vidéo"
+            aria-label={t("a11y.chooseVideo")}
           />
         </div>
       )}
@@ -131,7 +131,7 @@ export default function VideoCard(props: VideosCardProps) {
 
               <div className={styles["video-icons"]}>
                 {video.encoding_status == "ER" && isOwner && (
-                  <Tooltip title="Erreur d'encodage">
+                  <Tooltip title={t("table.encodingError")}>
                     <ErrorIcon
                       color="error"
                       className={styles["encoding-icon"]}
@@ -139,7 +139,7 @@ export default function VideoCard(props: VideosCardProps) {
                   </Tooltip>
                 )}
                 {video.encoding_status == "PE" && isOwner && (
-                  <Tooltip title="Vidéo en attente d'encodage">
+                  <Tooltip title={t("table.pendingEncoding")}>
                     <PauseCircleFilledIcon
                       color="warning"
                       className={styles["encoding-icon"]}
@@ -147,12 +147,12 @@ export default function VideoCard(props: VideosCardProps) {
                   </Tooltip>
                 )}
                 {video.encoding_status == "PR" && isOwner && (
-                  <Tooltip title="Vidéo en cours d'encodage">
+                  <Tooltip title={t("videoPlayer.encodingInProgress")}>
                     <DownloadingIcon className={styles["downloading-icon"]} />
                   </Tooltip>
                 )}
                 {video.encoding_status == "DO" && isOwner && (
-                  <Tooltip title="Encodage terminé">
+                  <Tooltip title={t("table.encodingCompleted")}>
                     <CheckCircleOutlinedIcon
                       color="success"
                       className={styles["encoding-icon"]}
@@ -160,19 +160,19 @@ export default function VideoCard(props: VideosCardProps) {
                   </Tooltip>
                 )}
                 {video.status === "DR" && (
-                  <Tooltip title="Vidée privée / Brouillon">
+                  <Tooltip title={t("videoEdit.draftPrivateTitle")}>
                     <VisibilityOffOutlinedIcon
                       className={styles["status-icon"]}
                     />
                   </Tooltip>
                 )}
                 {video.has_password && (
-                  <Tooltip title="Vidéo protégée par mot de passe">
+                  <Tooltip title={t("common.passwordProtected")}>
                     <LockOutlinedIcon className={styles["status-icon"]} />
                   </Tooltip>
                 )}
                 {video.is_auth_required && (
-                  <Tooltip title="Réservé aux utilisateurs authentifiés">
+                  <Tooltip title={t("videoEdit.authUserOnly")}>
                     <ShieldOutlinedIcon className={styles["status-icon"]} />
                   </Tooltip>
                 )}

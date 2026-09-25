@@ -154,8 +154,7 @@ export default function CollectionDisplay({
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
         <p>
-          {count} {label} {t("common.find").toLowerCase()}
-          {count > 1 ? "s" : ""}
+          {count} {label} {t("common.found", {count}).toLowerCase()}
         </p>
         <CollectionViewToggle view={view} onChange={handleChangeView} />
       </div>

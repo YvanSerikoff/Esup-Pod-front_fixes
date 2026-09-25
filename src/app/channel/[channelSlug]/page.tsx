@@ -368,7 +368,7 @@ export default function Channel() {
                           !loading &&
                           hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
-                            {t("common.noResults")}
+                            {t("playlists.noMatchingFilters")}
                           </Alert>
                         ) : (
                           <CollectionDisplay
