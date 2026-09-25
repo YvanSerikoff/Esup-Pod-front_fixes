@@ -18,10 +18,10 @@ import { LanguageProvider } from "../context/LanguageProvider";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Esup-Pod V5",
-    default: "Esup-Pod V5",
+    template: "%s | Esup-Pod",
+    default: "Esup-Pod",
   },
-  description: "Plateforme vidéo Esup-Pod V5",
+  description: "Plateforme vidéo Esup-Pod",
 };
 
 export const viewport: Viewport = {

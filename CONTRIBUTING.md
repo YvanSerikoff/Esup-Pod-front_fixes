@@ -1,6 +1,6 @@
-# Contribution Guide - Esup-Pod V5 (Frontend)
+# Contribution Guide - Esup-Pod (Frontend)
 
-Bienvenue dans le dépôt du frontend Esup-Pod V5. Ce document a pour but de vous guider à la fois sur l'architecture du projet et sur nos règles de contribution pour maintenir un standard de qualité élevé.
+Bienvenue dans le dépôt du frontend Esup-Pod. Ce document a pour but de vous guider à la fois sur l'architecture du projet et sur nos règles de contribution pour maintenir un standard de qualité élevé.
 
 ## How Can I Contribute?
 
