@@ -19,7 +19,7 @@ export default function WebTVHeader() {
     <header className={styles["header-container"]}>
       <div className={styles["left-section"]}>
         <Link href="/" className={styles["logo-link"]}>
-          <span className="material-icons" style={{ fontSize: "1.8rem" }}>
+          <span className={`material-icons ${styles["icon-large"]}`}>
             layers
           </span>
           <span>{t("webtv.webtv")}</span>
@@ -64,12 +64,12 @@ export default function WebTVHeader() {
         <LanguageSelector variant="compact" />
 
         {user && accessToken ? (
-          <div style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
-            <span style={{ fontSize: "0.88rem", fontWeight: 600 }}>
+          <div className={styles["user-section"]}>
+            <span className={styles["username"]}>
               {user.first_name || user.username}
             </span>
             <button onClick={logout} className={styles["login-btn"]}>
-              <span className="material-icons" style={{ fontSize: "1.1rem" }}>
+              <span className={`material-icons ${styles["icon-small"]}`}>
                 logout
               </span>
               {t("common.logout")}
@@ -77,7 +77,7 @@ export default function WebTVHeader() {
           </div>
         ) : (
           <Link href="/login" className={styles["login-btn"]}>
-            <span className="material-icons" style={{ fontSize: "1.1rem" }}>
+            <span className={`material-icons ${styles["icon-small"]}`}>
               login
             </span>
             {t("common.login")}
@@ -90,7 +90,7 @@ export default function WebTVHeader() {
           aria-label={t("common.search")}
         >
           {t("common.search")}
-          <span className="material-icons" style={{ fontSize: "1.1rem" }}>
+          <span className={`material-icons ${styles["icon-small"]}`}>
             search
           </span>
         </button>
@@ -103,32 +103,17 @@ export default function WebTVHeader() {
         maxWidth="md"
         fullWidth
         PaperProps={{
-          style: {
-            padding: "1.5rem",
-            backgroundColor: "#ffffff",
-            borderRadius: "8px",
-          },
+          className: styles["dialog-paper"],
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <h3 style={{ margin: 0, fontWeight: 700 }}>
+        <div className={styles["dialog-content"]}>
+          <div className={styles["dialog-header"]}>
+            <h3 className={styles["dialog-title"]}>
               Rechercher des contenus
             </h3>
             <button
               onClick={() => setIsSearchOpen(false)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "4px",
-              }}
+              className={styles["dialog-close"]}
             >
               <span className="material-icons">close</span>
             </button>

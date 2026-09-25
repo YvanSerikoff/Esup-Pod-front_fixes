@@ -33,7 +33,7 @@ export default function FavoritesSidebar({
     <div className={styles["favorites-sidebar"]}>
       <header className={styles["favorites-sidebar-header"]}>
         <div>
-          <p className={styles["favorites-sidebar-label"]}>Vidéos favorites</p>
+          <p className={styles["favorites-sidebar-label"]}>{t("sidebar.myFavorites")}</p>
         </div>
       </header>
 

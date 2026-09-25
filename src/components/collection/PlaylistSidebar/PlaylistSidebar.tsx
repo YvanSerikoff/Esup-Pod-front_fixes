@@ -37,7 +37,8 @@ export default function PlaylistSidebar({
       <header className={styles["playlist-sidebar-header"]}>
         <div>
           <p className={styles["playlist-sidebar-label"]}>
-            Lecture de la liste <b> {truncateVideoTitle(playlist.title, 20)}</b>
+            {t("playlists.playlists")}
+            <b> {truncateVideoTitle(playlist.title, 20)}</b>
           </p>
         </div>
       </header>
@@ -72,7 +73,7 @@ export default function PlaylistSidebar({
                 </p>
                 {isActive && (
                   <p className={styles["playlist-sidebar-now-playing"]}>
-                    Lecture en cours
+                    {t("playlists.nowPlaying")}
                   </p>
                 )}
               </div>

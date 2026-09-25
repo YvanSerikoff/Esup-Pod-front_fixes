@@ -51,3 +51,11 @@
   color: #ffffff;
   text-decoration: none;
 }
+
+.icon-large {
+  font-size: 1.8rem;
+}
+
+.icon-small {
+  font-size: 1.1rem;
+}
