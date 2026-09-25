@@ -16,7 +16,7 @@ const getCollectionsLabel = (
   channelsCount: number,
   themesCount: number,
   playlistsCount: number,
-  t: Function,
+  t: (key: string) => string,
 ) => {
   const isPlural = rowsLength > 1;
 

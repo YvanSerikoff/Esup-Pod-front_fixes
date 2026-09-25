@@ -48,7 +48,7 @@ type SelectOption = {
   value: string;
 };
 
-const getOrderingOptions = (t: Function): SelectOption[] => [
+const getOrderingOptions = (t: (key: string) => string): SelectOption[] => [
   { label: t("filters.newest"), value: "-created_at" },
   { label: t("filters.oldest"), value: "created_at" },
   { label: t("filters.titleAZ"), value: "title" },
