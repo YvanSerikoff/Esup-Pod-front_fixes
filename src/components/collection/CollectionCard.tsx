@@ -24,8 +24,8 @@ export default function CollectionCard(props: CollectionCardProps) {
     const { channel } = props;
     const channelVideosCount = (channel as Channel & { videos_count?: number }).videos_count ?? 0;
     const channelThemesCount = (channel as Channel & { themes_count?: number }).themes_count ?? 0;
-    const videoLabel = channelVideosCount > 1 ? "vidéos" : "vidéo";
-    const themeLabel = channelThemesCount > 1 ? "thèmes" : "thème";
+    const videoLabel = channelVideosCount > 1 ? `${t("common.videos").toLowerCase()}` : `${t("common.video").toLowerCase()}`;
+    const themeLabel = channelThemesCount > 1 ? `${t("common.subtopics").toLowerCase()}` : `${t("common.subtopic").toLowerCase()}`;
 
     return (
       <Card
@@ -122,9 +122,9 @@ export default function CollectionCard(props: CollectionCardProps) {
   const { theme, themeHref } = props;
   const themeItemsCount = theme.items?.length ?? 0;
   const themeChildrenCount = theme.children?.length ?? 0;
-  const themeVideoLabel = themeItemsCount > 1 ? "vidéos" : "vidéo";
+  const themeVideoLabel = themeItemsCount > 1 ? `${t("common.videos").toLowerCase()}` : `${t("common.video").toLowerCase()}`;
   const themeChildrenLabel =
-    themeChildrenCount > 1 ? "sous-thèmes" : "sous-thème";
+    themeChildrenCount > 1 ? `${t("common.subtopics").toLowerCase()}` : `${t("common.subtopic").toLowerCase()}`;
 
   return (
     <Card

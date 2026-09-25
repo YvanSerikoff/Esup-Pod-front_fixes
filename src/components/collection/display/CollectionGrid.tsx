@@ -50,7 +50,7 @@ export default function CollectionGrid({ rows }: CollectionGridProps) {
       sortModel={sortModel}
       onSortModelChange={setSortModel}
       enableSorting
-      emptyPlaceholderLabel="Aucune collection trouvée."
+      emptyPlaceholderLabel={t("channel.noTheme")}
     />
   );
 }

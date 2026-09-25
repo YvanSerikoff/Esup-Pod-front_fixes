@@ -18,6 +18,8 @@ export const en: TranslationKeys = {
     playlists: "Playlists",
     theme: "Theme",
     themes: "Themes",
+    subtopic : "Subtopic",
+    subtopics : "Subtopics",
     discipline: "Discipline",
     disciplines: "Disciplines",
     series: "Series / Show",
@@ -48,6 +50,7 @@ export const en: TranslationKeys = {
     public: "Public",
     private: "Private",
     passwordProtected: "Password protected",
+    find : "Found"
   },
   errors: {
     error: "An error occurred",
@@ -172,6 +175,12 @@ export const en: TranslationKeys = {
     oldest: "Oldest",
     titleAZ: "Title A-Z",
     titleZA: "Title Z-A",
+    creationDate: "Creation date",
+    activeCreationDate:"Date (filtre actif)",
+    selectPeriod: "Select a period",
+    createdAfter: "Created after",
+    createdBefore: "Created before",
+    showResults: "Show",
   },
   bulk: {
     title: "Bulk Edit",
@@ -416,7 +425,8 @@ export const en: TranslationKeys = {
   },
   playlists: {
     myTitle: "My Playlists",
-    allTitle: "Playlists",
+    playlists : "Playlists",
+    playlist : "Playlist",
     addPlaylist: "Add Playlist",
     noPlaylists: "You don’t have any playlists yet.",
     noMatchingFilters: "No playlists match your active filters.",
@@ -429,6 +439,7 @@ export const en: TranslationKeys = {
     noMatchingFilters: "No channels match your active filters.",
     content: "Content of the channel",
     noContent: "This channel has no associated videos or themes.",
+    noTheme: "This channel has no associated themes.",
     unclassified: "Unclassified videos",
   },
   dressingPage: {

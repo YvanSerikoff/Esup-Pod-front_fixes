@@ -9,28 +9,31 @@ import { mapCollectionsToDisplayRows } from "./CollectionDisplay.mapper";
 import CollectionGrid from "./CollectionGrid";
 import CollectionViewToggle from "./CollectionViewToggle";
 import styles from "./styles.module.css";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 const getCollectionsLabel = (
   rowsLength: number,
   channelsCount: number,
   themesCount: number,
   playlistsCount: number,
+  t:Function
 ) => {
+
   const isPlural = rowsLength > 1;
 
   if (channelsCount > 0) {
-    return isPlural ? "chaînes" : "chaîne";
+    return isPlural ? t("common.channels") : t("common.channel");
   }
 
   if (themesCount > 0) {
-    return isPlural ? "thèmes" : "thème";
+    return isPlural ? t("common.themes") : t("common.theme");
   }
 
   if (playlistsCount > 0) {
-    return isPlural ? "listes de lecture" : "liste de lecture";
+    return isPlural ? t("playlists.playlists") : "playlists.playlist";
   }
 
-  return isPlural ? "collections" : "collection";
+  return isPlural ? t("common.collections") : t("common.collection");
 };
 
 export default function CollectionDisplay({
@@ -49,6 +52,9 @@ export default function CollectionDisplay({
   onPageChange,
   loading = false,
 }: CollectionDisplayProps) {
+
+  const { t } = useTranslation();
+
   const [view, setView] = useState<CollectionViewMode>(() => {
     if (typeof window === "undefined" || !storageKey) {
       return defaultView;
@@ -143,13 +149,14 @@ export default function CollectionDisplay({
     channels.length,
     themes.length,
     playlists.length,
+      t
   );
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
         <p>
-          {count} {label} trouvée{count > 1 ? "s" : ""}
+          {count} {label} {t("common.find").toLowerCase()}{count > 1 ? "s" : ""}
         </p>
         <CollectionViewToggle view={view} onChange={handleChangeView} />
       </div>

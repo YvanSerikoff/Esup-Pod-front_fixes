@@ -16,6 +16,8 @@ export const fr = {
     playlists: "Playlists",
     theme: "Thème",
     themes: "Thèmes",
+    subtopic : "Sous-thème",
+    subtopics : "Sous-thèmes",
     discipline: "Discipline",
     disciplines: "Disciplines",
     series: "Série / Émission",
@@ -46,6 +48,7 @@ export const fr = {
     public: "Publique",
     private: "Privée",
     passwordProtected: "Protégée par mot de passe",
+    find : "trouvée"
   },
   errors: {
     error: "Une erreur est survenue",
@@ -171,6 +174,12 @@ export const fr = {
     oldest: "Plus anciennes",
     titleAZ: "Titre A-Z",
     titleZA: "Titre Z-A",
+    creationDate: "Date de création",
+    activeCreationDate:"Date (filtre actif)",
+    selectPeriod: "Sélectionnez une période",
+    createdAfter: "Créé après",
+    createdBefore: "Créé avant",
+    showResults: "Afficher",
   },
   bulk: {
     title: "Modifier en lot",
@@ -415,7 +424,8 @@ export const fr = {
   },
   playlists: {
     myTitle: "Mes listes de lecture",
-    allTitle: "Listes de lecture",
+    playlists : "Listes de lecture",
+    playlist : "Liste de lecture",
     addPlaylist: "Ajouter une liste de lecture",
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
@@ -428,6 +438,7 @@ export const fr = {
     noMatchingFilters: "Aucune chaîne ne correspond à vos filtres.",
     content: "Contenus de la chaîne",
     noContent: "Cette chaine n'a aucune vidéo ou thème associé",
+    noTheme: "Cette chaine n'a aucun thème associé.",
     unclassified: "Videos non classées",
   },
   dressingPage: {

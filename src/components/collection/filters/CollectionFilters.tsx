@@ -20,6 +20,7 @@ import { useChannel } from "@/src/hooks/useChannel";
 import { useCallback } from "react";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import DateFilterDropdown from "./DateFilterDropdown";
+import {useTranslation} from "@/src/hooks/useTranslation";
 
 export type CollectionFilterMode = "channels" | "playlists" | "themes";
 
@@ -47,11 +48,11 @@ type SelectOption = {
   value: string;
 };
 
-const ORDERING_OPTIONS: SelectOption[] = [
-  { label: "Plus récentes", value: "-created_at" },
-  { label: "Plus anciennes", value: "created_at" },
-  { label: "Titre A-Z", value: "title" },
-  { label: "Titre Z-A", value: "-title" },
+const getOrderingOptions = (t: Function): SelectOption[] => [
+  { label: t("filters.newest"), value: "-created_at" },
+  { label: t("filters.oldest"), value: "created_at" },
+  { label: t("filters.titleAZ"), value: "title" },
+  { label: t("filters.titleZA"), value: "-title" },
 ];
 
 const haveSameValues = <T extends string | number>(
@@ -127,6 +128,8 @@ export default function CollectionFilters({
   const { fetchAll: fetchUsers } = useUsers();
   const { fetchAll: fetchChannels } = useChannel();
 
+  const { t } = useTranslation();
+
   const fetchUsersOptions = useCallback(
     async (search: string) => {
       const usersList = await fetchUsers(search);
@@ -176,7 +179,7 @@ export default function CollectionFilters({
         <TextField
           id="collection-filters-search"
           size="small"
-          placeholder="Rechercher..."
+          placeholder={t("navbar.searchPlaceholder")}
           value={value.search}
           onChange={(event) => {
             const nextSearch = event.target.value ?? "";
@@ -201,8 +204,8 @@ export default function CollectionFilters({
         />
 
         <FilterDropdown
-          title="Tri"
-          options={ORDERING_OPTIONS}
+          title={t("filters.sort")}
+          options={getOrderingOptions(t)}
           selectedValues={value.ordering ? [value.ordering] : []}
           multiple={false}
           onChange={(nextValues) => {
@@ -214,7 +217,7 @@ export default function CollectionFilters({
 
         {isThemeMode && (
           <AsyncFilterDropdown
-            title="Chaîne"
+            title={t("videoPage.channel")}
             selectedValues={value.channel ? [String(value.channel)] : []}
             fetchOptions={fetchChannelsOptions}
             multiple={false}
@@ -228,7 +231,7 @@ export default function CollectionFilters({
 
         {hasOwnerFilter && (
           <AsyncFilterDropdown
-            title="Auteur"
+            title={t("filters.author")}
             selectedValues={value.ownerUsernames}
             fetchOptions={fetchUsersOptions}
             onChange={(nextOwnerUsernames) => {
@@ -273,7 +276,7 @@ export default function CollectionFilters({
 
             {isThemeMode && selectedChannel && (
               <FilterChip
-                label={`Chaîne : ${selectedChannel.title}`}
+                label={`${t("videoPage.channel")} : ${selectedChannel.title}`}
                 onDelete={() => onChange({ ...value, channel: null })}
               />
             )}
@@ -282,7 +285,7 @@ export default function CollectionFilters({
               selectedUsers.map((u) => (
                 <FilterChip
                   key={`user-${u.value}`}
-                  label={`Auteur : ${u.label}`}
+                  label={`${t("filters.author")} : ${u.label}`}
                   onDelete={() =>
                     onChange({
                       ...value,
@@ -296,14 +299,14 @@ export default function CollectionFilters({
 
             {hasDateFilters && value.createdAtGte && (
               <FilterChip
-                label={`Créé après : ${value.createdAtGte.replace("T", " ")}`}
+                label={`${t("filters.createdAfter")} : ${value.createdAtGte.replace("T", " ")}`}
                 onDelete={() => onChange({ ...value, createdAtGte: "" })}
               />
             )}
 
             {hasDateFilters && value.createdAtLte && (
               <FilterChip
-                label={`Créé avant : ${value.createdAtLte.replace("T", " ")}`}
+                label={`${t("filters.createdBefore")} : ${value.createdAtLte.replace("T", " ")}`}
                 onDelete={() => onChange({ ...value, createdAtLte: "" })}
               />
             )}
@@ -315,7 +318,7 @@ export default function CollectionFilters({
             size="small"
             className={styles["clear-filters-btn"]}
           >
-            Effacer les filtres
+            {t("filters.clearFilters")}
           </Button>
         </Box>
       )}

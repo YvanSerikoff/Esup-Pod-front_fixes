@@ -188,7 +188,9 @@ export default function Channel() {
             src={channel.banner || channel.logo || "/default_channel_banner.png"}
             alt={t("a11y.channelBanner", { title: channel.title })}
             className="pod-image-banner"
-            fill
+            width={0}
+            height={0}
+            loading={"eager"}
           />{" "}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
             <Avatar
@@ -218,13 +220,13 @@ export default function Channel() {
                 >
                   <Tab
                     disabled={visibleAndPublicVideos.length === 0}
-                    label={`Videos non classées (${videosCount})`}
+                    label={`${t("channels.unclassified")} (${videosCount})`}
                     value="unclassified"
                   />
 
                   <Tab
                     disabled={channelAllThemes.length === 0}
-                    label={`Thèmes (${channelAllThemes.length})`}
+                    label={` ${t("common.themes")} (${channelAllThemes.length})`}
                     value="themes"
                   />
                 </Tabs>
@@ -293,7 +295,7 @@ export default function Channel() {
 
                     {value === "themes" && (
                       <div>
-                        <h2>Thèmes</h2>
+                        <h2>{t("common.themes")}</h2>
 
                         {error && (
                           <Alert canClose type={VariantType.ERROR}>

@@ -18,6 +18,8 @@ export const es: TranslationKeys = {
     playlists: "Listas de reproducción",
     theme: "Tema",
     themes: "Temas",
+    subtopic : "Subtema",
+    subtopics : "Subtemas",
     discipline: "Disciplina",
     disciplines: "Disciplinas",
     series: "Serie / Programa",
@@ -48,6 +50,7 @@ export const es: TranslationKeys = {
     public: "Público",
     private: "Privado",
     passwordProtected: "Protegido con contraseña",
+    find : "Encontró"
   },
   errors: {
     error: "Ocurrió un error",
@@ -172,6 +175,12 @@ export const es: TranslationKeys = {
     oldest: "Más antiguas",
     titleAZ: "Título A-Z",
     titleZA: "Título Z-A",
+    creationDate: "Fecha de creación",
+    activeCreationDate:"Fecha (filtro activo)",
+    selectPeriod: "Seleccione un periodo",
+    createdAfter: "Creado después",
+    createdBefore: "Creado antes",
+    showResults: "Mostrar",
   },
   bulk: {
     title: "Edición en lote",
@@ -416,7 +425,8 @@ export const es: TranslationKeys = {
   },
   playlists: {
     myTitle: "Mis listas de reproducción",
-    allTitle: "Listas de reproducción",
+    playlists : "Listas de reproducción",
+    playlist : "Lista de reproducción",
     addPlaylist: "Añadir lista de reproducción",
     noPlaylists: "Aún no tiene ninguna lista de reproducción.",
     noMatchingFilters: "Ninguna lista de reproducción coincide con sus filtros.",
@@ -429,6 +439,7 @@ export const es: TranslationKeys = {
     noMatchingFilters: "Ningún canal coincide con sus filtros.",
     content: "Contenidos del canal",
     noContent: "Este canal no tiene vídeos ni temas asociados",
+    noTheme: "Este canal no tiene ningún tema asociado.",
     unclassified: "Vídeos no clasificados",
   },
   dressingPage: {
