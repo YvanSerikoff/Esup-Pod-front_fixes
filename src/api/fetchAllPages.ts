@@ -15,14 +15,14 @@ type FetchOptions = RequestInit & {
 
 export async function fetchAllPages<T>(
   initialUrl: string,
-  options?: FetchOptions
+  options?: FetchOptions,
 ): Promise<T[]> {
   let url: string | null = initialUrl;
   const allResults: T[] = [];
 
   while (url) {
     const res = await authFetch(url, options);
-    
+
     // We expect either an array directly, or a DRF PaginatedResponse
     const data = await requestJson<T[] | PaginatedResponse<T>>(res);
 

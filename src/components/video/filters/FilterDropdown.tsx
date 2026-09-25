@@ -24,7 +24,7 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Button } from "@openfun/cunningham-react";
 import styles from "./styles.module.css";
-import {useTranslation} from "@/src/hooks/useTranslation";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export type SelectOption = {
   label: string;
@@ -62,7 +62,8 @@ export default function FilterDropdown({
   const { t } = useTranslation();
 
   // Local selected state for deferred multi-select updates (Vinted-style commit button)
-  const [localSelectedValues, setLocalSelectedValues] = useState<string[]>(selectedValues);
+  const [localSelectedValues, setLocalSelectedValues] =
+    useState<string[]>(selectedValues);
 
   const searchText = onSearchChange ? (searchValue ?? "") : localSearchText;
 
@@ -73,22 +74,29 @@ export default function FilterDropdown({
       );
 
   const matchedSelected = matchingOptions.filter((o) =>
-    multiple ? localSelectedValues.includes(o.value) : selectedValues.includes(o.value)
+    multiple
+      ? localSelectedValues.includes(o.value)
+      : selectedValues.includes(o.value),
   );
-  
+
   const matchedUnselected = matchingOptions.filter((o) =>
-    multiple ? !localSelectedValues.includes(o.value) : !selectedValues.includes(o.value)
+    multiple
+      ? !localSelectedValues.includes(o.value)
+      : !selectedValues.includes(o.value),
   );
 
   // Take the first 50 unselected to avoid performance issues (10k+ tags)
-  const displayUnselected = isAsync ? matchedUnselected : matchedUnselected.slice(0, 50);
+  const displayUnselected = isAsync
+    ? matchedUnselected
+    : matchedUnselected.slice(0, 50);
 
   const filteredOptions = [...matchedSelected, ...displayUnselected];
 
   const selectedCount = selectedValues.length;
   const selectedLabel =
     !multiple && selectedCount === 1
-      ? options.find((option) => option.value === selectedValues[0])?.label || selectedValues[0]
+      ? options.find((option) => option.value === selectedValues[0])?.label ||
+        selectedValues[0]
       : null;
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -112,7 +120,9 @@ export default function FilterDropdown({
     }
 
     if (localSelectedValues.includes(optionValue)) {
-      setLocalSelectedValues(localSelectedValues.filter((value) => value !== optionValue));
+      setLocalSelectedValues(
+        localSelectedValues.filter((value) => value !== optionValue),
+      );
     } else {
       setLocalSelectedValues([...localSelectedValues, optionValue]);
     }
@@ -127,7 +137,14 @@ export default function FilterDropdown({
         className={`${styles["filter-button"]} ${selectedCount > 0 ? styles["active"] : ""}`}
         aria-expanded={open}
       >
-        <Box sx={{ display: "flex", alignItems: "center", gap: "6px", overflow: "hidden" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            overflow: "hidden",
+          }}
+        >
           <Typography
             variant="body2"
             fontWeight={selectedCount > 0 ? 600 : 500}
@@ -259,7 +276,9 @@ export default function FilterDropdown({
                         control={
                           multiple ? (
                             <Checkbox
-                              checked={localSelectedValues.includes(option.value)}
+                              checked={localSelectedValues.includes(
+                                option.value,
+                              )}
                               onChange={() => handleToggle(option.value)}
                               size="small"
                             />
@@ -279,7 +298,11 @@ export default function FilterDropdown({
                     ))}
 
                     {!loading && filteredOptions.length === 0 && (
-                      <Typography color="text.secondary" variant="body2" sx={{ p: 1 }}>
+                      <Typography
+                        color="text.secondary"
+                        variant="body2"
+                        sx={{ p: 1 }}
+                      >
                         {t("common.noResults")}
                       </Typography>
                     )}

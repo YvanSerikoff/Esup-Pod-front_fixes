@@ -197,9 +197,17 @@ export default function PlaylistActionMenu({
           onClick={handleToggleFavorite}
         >
           {favorite ? (
-            <FavoriteIcon fontSize="small" aria-hidden="true" sx={{ color: "red" }} />
+            <FavoriteIcon
+              fontSize="small"
+              aria-hidden="true"
+              sx={{ color: "red" }}
+            />
           ) : (
-            <FavoriteBorderIcon fontSize="small" sx={{ color: "red" }} aria-hidden="true" />
+            <FavoriteBorderIcon
+              fontSize="small"
+              sx={{ color: "red" }}
+              aria-hidden="true"
+            />
           )}
           Favori
         </button>

@@ -15,7 +15,11 @@ type Props = {
   onDownloadStreamUrl?: (url: string, resolution: string) => void;
 };
 
-export default function VideoDownloadMenu({ video, className, onDownloadStreamUrl }: Props) {
+export default function VideoDownloadMenu({
+  video,
+  className,
+  onDownloadStreamUrl,
+}: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const options: DownloadOption[] = React.useMemo(() => {
@@ -23,7 +27,9 @@ export default function VideoDownloadMenu({ video, className, onDownloadStreamUr
       return video.download_options;
     }
     if (video.video_url) {
-      return [{ label: "Original", resolution: "Original", url: video.video_url }];
+      return [
+        { label: "Original", resolution: "Original", url: video.video_url },
+      ];
     }
     return [];
   }, [video.download_options, video.video_url]);
@@ -66,7 +72,14 @@ export default function VideoDownloadMenu({ video, className, onDownloadStreamUr
           onClose={handleClose}
           slotProps={{ paper: { sx: { borderRadius: "8px", minWidth: 180 } } }}
         >
-          <div style={{ padding: "8px 16px", fontSize: "0.75rem", fontWeight: 700, color: "#6b7280" }}>
+          <div
+            style={{
+              padding: "8px 16px",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              color: "#6b7280",
+            }}
+          >
             Choisir la qualité :
           </div>
           {options.map((opt, idx) => (

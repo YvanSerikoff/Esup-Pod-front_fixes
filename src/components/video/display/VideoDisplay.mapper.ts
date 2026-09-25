@@ -36,7 +36,9 @@ export function mapVideoToDisplayRow(
     editHref: `/video/edit/${video.slug}`,
     deleteHref: `/video/delete/${video.slug}`,
     selected,
-    onSelectToggle: onSelectVideo ? (checked) => onSelectVideo(video.id, checked) : undefined,
+    onSelectToggle: onSelectVideo
+      ? (checked) => onSelectVideo(video.id, checked)
+      : undefined,
   };
 }
 
@@ -47,6 +49,6 @@ export function mapVideosToDisplayRows(
   onSelectVideo?: (videoId: number, checked: boolean) => void,
 ): VideoDisplayRow[] {
   return videos.map((video) =>
-    mapVideoToDisplayRow(video, currentUserId, selectedVideoIds, onSelectVideo)
+    mapVideoToDisplayRow(video, currentUserId, selectedVideoIds, onSelectVideo),
   );
 }

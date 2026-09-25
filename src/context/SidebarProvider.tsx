@@ -15,7 +15,11 @@ export const SidebarContext = createContext<SidebarContextValue | undefined>(
   undefined,
 );
 
-export default function SidebarProvider({ children }: { children: React.ReactNode }) {
+export default function SidebarProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // Comportement sidebar
   const isMobile = useMediaQuery("(max-width: 1024px)");
   const [sidebarOpen, setSideBarOpen] = useState(false);

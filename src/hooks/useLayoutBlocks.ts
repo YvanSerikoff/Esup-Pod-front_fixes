@@ -14,9 +14,9 @@ export function useLayoutBlocks() {
     const fetchBlocks = async () => {
       try {
         setLoading(true);
-        const data = await requestJson<BlockConfig[] | { results: BlockConfig[] }>(
-          getRoutes().layout.blocks
-        );
+        const data = await requestJson<
+          BlockConfig[] | { results: BlockConfig[] }
+        >(getRoutes().layout.blocks);
         const blockList = Array.isArray(data) ? data : data?.results || [];
         setBlocks(blockList.filter((b) => b.is_active));
       } catch (err: unknown) {

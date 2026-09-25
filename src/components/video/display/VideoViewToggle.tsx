@@ -27,14 +27,18 @@ export default function VideoViewToggle({
           size="small"
           type="button"
           className={
-            view === "cards" ? styles["toggle-button-active"] : styles["toggle-button"]
+            view === "cards"
+              ? styles["toggle-button-active"]
+              : styles["toggle-button"]
           }
           onClick={() => onChange("cards")}
           aria-pressed={view === "cards"}
         >
           <span className={styles["toggle-buttonContent"]}>
             <GridViewIcon fontSize="small" />
-            <span className={styles["toggle-text"]}>{t("common.viewCards")}</span>
+            <span className={styles["toggle-text"]}>
+              {t("common.viewCards")}
+            </span>
           </span>
         </Button>
 
@@ -42,14 +46,18 @@ export default function VideoViewToggle({
           size="small"
           type="button"
           className={
-            view === "grid" ? styles["toggle-button-active"] : styles["toggle-button"]
+            view === "grid"
+              ? styles["toggle-button-active"]
+              : styles["toggle-button"]
           }
           onClick={() => onChange("grid")}
           aria-pressed={view === "grid"}
         >
           <span className={styles["toggle-buttonContent"]}>
             <TableRowsIcon fontSize="small" />
-            <span className={styles["toggle-text"]}>{t("common.viewTable")}</span>
+            <span className={styles["toggle-text"]}>
+              {t("common.viewTable")}
+            </span>
           </span>
         </Button>
       </div>

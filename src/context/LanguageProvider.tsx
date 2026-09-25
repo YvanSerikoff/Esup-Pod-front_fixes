@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import "dayjs/locale/en";
@@ -84,7 +90,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
           // Fallback to French if key not found in current locale
           let fallbackVal: any = dictionaries["fr"];
           for (const fk of keys) {
-            if (fallbackVal && typeof fallbackVal === "object" && fk in fallbackVal) {
+            if (
+              fallbackVal &&
+              typeof fallbackVal === "object" &&
+              fk in fallbackVal
+            ) {
               fallbackVal = fallbackVal[fk];
             } else {
               return key;
@@ -107,7 +117,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
       return value;
     },
-    [locale]
+    [locale],
   );
 
   return (

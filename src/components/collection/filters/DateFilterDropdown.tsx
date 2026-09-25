@@ -15,7 +15,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button } from "@openfun/cunningham-react";
 import styles from "@/src/components/video/filters/styles.module.css";
-import {useTranslation} from "@/src/hooks/useTranslation";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 type DateFilterDropdownProps = {
   createdAtGte: string;
@@ -77,14 +77,36 @@ export default function DateFilterDropdown({
           variant="body2"
           fontWeight={isActive ? 600 : 500}
           noWrap
-          sx={{ color: isActive ? "var(--c--globals--colors--brand--main)" : "inherit" }}
+          sx={{
+            color: isActive
+              ? "var(--c--globals--colors--brand--main)"
+              : "inherit",
+          }}
         >
-          {isActive ? t("filters.activeCreationDate") : t("filters.creationDate")}
+          {isActive
+            ? t("filters.activeCreationDate")
+            : t("filters.creationDate")}
         </Typography>
         {open ? (
-          <ExpandLessIcon fontSize="small" sx={{ color: isActive ? "var(--c--globals--colors--brand--main)" : "inherit", ml: "auto" }} />
+          <ExpandLessIcon
+            fontSize="small"
+            sx={{
+              color: isActive
+                ? "var(--c--globals--colors--brand--main)"
+                : "inherit",
+              ml: "auto",
+            }}
+          />
         ) : (
-          <ExpandMoreIcon fontSize="small" sx={{ color: isActive ? "var(--c--globals--colors--brand--main)" : "inherit", ml: "auto" }} />
+          <ExpandMoreIcon
+            fontSize="small"
+            sx={{
+              color: isActive
+                ? "var(--c--globals--colors--brand--main)"
+                : "inherit",
+              ml: "auto",
+            }}
+          />
         )}
       </ListItemButton>
 
@@ -104,8 +126,17 @@ export default function DateFilterDropdown({
             <Paper elevation={8} className={styles["filter-menu"]}>
               <ClickAwayListener onClickAway={handleClose}>
                 <Box>
-                  <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>{t("filters.selectPeriod")}</Typography>
-                  <Box sx={{ display: "flex", flexDirection: "column", gap: 2, px: 1 }}>
+                  <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>
+                    {t("filters.selectPeriod")}
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 2,
+                      px: 1,
+                    }}
+                  >
                     <TextField
                       label={t("filters.createdAfter")}
                       type="datetime-local"
@@ -137,10 +168,19 @@ export default function DateFilterDropdown({
                       gap: "8px",
                     }}
                   >
-                    <Button onClick={handleClear} variant="tertiary" size="small" disabled={!localGte && !localLte}>
+                    <Button
+                      onClick={handleClear}
+                      variant="tertiary"
+                      size="small"
+                      disabled={!localGte && !localLte}
+                    >
                       {t("filters.clearFilters")}
                     </Button>
-                    <Button onClick={handleApply} variant="primary" size="small">
+                    <Button
+                      onClick={handleApply}
+                      variant="primary"
+                      size="small"
+                    >
                       {t("filters.showResults")}
                     </Button>
                   </Box>

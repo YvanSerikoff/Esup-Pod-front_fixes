@@ -240,9 +240,7 @@ export default function FavoritesPlaylistPage() {
         </div>
 
         {favoriteVideos.length === 0 ? (
-          <Alert type={VariantType.INFO}>
-            {t("favorites.noFavorites")}
-          </Alert>
+          <Alert type={VariantType.INFO}>{t("favorites.noFavorites")}</Alert>
         ) : (
           <div>
             <VideoFilters

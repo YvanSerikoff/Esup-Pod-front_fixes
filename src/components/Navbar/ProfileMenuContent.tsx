@@ -96,7 +96,10 @@ export function ProfileMenuContent({
         )}
 
         {/* ----- Déconnexion ----- */}
-        <MenuItem className={styles["navbar-profil-menu-item"]} onClick={onLogout}>
+        <MenuItem
+          className={styles["navbar-profil-menu-item"]}
+          onClick={onLogout}
+        >
           <LogoutOutlinedIcon
             className={styles["menu-item-icon"]}
             aria-hidden="true"

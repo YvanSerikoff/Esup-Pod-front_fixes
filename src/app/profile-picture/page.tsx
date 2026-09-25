@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Alert, Button, FileUploader, VariantType } from "@openfun/cunningham-react";
+import {
+  Alert,
+  Button,
+  FileUploader,
+  VariantType,
+} from "@openfun/cunningham-react";
 import { authFetch } from "@/src/api/authFetch";
 import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
@@ -180,9 +185,7 @@ export default function UserProfilePicture() {
               );
             }}
             accept=".jpg, .jpeg, .png, .webp"
-            text={
-              error ? error : "Formats supportés: jpg, jpeg, png, webp"
-            }
+            text={error ? error : "Formats supportés: jpg, jpeg, png, webp"}
           />
           <div></div>
           <Button
@@ -203,7 +206,9 @@ export default function UserProfilePicture() {
               disabled={isSubmitting}
               onClick={handleDeletePicture}
             >
-              {isSubmitting ? t("pending.deleting") : t("a11y.deleteProfilePicture")}
+              {isSubmitting
+                ? t("pending.deleting")
+                : t("a11y.deleteProfilePicture")}
             </Button>
           )}
         </div>

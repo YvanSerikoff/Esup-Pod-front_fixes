@@ -55,9 +55,11 @@ export default function PlaylistSidebar({
               }`}
               onClick={() => handleClick(video.slug)}
             >
-              <span className={styles["playlist-sidebar-index"]}>{index + 1}</span>
+              <span className={styles["playlist-sidebar-index"]}>
+                {index + 1}
+              </span>
               <Image
-              unoptimized
+                unoptimized
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 className={styles["playlist-sidebar-thumbnail"]}

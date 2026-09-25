@@ -14,7 +14,9 @@ export default function WebTVLayout() {
   const { blocks, loading } = useLayoutBlocks();
 
   // Find live block configuration if explicitly present in backend blocks
-  const liveBlock = blocks.find((b) => b.frontend_id.includes("live") || b.frontend_id.includes("direct"));
+  const liveBlock = blocks.find(
+    (b) => b.frontend_id.includes("live") || b.frontend_id.includes("direct"),
+  );
   const otherBlocks = blocks.filter((b) => b !== liveBlock);
 
   return (
@@ -64,7 +66,10 @@ export default function WebTVLayout() {
                 item_limit: 5,
               }}
             />
-            <VideoGridBlockComponent title="Les vidéos les plus vues" itemLimit={5} />
+            <VideoGridBlockComponent
+              title="Les vidéos les plus vues"
+              itemLimit={5}
+            />
           </>
         )}
       </main>

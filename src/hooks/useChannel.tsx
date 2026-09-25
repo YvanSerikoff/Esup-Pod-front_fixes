@@ -10,7 +10,9 @@ import {
 import { useQuery } from "@tanstack/react-query";
 
 export function useChannel() {
-  const [listParams, setListParams] = useState<CollectionListParams | undefined>(undefined);
+  const [listParams, setListParams] = useState<
+    CollectionListParams | undefined
+  >(undefined);
   const [currentSlug, setCurrentSlug] = useState<string | null>(null);
 
   const listQuery = useQuery({
@@ -21,16 +23,19 @@ export function useChannel() {
 
       const res = await authFetch(url.toString());
       if (!res.ok) throw new Error("Erreur de récupération des chaines.");
-      const data = await requestJson<Channel[] | { results?: Channel[]; count?: number }>(res);
-      
+      const data = await requestJson<
+        Channel[] | { results?: Channel[]; count?: number }
+      >(res);
+
       const normalizedChannels = Array.isArray(data)
         ? data
         : Array.isArray(data.results)
           ? data.results
           : [];
-      const count = !Array.isArray(data) && typeof data.count === "number"
-        ? data.count
-        : normalizedChannels.length;
+      const count =
+        !Array.isArray(data) && typeof data.count === "number"
+          ? data.count
+          : normalizedChannels.length;
 
       return { channels: normalizedChannels, count };
     },
@@ -50,10 +55,13 @@ export function useChannel() {
     staleTime: 30000,
   });
 
-  const fetchAll = useCallback(async (params?: CollectionListParams) => {
-    setListParams(params);
-    return listQuery.data?.channels ?? [];
-  }, [listQuery.data]);
+  const fetchAll = useCallback(
+    async (params?: CollectionListParams) => {
+      setListParams(params);
+      return listQuery.data?.channels ?? [];
+    },
+    [listQuery.data],
+  );
 
   const fetchOne = useCallback(async (slug: string) => {
     setCurrentSlug(slug);

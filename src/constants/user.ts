@@ -13,7 +13,7 @@ export function setInitial(lastname: string, firstname: string) {
 export function getUserDisplayName(
   user: User,
   config?: { hide_username?: boolean; use_establishment_field?: boolean },
-  isPublicView = false
+  isPublicView = false,
 ): string {
   if (config?.hide_username && isPublicView) {
     return "Anonyme";
@@ -34,9 +34,13 @@ export function getUserDisplayName(
 }
 
 export function getVideoOwnerDisplayName(
-  video: { owner_last_name?: string; owner_first_name?: string; owner?: string },
+  video: {
+    owner_last_name?: string;
+    owner_first_name?: string;
+    owner?: string;
+  },
   config?: { hide_username?: boolean; use_establishment_field?: boolean },
-  isPublicView = false
+  isPublicView = false,
 ): string {
   if (config?.hide_username && isPublicView) {
     return "Anonyme";

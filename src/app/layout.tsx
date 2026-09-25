@@ -38,7 +38,10 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -56,7 +59,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <a href="#main" className="skip-link">Aller au contenu principal</a>
+        <a href="#main" className="skip-link">
+          Aller au contenu principal
+        </a>
         <div className="layout">
           <CunninghamStyleProvider>
             <AppConfigProvider>

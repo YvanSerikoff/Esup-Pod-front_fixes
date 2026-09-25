@@ -45,7 +45,9 @@ export default function AsyncUserFilterDropdown({
         });
         const valuesDiffer =
           currentSelected.length !== previousSelected.length ||
-          currentSelected.some((option, index) => option.value !== previousSelected[index]?.value);
+          currentSelected.some(
+            (option, index) => option.value !== previousSelected[index]?.value,
+          );
 
         return valuesDiffer ? currentSelected : previousSelected;
       });
@@ -69,7 +71,7 @@ export default function AsyncUserFilterDropdown({
           setLoading(false);
         }
       }, 300),
-    [config?.authentication, fetchAll]
+    [config?.authentication, fetchAll],
   );
 
   useEffect(() => {
@@ -108,7 +110,9 @@ export default function AsyncUserFilterDropdown({
               ...params.InputProps,
               endAdornment: (
                 <>
-                  {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                  {loading ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : null}
                   {params.InputProps.endAdornment}
                 </>
               ),

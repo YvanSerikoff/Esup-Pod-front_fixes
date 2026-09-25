@@ -18,8 +18,8 @@ export const en: TranslationKeys = {
     playlists: "Playlists",
     theme: "Theme",
     themes: "Themes",
-    subtopic : "Subtopic",
-    subtopics : "Subtopics",
+    subtopic: "Subtopic",
+    subtopics: "Subtopics",
     discipline: "Discipline",
     disciplines: "Disciplines",
     series: "Series / Show",
@@ -50,12 +50,13 @@ export const en: TranslationKeys = {
     public: "Public",
     private: "Private",
     passwordProtected: "Password protected",
-    find : "Found"
+    find: "Found",
   },
   errors: {
     error: "An error occurred",
     notFound: "Page not found",
-    notFoundDesc: "The page you are looking for does not exist or has been removed.",
+    notFoundDesc:
+      "The page you are looking for does not exist or has been removed.",
     serverError: "Server error",
     serverErrorDesc: "An error occurred on the server. Please try again later.",
     imageSendError: "Image upload failed",
@@ -63,7 +64,8 @@ export const en: TranslationKeys = {
     notConnected: "User not connected",
     chooseImage: "Please select an image",
     unableToSection: "Unable to load this section of the application",
-    notConfigured: "The requested page does not exist or has not yet been configured for this university.",
+    notConfigured:
+      "The requested page does not exist or has not yet been configured for this university.",
   },
   a11y: {
     institutionLogo: "Institution logo",
@@ -89,7 +91,7 @@ export const en: TranslationKeys = {
     thumbnail: "Thumbnail",
     preview: "Preview",
   },
-  pending:{
+  pending: {
     sending: "Sending…",
     deleting: "Deleting…",
     updating: "Updating…",
@@ -101,7 +103,8 @@ export const en: TranslationKeys = {
   },
   home: {
     welcomeSubtitle: "Welcome to your POD platform!",
-    welcomeIntro: "Video is a preferred medium for communication, teaching, and learning. Here are a few uses you might be interested in.",
+    welcomeIntro:
+      "Video is a preferred medium for communication, teaching, and learning. Here are a few uses you might be interested in.",
     howToTitle: "How to do it?",
     howToDescPrefix: "Want to upload your own video content? This quick ",
     quickGuideLink: "getting started guide",
@@ -176,7 +179,7 @@ export const en: TranslationKeys = {
     titleAZ: "Title A-Z",
     titleZA: "Title Z-A",
     creationDate: "Creation date",
-    activeCreationDate:"Date (filtre actif)",
+    activeCreationDate: "Date (filtre actif)",
     selectPeriod: "Select a period",
     createdAfter: "Created after",
     createdBefore: "Created before",
@@ -316,26 +319,31 @@ export const en: TranslationKeys = {
     // Form fields in Details
     titleLabel: "Title",
     titlePlaceholder: "Video title",
-    titleHelper: "A title as short and precise as possible, reflecting the main subject / context of this content.",
+    titleHelper:
+      "A title as short and precise as possible, reflecting the main subject / context of this content.",
     descriptionLabel: "Description",
     descriptionPlaceholder: "Video description",
-    descriptionHelper: "Describe your content, add all necessary information, and format the result.",
+    descriptionHelper:
+      "Describe your content, add all necessary information, and format the result.",
     mainLanguageLabel: "Primary language",
     mainLanguageHelper: "The primary language used in this content.",
     thumbnailLabel: "Thumbnails",
     uploadThumbnailBtn: "+ Upload thumbnail",
     thumbnailDimensionsHint: "JPG or PNG · Recommended: 1280 × 720 px",
-    thumbnailCopyrightHelper: "The thumbnail must comply with community guidelines. Ensure the image has proper copyright rights.",
+    thumbnailCopyrightHelper:
+      "The thumbnail must comply with community guidelines. Ensure the image has proper copyright rights.",
     changeBtn: "Change",
     deleteBtn: "Delete",
     ownerLabel: "Owner",
     ownerHelper: "A superuser can change the owner of a video.",
     coOwnersLabel: "Additional owners",
-    coOwnersHelper: "Additional owners will have the same rights as you, except they cannot delete this content.",
+    coOwnersHelper:
+      "Additional owners will have the same rights as you, except they cannot delete this content.",
     licenseLabel: "License",
     licenseHelper: "Usage rights for your content.",
     channelLabel: "Channel",
-    channelHelper: "You have permissions to associate this video with a channel.",
+    channelHelper:
+      "You have permissions to associate this video with a channel.",
     noneOption: "None",
     themesLabel: "Themes",
     themesHelper: "You can select one or more themes linked to the channel.",
@@ -344,7 +352,8 @@ export const en: TranslationKeys = {
     dateOfEventLabel: "Event date",
     dateOfEventHelper: "Date of the event related to this video.",
     publicationDateLabel: "Scheduled publication date and time",
-    publicationDateHelper: "Set a future date/time when the video will be made public.",
+    publicationDateHelper:
+      "Set a future date/time when the video will be made public.",
 
     previous: "Previous",
     next: "Next",
@@ -364,17 +373,22 @@ export const en: TranslationKeys = {
     importHeaderTitle: "Add a video file",
     importHeaderSub: "Manage the source video and encoding of your media.",
     noSourceWarningTitle: "Empty entry without source video",
-    noSourceWarningDesc: "This video does not have a source file associated yet. You can complete metadata (title, description, etc.), but you must add a video below before publishing it.",
-    publicNoSourceAlert: "You selected Public status but no source file is uploaded. Import required for public publication.",
-    selectVideoFile: "Select a video file from your computer. A new encoding process will start automatically.",
+    noSourceWarningDesc:
+      "This video does not have a source file associated yet. You can complete metadata (title, description, etc.), but you must add a video below before publishing it.",
+    publicNoSourceAlert:
+      "You selected Public status but no source file is uploaded. Import required for public publication.",
+    selectVideoFile:
+      "Select a video file from your computer. A new encoding process will start automatically.",
     addVideoFileBtn: "Add video file",
 
     // Elements Step
-    elementsHeaderSub: "Enrich your video with subtitles, documents, and contributors.",
+    elementsHeaderSub:
+      "Enrich your video with subtitles, documents, and contributors.",
     subtitlesTitle: "Manual Subtitles",
     subtitlesDesc: "Add subtitle files (.vtt, .srt) in one or more languages.",
     documentsTitle: "Attached Documents",
-    documentsDesc: "Attach PDF files, slide decks, or other downloadable documents.",
+    documentsDesc:
+      "Attach PDF files, slide decks, or other downloadable documents.",
     contributorsTitle: "Contributors & Speakers",
     contributorsDesc: "Add authors, directors, or speakers to your video.",
     chaptersTitle: "Video Chapters",
@@ -385,16 +399,20 @@ export const en: TranslationKeys = {
     trimDesc: "Define start and end points to trim the video.",
 
     // Visibility Step
-    visibilityHeaderSub: "Choose when to publish your video and who can watch it.",
+    visibilityHeaderSub:
+      "Choose when to publish your video and who can watch it.",
     restrictionsHeader: "Restrictions",
     restrictionsSub: "Choose to make your video public, unlisted, or private.",
     draftPrivateTitle: "Draft / Private",
-    draftPrivateDesc: "In “Draft / Private” mode, content appears nowhere and no one else can view it.",
+    draftPrivateDesc:
+      "In “Draft / Private” mode, content appears nowhere and no one else can view it.",
     restrictedTitle: "Restricted Access",
-    restrictedDesc: "In “Restricted Access” mode, you can set viewing restrictions for the video.",
+    restrictedDesc:
+      "In “Restricted Access” mode, you can set viewing restrictions for the video.",
     publicTitle: "Public",
     publicDesc: "In “Public” mode, the content is visible to everyone.",
-    noSourceDraftNotice: "Without a source file, only Draft / Private mode is allowed. Restricted Access and Public modes are disabled.",
+    noSourceDraftNotice:
+      "Without a source file, only Draft / Private mode is allowed. Restricted Access and Public modes are disabled.",
     restrictionOptions: "Restriction options:",
     authRequiredLabel: "Authentication required",
     authRequiredHelper: "Restrict access to authenticated users.",
@@ -425,8 +443,8 @@ export const en: TranslationKeys = {
   },
   playlists: {
     myTitle: "My Playlists",
-    playlists : "Playlists",
-    playlist : "Playlist",
+    playlists: "Playlists",
+    playlist: "Playlist",
     addPlaylist: "Add Playlist",
     noPlaylists: "You don’t have any playlists yet.",
     noMatchingFilters: "No playlists match your active filters.",
@@ -444,7 +462,8 @@ export const en: TranslationKeys = {
   },
   dressingPage: {
     title: "Video Branding & Watermarks",
-    pageDescription: "Manage your video watermarks and branding overlays to embed them directly into your videos.",
+    pageDescription:
+      "Manage your video watermarks and branding overlays to embed them directly into your videos.",
     myWatermarks: "My Watermarks",
     addWatermark: "Add a Watermark",
     uploading: "Uploading…",

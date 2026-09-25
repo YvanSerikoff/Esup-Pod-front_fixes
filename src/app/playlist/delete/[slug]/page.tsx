@@ -51,7 +51,10 @@ export default function DeletePlaylistPage() {
 
         {usePlaylistError ? (
           <div>
-            <Alert type={VariantType.ERROR} className={styles["delete-error-alert"]}>
+            <Alert
+              type={VariantType.ERROR}
+              className={styles["delete-error-alert"]}
+            >
               {usePlaylistError ?? "Playlist introuvable."}
             </Alert>
             <Button

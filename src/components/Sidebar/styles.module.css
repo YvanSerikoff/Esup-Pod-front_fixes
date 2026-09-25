@@ -72,12 +72,16 @@
 }
 
 .menu-item:hover {
-  background: rgb(from var(--c--contextuals--background--semantic--brand--primary) r g b / 20%);
+  background: rgb(
+    from var(--c--contextuals--background--semantic--brand--primary) r g b / 20%
+  );
 }
 
 .main-menu-dropdown {
   padding-left: var(--c--globals--spacings--l);
-  background: rgb(from var(--c--contextuals--background--semantic--brand--primary) r g b / 20%);
+  background: rgb(
+    from var(--c--contextuals--background--semantic--brand--primary) r g b / 20%
+  );
 }
 
 /* For Mobile & Tablets screens */

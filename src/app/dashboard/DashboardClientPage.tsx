@@ -12,7 +12,6 @@ import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import { useVideoListFilters } from "@/src/hooks/useVideoListFilters";
 import { Alert, VariantType } from "@openfun/cunningham-react";
 
-
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 export const breadcrumbLabel = "Tableau de bord";
@@ -47,7 +46,8 @@ export default function Dashboard() {
   const handleSelectVideo = (videoId: number, checked?: boolean) => {
     setSelectedVideoIds((prev) => {
       const isCurrentlySelected = prev.includes(videoId);
-      const shouldBeSelected = checked !== undefined ? checked : !isCurrentlySelected;
+      const shouldBeSelected =
+        checked !== undefined ? checked : !isCurrentlySelected;
       if (shouldBeSelected) {
         return prev.includes(videoId) ? prev : [...prev, videoId];
       } else {
@@ -88,7 +88,9 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 style={{ marginTop: "16px", marginBottom: "28px" }}>{t("sidebar.dashboard")}</h1>
+      <h1 style={{ marginTop: "16px", marginBottom: "28px" }}>
+        {t("sidebar.dashboard")}
+      </h1>
 
       {useVideoError && (
         <Alert canClose type={VariantType.ERROR}>

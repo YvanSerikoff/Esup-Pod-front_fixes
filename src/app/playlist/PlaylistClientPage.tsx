@@ -14,8 +14,15 @@ import CollectionDisplay from "@/src/components/collection/display/CollectionDis
 export const breadcrumbLabel = "Listes de lecture";
 
 export default function PlaylistsPage() {
-  const { filters, setFilters, playlists, playlistsCount, users, error, loading } =
-    useCollectionListFilters({ mode: "playlists" });
+  const {
+    filters,
+    setFilters,
+    playlists,
+    playlistsCount,
+    users,
+    error,
+    loading,
+  } = useCollectionListFilters({ mode: "playlists" });
   const mounted = useMounted();
   const { user } = useAuth();
   const { t } = useTranslation();

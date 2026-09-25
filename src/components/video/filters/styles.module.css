@@ -173,7 +173,7 @@ html[data-theme="dark"] .filter-button.active {
     width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
   }
-  
+
   .row::-webkit-scrollbar {
     display: none;
   }

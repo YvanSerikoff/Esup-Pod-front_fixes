@@ -118,29 +118,30 @@ export default function AuthProvider(props: AuthProviderProps) {
     [authConfig, logoutInfo],
   );
 
+  const persistTokens = useCallback(
+    (token: string | null, refreshValue: string | null) => {
+      setAccessToken(token);
+      setRefreshToken(refreshValue);
 
-
-  const persistTokens = useCallback((token: string | null, refreshValue: string | null) => {
-    setAccessToken(token);
-    setRefreshToken(refreshValue);
-
-    // Si on enregistre de nouveaux tokens (login ou refresh réussi),
-    // on réinitialise le flag pour permettre une future détection
-    // d'expiration de session.
-    if (token && refreshValue) {
-      hasForcedLogoutRef.current = false;
-    }
-    if (token) {
-      localStorage.setItem(ACCESS_TOKEN_KEY, token);
-    } else {
-      localStorage.removeItem(ACCESS_TOKEN_KEY);
-    }
-    if (refreshValue) {
-      localStorage.setItem(REFRESH_TOKEN_KEY, refreshValue);
-    } else {
-      localStorage.removeItem(REFRESH_TOKEN_KEY);
-    }
-  }, []);
+      // Si on enregistre de nouveaux tokens (login ou refresh réussi),
+      // on réinitialise le flag pour permettre une future détection
+      // d'expiration de session.
+      if (token && refreshValue) {
+        hasForcedLogoutRef.current = false;
+      }
+      if (token) {
+        localStorage.setItem(ACCESS_TOKEN_KEY, token);
+      } else {
+        localStorage.removeItem(ACCESS_TOKEN_KEY);
+      }
+      if (refreshValue) {
+        localStorage.setItem(REFRESH_TOKEN_KEY, refreshValue);
+      } else {
+        localStorage.removeItem(REFRESH_TOKEN_KEY);
+      }
+    },
+    [],
+  );
 
   const logout = useCallback(() => {
     persistTokens(null, null);
@@ -196,29 +197,32 @@ export default function AuthProvider(props: AuthProviderProps) {
     [accessToken],
   );
 
-  const refresh = useCallback(async (token?: string | null) => {
-    const tokenToRefresh = token ?? refreshToken;
-    if (!tokenToRefresh) return null;
-    try {
-      const data = await requestJson<{ access: string }>(
-        getRoutes().auth.token.refresh,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ refresh: tokenToRefresh }),
-        },
-      );
-      const newAccess = data.access;
-      persistTokens(newAccess, tokenToRefresh);
-      return newAccess;
-    } catch {
-      // Si le refresh échoue (401 typiquement), on considère que la
-      // session est expirée : on force la déconnexion et on redirige
-      // l'utilisateur vers la page de login.
-      forceLogoutAndRedirectToLogin();
-      return null;
-    }
-  }, [forceLogoutAndRedirectToLogin, persistTokens, refreshToken]);
+  const refresh = useCallback(
+    async (token?: string | null) => {
+      const tokenToRefresh = token ?? refreshToken;
+      if (!tokenToRefresh) return null;
+      try {
+        const data = await requestJson<{ access: string }>(
+          getRoutes().auth.token.refresh,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ refresh: tokenToRefresh }),
+          },
+        );
+        const newAccess = data.access;
+        persistTokens(newAccess, tokenToRefresh);
+        return newAccess;
+      } catch {
+        // Si le refresh échoue (401 typiquement), on considère que la
+        // session est expirée : on force la déconnexion et on redirige
+        // l'utilisateur vers la page de login.
+        forceLogoutAndRedirectToLogin();
+        return null;
+      }
+    },
+    [forceLogoutAndRedirectToLogin, persistTokens, refreshToken],
+  );
 
   const loadAuthDataWithToken = async (
     token: string,
@@ -293,43 +297,53 @@ export default function AuthProvider(props: AuthProviderProps) {
     };
 
     init();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const value = useMemo<AuthContextValue>(
-    () => {
-      const logIn = async (username: string, password: string) => {
-        const data = await requestJson<{ access: string; refresh: string }>(
-          getRoutes().auth.token.create,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-          },
-        );
+  const value = useMemo<AuthContextValue>(() => {
+    const logIn = async (username: string, password: string) => {
+      const data = await requestJson<{ access: string; refresh: string }>(
+        getRoutes().auth.token.create,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        },
+      );
 
-        persistTokens(data.access, data.refresh);
-        await loadAuthDataWithToken(data.access, () => refresh(data.refresh));
-      };
+      persistTokens(data.access, data.refresh);
+      await loadAuthDataWithToken(data.access, () => refresh(data.refresh));
+    };
 
-      return {
-        accessToken,
-        refreshToken,
-        isAuthenticated: Boolean(accessToken),
-        isInitializing,
-        user,
-        authConfig,
-        logoutUrl,
-        isAuthDataLoading,
-        logIn,
-        logout,
-        refresh,
-        verify,
-        reloadAuthData,
-      };
-    },
-    [accessToken, refreshToken, isInitializing, user, authConfig, logoutUrl, isAuthDataLoading, logout, refresh, verify, reloadAuthData, persistTokens],
-  );
+    return {
+      accessToken,
+      refreshToken,
+      isAuthenticated: Boolean(accessToken),
+      isInitializing,
+      user,
+      authConfig,
+      logoutUrl,
+      isAuthDataLoading,
+      logIn,
+      logout,
+      refresh,
+      verify,
+      reloadAuthData,
+    };
+  }, [
+    accessToken,
+    refreshToken,
+    isInitializing,
+    user,
+    authConfig,
+    logoutUrl,
+    isAuthDataLoading,
+    logout,
+    refresh,
+    verify,
+    reloadAuthData,
+    persistTokens,
+  ]);
 
   return (
     <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>

@@ -44,7 +44,10 @@ export default function VideoShareMenu({ video, className }: Props) {
 
   // Determine active networks for this video
   const availableNetworks: SocialNetwork[] = React.useMemo(() => {
-    if (video.social_network_details && video.social_network_details.length > 0) {
+    if (
+      video.social_network_details &&
+      video.social_network_details.length > 0
+    ) {
       return video.social_network_details;
     }
     return socialNetworks;
@@ -60,14 +63,19 @@ export default function VideoShareMenu({ video, className }: Props) {
       : "";
 
     if (shareUrl) {
-      window.open(shareUrl, "_blank", "noopener,noreferrer,width=600,height=400");
+      window.open(
+        shareUrl,
+        "_blank",
+        "noopener,noreferrer,width=600,height=400",
+      );
     }
     handleClose();
   };
 
   const getIcon = (iconName: string) => {
     const name = iconName.toLowerCase();
-    if (name.includes("x") || name.includes("twitter")) return <XIcon fontSize="small" />;
+    if (name.includes("x") || name.includes("twitter"))
+      return <XIcon fontSize="small" />;
     if (name.includes("facebook")) return <FacebookIcon fontSize="small" />;
     if (name.includes("linkedin")) return <LinkedInIcon fontSize="small" />;
     if (name.includes("whatsapp")) return <WhatsAppIcon fontSize="small" />;

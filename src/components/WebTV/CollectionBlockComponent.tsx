@@ -34,7 +34,9 @@ interface CollectionBlockProps {
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export default function CollectionBlockComponent({ block }: CollectionBlockProps) {
+export default function CollectionBlockComponent({
+  block,
+}: CollectionBlockProps) {
   const [items, setItems] = useState<CollectionItem[]>([]);
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
@@ -53,9 +55,9 @@ export default function CollectionBlockComponent({ block }: CollectionBlockProps
           endpoint = getRoutes().playlist.list;
         }
 
-        const response = await requestJson<
-          Channel[] | { results: Channel[] }
-        >(endpoint);
+        const response = await requestJson<Channel[] | { results: Channel[] }>(
+          endpoint,
+        );
 
         const list = Array.isArray(response)
           ? response
@@ -71,14 +73,16 @@ export default function CollectionBlockComponent({ block }: CollectionBlockProps
         }
 
         // Map items with color accents
-        const mappedItems: CollectionItem[] = filtered.slice(0, limit).map((c, index) => ({
-          id: c.id,
-          slug: c.slug,
-          title: c.title,
-          videos_count: c.videos_count,
-          banner: c.banner || c.logo,
-          color: cardColors[index % cardColors.length],
-        }));
+        const mappedItems: CollectionItem[] = filtered
+          .slice(0, limit)
+          .map((c, index) => ({
+            id: c.id,
+            slug: c.slug,
+            title: c.title,
+            videos_count: c.videos_count,
+            banner: c.banner || c.logo,
+            color: cardColors[index % cardColors.length],
+          }));
 
         setItems(mappedItems);
       } catch (err) {
@@ -91,14 +95,17 @@ export default function CollectionBlockComponent({ block }: CollectionBlockProps
     fetchCollections();
   }, [block]);
 
-  const displayTitle = block.display_title || block.subtitle_or_text || t("common.collections");
+  const displayTitle =
+    block.display_title || block.subtitle_or_text || t("common.collections");
 
   return (
     <section className={styles["block-wrapper"]}>
       <div className={styles["section-badge-header"]}>{displayTitle}</div>
 
       {loading ? (
-        <div style={{ padding: "1rem", color: "#666" }}>{t("common.loading")}</div>
+        <div style={{ padding: "1rem", color: "#666" }}>
+          {t("common.loading")}
+        </div>
       ) : items.length > 0 ? (
         <div className={styles["cards-grid"]}>
           {items.map((item) => (
@@ -111,14 +118,19 @@ export default function CollectionBlockComponent({ block }: CollectionBlockProps
                 className={styles["card-banner"]}
                 style={{
                   backgroundColor: item.color,
-                  backgroundImage: item.banner ? `url(${item.banner})` : undefined,
+                  backgroundImage: item.banner
+                    ? `url(${item.banner})`
+                    : undefined,
                 }}
               />
               <div className={styles["card-body"]}>
                 <h4 className={styles["card-title"]}>{item.title}</h4>
                 {item.videos_count !== undefined && (
                   <span className={styles["card-meta"]}>
-                    {item.videos_count} {item.videos_count > 1 ? t("common.videos") : t("common.video")}
+                    {item.videos_count}{" "}
+                    {item.videos_count > 1
+                      ? t("common.videos")
+                      : t("common.video")}
                   </span>
                 )}
               </div>

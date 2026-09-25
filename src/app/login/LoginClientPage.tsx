@@ -84,10 +84,18 @@ function LoginContent() {
       <h1>{t("common.login")}</h1>
 
       {/* ==== SSO Buttons ==== */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "20px", width: "100%" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginBottom: "20px",
+          width: "100%",
+        }}
+      >
         {config?.authentication?.use_cas && (
           <Button
-            onClick={() => window.location.href = `${backUrl}/login/cas/`}
+            onClick={() => (window.location.href = `${backUrl}/login/cas/`)}
             variant="secondary"
           >
             Connexion CAS
@@ -95,7 +103,9 @@ function LoginContent() {
         )}
         {config?.authentication?.use_shib && (
           <Button
-            onClick={() => window.location.href = `${backUrl}/login/shibboleth/`}
+            onClick={() =>
+              (window.location.href = `${backUrl}/login/shibboleth/`)
+            }
             variant="secondary"
           >
             Connexion {config?.authentication?.shibboleth_name || "Shibboleth"}
@@ -103,7 +113,7 @@ function LoginContent() {
         )}
         {config?.authentication?.use_oidc && (
           <Button
-            onClick={() => window.location.href = `${backUrl}/login/oidc/`}
+            onClick={() => (window.location.href = `${backUrl}/login/oidc/`)}
             variant="secondary"
           >
             Connexion {config?.authentication?.oidc_name || "OIDC"}
@@ -112,48 +122,57 @@ function LoginContent() {
       </div>
 
       {config?.authentication?.use_local_auth !== false && (
-        <form className={styles["login-form"]} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={styles["login-form"]}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           {/* ==== Formulaire ==== */}
-        <Input
-          id="login-username"
-          label={`${t("auth.username")} *`}
-          autoComplete="login"
-          state={errors.username ? "error" : "default"}
-          aria-describedby="username-error"
-          aria-required="true"
-          {...register("username", {
-            required: t("auth.usernameRequired"),
-            validate: (value) =>
-              value.trim().length > 0 || t("auth.usernameRequired"),
-          })}
-        />
-        {errors.username && (
-          <p id="username-error" style={{ color: "red", marginTop: "0.25rem" }}>
-            {errors.username.message}
-          </p>
-        )}
+          <Input
+            id="login-username"
+            label={`${t("auth.username")} *`}
+            autoComplete="login"
+            state={errors.username ? "error" : "default"}
+            aria-describedby="username-error"
+            aria-required="true"
+            {...register("username", {
+              required: t("auth.usernameRequired"),
+              validate: (value) =>
+                value.trim().length > 0 || t("auth.usernameRequired"),
+            })}
+          />
+          {errors.username && (
+            <p
+              id="username-error"
+              style={{ color: "red", marginTop: "0.25rem" }}
+            >
+              {errors.username.message}
+            </p>
+          )}
 
-        {/* ==== Mot de passe ==== */}
-        <InputPassword
-          id="login-password"
-          label={`${t("auth.password")} *`}
-          autoComplete="password"
-          state={errors.password ? "error" : "default"}
-          aria-describedby="password-error"
-          aria-required="true"
-          {...register("password", {
-            required: t("auth.passwordRequired"),
-            validate: (value) =>
-              value.trim().length > 0 || t("auth.passwordRequired"),
-          })}
-        />
-        {errors.password && (
-          <p id="password-error" style={{ color: "red", marginTop: "0.25rem" }}>
-            {errors.password.message}
-          </p>
-        )}
+          {/* ==== Mot de passe ==== */}
+          <InputPassword
+            id="login-password"
+            label={`${t("auth.password")} *`}
+            autoComplete="password"
+            state={errors.password ? "error" : "default"}
+            aria-describedby="password-error"
+            aria-required="true"
+            {...register("password", {
+              required: t("auth.passwordRequired"),
+              validate: (value) =>
+                value.trim().length > 0 || t("auth.passwordRequired"),
+            })}
+          />
+          {errors.password && (
+            <p
+              id="password-error"
+              style={{ color: "red", marginTop: "0.25rem" }}
+            >
+              {errors.password.message}
+            </p>
+          )}
 
-        {/* ==== Bouton de soumission ==== */}
+          {/* ==== Bouton de soumission ==== */}
           <Button variant="primary" type="submit" disabled={isSubmitting}>
             {isSubmitting ? t("common.loading") : t("auth.submitLogin")}
           </Button>

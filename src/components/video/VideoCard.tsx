@@ -32,7 +32,13 @@ interface VideosCardProps {
 }
 
 export default function VideoCard(props: VideosCardProps) {
-  const { video, isOwner = false, selectable = false, selected = false, onSelectToggle } = props;
+  const {
+    video,
+    isOwner = false,
+    selectable = false,
+    selected = false,
+    onSelectToggle,
+  } = props;
   const { locale, t } = useTranslation();
   const time = secondToMinute(video.duration || 0);
 
@@ -58,42 +64,50 @@ export default function VideoCard(props: VideosCardProps) {
   }
 
   const { config } = useAppConfig();
-  const displayName = getVideoOwnerDisplayName(video, config?.authentication, true);
+  const displayName = getVideoOwnerDisplayName(
+    video,
+    config?.authentication,
+    true,
+  );
   const isAnonymous = displayName === "Anonyme";
-  const initial = isAnonymous ? "A" : setInitial(video.owner_last_name, video.owner_first_name);
+  const initial = isAnonymous
+    ? "A"
+    : setInitial(video.owner_last_name, video.owner_first_name);
 
   return (
-    <Card className={`${styles.card} ${selected ? styles["card-selected"] : ""}`}
+    <Card
+      className={`${styles.card} ${selected ? styles["card-selected"] : ""}`}
       component="article"
       elevation={0}
     >
-        {selectable && (
-          <div
-            className={styles["select-checkbox"]}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Checkbox
-              label=""
-              checked={selected}
-              onChange={(e) => {
-                onSelectToggle?.((e.target as HTMLInputElement).checked);
-              }}
-              aria-label="Sélectionner cette vidéo"
-            />
-          </div>
-        )}
-
-        <CardActionArea
-          component={Link}
-          href={href}
-          className={styles["action-area"]}
-          disableRipple
+      {selectable && (
+        <div
+          className={styles["select-checkbox"]}
+          onClick={(e) => e.stopPropagation()}
         >
+          <Checkbox
+            label=""
+            checked={selected}
+            onChange={(e) => {
+              onSelectToggle?.((e.target as HTMLInputElement).checked);
+            }}
+            aria-label="Sélectionner cette vidéo"
+          />
+        </div>
+      )}
 
+      <CardActionArea
+        component={Link}
+        href={href}
+        className={styles["action-area"]}
+        disableRipple
+      >
         <div className={styles["thumbnail-container"]}>
           <CardMedia
             component="img"
-            image={video.thumbnail_url || video.thumbnail || "/default_thumbnail.svg"}
+            image={
+              video.thumbnail_url || video.thumbnail || "/default_thumbnail.svg"
+            }
             alt={t("a11y.videoThumbnail", { title: video.title })}
             className={styles.thumbnail}
           />
@@ -107,28 +121,29 @@ export default function VideoCard(props: VideosCardProps) {
         </div>
 
         <CardContent className={styles["card-content"]}>
-          <Avatar className={styles.avatar}>
-            {initial}
-          </Avatar>
+          <Avatar className={styles.avatar}>{initial}</Avatar>
 
           <div className={styles["video-content"]}>
             <div className={styles["video-header"]}>
-                <Typography
-                  component="div"
-                  className={styles["video-title"]}
-                >
-                  {video.title}
-                </Typography>
+              <Typography component="div" className={styles["video-title"]}>
+                {video.title}
+              </Typography>
 
               <div className={styles["video-icons"]}>
                 {video.encoding_status == "ER" && isOwner && (
                   <Tooltip title="Erreur d'encodage">
-                    <ErrorIcon color="error" className={styles["encoding-icon"]} />
+                    <ErrorIcon
+                      color="error"
+                      className={styles["encoding-icon"]}
+                    />
                   </Tooltip>
                 )}
                 {video.encoding_status == "PE" && isOwner && (
                   <Tooltip title="Vidéo en attente d'encodage">
-                    <PauseCircleFilledIcon color="warning" className={styles["encoding-icon"]} />
+                    <PauseCircleFilledIcon
+                      color="warning"
+                      className={styles["encoding-icon"]}
+                    />
                   </Tooltip>
                 )}
                 {video.encoding_status == "PR" && isOwner && (
@@ -138,12 +153,17 @@ export default function VideoCard(props: VideosCardProps) {
                 )}
                 {video.encoding_status == "DO" && isOwner && (
                   <Tooltip title="Encodage terminé">
-                    <CheckCircleOutlinedIcon color="success" className={styles["encoding-icon"]}/>
+                    <CheckCircleOutlinedIcon
+                      color="success"
+                      className={styles["encoding-icon"]}
+                    />
                   </Tooltip>
                 )}
                 {video.status === "DR" && (
                   <Tooltip title="Vidée privée / Brouillon">
-                    <VisibilityOffOutlinedIcon className={styles["status-icon"]} />
+                    <VisibilityOffOutlinedIcon
+                      className={styles["status-icon"]}
+                    />
                   </Tooltip>
                 )}
                 {video.has_password && (
@@ -170,18 +190,12 @@ export default function VideoCard(props: VideosCardProps) {
               </div>
             </div>
 
-            <Typography
-              component="div"
-              className={styles["video-info"]}
-            >
-              <address 
-                className={styles["video-owner"]}
-                title={displayName}
-              >
+            <Typography component="div" className={styles["video-info"]}>
+              <address className={styles["video-owner"]} title={displayName}>
                 {displayName}
               </address>
-              <time 
-                dateTime={video.created_at} 
+              <time
+                dateTime={video.created_at}
                 className={styles["video-date"]}
               >
                 {timeAgo(video.created_at, locale)}

@@ -30,7 +30,9 @@ type AddPlaylistFormValues = {
 export default function AddPlaylist() {
   const { t } = useTranslation();
 
-  const FORM_FIELD_LABELS: Partial<Record<keyof AddPlaylistFormValues, string>> = {
+  const FORM_FIELD_LABELS: Partial<
+    Record<keyof AddPlaylistFormValues, string>
+  > = {
     title: t("common.title"),
     description: t("common.description"),
     is_password_required: t("common.isPasswordRequired"),
@@ -79,7 +81,8 @@ export default function AddPlaylist() {
       initialValuesRef.current = watchedValues as AddPlaylistFormValues;
     } else {
       const changed =
-        JSON.stringify(initialValuesRef.current) !== JSON.stringify(watchedValues);
+        JSON.stringify(initialValuesRef.current) !==
+        JSON.stringify(watchedValues);
       setIsDirty(changed);
     }
   }, [watchedValues]);

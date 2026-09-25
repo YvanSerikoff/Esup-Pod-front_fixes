@@ -16,8 +16,8 @@ export const fr = {
     playlists: "Playlists",
     theme: "Thème",
     themes: "Thèmes",
-    subtopic : "Sous-thème",
-    subtopics : "Sous-thèmes",
+    subtopic: "Sous-thème",
+    subtopics: "Sous-thèmes",
     discipline: "Discipline",
     disciplines: "Disciplines",
     series: "Série / Émission",
@@ -44,24 +44,28 @@ export const fr = {
     createdBy: "Créée par",
     latestUpdate: "Mise à jour le :",
     contributors: "Contributeurs & Intervenants",
-    addContributorsDesc: "Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.",
+    addContributorsDesc:
+      "Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.",
     public: "Publique",
     private: "Privée",
     passwordProtected: "Protégée par mot de passe",
-    find : "trouvée"
+    find: "trouvée",
   },
   errors: {
     error: "Une erreur est survenue",
     notFound: "Page introuvable",
-    notFoundDesc: "La page que vous recherchez n’existe pas ou a été supprimée.",
+    notFoundDesc:
+      "La page que vous recherchez n’existe pas ou a été supprimée.",
     serverError: "Erreur serveur",
-    serverErrorDesc: "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
+    serverErrorDesc:
+      "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
     imageSendError: "Echec de l’envoi de l’image",
     imageDeleteError: "Echec de la suppression de l’image",
     notConnected: "Utilisateur non connecté",
     chooseImage: "Veuillez choisir une image",
     unableToSection: "Impossible de charger cette section de lapplication",
-    notConfigured: "La page demandée n’existe pas ou n’a pas encore été configurée pour cette université.",
+    notConfigured:
+      "La page demandée n’existe pas ou n’a pas encore été configurée pour cette université.",
   },
   a11y: {
     institutionLogo: "Logo de l’établissement",
@@ -88,7 +92,7 @@ export const fr = {
     thumbnail: "Vignette",
     preview: "Aperçu",
   },
-  pending:{
+  pending: {
     sending: "Envoi en cours…",
     deleting: "Suppression en cours…",
     updating: "Mise à jour en cours…",
@@ -100,11 +104,14 @@ export const fr = {
   },
   home: {
     welcomeSubtitle: "Bienvenue sur votre plateforme POD !",
-    welcomeIntro: "La vidéo est un média de choix quand il s’agit de communiquer, d’enseigner et d’apprendre. Voici quelques usages qui pourraient vous intéresser.",
+    welcomeIntro:
+      "La vidéo est un média de choix quand il s’agit de communiquer, d’enseigner et d’apprendre. Voici quelques usages qui pourraient vous intéresser.",
     howToTitle: "Comment faire ?",
-    howToDescPrefix: "Vous avez envie de mettre en ligne vos propres contenus ? Ce ",
+    howToDescPrefix:
+      "Vous avez envie de mettre en ligne vos propres contenus ? Ce ",
     quickGuideLink: "guide de prise en main",
-    howToDescSuffix: " rapide vous présentera les fonctionnalités de base de Pod.",
+    howToDescSuffix:
+      " rapide vous présentera les fonctionnalités de base de Pod.",
     btnUsePod: "Utiliser pod",
     btnHowTo: "Comment faire",
     btnCopyright: "Du droit d’auteur",
@@ -175,7 +182,7 @@ export const fr = {
     titleAZ: "Titre A-Z",
     titleZA: "Titre Z-A",
     creationDate: "Date de création",
-    activeCreationDate:"Date (filtre actif)",
+    activeCreationDate: "Date (filtre actif)",
     selectPeriod: "Sélectionnez une période",
     createdAfter: "Créé après",
     createdBefore: "Créé avant",
@@ -189,7 +196,8 @@ export const fr = {
     dangerZone: "ZONE DE DANGER",
     deselectAll: "Tout désélectionner",
     confirmDelete: "Confirmer la suppression",
-    deleteWarning: "Vous êtes sur le point de supprimer définitivement les vidéos sélectionnées.",
+    deleteWarning:
+      "Vous êtes sur le point de supprimer définitivement les vidéos sélectionnées.",
     changeType: "Changer le type",
     changeChannel: "Changer la chaîne",
     editDescription: "Modifier la description",
@@ -315,35 +323,43 @@ export const fr = {
     // Form fields in Details
     titleLabel: "Titre",
     titlePlaceholder: "Titre de la vidéo en Français",
-    titleHelper: "Un titre aussi court et précis que possible, reflétant le sujet principal / le contexte de ce contenu.",
+    titleHelper:
+      "Un titre aussi court et précis que possible, reflétant le sujet principal / le contexte de ce contenu.",
     descriptionLabel: "Description",
     descriptionPlaceholder: "Description de la vidéo en Français",
-    descriptionHelper: "Décrivez votre contenu, ajoutez toutes les informations nécessaires, et mettez en forme le résultat.",
+    descriptionHelper:
+      "Décrivez votre contenu, ajoutez toutes les informations nécessaires, et mettez en forme le résultat.",
     mainLanguageLabel: "Langue principale",
     mainLanguageHelper: "La langue principalement utilisée dans ce contenu.",
     thumbnailLabel: "Vignettes",
     uploadThumbnailBtn: "+ Importer une vignette",
     thumbnailDimensionsHint: "JPG ou PNG · Recommandé : 1280 × 720 px",
-    thumbnailCopyrightHelper: "La vignette doit respecter les règles de la communauté. Assurez-vous que l’image a le bon droit d’auteur.",
+    thumbnailCopyrightHelper:
+      "La vignette doit respecter les règles de la communauté. Assurez-vous que l’image a le bon droit d’auteur.",
     changeBtn: "Changer",
     deleteBtn: "Supprimer",
     ownerLabel: "Propriétaire",
-    ownerHelper: "Un super‑utilisateur peut changer le propriétaire d’une vidéo.",
+    ownerHelper:
+      "Un super‑utilisateur peut changer le propriétaire d’une vidéo.",
     coOwnersLabel: "Propriétaires additionnels",
-    coOwnersHelper: "Les propriétaires additionnels auront les mêmes droits que vous, sauf qu’ils ne peuvent pas supprimer ce contenu.",
+    coOwnersHelper:
+      "Les propriétaires additionnels auront les mêmes droits que vous, sauf qu’ils ne peuvent pas supprimer ce contenu.",
     licenseLabel: "Licence",
     licenseHelper: "Droits d’utilisation de votre contenu.",
     channelLabel: "Chaîne",
-    channelHelper: "Vous avez les permissions pour associer cette vidéo à une chaîne.",
+    channelHelper:
+      "Vous avez les permissions pour associer cette vidéo à une chaîne.",
     noneOption: "Aucune",
     themesLabel: "Thèmes",
-    themesHelper: "Vous pouvez sélectionner un ou plusieurs thèmes liés à la chaîne.",
+    themesHelper:
+      "Vous pouvez sélectionner un ou plusieurs thèmes liés à la chaîne.",
     dateToDeleteLabel: "Date de suppression",
     dateToDeleteHelper: "Date planifiée de suppression de la vidéo.",
     dateOfEventLabel: "Date de l’événement",
     dateOfEventHelper: "Date de l’événement lié à cette vidéo.",
     publicationDateLabel: "Date et heure de publication planifiée",
-    publicationDateHelper: "Définissez une date/heure dans le futur à laquelle la vidéo sera rendue publique.",
+    publicationDateHelper:
+      "Définissez une date/heure dans le futur à laquelle la vidéo sera rendue publique.",
 
     previous: "Précédent",
     next: "Suivant",
@@ -363,37 +379,53 @@ export const fr = {
     importHeaderTitle: "Ajouter un fichier vidéo",
     importHeaderSub: "Gérez la vidéo source et l’encodage de votre média.",
     noSourceWarningTitle: "Fiche vide sans source vidéo",
-    noSourceWarningDesc: "Cette vidéo n’a pas encore de fichier source associé. Vous pouvez compléter les métadonnées (titre, description, etc.), mais vous devez ajouter une vidéo ci-dessous avant de pouvoir la publier.",
-    publicNoSourceAlert: "Vous avez sélectionné le statut Public mais aucun fichier source n’est importé. Importation obligatoire pour publication publique.",
-    selectVideoFile: "Sélectionnez un fichier vidéo depuis votre ordinateur. Un nouveau processus d’encodage sera automatiquement lancé.",
+    noSourceWarningDesc:
+      "Cette vidéo n’a pas encore de fichier source associé. Vous pouvez compléter les métadonnées (titre, description, etc.), mais vous devez ajouter une vidéo ci-dessous avant de pouvoir la publier.",
+    publicNoSourceAlert:
+      "Vous avez sélectionné le statut Public mais aucun fichier source n’est importé. Importation obligatoire pour publication publique.",
+    selectVideoFile:
+      "Sélectionnez un fichier vidéo depuis votre ordinateur. Un nouveau processus d’encodage sera automatiquement lancé.",
     addVideoFileBtn: "Ajouter la vidéo",
 
     // Elements Step
-    elementsHeaderSub: "Enrichissez votre vidéo avec des sous-titres, documents et contributeurs.",
+    elementsHeaderSub:
+      "Enrichissez votre vidéo avec des sous-titres, documents et contributeurs.",
     subtitlesTitle: "Sous-titres manuels",
-    subtitlesDesc: "Ajoutez des fichiers de sous-titres (.vtt, .srt) dans une ou plusieurs langues.",
+    subtitlesDesc:
+      "Ajoutez des fichiers de sous-titres (.vtt, .srt) dans une ou plusieurs langues.",
     documentsTitle: "Documents joints",
-    documentsDesc: "Associez des fichiers PDF, diaporamas ou autres documents téléchargeables.",
+    documentsDesc:
+      "Associez des fichiers PDF, diaporamas ou autres documents téléchargeables.",
     contributorsTitle: "Contributeurs & Intervenants",
-    contributorsDesc: "Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.",
+    contributorsDesc:
+      "Ajoutez des auteurs, réalisateurs ou intervenants à votre vidéo.",
     chaptersTitle: "Chapitrer la vidéo",
-    chaptersDesc: "Découpez votre vidéo en chapitres avec des marqueurs temporels.",
+    chaptersDesc:
+      "Découpez votre vidéo en chapitres avec des marqueurs temporels.",
     dressingTitle: "Habiller la vidéo",
-    dressingDesc: "Appliquez un habillage (filigrane, amorce d’ouverture / fermeture).",
+    dressingDesc:
+      "Appliquez un habillage (filigrane, amorce d’ouverture / fermeture).",
     trimTitle: "Découper la vidéo",
-    trimDesc: "Délimitez un point d’entrée et de sortie pour raccourcir la vidéo.",
+    trimDesc:
+      "Délimitez un point d’entrée et de sortie pour raccourcir la vidéo.",
 
     // Visibility Step
-    visibilityHeaderSub: "Choisissez quand publier votre vidéo et qui peut la voir.",
+    visibilityHeaderSub:
+      "Choisissez quand publier votre vidéo et qui peut la voir.",
     restrictionsHeader: "Restrictions",
-    restrictionsSub: "Choisissez de rendre votre vidéo publique, non répertoriée ou privée.",
+    restrictionsSub:
+      "Choisissez de rendre votre vidéo publique, non répertoriée ou privée.",
     draftPrivateTitle: "Brouillon / Privé",
-    draftPrivateDesc: "En mode « Brouillon / Privé », le contenu n’apparaît nulle part et personne d’autre que vous ne peut le voir.",
+    draftPrivateDesc:
+      "En mode « Brouillon / Privé », le contenu n’apparaît nulle part et personne d’autre que vous ne peut le voir.",
     restrictedTitle: "Accès restreint",
-    restrictedDesc: "En mode « Accès restreint », vous pouvez choisir les restrictions pour la vidéo.",
+    restrictedDesc:
+      "En mode « Accès restreint », vous pouvez choisir les restrictions pour la vidéo.",
     publicTitle: "Public",
-    publicDesc: "Dans le mode « Public », le contenu est visible par tout le monde.",
-    noSourceDraftNotice: "Sans fichier source, seuls les modes Brouillon / Privé sont autorisés. Les modes Accès restreint et Public sont désactivés.",
+    publicDesc:
+      "Dans le mode « Public », le contenu est visible par tout le monde.",
+    noSourceDraftNotice:
+      "Sans fichier source, seuls les modes Brouillon / Privé sont autorisés. Les modes Accès restreint et Public sont désactivés.",
     restrictionOptions: "Options de restriction :",
     authRequiredLabel: "Authentification requise",
     authRequiredHelper: "Limiter l’accès aux personnes authentifiées.",
@@ -403,7 +435,8 @@ export const fr = {
     allowDownloadLabel: "Autoriser le téléchargement",
     allowDownloadHelper: "Autoriser le téléchargement de votre vidéo.",
     disableCommentsLabel: "Désactiver les commentaires",
-    disableCommentsHelper: "Désactiver l’ajout de commentaires sous votre vidéo.",
+    disableCommentsHelper:
+      "Désactiver l’ajout de commentaires sous votre vidéo.",
     advancedOptionsTitle: "Options avancées",
     is360Label: "Il s’agit d’une vidéo 360°",
     is360Helper: "Activer le lecteur 360° pour cette vidéo.",
@@ -424,8 +457,8 @@ export const fr = {
   },
   playlists: {
     myTitle: "Mes listes de lecture",
-    playlists : "Listes de lecture",
-    playlist : "Liste de lecture",
+    playlists: "Listes de lecture",
+    playlist: "Liste de lecture",
     addPlaylist: "Ajouter une liste de lecture",
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
@@ -443,7 +476,8 @@ export const fr = {
   },
   dressingPage: {
     title: "Habillages & Filigranes Vidéo",
-    pageDescription: "Gérez vos filigranes (watermarks) et éléments visuels pour les incruster directement dans vos vidéos.",
+    pageDescription:
+      "Gérez vos filigranes (watermarks) et éléments visuels pour les incruster directement dans vos vidéos.",
     myWatermarks: "Mes Filigranes",
     addWatermark: "Ajouter un filigrane",
     uploading: "Envoi en cours…",
@@ -457,8 +491,10 @@ export const fr = {
     es: "Español",
   },
   descriptions: {
-    dashboard: "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-Pod.",
-    login: "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup-Pod.",
+    dashboard:
+      "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-Pod.",
+    login:
+      "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup-Pod.",
   },
 };
 

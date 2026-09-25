@@ -49,9 +49,11 @@ export default function FavoritesSidebar({
               }`}
               onClick={() => handleClick(video.slug)}
             >
-              <span className={styles["favorites-sidebar-index"]}>{index + 1}</span>
+              <span className={styles["favorites-sidebar-index"]}>
+                {index + 1}
+              </span>
               <Image
-              unoptimized
+                unoptimized
                 src={video.thumbnail_url || "/default_thumbnail.svg"}
                 alt={t("a11y.videoThumbnail", { title: video.title })}
                 width={64}

@@ -18,8 +18,8 @@ export const es: TranslationKeys = {
     playlists: "Listas de reproducción",
     theme: "Tema",
     themes: "Temas",
-    subtopic : "Subtema",
-    subtopics : "Subtemas",
+    subtopic: "Subtema",
+    subtopics: "Subtemas",
     discipline: "Disciplina",
     disciplines: "Disciplinas",
     series: "Serie / Programa",
@@ -50,20 +50,22 @@ export const es: TranslationKeys = {
     public: "Público",
     private: "Privado",
     passwordProtected: "Protegido con contraseña",
-    find : "Encontró"
+    find: "Encontró",
   },
   errors: {
     error: "Ocurrió un error",
     notFound: "Página no encontrada",
     notFoundDesc: "La página que busca no existe o ha sido eliminada.",
     serverError: "Error del servidor",
-    serverErrorDesc: "Ocurrió un error en el servidor. Por favor, inténtelo de nuevo más tarde.",
+    serverErrorDesc:
+      "Ocurrió un error en el servidor. Por favor, inténtelo de nuevo más tarde.",
     imageSendError: "Error al enviar la imagen",
     imageDeleteError: "Error al eliminar la imagen",
     notConnected: "Utilizador no conectado",
     chooseImage: "Por favor, seleccione una imagen",
     unableToSection: "No se puede cargar esta sección de la aplicación",
-    notConfigured: "La página solicitada no existe o aún no se ha configurado para esta universidad.",
+    notConfigured:
+      "La página solicitada no existe o aún no se ha configurado para esta universidad.",
   },
   a11y: {
     institutionLogo: "Logotipo de la institución",
@@ -89,7 +91,7 @@ export const es: TranslationKeys = {
     thumbnail: "Miniatura",
     preview: "Vista previa",
   },
-  pending:{
+  pending: {
     sending: "Enviando…",
     deleting: "Eliminando…",
     updating: "Actualizando…",
@@ -101,7 +103,8 @@ export const es: TranslationKeys = {
   },
   home: {
     welcomeSubtitle: "¡Bienvenido a su plataforma POD!",
-    welcomeIntro: "El vídeo es un medio preferido para comunicar, enseñar y aprender. Aquí tiene algunos usos que podrían interesarle.",
+    welcomeIntro:
+      "El vídeo es un medio preferido para comunicar, enseñar y aprender. Aquí tiene algunos usos que podrían interesarle.",
     howToTitle: "¿Cómo hacerlo?",
     howToDescPrefix: "¿Quiere subir sus propios contenidos? Esta rápida ",
     quickGuideLink: "guía de inicio rápido",
@@ -176,7 +179,7 @@ export const es: TranslationKeys = {
     titleAZ: "Título A-Z",
     titleZA: "Título Z-A",
     creationDate: "Fecha de creación",
-    activeCreationDate:"Fecha (filtro activo)",
+    activeCreationDate: "Fecha (filtro activo)",
     selectPeriod: "Seleccione un periodo",
     createdAfter: "Creado después",
     createdBefore: "Creado antes",
@@ -316,22 +319,26 @@ export const es: TranslationKeys = {
     // Form fields in Details
     titleLabel: "Título",
     titlePlaceholder: "Título del vídeo",
-    titleHelper: "Un título lo más corto y preciso posible que refleje el tema principal / contexto de este contenido.",
+    titleHelper:
+      "Un título lo más corto y preciso posible que refleje el tema principal / contexto de este contenido.",
     descriptionLabel: "Descripción",
     descriptionPlaceholder: "Descripción del vídeo",
-    descriptionHelper: "Describa su contenido, añada toda la información necesaria y aplique formato.",
+    descriptionHelper:
+      "Describa su contenido, añada toda la información necesaria y aplique formato.",
     mainLanguageLabel: "Idioma principal",
     mainLanguageHelper: "El idioma principal utilizado en este contenido.",
     thumbnailLabel: "Miniaturas",
     uploadThumbnailBtn: "+ Subir miniatura",
     thumbnailDimensionsHint: "JPG o PNG · Recomendado: 1280 × 720 px",
-    thumbnailCopyrightHelper: "La miniatura debe cumplir con las normas de la comunidad. Asegúrese de tener los derechos de autor adecuados.",
+    thumbnailCopyrightHelper:
+      "La miniatura debe cumplir con las normas de la comunidad. Asegúrese de tener los derechos de autor adecuados.",
     changeBtn: "Cambiar",
     deleteBtn: "Eliminar",
     ownerLabel: "Propietario",
     ownerHelper: "Un superusuario puede cambiar el propietario de un vídeo.",
     coOwnersLabel: "Propietarios adicionales",
-    coOwnersHelper: "Los propietarios adicionales tendrán los mismos derechos que usted, excepto que no pueden eliminar este contenido.",
+    coOwnersHelper:
+      "Los propietarios adicionales tendrán los mismos derechos que usted, excepto que no pueden eliminar este contenido.",
     licenseLabel: "Licencia",
     licenseHelper: "Derechos de uso de su contenido.",
     channelLabel: "Canal",
@@ -344,7 +351,8 @@ export const es: TranslationKeys = {
     dateOfEventLabel: "Fecha del evento",
     dateOfEventHelper: "Fecha del evento relacionado con este vídeo.",
     publicationDateLabel: "Fecha y hora programada de publicación",
-    publicationDateHelper: "Establezca una fecha/hora futura en la que el vídeo se hará público.",
+    publicationDateHelper:
+      "Establezca una fecha/hora futura en la que el vídeo se hará público.",
 
     previous: "Anterior",
     next: "Siguiente",
@@ -362,19 +370,26 @@ export const es: TranslationKeys = {
 
     // Import Step
     importHeaderTitle: "Añadir un archivo de vídeo",
-    importHeaderSub: "Gestione el vídeo fuente y la codificación de su contenido.",
+    importHeaderSub:
+      "Gestione el vídeo fuente y la codificación de su contenido.",
     noSourceWarningTitle: "Ficha vacía sin vídeo fuente",
-    noSourceWarningDesc: "Este vídeo aún no tiene un archivo fuente asociado. Puede completar los metadatos (título, descripción, etc.), pero debe añadir un vídeo abajo antes de poder publicarlo.",
-    publicNoSourceAlert: "Ha seleccionado el estado Público pero no hay archivo fuente importado. Importación obligatoria para publicación pública.",
-    selectVideoFile: "Seleccione un archivo de vídeo desde su ordenador. Se iniciará automáticamente un nuevo proceso de codificación.",
+    noSourceWarningDesc:
+      "Este vídeo aún no tiene un archivo fuente asociado. Puede completar los metadatos (título, descripción, etc.), pero debe añadir un vídeo abajo antes de poder publicarlo.",
+    publicNoSourceAlert:
+      "Ha seleccionado el estado Público pero no hay archivo fuente importado. Importación obligatoria para publicación pública.",
+    selectVideoFile:
+      "Seleccione un archivo de vídeo desde su ordenador. Se iniciará automáticamente un nuevo proceso de codificación.",
     addVideoFileBtn: "Añadir archivo de vídeo",
 
     // Elements Step
-    elementsHeaderSub: "Enriquezca su vídeo con subtítulos, documentos y colaboradores.",
+    elementsHeaderSub:
+      "Enriquezca su vídeo con subtítulos, documentos y colaboradores.",
     subtitlesTitle: "Subtítulos manuales",
-    subtitlesDesc: "Añada archivos de subtítulos (.vtt, .srt) en uno o varios idiomas.",
+    subtitlesDesc:
+      "Añada archivos de subtítulos (.vtt, .srt) en uno o varios idiomas.",
     documentsTitle: "Documentos adjuntos",
-    documentsDesc: "Adjunte archivos PDF, presentaciones u otros documentos descargables.",
+    documentsDesc:
+      "Adjunte archivos PDF, presentaciones u otros documentos descargables.",
     contributorsTitle: "Colaboradores e Intervinientes",
     contributorsDesc: "Añada autores, directores o ponentes a su vídeo.",
     chaptersTitle: "Capítulos del vídeo",
@@ -389,12 +404,16 @@ export const es: TranslationKeys = {
     restrictionsHeader: "Restricciones",
     restrictionsSub: "Elija si su vídeo será público, oculto o privado.",
     draftPrivateTitle: "Borrador / Privado",
-    draftPrivateDesc: "En modo «Borrador / Privado», el contenido no aparece en ningún sitio y nadie más que usted puede verlo.",
+    draftPrivateDesc:
+      "En modo «Borrador / Privado», el contenido no aparece en ningún sitio y nadie más que usted puede verlo.",
     restrictedTitle: "Acceso restringido",
-    restrictedDesc: "En modo «Acceso restringido», puede elegir las restricciones para el vídeo.",
+    restrictedDesc:
+      "En modo «Acceso restringido», puede elegir las restricciones para el vídeo.",
     publicTitle: "Público",
-    publicDesc: "En el modo «Público», el contenido es visible para todo el mundo.",
-    noSourceDraftNotice: "Sin archivo fuente, solo se permite el modo Borrador / Privado. Los modos Acceso restringido y Público están deshabilitados.",
+    publicDesc:
+      "En el modo «Público», el contenido es visible para todo el mundo.",
+    noSourceDraftNotice:
+      "Sin archivo fuente, solo se permite el modo Borrador / Privado. Los modos Acceso restringido y Público están deshabilitados.",
     restrictionOptions: "Opciones de restricción:",
     authRequiredLabel: "Autenticación requerida",
     authRequiredHelper: "Limitar el acceso a personas autenticadas.",
@@ -425,12 +444,14 @@ export const es: TranslationKeys = {
   },
   playlists: {
     myTitle: "Mis listas de reproducción",
-    playlists : "Listas de reproducción",
-    playlist : "Lista de reproducción",
+    playlists: "Listas de reproducción",
+    playlist: "Lista de reproducción",
     addPlaylist: "Añadir lista de reproducción",
     noPlaylists: "Aún no tiene ninguna lista de reproducción.",
-    noMatchingFilters: "Ninguna lista de reproducción coincide con sus filtros.",
-    noPublicPlaylists: "No hay listas de reproducción disponibles por el momento.",
+    noMatchingFilters:
+      "Ninguna lista de reproducción coincide con sus filtros.",
+    noPublicPlaylists:
+      "No hay listas de reproducción disponibles por el momento.",
     playlistCreated: "La lista de reproducción se ha creado correctamente.",
   },
   channels: {
@@ -444,7 +465,8 @@ export const es: TranslationKeys = {
   },
   dressingPage: {
     title: "Carátulas y Marcas de agua de vídeo",
-    pageDescription: "Gestione sus marcas de agua y elementos de imagen para incrustarlos directamente en sus vídeos.",
+    pageDescription:
+      "Gestione sus marcas de agua y elementos de imagen para incrustarlos directamente en sus vídeos.",
     myWatermarks: "Mis Marcas de agua",
     addWatermark: "Añadir una marca de agua",
     uploading: "Subiendo…",
@@ -458,7 +480,9 @@ export const es: TranslationKeys = {
     es: "Español",
   },
   descriptions: {
-    dashboard: "Gestione sus vídeos y ajustes en su panel de control de Esup-Pod.",
-    login: "Inicie sesión para acceder a sus vídeos y su espacio personal en Esup-Pod.",
+    dashboard:
+      "Gestione sus vídeos y ajustes en su panel de control de Esup-Pod.",
+    login:
+      "Inicie sesión para acceder a sus vídeos y su espacio personal en Esup-Pod.",
   },
 };

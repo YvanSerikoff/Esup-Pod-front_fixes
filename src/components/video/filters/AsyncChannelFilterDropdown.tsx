@@ -36,7 +36,9 @@ export default function AsyncChannelFilterDropdown({
         return;
       }
 
-      const existing = options.find((o) => o.value === selectedChannelId) || (selectedOption?.value === selectedChannelId ? selectedOption : null);
+      const existing =
+        options.find((o) => o.value === selectedChannelId) ||
+        (selectedOption?.value === selectedChannelId ? selectedOption : null);
       if (existing) {
         setSelectedOption(existing);
       } else {
@@ -65,7 +67,7 @@ export default function AsyncChannelFilterDropdown({
           setLoading(false);
         }
       }, 300),
-    [fetchAll]
+    [fetchAll],
   );
 
   useEffect(() => {
@@ -103,7 +105,9 @@ export default function AsyncChannelFilterDropdown({
               ...params.InputProps,
               endAdornment: (
                 <>
-                  {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                  {loading ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : null}
                   {params.InputProps.endAdornment}
                 </>
               ),

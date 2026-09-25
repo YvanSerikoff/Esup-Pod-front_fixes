@@ -120,7 +120,9 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
             <AddCircleOutlineIcon style={{ color: PRIMARY, fontSize: 20 }} />
           </div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}>
+            <div
+              style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}
+            >
               Nouvel habillage
             </div>
             <div style={{ fontSize: "0.8rem", color: "#6b7280" }}>
@@ -218,8 +220,9 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
             paddingTop: 12,
           }}
         >
-          💡 Pour ajouter un filigrane ou des amorces (vidéo d'ouverture / fermeture), créez
-          d'abord l'habillage, puis éditez-le dans les paramètres.
+          💡 Pour ajouter un filigrane ou des amorces (vidéo d'ouverture /
+          fermeture), créez d'abord l'habillage, puis éditez-le dans les
+          paramètres.
         </div>
       </div>
 
@@ -287,7 +290,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
   const { accessToken, refresh } = useAuth();
 
   const [selectedDressingId, setSelectedDressingId] = useState<number | "">(
-    video.dressing ?? ""
+    video.dressing ?? "",
   );
   const [isUpdating, setIsUpdating] = useState(false);
   const [msg, setMsg] = useState<{ text: string; ok: boolean } | null>(null);
@@ -306,7 +309,8 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ dressing: newId === "" ? null : newId }),
       });
-      if (!res.ok) throw new Error("Erreur lors de la mise à jour de l'habillage.");
+      if (!res.ok)
+        throw new Error("Erreur lors de la mise à jour de l'habillage.");
       setMsg({ text: "Habillage appliqué avec succès.", ok: true });
       if (onDressingUpdated) onDressingUpdated();
     } catch (err) {
@@ -329,14 +333,26 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
 
   /* ---- Create panel ---- */
   if (view === "create") {
-    return <CreateDressingPanel onBack={() => setView("select")} onCreated={handleCreated} />;
+    return (
+      <CreateDressingPanel
+        onBack={() => setView("select")}
+        onCreated={handleCreated}
+      />
+    );
   }
 
   /* ---- Select panel ---- */
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
       {/* Header row */}
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 12,
+        }}
+      >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
@@ -353,7 +369,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             <StyleIcon style={{ color: PRIMARY, fontSize: 20 }} />
           </div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}>
+            <div
+              style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}
+            >
               Habillage de la vidéo
             </div>
             <div style={{ fontSize: "0.8rem", color: "#6b7280" }}>
@@ -383,7 +401,8 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             flexShrink: 0,
           }}
           onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLButtonElement).style.background = PRIMARY_LIGHT)
+            ((e.currentTarget as HTMLButtonElement).style.background =
+              PRIMARY_LIGHT)
           }
           onMouseLeave={(e) =>
             ((e.currentTarget as HTMLButtonElement).style.background = "white")
@@ -416,7 +435,15 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
 
       {/* Dressing selector */}
       {isLoading ? (
-        <div style={{ display: "flex", alignItems: "center", gap: 10, color: "#6b7280", padding: "16px 0" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            color: "#6b7280",
+            padding: "16px 0",
+          }}
+        >
           <CircularProgress size={20} style={{ color: PRIMARY }} />
           Chargement des habillages…
         </div>
@@ -430,8 +457,12 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             color: "#9ca3af",
           }}
         >
-          <StyleIcon style={{ fontSize: 40, color: "#d1d5db", marginBottom: 8 }} />
-          <p style={{ margin: "0 0 12px", fontWeight: 500 }}>Aucun habillage disponible</p>
+          <StyleIcon
+            style={{ fontSize: 40, color: "#d1d5db", marginBottom: 8 }}
+          />
+          <p style={{ margin: "0 0 12px", fontWeight: 500 }}>
+            Aucun habillage disponible
+          </p>
           <button
             type="button"
             onClick={() => setView("create")}
@@ -463,7 +494,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <DeleteOutlineIcon style={{ color: "#9ca3af" }} />
-              <span style={{ color: "#6b7280", fontStyle: "italic" }}>Aucun habillage</span>
+              <span style={{ color: "#6b7280", fontStyle: "italic" }}>
+                Aucun habillage
+              </span>
             </div>
           </DressingCard>
 
@@ -491,10 +524,22 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                   <PaletteIcon style={{ color: PRIMARY, fontSize: 16 }} />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "#111" }}>
+                  <div
+                    style={{
+                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      color: "#111",
+                    }}
+                  >
                     {d.title}
                   </div>
-                  <div style={{ fontSize: "0.78rem", color: "#9ca3af", marginTop: 2 }}>
+                  <div
+                    style={{
+                      fontSize: "0.78rem",
+                      color: "#9ca3af",
+                      marginTop: 2,
+                    }}
+                  >
                     {[
                       d.watermark ? "Filigrane" : null,
                       d.opening_credits ? "Amorce début" : null,
@@ -505,7 +550,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                   </div>
                 </div>
                 {selectedDressingId === d.id && (
-                  <CheckCircleOutlineIcon style={{ color: PRIMARY, flexShrink: 0 }} />
+                  <CheckCircleOutlineIcon
+                    style={{ color: PRIMARY, flexShrink: 0 }}
+                  />
                 )}
               </div>
             </DressingCard>
@@ -528,14 +575,21 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             color: "#374151",
           }}
         >
-          <div style={{ fontWeight: 700, color: PRIMARY, fontSize: "0.875rem" }}>
+          <div
+            style={{ fontWeight: 700, color: PRIMARY, fontSize: "0.875rem" }}
+          >
             ✅ Habillage actif : {activeDressing.title}
           </div>
           {activeDressing.watermark && (
-            <div>🖼️ Filigrane — Position : {activeDressing.position}, Opacité : {activeDressing.opacity}%</div>
+            <div>
+              🖼️ Filigrane — Position : {activeDressing.position}, Opacité :{" "}
+              {activeDressing.opacity}%
+            </div>
           )}
           {activeDressing.opening_credits && (
-            <div>▶️ Amorce de début : vidéo #{activeDressing.opening_credits}</div>
+            <div>
+              ▶️ Amorce de début : vidéo #{activeDressing.opening_credits}
+            </div>
           )}
           {activeDressing.ending_credits && (
             <div>⏹️ Amorce de fin : vidéo #{activeDressing.ending_credits}</div>

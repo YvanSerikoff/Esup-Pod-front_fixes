@@ -24,7 +24,10 @@ export default function Footer() {
   const currentUri = `${origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
 
   return (
-    <footer className={`${styles.footer} ${styles["sidebar-fixed"]}`} id="footer">
+    <footer
+      className={`${styles.footer} ${styles["sidebar-fixed"]}`}
+      id="footer"
+    >
       <div className={styles["footer-content"]}>
         <div className={styles["footer-contact-univ"]}>
           <div className={styles["footer-contact-univ-logo"]}>
@@ -47,7 +50,9 @@ export default function Footer() {
         </div>
         <div className={styles["footer-link"]}>
           <Link href="/pages/legal-notice">{t("footer.legalNotice")}</Link>
-          <Link href="/pages/accessibility">{t("footer.accessibilityPartially")}</Link>
+          <Link href="/pages/accessibility">
+            {t("footer.accessibilityPartially")}
+          </Link>
           <Link href="/pages/site-map">{t("footer.siteMap")}</Link>
           <Link href="/pages/use-pod">{t("home.btnUsePod")}</Link>
           <Link href="/pages/how-to">{t("home.btnHowTo")}</Link>
@@ -56,39 +61,92 @@ export default function Footer() {
         <div className={styles["footer-extra-link"]}>
           <div className={styles["footer-extra-link-icons"]}>
             <span className={styles["footer-extra-link-icon"]}>
-              <a href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-                <Image src="/socialsmedia/facebook_icon.svg" alt={t("a11y.facebookLogo")} fill />
+              <a
+                href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(currentUri)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/socialsmedia/facebook_icon.svg"
+                  alt={t("a11y.facebookLogo")}
+                  fill
+                />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
-              <a href={`https://twitter.com/share?url=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-                <Image src="/socialsmedia/x_icon.svg" alt={t("a11y.xLogo")} fill />
+              <a
+                href={`https://twitter.com/share?url=${encodeURIComponent(currentUri)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/socialsmedia/x_icon.svg"
+                  alt={t("a11y.xLogo")}
+                  fill
+                />
               </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
-            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/socialsmedia/linkedin_icon.svg" alt={t("a11y.linkedinLogo")} fill />
-            </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUri)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/socialsmedia/linkedin_icon.svg"
+                  alt={t("a11y.linkedinLogo")}
+                  fill
+                />
+              </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
-            <a href={`https://bsky.app/intent/compose?text=${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/socialsmedia/bluesky_icon.svg" alt={t("a11y.blueskyLogo")} fill />
-            </a>
+              <a
+                href={`https://bsky.app/intent/compose?text=${encodeURIComponent(currentUri)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/socialsmedia/bluesky_icon.svg"
+                  alt={t("a11y.blueskyLogo")}
+                  fill
+                />
+              </a>
             </span>
             <span className={styles["footer-extra-link-icon"]}>
-            <a href={`${encodeURIComponent(currentUri)}`} target="_blank" rel="noreferrer">
-              <Image src="/socialsmedia/mastodon_icon.svg" alt={t("a11y.mastodonLogo")} fill />
-            </a>
+              <a
+                href={`${encodeURIComponent(currentUri)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/socialsmedia/mastodon_icon.svg"
+                  alt={t("a11y.mastodonLogo")}
+                  fill
+                />
+              </a>
             </span>
           </div>
           <div className={styles["footer-link-esup"]}>
-            <a href="https://github.com/EsupPortail/Esup-Pod-front" target="_blank" rel="noreferrer">{t("footer.esupProject")}</a>
-            <a href="https://www.esup-portail.org/" target="_blank" rel="noreferrer">{t("footer.esupPortal")}</a>
+            <a
+              href="https://github.com/EsupPortail/Esup-Pod-front"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("footer.esupProject")}
+            </a>
+            <a
+              href="https://www.esup-portail.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("footer.esupPortal")}
+            </a>
           </div>
         </div>
       </div>
       <p className={styles["credits-infos"]}>
-        {projectName} | {t("footer.videoPlatform")} - Consortium Esup • Version {version}
+        {projectName} | {t("footer.videoPlatform")} - Consortium Esup • Version{" "}
+        {version}
       </p>
     </footer>
   );

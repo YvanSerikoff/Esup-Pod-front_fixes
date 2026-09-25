@@ -42,10 +42,11 @@ export default function PlaylistCard({
         borderRadius: "12px",
         transition: "all 0.3s ease",
         "&:hover": {
-          borderColor: "var(--c--contextuals--background--semantic--brand--primary)",
+          borderColor:
+            "var(--c--contextuals--background--semantic--brand--primary)",
           boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
           transform: "translateY(-2px)",
-        }
+        },
       }}
     >
       <CardActionArea

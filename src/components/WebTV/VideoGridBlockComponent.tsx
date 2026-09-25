@@ -42,7 +42,10 @@ export default function VideoGridBlockComponent({
   const [loading, setLoading] = useState(!providedVideos);
 
   const displayTitle =
-    providedTitle || block?.display_title || block?.subtitle_or_text || t("common.videos");
+    providedTitle ||
+    block?.display_title ||
+    block?.subtitle_or_text ||
+    t("common.videos");
   const limit = providedLimit || block?.item_limit || (isHero ? 6 : 5);
 
   useEffect(() => {
@@ -60,9 +63,9 @@ export default function VideoGridBlockComponent({
           endpoint += `&ordering=${block.extra_config.order_by}`;
         }
 
-        const response = await requestJson<
-          Video[] | { results: Video[] }
-        >(endpoint);
+        const response = await requestJson<Video[] | { results: Video[] }>(
+          endpoint,
+        );
 
         const list = Array.isArray(response)
           ? response
@@ -87,10 +90,14 @@ export default function VideoGridBlockComponent({
 
   return (
     <section className={styles["block-wrapper"]}>
-      {!isHero && <div className={styles["section-badge-header"]}>{displayTitle}</div>}
+      {!isHero && (
+        <div className={styles["section-badge-header"]}>{displayTitle}</div>
+      )}
 
       {isLoading ? (
-        <div style={{ padding: "1rem", color: "#666" }}>{t("common.loading")}</div>
+        <div style={{ padding: "1rem", color: "#666" }}>
+          {t("common.loading")}
+        </div>
       ) : displayedVideos.length > 0 ? (
         <div className={isHero ? styles.heroGrid : styles["videos-grid"]}>
           {displayedVideos.map((video, index) => {
@@ -104,7 +111,7 @@ export default function VideoGridBlockComponent({
                 <div className={styles["thumbnail-container"]}>
                   {video.thumbnail ? (
                     <Image
-                    unoptimized
+                      unoptimized
                       width={100}
                       height={100}
                       src={video.thumbnail}
@@ -135,7 +142,10 @@ export default function VideoGridBlockComponent({
                       >
                         visibility
                       </span>
-                      {video.views_count} {video.views_count > 1 ? t("common.views") : t("common.view")}
+                      {video.views_count}{" "}
+                      {video.views_count > 1
+                        ? t("common.views")
+                        : t("common.view")}
                     </span>
                   )}
                 </div>

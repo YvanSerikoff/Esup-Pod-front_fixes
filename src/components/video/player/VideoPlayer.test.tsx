@@ -9,8 +9,8 @@ vi.mock("video.js", () => {
       one: vi.fn(),
       src: vi.fn(),
       dispose: vi.fn(),
-      hotkeys: vi.fn()
-    }))
+      hotkeys: vi.fn(),
+    })),
   };
 });
 
@@ -26,11 +26,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 describe("VideoPlayer", () => {
   it("renders correctly with loader initially", () => {
     const queryClient = new QueryClient();
-    const videoMock = { id: 1, title: "Test video", slug: "test-video", subtitles: [] } as any;
+    const videoMock = {
+      id: 1,
+      title: "Test video",
+      slug: "test-video",
+      subtitles: [],
+    } as any;
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <VideoPlayer video={videoMock} streamUrl="http://test/stream.mp4" />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
     expect(container.querySelector("div")).not.toBeNull();
   });

@@ -19,7 +19,17 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center", justifyContent: "center", padding: "2rem", height: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem",
+        height: "100%",
+      }}
+    >
       <Alert canClose={false} type={VariantType.ERROR}>
         <strong>Une erreur inattendue est survenue.</strong>
         <br />

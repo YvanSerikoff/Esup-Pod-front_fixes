@@ -19,8 +19,16 @@ export default function Channels() {
   const { user } = useAuth();
   const { t } = useTranslation();
   const mounted = useMounted();
-  const { filters, setFilters, channels, channelsCount, themes, users, error, loading } =
-    useCollectionListFilters({ mode: "channels" });
+  const {
+    filters,
+    setFilters,
+    channels,
+    channelsCount,
+    themes,
+    users,
+    error,
+    loading,
+  } = useCollectionListFilters({ mode: "channels" });
 
   const publicChannels = useMemo(() => {
     return channels.filter((channel) => channel.is_public);

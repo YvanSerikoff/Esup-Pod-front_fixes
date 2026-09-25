@@ -20,7 +20,7 @@ import { useChannel } from "@/src/hooks/useChannel";
 import { useCallback } from "react";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import DateFilterDropdown from "./DateFilterDropdown";
-import {useTranslation} from "@/src/hooks/useTranslation";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export type CollectionFilterMode = "channels" | "playlists" | "themes";
 
@@ -138,7 +138,7 @@ export default function CollectionFilters({
         value: u.username,
       }));
     },
-    [config?.authentication, fetchUsers]
+    [config?.authentication, fetchUsers],
   );
 
   const fetchChannelsOptions = useCallback(
@@ -149,14 +149,16 @@ export default function CollectionFilters({
         value: String(c.id),
       }));
     },
-    [fetchChannels]
+    [fetchChannels],
   );
 
   const selectedUsers = useMemo(() => {
     return value.ownerUsernames.map((username) => {
       const fullUser = users.find((u) => u.username === username);
       return {
-        label: fullUser ? getUserDisplayName(fullUser, config?.authentication, true) : username,
+        label: fullUser
+          ? getUserDisplayName(fullUser, config?.authentication, true)
+          : username,
         value: username,
       };
     });
@@ -235,7 +237,8 @@ export default function CollectionFilters({
             selectedValues={value.ownerUsernames}
             fetchOptions={fetchUsersOptions}
             onChange={(nextOwnerUsernames) => {
-              if (haveSameValues(value.ownerUsernames, nextOwnerUsernames)) return;
+              if (haveSameValues(value.ownerUsernames, nextOwnerUsernames))
+                return;
               onChange({ ...value, ownerUsernames: nextOwnerUsernames });
             }}
           />
@@ -246,7 +249,8 @@ export default function CollectionFilters({
             createdAtGte={value.createdAtGte}
             createdAtLte={value.createdAtLte}
             onChange={(gte, lte) => {
-              if (gte === value.createdAtGte && lte === value.createdAtLte) return;
+              if (gte === value.createdAtGte && lte === value.createdAtLte)
+                return;
               onChange({ ...value, createdAtGte: gte, createdAtLte: lte });
             }}
           />

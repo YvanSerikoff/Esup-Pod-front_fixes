@@ -103,7 +103,7 @@ export const useContributorsSearch = (searchQuery: string) => {
         {
           accessToken,
           onRefresh: refresh,
-        }
+        },
       );
       const data = await requestJson<ContributorsResponse>(res);
       return data.results;

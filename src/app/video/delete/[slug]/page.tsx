@@ -19,7 +19,11 @@ export default function DeleteVideoPage() {
     ? params.slug[0]
     : params.slug;
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();
-  const { data: video, isLoading: useVideoLoading, error } = useVideo(getVideoSlug ?? "");
+  const {
+    data: video,
+    isLoading: useVideoLoading,
+    error,
+  } = useVideo(getVideoSlug ?? "");
   const useVideoError = error?.message ?? null;
   const { mutateAsync: deleteVideo } = useDeleteVideo();
   const { isOwnerOrCoOwner } = useVideoPermissions(video ?? null);

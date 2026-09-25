@@ -27,8 +27,7 @@ export default function PlaylistPage() {
     usePlaylist();
   const { user } = useAuth();
   const mounted = useMounted();
-  const { lastCreatedPlaylist } =
-    usePlaylistCreationContext();
+  const { lastCreatedPlaylist } = usePlaylistCreationContext();
 
   const playlistJustCreated =
     lastCreatedPlaylist != null && lastCreatedPlaylist.slug === slug;
@@ -83,15 +82,21 @@ export default function PlaylistPage() {
         video.title.toLowerCase().includes(search),
       );
     }
-    
+
     const ordering = filters.ordering;
     if (ordering) {
       result = [...result].sort((a, b) => {
         switch (ordering) {
           case "-created_at":
-            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+            return (
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+            );
           case "created_at":
-            return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+            return (
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime()
+            );
           case "-title":
             return b.title.localeCompare(a.title);
           case "title":
@@ -217,7 +222,9 @@ export default function PlaylistPage() {
 
               <div>
                 <dt>{t("common.playlistStatus")}</dt>
-                {!effectivePlaylist?.is_public && <dd>{t("common.private")}</dd>}
+                {!effectivePlaylist?.is_public && (
+                  <dd>{t("common.private")}</dd>
+                )}
                 {effectivePlaylist?.is_public && <dd>{t("common.public")}</dd>}
                 {effectivePlaylist?.is_protected && (
                   <dd>{t("common.passwordProtected")}</dd>

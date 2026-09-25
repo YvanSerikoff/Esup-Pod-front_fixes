@@ -12,33 +12,38 @@ export function useUsers() {
   const [useUserLoading, setUseUserLoading] = useState(false);
   const [useUserError, setUseUserError] = useState<string | null>(null);
 
-  const fetchAll = useCallback(async (search?: string) => {
-    setUseUserLoading(true);
-    setUseUserError(null);
-    try {
-      const url = new URL(getRoutes().user.list);
-      if (search) {
-        url.searchParams.set("search", search);
+  const fetchAll = useCallback(
+    async (search?: string) => {
+      setUseUserLoading(true);
+      setUseUserError(null);
+      try {
+        const url = new URL(getRoutes().user.list);
+        if (search) {
+          url.searchParams.set("search", search);
+        }
+        const res = await authFetch(url.toString(), {
+          accessToken,
+          onRefresh: refresh,
+        });
+        const data = await requestJson<User[] | { results?: User[] }>(res);
+        const normalizedUsers = Array.isArray(data)
+          ? data
+          : Array.isArray(data?.results)
+            ? data.results
+            : [];
+        setUsers(normalizedUsers);
+        return normalizedUsers;
+      } catch (e: unknown) {
+        setUseUserError(
+          e instanceof Error ? e.message : "Erreur de chargement.",
+        );
+        return [];
+      } finally {
+        setUseUserLoading(false);
       }
-      const res = await authFetch(url.toString(), {
-        accessToken,
-        onRefresh: refresh,
-      });
-      const data = await requestJson<User[] | { results?: User[] }>(res);
-      const normalizedUsers = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.results)
-          ? data.results
-          : [];
-      setUsers(normalizedUsers);
-      return normalizedUsers;
-    } catch (e: unknown) {
-      setUseUserError(e instanceof Error ? e.message : "Erreur de chargement.");
-      return [];
-    } finally {
-      setUseUserLoading(false);
-    }
-  }, [accessToken, refresh]);
+    },
+    [accessToken, refresh],
+  );
 
   const fetchUser = useCallback(
     async (id: number) => {

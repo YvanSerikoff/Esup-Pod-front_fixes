@@ -70,9 +70,10 @@ export default function CommentItem({
     !!user && (user.is_staff || String(user.id) === String(comment.author));
 
   const initials = useMemo(() => {
-    const nameToUse = comment.author_name && comment.author_name.trim() 
-      ? comment.author_name 
-      : comment.author_username;
+    const nameToUse =
+      comment.author_name && comment.author_name.trim()
+        ? comment.author_name
+        : comment.author_username;
     return getInitialsFromAuthorName(nameToUse || "");
   }, [comment.author_name, comment.author_username]);
 
@@ -217,7 +218,9 @@ export default function CommentItem({
                   onClick={handleReply}
                   disabled={!replyContent.trim() || isSubmittingReply}
                 >
-                  {isSubmittingReply ? t("comments.submitting") : t("comments.reply")}
+                  {isSubmittingReply
+                    ? t("comments.submitting")
+                    : t("comments.reply")}
                 </Button>
               </div>
             </div>
@@ -233,8 +236,8 @@ export default function CommentItem({
               {isRepliesOpen
                 ? t("comments.hideReplies")
                 : children.length === 1
-                ? t("comments.showReplies", { count: children.length })
-                : t("comments.showRepliesPlural", { count: children.length })}
+                  ? t("comments.showReplies", { count: children.length })
+                  : t("comments.showRepliesPlural", { count: children.length })}
               {isRepliesOpen ? (
                 <KeyboardArrowUpIcon />
               ) : (

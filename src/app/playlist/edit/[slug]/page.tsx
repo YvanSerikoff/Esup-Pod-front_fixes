@@ -119,9 +119,7 @@ export default function EditPlaylist() {
 
   const hasUnsavedChanges = (() => {
     if (!initialValues) return false;
-    return (
-      JSON.stringify(initialValues) !== JSON.stringify(watchedValues)
-    );
+    return JSON.stringify(initialValues) !== JSON.stringify(watchedValues);
   })();
 
   /* Alert si le user quitte la page sans enregistrer */

@@ -19,7 +19,11 @@
 
 .back-button:hover {
   border-color: var(--c--globals--colors--brand--main);
-  background-color: color-mix(in srgb, var(--c--globals--colors--brand--main) 4%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--c--globals--colors--brand--main) 4%,
+    transparent
+  );
   color: var(--c--globals--colors--brand--main);
 }
 

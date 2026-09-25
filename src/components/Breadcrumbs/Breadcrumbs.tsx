@@ -24,7 +24,10 @@ export default function Breadcrumb() {
   const playlistSlug = isPlaylistEditRoute ? pathNames[2] : "";
 
   // Dynamic breadcrumb label resolver based on active language
-  const getDynamicBreadcrumbLabel = (href: string, rawSegment: string): string => {
+  const getDynamicBreadcrumbLabel = (
+    href: string,
+    rawSegment: string,
+  ): string => {
     switch (href) {
       case "/user-settings":
       case "/user-settings/preferences":

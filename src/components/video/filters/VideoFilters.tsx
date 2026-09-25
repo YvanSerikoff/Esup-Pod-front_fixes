@@ -154,7 +154,7 @@ export default function VideoFilters({
       { label: t("filters.titleAZ"), value: "title" },
       { label: t("filters.titleZA"), value: "-title" },
     ],
-    [t]
+    [t],
   );
 
   const fetchUsersOptions = useCallback(
@@ -165,7 +165,7 @@ export default function VideoFilters({
         value: u.username,
       }));
     },
-    [config?.authentication, fetchUsers]
+    [config?.authentication, fetchUsers],
   );
 
   const fetchChannelsOptions = useCallback(
@@ -176,7 +176,7 @@ export default function VideoFilters({
         value: String(c.id),
       }));
     },
-    [fetchChannels]
+    [fetchChannels],
   );
 
   const fetchTagsOptions = useCallback(
@@ -187,13 +187,10 @@ export default function VideoFilters({
         value: t.slug,
       }));
     },
-    [fetchTags]
+    [fetchTags],
   );
 
-  const cursusOptions = useMemo(
-    () => getCursusOptions(t),
-    [t]
-  );
+  const cursusOptions = useMemo(() => getCursusOptions(t), [t]);
 
   const typeOptions = useMemo(
     () =>
@@ -212,7 +209,10 @@ export default function VideoFilters({
       disciplines.map((discipline) => {
         const translated = t(`discipline.${discipline.slug}`);
         return {
-          label: translated !== `discipline.${discipline.slug}` ? translated : discipline.title,
+          label:
+            translated !== `discipline.${discipline.slug}`
+              ? translated
+              : discipline.title,
           value: String(discipline.id),
         };
       }),
@@ -227,7 +227,9 @@ export default function VideoFilters({
     return value.ownerUsernames.map((username) => {
       const fullUser = users.find((u) => u.username === username);
       return {
-        label: fullUser ? getUserDisplayName(fullUser, config?.authentication, true) : username,
+        label: fullUser
+          ? getUserDisplayName(fullUser, config?.authentication, true)
+          : username,
         value: username,
       };
     });
@@ -286,9 +288,7 @@ export default function VideoFilters({
           value={value.search}
           onChange={(event) => {
             const nextSearch =
-              typeof event.target.value === "string"
-                ? event.target.value
-                : "";
+              typeof event.target.value === "string" ? event.target.value : "";
 
             if (nextSearch === value.search) return;
             onChange({
@@ -385,7 +385,11 @@ export default function VideoFilters({
           >
             <TuneIcon fontSize="small" sx={{ color: "inherit" }} />
           </Badge>
-          <Typography variant="body2" fontWeight={600} sx={{ color: "inherit" }}>
+          <Typography
+            variant="body2"
+            fontWeight={600}
+            sx={{ color: "inherit" }}
+          >
             Filtres avancés
           </Typography>
           {showAdvanced ? (
@@ -418,7 +422,8 @@ export default function VideoFilters({
               selectedValues={value.ownerUsernames}
               fetchOptions={fetchUsersOptions}
               onChange={(nextOwnerUsernames) => {
-                if (haveSameValues(value.ownerUsernames, nextOwnerUsernames)) return;
+                if (haveSameValues(value.ownerUsernames, nextOwnerUsernames))
+                  return;
                 onChange({ ...value, ownerUsernames: nextOwnerUsernames });
               }}
             />
@@ -432,7 +437,8 @@ export default function VideoFilters({
               selectedValues={value.disciplineIds.map(String)}
               onChange={(nextValues) => {
                 const nextDisciplineIds = nextValues.map(Number);
-                if (haveSameValues(value.disciplineIds, nextDisciplineIds)) return;
+                if (haveSameValues(value.disciplineIds, nextDisciplineIds))
+                  return;
                 onChange({
                   ...value,
                   disciplineIds: nextDisciplineIds,
@@ -499,84 +505,95 @@ export default function VideoFilters({
 
             {showChannelFilter && value.channel && (
               <FilterChip
-                label={selectedChannelLabel ?? t("videoPage.channelWithId", { id: value.channel })}
+                label={
+                  selectedChannelLabel ??
+                  t("videoPage.channelWithId", { id: value.channel })
+                }
                 onDelete={() => onChange({ ...value, channel: null })}
               />
             )}
 
-            {!hideUser && selectedUsers.map((u) => (
-              <FilterChip
-                key={`user-${u.value}`}
-                label={`${t("filters.author")} : ${u.label}`}
-                onDelete={() =>
-                  onChange({
-                    ...value,
-                    ownerUsernames: removeValue(value.ownerUsernames, u.value),
-                  })
-                }
-              />
-            ))}
+            {!hideUser &&
+              selectedUsers.map((u) => (
+                <FilterChip
+                  key={`user-${u.value}`}
+                  label={`${t("filters.author")} : ${u.label}`}
+                  onDelete={() =>
+                    onChange({
+                      ...value,
+                      ownerUsernames: removeValue(
+                        value.ownerUsernames,
+                        u.value,
+                      ),
+                    })
+                  }
+                />
+              ))}
 
-            {!hideTypes && selectedTypes.map((option) => (
-              <FilterChip
-                key={`type-${option.value}`}
-                label={`${t("filters.types")} : ${option.label}`}
-                onDelete={() =>
-                  onChange({
-                    ...value,
-                    typeSlugs: removeValue(
-                      value.typeSlugs,
-                      String(option.value),
-                    ),
-                  })
-                }
-              />
-            ))}
+            {!hideTypes &&
+              selectedTypes.map((option) => (
+                <FilterChip
+                  key={`type-${option.value}`}
+                  label={`${t("filters.types")} : ${option.label}`}
+                  onDelete={() =>
+                    onChange({
+                      ...value,
+                      typeSlugs: removeValue(
+                        value.typeSlugs,
+                        String(option.value),
+                      ),
+                    })
+                  }
+                />
+              ))}
 
-            {!hideDisciplines && selectedDisciplines.map((option) => (
-              <FilterChip
-                key={`discipline-${option.value}`}
-                label={`${t("common.disciplines")} : ${option.label}`}
-                onDelete={() =>
-                  onChange({
-                    ...value,
-                    disciplineIds: removeValue(
-                      value.disciplineIds,
-                      Number(option.value),
-                    ),
-                  })
-                }
-              />
-            ))}
+            {!hideDisciplines &&
+              selectedDisciplines.map((option) => (
+                <FilterChip
+                  key={`discipline-${option.value}`}
+                  label={`${t("common.disciplines")} : ${option.label}`}
+                  onDelete={() =>
+                    onChange({
+                      ...value,
+                      disciplineIds: removeValue(
+                        value.disciplineIds,
+                        Number(option.value),
+                      ),
+                    })
+                  }
+                />
+              ))}
 
-            {!hideCursus && selectedCursus.map((option) => (
-              <FilterChip
-                key={`cursus-${option.value}`}
-                label={`${t("filters.cursus")} : ${option.label}`}
-                onDelete={() =>
-                  onChange({
-                    ...value,
-                    cursus: removeValue(value.cursus, option.value),
-                  })
-                }
-              />
-            ))}
+            {!hideCursus &&
+              selectedCursus.map((option) => (
+                <FilterChip
+                  key={`cursus-${option.value}`}
+                  label={`${t("filters.cursus")} : ${option.label}`}
+                  onDelete={() =>
+                    onChange({
+                      ...value,
+                      cursus: removeValue(value.cursus, option.value),
+                    })
+                  }
+                />
+              ))}
 
-            {!hideTags && selectedTags.map((option) => (
-              <FilterChip
-                key={`tag-${option.value}`}
-                label={`${t("filters.keywords")} : ${option.label}`}
-                onDelete={() =>
-                  onChange({
-                    ...value,
-                    tagSlugs: removeValue(
-                      value.tagSlugs,
-                      String(option.value),
-                    ),
-                  })
-                }
-              />
-            ))}
+            {!hideTags &&
+              selectedTags.map((option) => (
+                <FilterChip
+                  key={`tag-${option.value}`}
+                  label={`${t("filters.keywords")} : ${option.label}`}
+                  onDelete={() =>
+                    onChange({
+                      ...value,
+                      tagSlugs: removeValue(
+                        value.tagSlugs,
+                        String(option.value),
+                      ),
+                    })
+                  }
+                />
+              ))}
           </Box>
 
           <Button

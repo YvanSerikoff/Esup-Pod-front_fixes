@@ -118,7 +118,9 @@ export default function WebTVHeader() {
               alignItems: "center",
             }}
           >
-            <h3 style={{ margin: 0, fontWeight: 700 }}>Rechercher des contenus</h3>
+            <h3 style={{ margin: 0, fontWeight: 700 }}>
+              Rechercher des contenus
+            </h3>
             <button
               onClick={() => setIsSearchOpen(false)}
               style={{

@@ -110,8 +110,12 @@ export function useComments(videoSlug: string) {
         requestJson<any>(votesRes),
       ]);
 
-      const commentsData = Array.isArray(commentsDataRaw) ? commentsDataRaw : commentsDataRaw?.results || [];
-      const votesData = Array.isArray(votesDataRaw) ? votesDataRaw : votesDataRaw?.results || [];
+      const commentsData = Array.isArray(commentsDataRaw)
+        ? commentsDataRaw
+        : commentsDataRaw?.results || [];
+      const votesData = Array.isArray(votesDataRaw)
+        ? votesDataRaw
+        : votesDataRaw?.results || [];
 
       setComments(normalizeComments(commentsData));
       setVotedCommentIds(votesData.map((id: any) => String(id)));

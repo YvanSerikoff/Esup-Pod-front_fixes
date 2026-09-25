@@ -37,9 +37,9 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
         const limit = block?.item_limit || 6;
         const endpoint = `${getRoutes().live.events}?is_current=true&ordering=${orderBy}`;
 
-        const response = await requestJson<LiveEvent[] | { results: LiveEvent[] }>(
-          endpoint
-        );
+        const response = await requestJson<
+          LiveEvent[] | { results: LiveEvent[] }
+        >(endpoint);
         let list = Array.isArray(response) ? response : response?.results || [];
 
         // If no ongoing live events, fetch upcoming ones as fallback
@@ -67,7 +67,14 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
   const title = block?.display_title || t("webtv.liveTitle");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        height: "100%",
+      }}
+    >
       <div className={styles["live-container"]}>
         <div className={styles["live-header"]}>{title}</div>
         {loading ? (
@@ -76,9 +83,18 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
           <ul className={styles["live-list"]}>
             {lives.map((live) => (
               <li key={live.id}>
-                <Link href={`/live/${live.slug}`} className={styles["live-item"]}>
+                <Link
+                  href={`/live/${live.slug}`}
+                  className={styles["live-item"]}
+                >
                   <span className={styles["red-dot"]} />
-                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  <span
+                    style={{
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
                     {live.title}
                   </span>
                 </Link>

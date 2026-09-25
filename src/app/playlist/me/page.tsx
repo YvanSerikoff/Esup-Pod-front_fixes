@@ -19,8 +19,15 @@ export default function MyPlaylistsPage() {
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();
   const { user } = useAuth();
   const { t } = useTranslation();
-  const { filters, setFilters, playlists, playlistsCount, users, error, loading } =
-    useCollectionListFilters({ mode: "playlists" });
+  const {
+    filters,
+    setFilters,
+    playlists,
+    playlistsCount,
+    users,
+    error,
+    loading,
+  } = useCollectionListFilters({ mode: "playlists" });
   const isInitialLoading = loading && playlists.length === 0;
 
   useEffect(() => {
@@ -75,15 +82,15 @@ export default function MyPlaylistsPage() {
           users={user ? users : []}
           showUserFilter={false}
           onChange={(newFilters) => {
-          if (
-            newFilters.search !== filters.search ||
-            newFilters.createdAtGte !== filters.createdAtGte ||
-            newFilters.createdAtLte !== filters.createdAtLte
-          ) {
-            newFilters.page = 1;
-          }
-          setFilters(newFilters);
-        }}
+            if (
+              newFilters.search !== filters.search ||
+              newFilters.createdAtGte !== filters.createdAtGte ||
+              newFilters.createdAtLte !== filters.createdAtLte
+            ) {
+              newFilters.page = 1;
+            }
+            setFilters(newFilters);
+          }}
         />
 
         {loading && playlists.length > 0 && <CenteredLoader />}

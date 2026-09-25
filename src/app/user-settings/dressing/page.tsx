@@ -12,7 +12,8 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 export default function DressingSettings() {
   const { isAuthenticated, isInitializing } = useRequireAuth("/login");
-  const { watermarks, isLoading, error, uploadWatermark, deleteWatermark } = useWatermarks();
+  const { watermarks, isLoading, error, uploadWatermark, deleteWatermark } =
+    useWatermarks();
   const { t } = useTranslation();
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -21,7 +22,9 @@ export default function DressingSettings() {
     return null; // ou loader
   }
 
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
@@ -46,8 +49,14 @@ export default function DressingSettings() {
   return (
     <div>
       <h2>Habillages (Dressing)</h2>
-      <p style={{ color: "var(--c--globals--colors--gray-500)", marginBottom: "2rem" }}>
-        Gérez vos filigranes (watermarks) pour les incruster directement dans vos vidéos.
+      <p
+        style={{
+          color: "var(--c--globals--colors--gray-500)",
+          marginBottom: "2rem",
+        }}
+      >
+        Gérez vos filigranes (watermarks) pour les incruster directement dans
+        vos vidéos.
       </p>
 
       {error && (
@@ -60,14 +69,14 @@ export default function DressingSettings() {
 
       <div className={styles["header-row"]}>
         <h3>Mes Filigranes</h3>
-        <input 
-          type="file" 
-          accept="image/png, image/jpeg" 
-          ref={fileInputRef} 
-          style={{ display: "none" }} 
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          ref={fileInputRef}
+          style={{ display: "none" }}
           onChange={handleFileChange}
         />
-        <Button 
+        <Button
           icon={<AddPhotoAlternateIcon />}
           onClick={() => fileInputRef.current?.click()}
           disabled={isUploading}
@@ -87,15 +96,20 @@ export default function DressingSettings() {
           {watermarks.map((wm) => (
             <div key={wm.id} className={styles["watermark-card"]}>
               <div className={styles["watermark-preview"]}>
-                <Image src={wm.image} alt={t("a11y.watermark")} fill style={{ objectFit: "contain" }} />
+                <Image
+                  src={wm.image}
+                  alt={t("a11y.watermark")}
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
               </div>
               <div className={styles["watermark-actions"]}>
                 <span className={styles["date-label"]}>
                   {new Date(wm.created_at).toLocaleDateString()}
                 </span>
-                <Button 
-                  color="error" 
-                  icon={<DeleteIcon />} 
+                <Button
+                  color="error"
+                  icon={<DeleteIcon />}
                   onClick={() => handleDelete(wm.id)}
                   aria-label="Supprimer"
                 />

@@ -93,16 +93,22 @@ export default function Theme() {
         video.title.toLowerCase().includes(search),
       );
     }
-    
+
     // Sort
     const ordering = videoFilters.ordering;
     if (ordering) {
       result = [...result].sort((a, b) => {
         switch (ordering) {
           case "-created_at":
-            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+            return (
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+            );
           case "created_at":
-            return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+            return (
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime()
+            );
           case "-title":
             return b.title.localeCompare(a.title);
           case "title":
@@ -128,9 +134,12 @@ export default function Theme() {
   );
 
   const baseChildThemes = useMemo(
-  () => (theme?.children ?? []) as Theme[], [theme?.children],);
+    () => (theme?.children ?? []) as Theme[],
+    [theme?.children],
+  );
 
-  const defaultTab = baseChildThemes.length > 0 ? "childThemes" : "unclassified";
+  const defaultTab =
+    baseChildThemes.length > 0 ? "childThemes" : "unclassified";
   const selectedTab = value ?? defaultTab;
 
   const parentTheme = theme?.parent
@@ -246,11 +255,11 @@ export default function Theme() {
           </Alert>
         )}
         <Image
-        unoptimized
-            width={1200}
-            height={300}
+          unoptimized
+          width={1200}
+          height={300}
           src={theme.banner || "/default_theme_banner.png"}
-            alt={t("a11y.themeBanner", { title: theme.title })}
+          alt={t("a11y.themeBanner", { title: theme.title })}
           className="pod-image-banner"
           fill
         />{" "}
@@ -272,9 +281,7 @@ export default function Theme() {
 
       <div>
         {baseChildThemes.length === 0 && themeItems.length === 0 ? (
-          <Alert type={VariantType.INFO}>
-            {t("common.noResults")}
-          </Alert>
+          <Alert type={VariantType.INFO}>{t("common.noResults")}</Alert>
         ) : (
           <Box sx={{ width: "100%", typography: "body1" }}>
             <Tabs
@@ -318,9 +325,11 @@ export default function Theme() {
                         newFilters.search !== videoFilters.search ||
                         newFilters.channel !== videoFilters.channel ||
                         newFilters.ordering !== videoFilters.ordering ||
-                        newFilters.ownerUsernames !== videoFilters.ownerUsernames ||
+                        newFilters.ownerUsernames !==
+                          videoFilters.ownerUsernames ||
                         newFilters.typeSlugs !== videoFilters.typeSlugs ||
-                        newFilters.disciplineIds !== videoFilters.disciplineIds ||
+                        newFilters.disciplineIds !==
+                          videoFilters.disciplineIds ||
                         newFilters.cursus !== videoFilters.cursus ||
                         newFilters.tagSlugs !== videoFilters.tagSlugs
                       ) {
@@ -330,7 +339,8 @@ export default function Theme() {
                     }}
                   />
 
-                  {visibleAndPublicThemeVideos.length === 0 && !useVideoLoading ? (
+                  {visibleAndPublicThemeVideos.length === 0 &&
+                  !useVideoLoading ? (
                     <Alert type={VariantType.INFO}>
                       {hasActiveVideoFilters
                         ? t("common.noResults")
@@ -340,7 +350,9 @@ export default function Theme() {
                     <VideosDisplay
                       videos={visibleAndPublicThemeVideos}
                       page={videoFilters.page}
-                      onPageChange={(page) => setVideoFilters({ ...videoFilters, page })}
+                      onPageChange={(page) =>
+                        setVideoFilters({ ...videoFilters, page })
+                      }
                       loading={useVideoLoading}
                     />
                   )}
@@ -371,9 +383,12 @@ export default function Theme() {
                         newFilters.search !== collectionFilters.search ||
                         newFilters.ordering !== collectionFilters.ordering ||
                         newFilters.channel !== collectionFilters.channel ||
-                        newFilters.ownerUsernames !== collectionFilters.ownerUsernames ||
-                        newFilters.createdAtGte !== collectionFilters.createdAtGte ||
-                        newFilters.createdAtLte !== collectionFilters.createdAtLte
+                        newFilters.ownerUsernames !==
+                          collectionFilters.ownerUsernames ||
+                        newFilters.createdAtGte !==
+                          collectionFilters.createdAtGte ||
+                        newFilters.createdAtLte !==
+                          collectionFilters.createdAtLte
                       ) {
                         newFilters.page = 1;
                       }
@@ -396,7 +411,9 @@ export default function Theme() {
                       storageKey="theme-subtheme-view"
                       channelSlug={channelSlug}
                       page={collectionFilters.page}
-                      onPageChange={(page) => setCollectionFilters({ ...collectionFilters, page })}
+                      onPageChange={(page) =>
+                        setCollectionFilters({ ...collectionFilters, page })
+                      }
                       basePath={
                         Array.isArray(params.themeSlug)
                           ? params.themeSlug.join("/")

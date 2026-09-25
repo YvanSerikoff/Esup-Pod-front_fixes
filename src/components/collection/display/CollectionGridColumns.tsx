@@ -27,7 +27,7 @@ export function getCollectionGridColumns({
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles["thumbnail-wrapper"]}>
           <Image
-          unoptimized
+            unoptimized
             className={styles["thumbnail"]}
             src={row.thumbnailUrl}
             alt={translate("a11y.collectionThumbnail", { title: row.title })}
@@ -50,18 +50,14 @@ export function getCollectionGridColumns({
       field: "typeLabel",
       headerName: `${t!("videoPage.type")}`,
       renderCell: ({ row }) => (
-        <span className={styles["type-badge"]}>
-          {row.typeLabel}
-        </span>
+        <span className={styles["type-badge"]}>{row.typeLabel}</span>
       ),
     },
     {
       field: "videosCount",
       headerName: `${t!("common.videos")}`,
       renderCell: ({ row }) => (
-        <span className={styles["count-badge"]}>
-          {row.videosCount}
-        </span>
+        <span className={styles["count-badge"]}>{row.videosCount}</span>
       ),
     },
   ];
@@ -71,9 +67,7 @@ export function getCollectionGridColumns({
       field: "themesCount",
       headerName: `${t!("common.theme")}`,
       renderCell: ({ row }) => (
-        <span className={styles["count-badge"]}>
-          {row.themesCount}
-        </span>
+        <span className={styles["count-badge"]}>{row.themesCount}</span>
       ),
     });
   }
@@ -83,9 +77,7 @@ export function getCollectionGridColumns({
       field: "subThemesCount",
       headerName: `${t!("common.subtopics")}`,
       renderCell: ({ row }) => (
-        <span className={styles["count-badge"]}>
-          {row.subThemesCount}
-        </span>
+        <span className={styles["count-badge"]}>{row.subThemesCount}</span>
       ),
     });
   }
@@ -95,9 +87,7 @@ export function getCollectionGridColumns({
       field: "createdAtValue",
       headerName: `${t!("filters.creationDate")}`,
       renderCell: ({ row }) => (
-        <span className={styles["date-text"]}>
-          {row.createdAtLabel}
-        </span>
+        <span className={styles["date-text"]}>{row.createdAtLabel}</span>
       ),
     });
 
@@ -105,9 +95,7 @@ export function getCollectionGridColumns({
       field: "updatedAtValue",
       headerName: `${t!("videoPage.updatedAt")}`,
       renderCell: ({ row }) => (
-        <span className={styles["date-text"]}>
-          {row.updatedAtLabel}
-        </span>
+        <span className={styles["date-text"]}>{row.updatedAtLabel}</span>
       ),
     });
     columns.push({

@@ -7,7 +7,9 @@ const TestComponent = () => {
   const { isAuthenticated, logoutUrl } = useAuth();
   return (
     <div>
-      <span data-testid="auth-status">{isAuthenticated ? "Connecté" : "Déconnecté"}</span>
+      <span data-testid="auth-status">
+        {isAuthenticated ? "Connecté" : "Déconnecté"}
+      </span>
       <span data-testid="logout-url">{logoutUrl}</span>
     </div>
   );
@@ -28,7 +30,7 @@ describe("AuthProvider", () => {
     render(
       <AuthProvider>
         <TestComponent />
-      </AuthProvider>
+      </AuthProvider>,
     );
     expect(screen.getByTestId("auth-status").textContent).toBe("Déconnecté");
   });

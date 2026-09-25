@@ -12,9 +12,7 @@ function formatDate(value?: string) {
   return dateFormatter.format(new Date(value));
 }
 
-export function mapChannelToDisplayRow(
-  channel: Channel,
-): CollectionDisplayRow {
+export function mapChannelToDisplayRow(channel: Channel): CollectionDisplayRow {
   return {
     id: `channel-${channel.id}`,
     type: "channel",
@@ -104,11 +102,7 @@ export function mapCollectionsToDisplayRows({
 
   // calculer le nombre de thèmes par chaîne.
   if (channels.length > 0) {
-    rows.push(
-      ...channels.map((channel) =>
-        mapChannelToDisplayRow(channel),
-      ),
-    );
+    rows.push(...channels.map((channel) => mapChannelToDisplayRow(channel)));
   }
 
   // On ne crée des lignes "thème" que lorsqu'on n'affiche pas de chaînes.

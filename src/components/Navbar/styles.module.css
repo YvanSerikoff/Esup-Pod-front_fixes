@@ -1,5 +1,7 @@
 .navbar {
-  background-color: var(--c--globals--colors--gray-000); /* Solid white background */
+  background-color: var(
+    --c--globals--colors--gray-000
+  ); /* Solid white background */
   color: var(--text-color);
   display: flex;
   align-items: center;

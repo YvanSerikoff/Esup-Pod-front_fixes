@@ -85,7 +85,7 @@ export default function VideosDisplay({
       paginatedVideos,
       currentUserId,
       selectedVideoIds,
-      onSelectVideo
+      onSelectVideo,
     );
   }, [paginatedVideos, currentUserId, selectedVideoIds, onSelectVideo]);
 
@@ -110,7 +110,9 @@ export default function VideosDisplay({
               <Checkbox
                 label={t("common.selectAll")}
                 checked={isAllSelected}
-                onChange={(e) => onSelectAll?.((e.target as HTMLInputElement).checked)}
+                onChange={(e) =>
+                  onSelectAll?.((e.target as HTMLInputElement).checked)
+                }
                 aria-label={t("common.selectAll")}
               />
             </div>
@@ -133,14 +135,21 @@ export default function VideosDisplay({
           onSelectVideo={onSelectVideo}
         />
       ) : (
-        <VideoGrid rows={gridRows} selectable={selectable} onSelectAll={onSelectAll} />
+        <VideoGrid
+          rows={gridRows}
+          selectable={selectable}
+          onSelectAll={onSelectAll}
+        />
       )}
 
       {count > 0 && (
         <div className={styles.paginationWrapper}>
           <p className={styles.paginationInfo}>
-            Affichage de {startItem} à {endItem} sur {count} vidéo{count > 1 ? "s" : ""}
-            {pagesCount && pagesCount > 1 ? ` (Page ${page} sur ${pagesCount})` : ""}
+            Affichage de {startItem} à {endItem} sur {count} vidéo
+            {count > 1 ? "s" : ""}
+            {pagesCount && pagesCount > 1
+              ? ` (Page ${page} sur ${pagesCount})`
+              : ""}
           </p>
 
           {pagesCount && pagesCount > 1 && (

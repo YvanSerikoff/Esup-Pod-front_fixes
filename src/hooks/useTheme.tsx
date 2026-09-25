@@ -7,7 +7,9 @@ import { type CollectionListParams } from "@/src/hooks/collectionListParams";
 import { useQuery } from "@tanstack/react-query";
 
 export function useTheme() {
-  const [listParams, setListParams] = useState<CollectionListParams | undefined>(undefined);
+  const [listParams, setListParams] = useState<
+    CollectionListParams | undefined
+  >(undefined);
   const [currentSlug, setCurrentSlug] = useState<string | null>(null);
 
   const listQuery = useQuery({
@@ -30,16 +32,19 @@ export function useTheme() {
 
       const res = await authFetch(url.toString());
       if (!res.ok) throw new Error("Erreur de récupération des thèmes.");
-      const data = await requestJson<Theme[] | { results?: Theme[]; count?: number }>(res);
+      const data = await requestJson<
+        Theme[] | { results?: Theme[]; count?: number }
+      >(res);
 
       const normalizedThemes = Array.isArray(data)
         ? data
         : Array.isArray(data.results)
           ? data.results
           : [];
-      const count = !Array.isArray(data) && typeof data.count === 'number'
-        ? data.count
-        : normalizedThemes.length;
+      const count =
+        !Array.isArray(data) && typeof data.count === "number"
+          ? data.count
+          : normalizedThemes.length;
 
       return { themes: normalizedThemes, count };
     },
@@ -59,10 +64,13 @@ export function useTheme() {
     staleTime: 30000,
   });
 
-  const fetchAll = useCallback(async (params?: CollectionListParams) => {
-    setListParams(params);
-    return listQuery.data?.themes ?? [];
-  }, [listQuery.data]);
+  const fetchAll = useCallback(
+    async (params?: CollectionListParams) => {
+      setListParams(params);
+      return listQuery.data?.themes ?? [];
+    },
+    [listQuery.data],
+  );
 
   const fetchOne = useCallback(async (slug: string) => {
     setCurrentSlug(slug);

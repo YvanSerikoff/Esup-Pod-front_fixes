@@ -16,7 +16,7 @@ export const usePage = (slug: string) => {
       const cleanSlug = slug.startsWith("/") ? slug : `/${slug}/`;
       const encodedSlug = encodeURIComponent(cleanSlug);
       const url = `${getRoutes().conf.get.replace("/conf", "/pages/")}${encodedSlug}/`;
-      
+
       const res = await fetch(url);
       if (!res.ok) {
         if (res.status === 404) {
@@ -24,7 +24,7 @@ export const usePage = (slug: string) => {
         }
         throw new Error("Erreur de chargement de la page");
       }
-      
+
       const data = await res.json();
       return data as FlatPage;
     },

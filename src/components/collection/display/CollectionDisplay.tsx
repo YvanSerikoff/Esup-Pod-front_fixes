@@ -9,16 +9,15 @@ import { mapCollectionsToDisplayRows } from "./CollectionDisplay.mapper";
 import CollectionGrid from "./CollectionGrid";
 import CollectionViewToggle from "./CollectionViewToggle";
 import styles from "./styles.module.css";
-import {useTranslation} from "@/src/hooks/useTranslation";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 const getCollectionsLabel = (
   rowsLength: number,
   channelsCount: number,
   themesCount: number,
   playlistsCount: number,
-  t:Function
+  t: Function,
 ) => {
-
   const isPlural = rowsLength > 1;
 
   if (channelsCount > 0) {
@@ -52,7 +51,6 @@ export default function CollectionDisplay({
   onPageChange,
   loading = false,
 }: CollectionDisplayProps) {
-
   const { t } = useTranslation();
 
   const [view, setView] = useState<CollectionViewMode>(() => {
@@ -149,14 +147,15 @@ export default function CollectionDisplay({
     channels.length,
     themes.length,
     playlists.length,
-      t
+    t,
   );
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
         <p>
-          {count} {label} {t("common.find").toLowerCase()}{count > 1 ? "s" : ""}
+          {count} {label} {t("common.find").toLowerCase()}
+          {count > 1 ? "s" : ""}
         </p>
         <CollectionViewToggle view={view} onChange={handleChangeView} />
       </div>

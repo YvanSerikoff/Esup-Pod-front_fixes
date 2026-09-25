@@ -14,10 +14,13 @@ export function useTypes() {
     setUseTypesLoading(true);
     setUseTypesError(null);
     try {
-      const normalizedTypes = await fetchAllPages<Type>(getRoutes().types.list, {
-        accessToken,
-        onRefresh: refresh,
-      });
+      const normalizedTypes = await fetchAllPages<Type>(
+        getRoutes().types.list,
+        {
+          accessToken,
+          onRefresh: refresh,
+        },
+      );
       setTypes(normalizedTypes);
       return normalizedTypes;
     } catch (e: unknown) {

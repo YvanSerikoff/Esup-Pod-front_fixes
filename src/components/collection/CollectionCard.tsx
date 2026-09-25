@@ -22,10 +22,18 @@ export default function CollectionCard(props: CollectionCardProps) {
   const { t } = useTranslation();
   if (props.type === "channel") {
     const { channel } = props;
-    const channelVideosCount = (channel as Channel & { videos_count?: number }).videos_count ?? 0;
-    const channelThemesCount = (channel as Channel & { themes_count?: number }).themes_count ?? 0;
-    const videoLabel = channelVideosCount > 1 ? `${t("common.videos").toLowerCase()}` : `${t("common.video").toLowerCase()}`;
-    const themeLabel = channelThemesCount > 1 ? `${t("common.subtopics").toLowerCase()}` : `${t("common.subtopic").toLowerCase()}`;
+    const channelVideosCount =
+      (channel as Channel & { videos_count?: number }).videos_count ?? 0;
+    const channelThemesCount =
+      (channel as Channel & { themes_count?: number }).themes_count ?? 0;
+    const videoLabel =
+      channelVideosCount > 1
+        ? `${t("common.videos").toLowerCase()}`
+        : `${t("common.video").toLowerCase()}`;
+    const themeLabel =
+      channelThemesCount > 1
+        ? `${t("common.subtopics").toLowerCase()}`
+        : `${t("common.subtopic").toLowerCase()}`;
 
     return (
       <Card
@@ -39,10 +47,11 @@ export default function CollectionCard(props: CollectionCardProps) {
           borderRadius: "12px",
           transition: "all 0.3s ease",
           "&:hover": {
-            borderColor: "var(--c--contextuals--background--semantic--brand--primary)",
+            borderColor:
+              "var(--c--contextuals--background--semantic--brand--primary)",
             boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
             transform: "translateY(-2px)",
-          }
+          },
         }}
       >
         <CardActionArea
@@ -60,7 +69,9 @@ export default function CollectionCard(props: CollectionCardProps) {
         >
           <CardMedia
             component="img"
-            image={channel.logo || channel.banner || "/default_channel_logo.png"}
+            image={
+              channel.logo || channel.banner || "/default_channel_logo.png"
+            }
             alt={t("a11y.channelLogo", { title: channel.title })}
             sx={{
               borderTopLeftRadius: "11px",
@@ -122,9 +133,14 @@ export default function CollectionCard(props: CollectionCardProps) {
   const { theme, themeHref } = props;
   const themeItemsCount = theme.items?.length ?? 0;
   const themeChildrenCount = theme.children?.length ?? 0;
-  const themeVideoLabel = themeItemsCount > 1 ? `${t("common.videos").toLowerCase()}` : `${t("common.video").toLowerCase()}`;
+  const themeVideoLabel =
+    themeItemsCount > 1
+      ? `${t("common.videos").toLowerCase()}`
+      : `${t("common.video").toLowerCase()}`;
   const themeChildrenLabel =
-    themeChildrenCount > 1 ? `${t("common.subtopics").toLowerCase()}` : `${t("common.subtopic").toLowerCase()}`;
+    themeChildrenCount > 1
+      ? `${t("common.subtopics").toLowerCase()}`
+      : `${t("common.subtopic").toLowerCase()}`;
 
   return (
     <Card
@@ -138,10 +154,11 @@ export default function CollectionCard(props: CollectionCardProps) {
         borderRadius: "12px",
         transition: "all 0.3s ease",
         "&:hover": {
-          borderColor: "var(--c--contextuals--background--semantic--brand--primary)",
+          borderColor:
+            "var(--c--contextuals--background--semantic--brand--primary)",
           boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
           transform: "translateY(-2px)",
-        }
+        },
       }}
     >
       <CardActionArea

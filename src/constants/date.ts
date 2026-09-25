@@ -29,12 +29,18 @@ export function formatTime(time: TimeParts): string {
   return `${hh}:${mm}:${ss}`;
 }
 
-export function formatDateWithTime(dateString: string, locale: string = "fr"): string {
+export function formatDateWithTime(
+  dateString: string,
+  locale: string = "fr",
+): string {
   const date = dayjs(dateString).locale(locale);
   return date.format("D MMMM YYYY [à] HH:mm");
 }
 
-export function formatDateOnly(dateString: string, locale: string = "fr"): string {
+export function formatDateOnly(
+  dateString: string,
+  locale: string = "fr",
+): string {
   const date = dayjs(dateString).locale(locale);
   return date.format("D MMMM YYYY");
 }

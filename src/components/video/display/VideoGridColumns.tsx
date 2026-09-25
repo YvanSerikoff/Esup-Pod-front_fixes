@@ -14,7 +14,11 @@ export function getVideoGridColumns(
   selectable: boolean = false,
   t?: (key: string, params?: Record<string, string | number>) => string,
 ): Column<VideoDisplayRow>[] {
-  const tr = (key: string, fallback: string, params?: Record<string, string | number>) => (t ? t(key, params) : fallback);
+  const tr = (
+    key: string,
+    fallback: string,
+    params?: Record<string, string | number>,
+  ) => (t ? t(key, params) : fallback);
 
   return [
     ...(selectable
@@ -41,7 +45,8 @@ export function getVideoGridColumns(
       headerName: "",
       renderCell: ({ row }) => (
         <Link href={row.href} className={styles["thumbnail-wrapper"]}>
-          {row.thumbnailUrl && !row.thumbnailUrl.includes("default_thumbnail") ? (
+          {row.thumbnailUrl &&
+          !row.thumbnailUrl.includes("default_thumbnail") ? (
             <Image
               width={100}
               height={100}
@@ -52,7 +57,10 @@ export function getVideoGridColumns(
             />
           ) : (
             <div className={styles["default-thumbnail-poster"]}>
-              <span className="material-icons" style={{ fontSize: "18px", color: "#ffffff" }}>
+              <span
+                className="material-icons"
+                style={{ fontSize: "18px", color: "#ffffff" }}
+              >
                 play_arrow
               </span>
             </div>
@@ -73,18 +81,14 @@ export function getVideoGridColumns(
       field: "durationLabel",
       headerName: tr("table.duration", "DURÉE"),
       renderCell: ({ row }) => (
-        <span className={styles["count-badge"]}>
-          {row.durationLabel}
-        </span>
+        <span className={styles["count-badge"]}>{row.durationLabel}</span>
       ),
     },
     {
       field: "createdAtValue",
       headerName: tr("table.dateAdded", "DATE D'AJOUT"),
       renderCell: ({ row }) => (
-        <span className={styles["date-text"]}>
-          {row.createdAtLabel}
-        </span>
+        <span className={styles["date-text"]}>{row.createdAtLabel}</span>
       ),
     },
 
@@ -94,9 +98,29 @@ export function getVideoGridColumns(
       headerName: tr("table.status", "STATUT"),
       enableSorting: false,
       renderCell: ({ row }) => {
-        if (row.isRestricted) return <span className={`${styles["status-badge"]} ${styles["status-restricted"]}`}>{tr("table.restricted", "Restreint")}</span>;
-        if (row.hasPassword) return <span className={`${styles["status-badge"]} ${styles["status-password"]}`}>{tr("table.password", "Mot de passe")}</span>;
-        return <span className={`${styles["status-badge"]} ${styles["status-public"]}`}>{tr("table.public", "Public")}</span>;
+        if (row.isRestricted)
+          return (
+            <span
+              className={`${styles["status-badge"]} ${styles["status-restricted"]}`}
+            >
+              {tr("table.restricted", "Restreint")}
+            </span>
+          );
+        if (row.hasPassword)
+          return (
+            <span
+              className={`${styles["status-badge"]} ${styles["status-password"]}`}
+            >
+              {tr("table.password", "Mot de passe")}
+            </span>
+          );
+        return (
+          <span
+            className={`${styles["status-badge"]} ${styles["status-public"]}`}
+          >
+            {tr("table.public", "Public")}
+          </span>
+        );
       },
     },
     {
@@ -108,7 +132,12 @@ export function getVideoGridColumns(
         row.isOwner ? (
           <>
             {row.statusEncoding == "PE" && (
-              <Tooltip title={tr("table.pendingEncoding", "Vidéo en attente d'encodage")}>
+              <Tooltip
+                title={tr(
+                  "table.pendingEncoding",
+                  "Vidéo en attente d'encodage",
+                )}
+              >
                 <PauseCircleFilledIcon color="warning" />
               </Tooltip>
             )}
@@ -118,7 +147,9 @@ export function getVideoGridColumns(
               </Tooltip>
             )}
             {row.statusEncoding == "DO" && (
-              <Tooltip title={tr("table.encodingCompleted", "Encodage terminé")}>
+              <Tooltip
+                title={tr("table.encodingCompleted", "Encodage terminé")}
+              >
                 <CheckCircleOutlinedIcon color="success" />
               </Tooltip>
             )}

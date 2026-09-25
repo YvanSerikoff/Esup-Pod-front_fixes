@@ -3,7 +3,13 @@
 import { Alert, VariantType } from "@openfun/cunningham-react";
 import BackButton from "@/src/components/BackButton/BackButton";
 import { useChannel } from "@/src/hooks/useChannel";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useParams } from "next/navigation";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -45,8 +51,16 @@ export default function Channel() {
   } = useChannel();
 
   // Thèmes filtrés pour la chaîne de la page
-  const { filters, setFilters, themes, themesCount, users, channels, error, loading } =
-    useCollectionListFilters({ mode: "themes", enabled: !!channel?.id });
+  const {
+    filters,
+    setFilters,
+    themes,
+    themesCount,
+    users,
+    channels,
+    error,
+    loading,
+  } = useCollectionListFilters({ mode: "themes", enabled: !!channel?.id });
 
   // Thèmes bruts pour la chaîne de la page
   const { fetchAll: fetchAllThemes } = useTheme();
@@ -139,12 +153,14 @@ export default function Channel() {
     if (!channel?.id) return;
     setFilters((prev) => {
       const newOrdering = prev.ordering || channel.default_order;
-      if (prev.channel === channel.id && prev.ordering === newOrdering) return prev;
+      if (prev.channel === channel.id && prev.ordering === newOrdering)
+        return prev;
       return { ...prev, channel: channel.id, ordering: newOrdering };
     });
     videoSetFilters((prev) => {
       const newOrdering = prev.ordering || channel.default_order;
-      if (prev.channel === channel.id && prev.ordering === newOrdering) return prev;
+      if (prev.channel === channel.id && prev.ordering === newOrdering)
+        return prev;
       return { ...prev, channel: channel.id, ordering: newOrdering };
     });
   }, [channel?.id, channel?.default_order, setFilters, videoSetFilters]);
@@ -184,8 +200,10 @@ export default function Channel() {
       ) : (
         <>
           <Image
-          unoptimized
-            src={channel.banner || channel.logo || "/default_channel_banner.png"}
+            unoptimized
+            src={
+              channel.banner || channel.logo || "/default_channel_banner.png"
+            }
             alt={t("a11y.channelBanner", { title: channel.title })}
             className="pod-image-banner"
             width={0}
@@ -263,9 +281,11 @@ export default function Channel() {
                               newFilters.search !== videoFilters.search ||
                               newFilters.channel !== videoFilters.channel ||
                               newFilters.ordering !== videoFilters.ordering ||
-                              newFilters.ownerUsernames !== videoFilters.ownerUsernames ||
+                              newFilters.ownerUsernames !==
+                                videoFilters.ownerUsernames ||
                               newFilters.typeSlugs !== videoFilters.typeSlugs ||
-                              newFilters.disciplineIds !== videoFilters.disciplineIds ||
+                              newFilters.disciplineIds !==
+                                videoFilters.disciplineIds ||
                               newFilters.cursus !== videoFilters.cursus ||
                               newFilters.tagSlugs !== videoFilters.tagSlugs
                             ) {
@@ -275,7 +295,8 @@ export default function Channel() {
                           }}
                         />
 
-                        {visibleAndPublicVideos.length === 0 && !useVideoLoading ? (
+                        {visibleAndPublicVideos.length === 0 &&
+                        !useVideoLoading ? (
                           <Alert type={VariantType.INFO}>
                             {hasActiveVideoFilters
                               ? t("common.noResults")
@@ -286,7 +307,9 @@ export default function Channel() {
                             videos={visibleAndPublicVideos}
                             videosCount={videosCount}
                             page={videoFilters.page}
-                            onPageChange={(page) => videoSetFilters({ ...videoFilters, page })}
+                            onPageChange={(page) =>
+                              videoSetFilters({ ...videoFilters, page })
+                            }
                             loading={useVideoLoading}
                           />
                         )}
@@ -323,8 +346,10 @@ export default function Channel() {
                               newFilters.search !== filters.search ||
                               newFilters.channel !== filters.channel ||
                               newFilters.ordering !== filters.ordering ||
-                              newFilters.ownerUsernames !== filters.ownerUsernames ||
-                              newFilters.createdAtGte !== filters.createdAtGte ||
+                              newFilters.ownerUsernames !==
+                                filters.ownerUsernames ||
+                              newFilters.createdAtGte !==
+                                filters.createdAtGte ||
                               newFilters.createdAtLte !== filters.createdAtLte
                             ) {
                               newFilters.page = 1;
@@ -333,11 +358,15 @@ export default function Channel() {
                           }}
                         />
 
-                        {channelAllThemes.length === 0 && !loading && hasLoadedBaseThemes ? (
+                        {channelAllThemes.length === 0 &&
+                        !loading &&
+                        hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
                             {t("common.noResults")}
                           </Alert>
-                        ) : channelThemes.length === 0 && !loading && hasLoadedBaseThemes ? (
+                        ) : channelThemes.length === 0 &&
+                          !loading &&
+                          hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
                             {t("common.noResults")}
                           </Alert>
@@ -346,7 +375,9 @@ export default function Channel() {
                             themes={channelThemes}
                             collectionsCount={themesCount}
                             page={filters.page}
-                            onPageChange={(page) => setFilters({ ...filters, page })}
+                            onPageChange={(page) =>
+                              setFilters({ ...filters, page })
+                            }
                             defaultView="cards"
                             storageKey="channel-theme-view"
                             channelSlug={channelSlug}

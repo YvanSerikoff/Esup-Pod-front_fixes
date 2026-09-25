@@ -16,7 +16,10 @@ interface VideoGridProps {
 /* Renderer tableau.
 Passe les rows à DataGrid avec les colonnes et tri des données
 */
-export default function VideoGrid({ rows, selectable = false }: VideoGridProps) {
+export default function VideoGrid({
+  rows,
+  selectable = false,
+}: VideoGridProps) {
   const { t } = useTranslation();
   const [sortModel, setSortModel] = useState<SortModel>([]);
 
@@ -64,7 +67,10 @@ export default function VideoGrid({ rows, selectable = false }: VideoGridProps) 
     if (rows.length === 0) return false;
     return rows.every((r) => r.selected);
   }, [rows]);
-  const columns = useMemo(() => getVideoGridColumns(selectable, t), [selectable, t]);
+  const columns = useMemo(
+    () => getVideoGridColumns(selectable, t),
+    [selectable, t],
+  );
 
   return (
     <DataGrid

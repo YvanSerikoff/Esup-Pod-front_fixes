@@ -44,7 +44,14 @@ body,
 body {
   background-color: var(--background);
   color: var(--text-color);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -166,7 +173,10 @@ button:active,
     padding: var(--c--globals--spacings--xs);
   }
 }
-.c__app { overflow: visible !important; overflow-x: visible !important; }
+.c__app {
+  overflow: visible !important;
+  overflow-x: visible !important;
+}
 
 /* Video.js Poster Fix */
 .video-js .vjs-poster img {
@@ -194,9 +204,15 @@ button:active,
 
 /* Skeleton Loader */
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .skeleton-block {
@@ -368,7 +384,8 @@ html[data-theme="dark"] div[style*="background: white"],
 html[data-theme="dark"] div[style*="background: #f9fafb"],
 html[data-theme="dark"] div[style*="background: rgb(249, 250, 251)"],
 html[data-theme="dark"] div[style*="background: #fdfdfd"],
-html[data-theme="dark"] div[style*="background: var(--c--globals--colors--gray-050)"],
+html[data-theme="dark"]
+  div[style*="background: var(--c--globals--colors--gray-050)"],
 html[data-theme="dark"] div[class*="restreint-fields"],
 html[data-theme="dark"] div[class*="element-card"] {
   background-color: #0f172a !important;

@@ -70,7 +70,10 @@ export default function AddVideo() {
 
     try {
       if (!data.videoFile) {
-        setFieldError("videoFile", { type: "required", message: "Veuillez sélectionner un fichier." });
+        setFieldError("videoFile", {
+          type: "required",
+          message: "Veuillez sélectionner un fichier.",
+        });
         setError("Veuillez sélectionner un fichier vidéo.");
         return;
       }
@@ -80,7 +83,10 @@ export default function AddVideo() {
       formData.append("video_file", data.videoFile);
 
       const res = await authFetch(getRoutes().video.add, {
-        method: "POST", body: formData, accessToken, onRefresh: refresh,
+        method: "POST",
+        body: formData,
+        accessToken,
+        onRefresh: refresh,
       });
       setIsRedirecting(true);
 
@@ -102,7 +108,10 @@ export default function AddVideo() {
     setIsRedirecting(false);
 
     if (!data.emptyTitle.trim()) {
-      setFieldError("emptyTitle", { type: "required", message: "Le titre est obligatoire." });
+      setFieldError("emptyTitle", {
+        type: "required",
+        message: "Le titre est obligatoire.",
+      });
       return;
     }
 
@@ -111,7 +120,10 @@ export default function AddVideo() {
       formData.append("title", data.emptyTitle.trim());
 
       const res = await authFetch(getRoutes().video.add, {
-        method: "POST", body: formData, accessToken, onRefresh: refresh,
+        method: "POST",
+        body: formData,
+        accessToken,
+        onRefresh: refresh,
       });
       setIsRedirecting(true);
       setIsEmptyModalOpen(false);
@@ -131,25 +143,50 @@ export default function AddVideo() {
   return (
     <div>
       <BackButton label={t("common.back")} onClick={() => router.back()} />
-      <h1 style={{ fontWeight: 700, fontSize: "1.5rem", marginBottom: 16 }}>Importer une vidéo</h1>
+      <h1 style={{ fontWeight: 700, fontSize: "1.5rem", marginBottom: 16 }}>
+        Importer une vidéo
+      </h1>
 
-      {error && <Alert canClose type={VariantType.ERROR} aria-live="assertive">{error}</Alert>}
+      {error && (
+        <Alert canClose type={VariantType.ERROR} aria-live="assertive">
+          {error}
+        </Alert>
+      )}
 
       {isRedirecting ? (
         <div>
           <Alert canClose type={VariantType.SUCCESS} aria-live="polite">
-            Votre vidéo est en cours de traitement sur POD. Ne fermez pas la page...
+            Votre vidéo est en cours de traitement sur POD. Ne fermez pas la
+            page...
           </Alert>
-          <LinearProgress sx={{ padding: "5px" }} className={styles["linear-progress"]} aria-label="Loading..." />
+          <LinearProgress
+            sx={{ padding: "5px" }}
+            className={styles["linear-progress"]}
+            aria-label="Loading..."
+          />
         </div>
       ) : (
-        <form className={styles.form} style={{ display: "flex", flexDirection: "column", gap: "1rem" }} onSubmit={handleSubmit(onSubmitImport)}>
+        <form
+          className={styles.form}
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          onSubmit={handleSubmit(onSubmitImport)}
+        >
           <Alert
             additional={
               <>
-                La taille du fichier doit être <b>inférieure à {config?.encoding?.max_upload_size_gb ?? 2} Go</b>.
-                <br />Le temps d&apos;envoi dépend de la taille de votre fichier et de votre vitesse de téléchargement.
-                <br /><b>Pendant l&apos;envoi, ne fermez pas votre navigateur avant d&apos;avoir reçu un message de succès ou d&apos;échec.</b>
+                La taille du fichier doit être{" "}
+                <b>
+                  inférieure à {config?.encoding?.max_upload_size_gb ?? 2} Go
+                </b>
+                .
+                <br />
+                Le temps d&apos;envoi dépend de la taille de votre fichier et de
+                votre vitesse de téléchargement.
+                <br />
+                <b>
+                  Pendant l&apos;envoi, ne fermez pas votre navigateur avant
+                  d&apos;avoir reçu un message de succès ou d&apos;échec.
+                </b>
               </>
             }
             aria-live="polite"
@@ -166,18 +203,46 @@ export default function AddVideo() {
               setValue("videoFile", file, { shouldValidate: true });
               if (file) clearErrors("videoFile");
             }}
-            accept={config?.encoding?.allowed_extensions?.map((ext: string) => `.${ext}`).join(", ") || ".mp4, .avi, .mkv"}
+            accept={
+              config?.encoding?.allowed_extensions
+                ?.map((ext: string) => `.${ext}`)
+                .join(", ") || ".mp4, .avi, .mkv"
+            }
             aria-label="Sélectionner un fichier audio ou vidéo"
             aria-describedby="videoFile-error"
             aria-required="true"
-            text={errors.videoFile?.message ?? `Les formats suivants sont supportés : ${config?.encoding?.allowed_extensions?.join(", ") || "mp4, avi, mkv"}.`}
+            text={
+              errors.videoFile?.message ??
+              `Les formats suivants sont supportés : ${config?.encoding?.allowed_extensions?.join(", ") || "mp4, avi, mkv"}.`
+            }
           />
-          {errors.videoFile && <p id="videoFile-error" style={{ color: "red", marginTop: "0.25rem" }}>{errors.videoFile.message}</p>}
+          {errors.videoFile && (
+            <p
+              id="videoFile-error"
+              style={{ color: "red", marginTop: "0.25rem" }}
+            >
+              {errors.videoFile.message}
+            </p>
+          )}
 
           <fieldset className={styles["bloc-terms"]}>
             <legend>Conditions d&apos;utilisation</legend>
-            <p><b>Attention ! Assurez‑vous de respecter le code de la propriété intellectuelle avant de publier une vidéo :</b></p>
-            <p>Je confirme que je dispose des autorisations nécessaires signées par les parties concernées par la publication de ce média, en ce compris le consentement relatif au droit à l&apos;image et au traitement des données personnelles. Je certifie que l&apos;ensemble des personnes concernées ont bénéficié d&apos;une information complète relative au traitement de leurs données personnelles, conformément aux dispositions des articles 13 et 14 du RGPD.</p>
+            <p>
+              <b>
+                Attention ! Assurez‑vous de respecter le code de la propriété
+                intellectuelle avant de publier une vidéo :
+              </b>
+            </p>
+            <p>
+              Je confirme que je dispose des autorisations nécessaires signées
+              par les parties concernées par la publication de ce média, en ce
+              compris le consentement relatif au droit à l&apos;image et au
+              traitement des données personnelles. Je certifie que
+              l&apos;ensemble des personnes concernées ont bénéficié d&apos;une
+              information complète relative au traitement de leurs données
+              personnelles, conformément aux dispositions des articles 13 et 14
+              du RGPD.
+            </p>
             <Checkbox
               className={styles["bloc-terms-checkbox"]}
               label="J'atteste de respecter le code de la propriété intellectuelle en publiant ma vidéo."
@@ -187,14 +252,35 @@ export default function AddVideo() {
               aria-required="true"
               {...register("acceptTerm", {
                 required: "Veuillez accepter les conditions d'utilisation.",
-                validate: (value) => Boolean(value) || "Veuillez accepter les conditions d'utilisation.",
+                validate: (value) =>
+                  Boolean(value) ||
+                  "Veuillez accepter les conditions d'utilisation.",
               })}
             />
-            {errors.acceptTerm && <p id="acceptTerm-error" style={{ color: "red", marginTop: "0.25rem" }}>{errors.acceptTerm.message}</p>}
+            {errors.acceptTerm && (
+              <p
+                id="acceptTerm-error"
+                style={{ color: "red", marginTop: "0.25rem" }}
+              >
+                {errors.acceptTerm.message}
+              </p>
+            )}
           </fieldset>
 
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap", marginTop: 8 }}>
-            <Button type="submit" color="success" disabled={isSubmitting || isRedirecting}>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              alignItems: "center",
+              flexWrap: "wrap",
+              marginTop: 8,
+            }}
+          >
+            <Button
+              type="submit"
+              color="success"
+              disabled={isSubmitting || isRedirecting}
+            >
               Importer la vidéo
             </Button>
             <Button
@@ -219,30 +305,60 @@ export default function AddVideo() {
         fullWidth
         PaperProps={{ sx: { borderRadius: 3 } }}
       >
-        <DialogTitle sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 700 }}>
+        <DialogTitle
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            fontWeight: 700,
+          }}
+        >
           <NoteAddIcon sx={{ color: "#00818a" }} />
           Créer une fiche vide
         </DialogTitle>
         <DialogContent dividers>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "8px 0" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              padding: "8px 0",
+            }}
+          >
             <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
-              Vous vous apprêtez à créer une fiche vidéo sans fichier média source. Vous pourrez ajouter la vidéo source ultérieurement depuis l&apos;étape <b>&ldquo;Importation&rdquo;</b> de la page d&apos;édition.
+              Vous vous apprêtez à créer une fiche vidéo sans fichier média
+              source. Vous pourrez ajouter la vidéo source ultérieurement depuis
+              l&apos;étape <b>&ldquo;Importation&rdquo;</b> de la page
+              d&apos;édition.
             </p>
             <TextField
               label="Titre de la vidéo *"
               fullWidth
               error={Boolean(errors.emptyTitle)}
-              helperText={errors.emptyTitle?.message ?? "Saisissez un titre clair et descriptif."}
+              helperText={
+                errors.emptyTitle?.message ??
+                "Saisissez un titre clair et descriptif."
+              }
               InputProps={{ style: { borderRadius: 10 } }}
               {...register("emptyTitle")}
             />
           </div>
         </DialogContent>
         <DialogActions>
-          <Button type="button" variant="secondary" color="neutral" onClick={() => setIsEmptyModalOpen(false)}>
+          <Button
+            type="button"
+            variant="secondary"
+            color="neutral"
+            onClick={() => setIsEmptyModalOpen(false)}
+          >
             Annuler
           </Button>
-          <Button type="button" color="brand" disabled={isSubmitting} onClick={handleSubmit(onSubmitEmptyCard)}>
+          <Button
+            type="button"
+            color="brand"
+            disabled={isSubmitting}
+            onClick={handleSubmit(onSubmitEmptyCard)}
+          >
             Créer la fiche vide
           </Button>
         </DialogActions>
