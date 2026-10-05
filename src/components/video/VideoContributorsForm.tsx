@@ -16,7 +16,8 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PersonIcon from "@mui/icons-material/Person";
 import CircularProgress from "@mui/material/CircularProgress";
-import styles from "../../app/video/edit/[slug]/styles.module.css";
+import editStyles from "./edit/styles.module.css";
+import videoStyles from "./VideoCard.module.css";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 // Custom debounce
@@ -101,16 +102,16 @@ export default function VideoContributorsForm({
   };
 
   return (
-    <div className={styles["element-card"]}>
-      <div className={styles["element-card_info"]}>
-        <span className={styles["element-card_title"]}>
+    <div className={editStyles["element-card"]}>
+      <div className={editStyles["element-card_info"]}>
+        <span className={editStyles["element-card_title"]}>
           {t("common.contributors")}
         </span>
-        <span className={styles["element-card_desc"]}>
+        <span className={editStyles["element-card_desc"]}>
           {t("common.addContributorsDesc")}
         </span>
       </div>
-      <div style={{ width: "100%", padding: "1rem" }}>
+      <div className={videoStyles.contributorsForm}>
         {error && (
           <Alert
             type={VariantType.ERROR}
@@ -121,17 +122,12 @@ export default function VideoContributorsForm({
           </Alert>
         )}
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div className={videoStyles.contributorsFormFields}>
           <div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              flexWrap: "wrap",
-              alignItems: "flex-start",
-            }}
+            className={videoStyles.contributorsFormRow}
           >
             <Autocomplete
-              sx={{ flexGrow: 1, minWidth: "250px" }}
+              className={videoStyles.contributorsAutocomplete}
               options={searchResults || []}
               getOptionLabel={(opt) => `${opt.first_name} ${opt.last_name}`}
               isOptionEqualToValue={(opt, val) => opt.id === val.id}
@@ -169,7 +165,7 @@ export default function VideoContributorsForm({
               value={selectedRole}
               onChange={(e) => setSelectedRole(e.target.value)}
               size="small"
-              sx={{ minWidth: "150px" }}
+              className={videoStyles.contributorsRole}
             >
               {roleChoices.map((choice: any) => (
                 <MenuItem key={choice[0]} value={choice[0]}>
@@ -197,45 +193,21 @@ export default function VideoContributorsForm({
             </Button>
           </div>
 
-          <Box sx={{ mt: 2 }}>
+          <Box className={videoStyles.contributorsList}>
             {contributionsLoading ? (
               <CircularProgress size={24} />
             ) : contributions.length > 0 ? (
-              <Box
-                sx={{ display: "flex", flexDirection: "column", gap: "8px" }}
-              >
+              <Box className={videoStyles.contributorsItems}>
                 {contributions.map((c) => (
-                  <Box
-                    key={c.id}
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      p: 1,
-                      border: "1px solid var(--c--globals--colors--gray-200)",
-                      borderRadius: "8px",
-                      background: "var(--c--globals--colors--gray-000)",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "12px",
-                      }}
-                    >
+                  <Box key={c.id} className={videoStyles.contributorItem}>
+                    <Box className={videoStyles.contributorIdentity}>
                       <PersonIcon color="action" />
                       <Box>
-                        <div style={{ fontWeight: 600 }}>
+                        <div className={videoStyles.contributorName}>
                           {c.contributor_details.first_name}{" "}
                           {c.contributor_details.last_name}
                         </div>
-                        <div
-                          style={{
-                            fontSize: "0.85rem",
-                            color: "var(--c--globals--colors--gray-600)",
-                          }}
-                        >
+                        <div className={videoStyles.contributorRoleText}>
                           {getRoleLabel(c.role)}
                           {c.role === "speaker" && c.job_title
                             ? ` - ${c.job_title}`
@@ -255,7 +227,7 @@ export default function VideoContributorsForm({
                 ))}
               </Box>
             ) : (
-              <span style={{ fontSize: "0.9rem", color: "gray" }}>
+              <span className={videoStyles.noContributors}>
                 {t("contributors.noContributors")}
               </span>
             )}

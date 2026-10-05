@@ -4,6 +4,7 @@ import PlaylistCard from "@/src/components/collection/PlaylistCard";
 import { usePlaylistPermissions } from "@/src/hooks/usePlaylistPermission";
 import PlaylistCardSkeleton from "./PlaylistCardSkeleton";
 import { useSidebar } from "@/src/context/SidebarProvider";
+import styles from "./styles.module.css";
 
 type PlaylistListProps = {
   playlists: Playlist[];
@@ -23,7 +24,7 @@ export default function PlaylistList({
 
   if (loading) {
     return (
-      <div style={{ padding: "var(--c--globals--spacings--sm) 0" }}>
+      <div className={styles.list}>
         <Grid container spacing={2}>
           {Array.from({ length: 6 }).map((_, index) => (
             <Grid
@@ -39,7 +40,7 @@ export default function PlaylistList({
   }
 
   return (
-    <div style={{ padding: "var(--c--globals--spacings--sm) 0" }}>
+    <div className={styles.list}>
       <Grid container spacing={2}>
         {playlists.map((playlist) => (
           <Grid

@@ -6,17 +6,9 @@ import { getRoutes } from "@/src/api/routes";
 import { requestJson } from "@/src/utils/requestJson";
 import type { BlockConfig, Video } from "@/src/types";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
-import styles from "./VideoGridBlockComponent.module.css";
+import styles from "./WebTVLayout.module.css";
 
-const cardColors = [
-  "#facc15", // Yellow
-  "#64748b", // Gray
-  "#38bdf8", // Sky blue
-  "#fb7185", // Coral red
-  "#34d399", // Mint green
-  "#a78bfa", // Purple
-  "#fb923c", // Orange
-];
+const PLACEHOLDER_COLOR_COUNT = 7;
 
 interface VideoGridBlockProps {
   block?: BlockConfig;
@@ -89,19 +81,18 @@ export default function VideoGridBlockComponent({
   const isLoading = providedVideos ? false : loading;
 
   return (
-    <section className={styles["block-wrapper"]}>
+    <section className={`${styles["block-wrapper"]} ${styles["video-block"]}`}>
       {!isHero && (
         <div className={styles["section-badge-header"]}>{displayTitle}</div>
       )}
 
       {isLoading ? (
-        <div style={{ padding: "1rem", color: "#666" }}>
+        <div className={styles["block-loading"]}>
           {t("common.loading")}
         </div>
       ) : displayedVideos.length > 0 ? (
         <div className={isHero ? styles.heroGrid : styles["videos-grid"]}>
           {displayedVideos.map((video, index) => {
-            const fallbackColor = cardColors[index % cardColors.length];
             return (
               <Link
                 key={video.id}
@@ -120,13 +111,11 @@ export default function VideoGridBlockComponent({
                     />
                   ) : (
                     <div
-                      className={styles["thumbnail-placeholder"]}
-                      style={{ backgroundColor: fallbackColor }}
+                      className={`${styles["thumbnail-placeholder"]} ${
+                        styles[`video-placeholder-color-${index % PLACEHOLDER_COLOR_COUNT}`]
+                      }`}
                     >
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "2.5rem", opacity: 0.8 }}
-                      >
+                      <span className={`material-icons ${styles["video-placeholder-icon"]}`}>
                         play_circle_outline
                       </span>
                     </div>
@@ -136,10 +125,7 @@ export default function VideoGridBlockComponent({
                   <h4 className={styles["card-title"]}>{video.title}</h4>
                   {showViews && video.views_count != null && (
                     <span className={styles["card-meta"]}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "0.9rem" }}
-                      >
+                      <span className={`material-icons ${styles["video-meta-icon"]}`}>
                         visibility
                       </span>
                       {video.views_count}{" "}
@@ -154,7 +140,7 @@ export default function VideoGridBlockComponent({
           })}
         </div>
       ) : (
-        <div style={{ padding: "1rem", color: "#888", fontStyle: "italic" }}>
+        <div className={styles["block-empty"]}>
           {t("webtv.noContent")}
         </div>
       )}

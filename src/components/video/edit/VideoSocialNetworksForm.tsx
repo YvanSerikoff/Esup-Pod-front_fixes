@@ -9,6 +9,7 @@ import { authFetch } from "@/src/api/authFetch";
 import { useAuth } from "@/src/context/AuthProvider";
 import type { Video } from "@/src/types";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css";
 
 type Props = {
   video: Video;
@@ -58,55 +59,36 @@ export default function VideoSocialNetworksForm({
   };
 
   return (
-    <div
-      style={{
-        padding: "16px",
-        backgroundColor: "#f9fafb",
-        borderRadius: "8px",
-        border: "1px solid #e5e7eb",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <ShareIcon
-          style={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
-        />
-        <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 600 }}>
+    <div className={styles.socialNetworksForm}>
+      <div className={styles.socialNetworksHeader}>
+        <ShareIcon className={styles.socialNetworksIcon} />
+        <h3 className={styles.socialNetworksTitle}>
           {t("socialNetworks.authorizedShare")}
         </h3>
       </div>
 
-      <p style={{ margin: 0, fontSize: "0.85rem", color: "#6b7280" }}>
+      <p className={styles.socialNetworksDescription}>
         {t("socialNetworks.choice")}
       </p>
 
       {msg && (
         <div
-          style={{
-            fontSize: "0.85rem",
-            color: msg.includes(t("socialNetworks.saved"))
-              ? "#2e7d32"
-              : "#d32f2f",
-          }}
+          className={`${styles.socialNetworksMessage} ${
+            msg.includes(t("socialNetworks.saved"))
+              ? styles.socialNetworksSuccess
+              : styles.socialNetworksError
+          }`}
         >
           {msg}
         </div>
       )}
 
       {isLoading ? (
-        <p style={{ margin: 0, fontSize: "0.85rem" }}>
+        <p className={styles.socialNetworksLoading}>
           {t("socialNetworks.loading")}
         </p>
       ) : (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-            gap: "8px",
-          }}
-        >
+        <div className={styles.socialNetworksGrid}>
           {socialNetworks.map((net) => {
             const isChecked = selectedIds.includes(net.id);
             return (
@@ -121,7 +103,7 @@ export default function VideoSocialNetworksForm({
                   />
                 }
                 label={
-                  <span style={{ fontSize: "0.9rem", fontWeight: 500 }}>
+                  <span className={styles.socialNetworkLabel}>
                     {net.name}
                   </span>
                 }

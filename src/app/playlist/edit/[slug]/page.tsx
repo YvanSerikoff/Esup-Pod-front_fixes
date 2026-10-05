@@ -275,7 +275,6 @@ export default function EditPlaylist() {
         className={styles.form}
         noValidate
         onSubmit={handleSubmit(onSubmit, onInvalid)}
-        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
       >
         <PlaylistForm
           control={control}

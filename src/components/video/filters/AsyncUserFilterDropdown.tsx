@@ -10,6 +10,7 @@ import type { User } from "@/src/types";
 import { debounce } from "@mui/material/utils";
 import Box from "@mui/material/Box";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
+import styles from "./styles.module.css";
 
 export type AsyncUserFilterDropdownProps = {
   selectedUsernames: string[];
@@ -81,7 +82,7 @@ export default function AsyncUserFilterDropdown({
   }, [inputValue, open, fetchOptions]);
 
   return (
-    <Box sx={{ minWidth: 200, width: { xs: "100%", sm: "auto" } }}>
+    <Box className={styles["async-filter-field"]}>
       <Autocomplete
         multiple
         open={open}
@@ -119,12 +120,7 @@ export default function AsyncUserFilterDropdown({
             }}
           />
         )}
-        sx={{
-          "& .MuiOutlinedInput-root": {
-            borderRadius: "4px",
-            backgroundColor: "#fff",
-          },
-        }}
+        className={styles["async-filter-autocomplete"]}
       />
     </Box>
   );

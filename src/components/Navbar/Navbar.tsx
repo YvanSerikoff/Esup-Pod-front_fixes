@@ -71,21 +71,9 @@ export function PreferencesMenu() {
           aria-controls={open ? "preferences-menu" : undefined}
           aria-expanded={open ? "true" : undefined}
           size="small"
-          sx={{
-            color: "var(--text-color, inherit)",
-            height: "36px",
-            width: "36px",
-            borderRadius: "8px",
-            border: "1px solid var(--border-color, rgba(140, 140, 140, 0.25))",
-            backgroundColor: "rgba(128, 128, 128, 0.05)",
-            transition: "all 0.2s ease-in-out",
-            "&:hover": {
-              backgroundColor: "rgba(128, 128, 128, 0.12)",
-              borderColor: "rgba(128, 128, 128, 0.4)",
-            },
-          }}
+          className={styles["preferences-button"]}
         >
-          <SettingsIcon sx={{ fontSize: "1.2rem" }} />
+          <SettingsIcon className={styles["preferences-icon"]} />
         </IconButton>
       </Tooltip>
 
@@ -97,14 +85,7 @@ export function PreferencesMenu() {
         slotProps={{
           paper: {
             elevation: 3,
-            sx: {
-              p: 1,
-              mt: 1,
-              minWidth: 200,
-              borderRadius: "12px",
-              backgroundColor: "var(--c--theme--colors--card-bg, #ffffff)",
-              color: "var(--text-color, inherit)",
-            },
+            className: styles["preferences-menu-paper"],
           },
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
@@ -112,14 +93,14 @@ export function PreferencesMenu() {
       >
         <MenuItem
           onClick={handleTheme}
-          sx={{ borderRadius: "8px", gap: 1.5, py: 1 }}
+          className={styles["preferences-menu-item"]}
         >
           {isDark ? (
             <LightModeOutlinedIcon
-              sx={{ fontSize: "1.2rem", color: "#f59e0b" }}
+              className={styles["preferences-sun-icon"]}
             />
           ) : (
-            <DarkModeOutlinedIcon sx={{ fontSize: "1.2rem" }} />
+            <DarkModeOutlinedIcon className={styles["preferences-icon"]} />
           )}
           <Typography variant="body2" fontWeight={500}>
             {isDark
@@ -128,19 +109,19 @@ export function PreferencesMenu() {
           </Typography>
         </MenuItem>
 
-        <Box sx={{ px: 1, py: 0.5 }}>
+        <Box className={styles["preferences-language"]}>
           <LanguageSelector variant="compact" />
         </Box>
 
-        <Divider sx={{ my: 0.5 }} />
+        <Divider className={styles["preferences-divider"]} />
 
         <MenuItem
           component={Link}
           href="/user-settings"
           onClick={handleClose}
-          sx={{ borderRadius: "8px", gap: 1.5, py: 1 }}
+          className={styles["preferences-menu-item"]}
         >
-          <SettingsIcon sx={{ fontSize: "1.2rem" }} />
+          <SettingsIcon className={styles["preferences-icon"]} />
           <Typography variant="body2" fontWeight={500}>
             {t("preferences.title")}
           </Typography>
@@ -219,15 +200,14 @@ export function AuthMenu({
             aria-controls={openMenu ? "account-menu" : undefined}
             aria-expanded={openMenu ? "true" : undefined}
             aria-label={t("navbar.openProfileMenu")}
-            sx={{
-              p: "2px",
-              border: user.is_staff
-                ? "2px solid #3b82f6"
-                : "2px solid transparent",
-              borderRadius: "50%",
-            }}
+            className={`${styles["profile-button"]} ${
+              user.is_staff ? styles["profile-button-admin"] : ""
+            }`}
           >
-            <Avatar src={profilePictureUrl} sx={{ width: 42, height: 42 }}>
+            <Avatar
+              src={profilePictureUrl}
+              className={styles["profile-avatar"]}
+            >
               {initial}
             </Avatar>
           </IconButton>
@@ -254,27 +234,7 @@ export function AuthMenu({
           slotProps={{
             paper: {
               elevation: 0,
-              sx: {
-                backgroundColor: "var(--background)",
-                color:
-                  "var(--c--contextuals--content--semantic--neutral--primary)",
-                padding: "10px",
-                overflow: "visible",
-                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                mt: 1.5,
-                "&::before": {
-                  content: '""',
-                  display: "block",
-                  position: "absolute",
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: "var(--background)",
-                  transform: "translateY(-50%) rotate(45deg)",
-                  zIndex: 0,
-                },
-              },
+              className: styles["profile-menu-paper"],
             },
           }}
           transformOrigin={{ horizontal: "right", vertical: "top" }}
@@ -310,12 +270,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         {isMobile && isSearchOpen ? (
           <div
-            style={{
-              display: "flex",
-              width: "100%",
-              alignItems: "center",
-              gap: "8px",
-            }}
+            className={styles["navbar-mobile-search"]}
           >
             <IconButton
               aria-label={t("navbar.closeSearch")}
@@ -325,7 +280,7 @@ export default function Navbar() {
                 arrow_back
               </span>
             </IconButton>
-            <div style={{ flexGrow: 1 }}>
+            <div className={styles["navbar-mobile-search-form"]}>
               <SearchForm />
             </div>
           </div>
@@ -406,15 +361,7 @@ export default function Navbar() {
             )}
 
             {/* ------------------- Utilities (Unified Preferences Menu) ------------------- */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                marginLeft: "var(--c--globals--spacings--s)",
-                marginRight: "var(--c--globals--spacings--s)",
-              }}
-            >
+            <div className={styles["navbar-utilities"]}>
               <PreferencesMenu />
             </div>
 

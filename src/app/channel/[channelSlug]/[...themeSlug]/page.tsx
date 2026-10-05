@@ -23,6 +23,7 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "../styles.module.css"
 
 export const breadcrumbLabel = "Thème";
 
@@ -236,7 +237,7 @@ export default function Theme() {
 
   if (useThemeError && !theme && !channel) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles["theme-error"]}>
         <Alert canClose type={VariantType.ERROR}>
           {useThemeError ?? `${t("errors.unableToTheme")}`}
         </Alert>
@@ -263,8 +264,8 @@ export default function Theme() {
           className="pod-image-banner"
           fill
         />{" "}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 2 }}>
+        <Box className={styles["center-box"]}>
+          <Box className={styles["column-box"]}>
             {channel && <h1>{channel.title}</h1>}
             {parentTheme ? (
               <h2>
@@ -283,7 +284,7 @@ export default function Theme() {
         {baseChildThemes.length === 0 && themeItems.length === 0 ? (
           <Alert type={VariantType.INFO}>{t("common.noResults")}</Alert>
         ) : (
-          <Box sx={{ width: "100%", typography: "body1" }}>
+          <Box className={styles["tabs-box"]}>
             <Tabs
               value={selectedTab}
               onChange={handleChange}
@@ -302,7 +303,7 @@ export default function Theme() {
               />
             </Tabs>
 
-            <Box sx={{ mt: 2 }}>
+            <Box className={styles["unclassified-box"]}>
               {selectedTab === "unclassified" && (
                 <div>
                   <h2>{t("channels.unclassified")}</h2>

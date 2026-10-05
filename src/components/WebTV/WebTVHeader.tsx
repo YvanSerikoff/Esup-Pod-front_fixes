@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/src/context/AuthProvider";
-import styles from "./WebTVHeader.module.css";
+import styles from "./WebTVLayout.module.css";
 import Dialog from "@mui/material/Dialog";
 import { SearchForm } from "../SearchForm/SearchForm";
 

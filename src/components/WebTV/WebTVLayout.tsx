@@ -38,7 +38,7 @@ export default function WebTVLayout() {
 
         {/* Dynamic Blocks Section rendered via BlockRenderer */}
         {loading ? (
-          <div style={{ padding: "2rem", textAlign: "center", color: "#666" }}>
+          <div className={styles["block-loading"]}>
             {t("webtv.loadingContent")}
           </div>
         ) : otherBlocks.length > 0 ? (
@@ -82,7 +82,7 @@ export default function WebTVLayout() {
       {/* Footer */}
       <footer className={styles["web-tv-footer"]}>
         <div className={styles["footer-logo"]}>
-          <span className="material-icons" style={{ fontSize: "1.5rem" }}>
+          <span className={`material-icons ${styles["footer-icon"]}`}>
             school
           </span>
           <span>Université de Lille</span>

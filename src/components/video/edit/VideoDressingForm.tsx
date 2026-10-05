@@ -22,14 +22,7 @@ import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
 import type { Video } from "@/src/types";
 import { useTranslation } from "@/src/hooks/useTranslation";
-
-/* ------------------------------------------------------------------
- * Design tokens – shared across this component
- * ------------------------------------------------------------------ */
-const PRIMARY = "#00818a";
-const PRIMARY_LIGHT = "rgba(0,129,138,0.08)";
-const BORDER_RADIUS = 10; // px – normalised for all elements
-const BORDER = "1.5px solid #e5e7eb";
+import styles from "./styles.module.css";
 
 const POSITION_OPTIONS = [
   { value: "top_right", label: "Haut droite" },
@@ -74,76 +67,34 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+    <div className={styles.dressingCreatePanel}>
       {/* Back button */}
       <button
         type="button"
         onClick={onBack}
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 6,
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          color: PRIMARY,
-          fontWeight: 600,
-          fontSize: "0.9rem",
-          padding: 0,
-        }}
+        className={styles.dressingBackButton}
       >
         <ArrowBackIcon fontSize="small" />
         {t("common.selectionReturn")}
       </button>
 
-      <div
-        style={{
-          background: "#f9fafb",
-          border: BORDER,
-          borderRadius: BORDER_RADIUS,
-          padding: 20,
-          display: "flex",
-          flexDirection: "column",
-          gap: 18,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: "50%",
-              background: PRIMARY_LIGHT,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <AddCircleOutlineIcon style={{ color: PRIMARY, fontSize: 20 }} />
+      <div className={styles.dressingCreateCard}>
+        <div className={styles.dressingSectionHeader}>
+          <div className={styles.dressingCreateIconCircle}>
+            <AddCircleOutlineIcon className={styles.dressingPrimaryIcon} />
           </div>
           <div>
-            <div
-              style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}
-            >
+            <div className={styles.dressingSectionTitle}>
               {t("videoDressing.create")}
             </div>
-            <div style={{ fontSize: "0.8rem", color: "#6b7280" }}>
+            <div className={styles.dressingSectionDescription}>
               {t("common.configBase")}
             </div>
           </div>
         </div>
 
         {error && (
-          <div
-            style={{
-              background: "#fef2f2",
-              border: "1.5px solid #fecaca",
-              borderRadius: BORDER_RADIUS,
-              padding: "10px 14px",
-              color: "#b91c1c",
-              fontSize: "0.85rem",
-            }}
-          >
+          <div className={styles.dressingError}>
             {error}
           </div>
         )}
@@ -155,7 +106,7 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
           onChange={(e) => setTitle(e.target.value)}
           fullWidth
           size="small"
-          InputProps={{ style: { borderRadius: BORDER_RADIUS } }}
+          className={styles.dressingTitleField}
           helperText={t("videoDressing.unique")}
         />
 
@@ -166,7 +117,7 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
             value={position}
             label={t("videoEdit.position")}
             onChange={(e) => setPosition(e.target.value)}
-            style={{ borderRadius: BORDER_RADIUS }}
+            className={styles.dressingSelect}
           >
             {POSITION_OPTIONS.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
@@ -178,27 +129,9 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
 
         {/* Opacity */}
         <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 6,
-              fontSize: "0.85rem",
-              color: "#374151",
-              fontWeight: 500,
-            }}
-          >
+          <div className={styles.dressingOpacityHeader}>
             <span>{t("videoEdit.opacity")}</span>
-            <span
-              style={{
-                background: PRIMARY_LIGHT,
-                color: PRIMARY,
-                borderRadius: 999,
-                padding: "2px 10px",
-                fontWeight: 700,
-                fontSize: "0.8rem",
-              }}
-            >
+            <span className={styles.dressingOpacityValue}>
               {opacity}%
             </span>
           </div>
@@ -207,42 +140,24 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
             min={1}
             max={100}
             onChange={(_, v) => setOpacity(v as number)}
-            sx={{
-              color: PRIMARY,
-              "& .MuiSlider-thumb": { borderRadius: "50%" },
-            }}
+            className={styles.dressingOpacitySlider}
           />
         </div>
 
-        <div
-          style={{
-            fontSize: "0.8rem",
-            color: "#9ca3af",
-            borderTop: "1px solid #f3f4f6",
-            paddingTop: 12,
-          }}
-        >
+        <div className={styles.dressingHint}>
           {t("videoDressing.addWatermark")}
         </div>
       </div>
 
       {/* Actions */}
-      <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+      <div className={styles.dressingActions}>
         <button
           type="button"
           onClick={onBack}
           disabled={saving}
-          style={{
-            padding: "8px 20px",
-            borderRadius: BORDER_RADIUS,
-            border: BORDER,
-            background: "white",
-            color: "#374151",
-            fontWeight: 500,
-            cursor: "pointer",
-            fontSize: "0.9rem",
-            opacity: saving ? 0.5 : 1,
-          }}
+          className={`${styles.dressingCancelButton} ${
+            saving ? styles.dressingButtonDisabled : ""
+          }`}
         >
           {t("common.cancel")}
         </button>
@@ -250,23 +165,12 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
           type="button"
           onClick={handleCreate}
           disabled={saving || !title.trim()}
-          style={{
-            padding: "8px 24px",
-            borderRadius: BORDER_RADIUS,
-            border: "none",
-            background: !title.trim() || saving ? "#d1d5db" : PRIMARY,
-            color: "white",
-            fontWeight: 600,
-            cursor: !title.trim() || saving ? "not-allowed" : "pointer",
-            fontSize: "0.9rem",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            transition: "background 0.15s",
-          }}
+          className={`${styles.dressingCreateButton} ${
+            !title.trim() || saving ? styles.dressingButtonDisabled : ""
+          }`}
         >
           {saving ? (
-            <CircularProgress size={16} style={{ color: "white" }} />
+            <CircularProgress size={16} className={styles.dressingWhiteProgress} />
           ) : (
             <CheckCircleOutlineIcon fontSize="small" />
           )}
@@ -343,38 +247,18 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
 
   /* ---- Select panel ---- */
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+    <div className={styles.dressingSelectPanel}>
       {/* Header row */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          gap: 12,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div
-            style={{
-              width: 38,
-              height: 38,
-              borderRadius: "50%",
-              background: PRIMARY_LIGHT,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <StyleIcon style={{ color: PRIMARY, fontSize: 20 }} />
+      <div className={styles.dressingMainHeader}>
+        <div className={styles.dressingMainSectionHeader}>
+          <div className={styles.dressingMainIconCircle}>
+            <StyleIcon className={styles.dressingPrimaryIcon} />
           </div>
           <div>
-            <div
-              style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111" }}
-            >
+            <div className={styles.dressingSectionTitle}>
               {t("videoDressing.dressing")}
             </div>
-            <div style={{ fontSize: "0.8rem", color: "#6b7280" }}>
+            <div className={styles.dressingSectionDescription}>
               {t("videoDressing.addWatermark")}, {t("videoDressing.start")}{" "}
               &amp; {t("videoDressing.end")}.
             </div>
@@ -385,29 +269,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
         <button
           type="button"
           onClick={() => setView("create")}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "7px 16px",
-            borderRadius: BORDER_RADIUS,
-            border: `1.5px solid ${PRIMARY}`,
-            background: "white",
-            color: PRIMARY,
-            fontWeight: 600,
-            fontSize: "0.85rem",
-            cursor: "pointer",
-            whiteSpace: "nowrap",
-            transition: "background 0.15s",
-            flexShrink: 0,
-          }}
-          onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLButtonElement).style.background =
-              PRIMARY_LIGHT)
-          }
-          onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLButtonElement).style.background = "white")
-          }
+          className={styles.dressingHeaderCreateButton}
         >
           <AddCircleOutlineIcon fontSize="small" />
           {t("videoDressing.create")}
@@ -417,17 +279,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
       {/* Feedback message */}
       {msg && (
         <div
-          style={{
-            background: msg.ok ? "#f0fdf4" : "#fef2f2",
-            border: `1.5px solid ${msg.ok ? "#bbf7d0" : "#fecaca"}`,
-            borderRadius: BORDER_RADIUS,
-            padding: "10px 14px",
-            color: msg.ok ? "#15803d" : "#b91c1c",
-            fontSize: "0.85rem",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-          }}
+          className={`${styles.dressingFeedback} ${
+            msg.ok ? styles.dressingFeedbackSuccess : styles.dressingFeedbackError
+          }`}
         >
           {msg.ok ? <CheckCircleOutlineIcon fontSize="small" /> : null}
           {msg.text}
@@ -436,66 +290,36 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
 
       {/* Dressing selector */}
       {isLoading ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            color: "#6b7280",
-            padding: "16px 0",
-          }}
-        >
-          <CircularProgress size={20} style={{ color: PRIMARY }} />
+        <div className={styles.dressingLoading}>
+          <CircularProgress size={20} className={styles.dressingPrimaryProgress} />
           {t("videoDressing.loading")}
         </div>
       ) : dressings.length === 0 ? (
-        <div
-          style={{
-            textAlign: "center",
-            padding: "32px 16px",
-            border: "2px dashed #d1d5db",
-            borderRadius: BORDER_RADIUS,
-            color: "#9ca3af",
-          }}
-        >
-          <StyleIcon
-            style={{ fontSize: 40, color: "#d1d5db", marginBottom: 8 }}
-          />
-          <p style={{ margin: "0 0 12px", fontWeight: 500 }}>
+        <div className={styles.dressingEmpty}>
+          <StyleIcon className={styles.dressingEmptyIcon} />
+          <p className={styles.dressingEmptyText}>
             {t("videoDressing.noDressing")}
           </p>
           <button
             type="button"
             onClick={() => setView("create")}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              padding: "8px 18px",
-              borderRadius: BORDER_RADIUS,
-              border: `1.5px solid ${PRIMARY}`,
-              background: PRIMARY,
-              color: "white",
-              fontWeight: 600,
-              fontSize: "0.875rem",
-              cursor: "pointer",
-            }}
+            className={styles.dressingEmptyCreateButton}
           >
             <AddCircleOutlineIcon fontSize="small" />
             {t("videoDressing.create")}
           </button>
         </div>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div className={styles.dressingCards}>
           {/* None option */}
           <DressingCard
             isSelected={selectedDressingId === ""}
             onClick={() => handleDressingChange("")}
             disabled={isUpdating}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <DeleteOutlineIcon style={{ color: "#9ca3af" }} />
-              <span style={{ color: "#6b7280", fontStyle: "italic" }}>
+            <div className={styles.dressingCardRow}>
+              <DeleteOutlineIcon className={styles.dressingMutedIcon} />
+              <span className={styles.dressingNoneLabel}>
                 {t("videoDressing.noDressing")}
               </span>
             </div>
@@ -509,38 +333,15 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
               onClick={() => handleDressingChange(d.id)}
               disabled={isUpdating}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div
-                  style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: "50%",
-                    background: PRIMARY_LIGHT,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <PaletteIcon style={{ color: PRIMARY, fontSize: 16 }} />
+              <div className={styles.dressingCardRow}>
+                <div className={styles.dressingSmallIconCircle}>
+                  <PaletteIcon className={styles.dressingPaletteIcon} />
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div
-                    style={{
-                      fontWeight: 600,
-                      fontSize: "0.9rem",
-                      color: "#111",
-                    }}
-                  >
+                <div className={styles.dressingCardContent}>
+                  <div className={styles.dressingCardTitle}>
                     {d.title}
                   </div>
-                  <div
-                    style={{
-                      fontSize: "0.78rem",
-                      color: "#9ca3af",
-                      marginTop: 2,
-                    }}
-                  >
+                  <div className={styles.dressingCardDescription}>
                     {[
                       d.watermark ? t("videoDressing.watermark") : null,
                       d.opening_credits ? t("videoDressing.start") : null,
@@ -551,9 +352,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                   </div>
                 </div>
                 {selectedDressingId === d.id && (
-                  <CheckCircleOutlineIcon
-                    style={{ color: PRIMARY, flexShrink: 0 }}
-                  />
+                  <CheckCircleOutlineIcon className={styles.dressingSelectedIcon} />
                 )}
               </div>
             </DressingCard>
@@ -563,22 +362,8 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
 
       {/* Active dressing detail */}
       {activeDressing && (
-        <div
-          style={{
-            padding: "14px 16px",
-            background: PRIMARY_LIGHT,
-            borderRadius: BORDER_RADIUS,
-            border: `1.5px solid ${PRIMARY}30`,
-            display: "flex",
-            flexDirection: "column",
-            gap: 6,
-            fontSize: "0.83rem",
-            color: "#374151",
-          }}
-        >
-          <div
-            style={{ fontWeight: 700, color: PRIMARY, fontSize: "0.875rem" }}
-          >
+        <div className={styles.dressingDetails}>
+          <div className={styles.dressingDetailsTitle}>
             {t("videoDressing.dressing")} : {activeDressing.title}
           </div>
           {activeDressing.watermark && (
@@ -625,18 +410,9 @@ function DressingCard({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      style={{
-        display: "block",
-        width: "100%",
-        textAlign: "left",
-        padding: "12px 14px",
-        borderRadius: BORDER_RADIUS,
-        border: isSelected ? `2px solid ${PRIMARY}` : "1.5px solid #e5e7eb",
-        background: isSelected ? PRIMARY_LIGHT : "white",
-        cursor: disabled ? "not-allowed" : "pointer",
-        transition: "border-color 0.15s, background 0.15s",
-        opacity: disabled ? 0.7 : 1,
-      }}
+      className={`${styles.dressingCard} ${
+        isSelected ? styles.dressingCardSelected : ""
+      } ${disabled ? styles.dressingCardDisabled : ""}`}
     >
       {children}
     </button>

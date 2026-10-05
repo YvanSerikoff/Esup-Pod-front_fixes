@@ -525,7 +525,7 @@ export default function EditVideo() {
 
   if (useVideoError || !video) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles["video-error-container"]}>
         <Alert type={VariantType.ERROR} aria-live="assertive">
           {useVideoError ?? t("errors.loadErrorVideo")}
         </Alert>
@@ -824,7 +824,7 @@ export default function EditVideo() {
     const isPublicEmpty = selectedStatus === "PU" && !hasSource;
 
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <div className={styles["step-content"]}>
         {isPublicEmpty && (
           <Alert type={VariantType.ERROR} canClose={false}>
             {t("videoEdit.publicNoSourceAlert")}
@@ -832,65 +832,20 @@ export default function EditVideo() {
         )}
 
         {!hasSource ? (
-          <div
-            style={{
-              padding: "16px 20px",
-              background: "rgba(245, 158, 11, 0.12)",
-              border: "1.5px solid rgba(245, 158, 11, 0.4)",
-              borderRadius: 10,
-              display: "flex",
-              flexDirection: "column",
-              gap: 8,
-            }}
-          >
-            <div
-              style={{
-                fontWeight: 700,
-                color: "#f59e0b",
-                fontSize: "0.95rem",
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
+          <div className={styles["source-status-card"]}>
+            <div className={styles["source-status-title-warning"]}>
               ⚠️ {t("videoEdit.noSourceWarningTitle")}
             </div>
-            <p
-              style={{
-                margin: 0,
-                fontSize: "0.85rem",
-                color: "#fbbf24",
-                lineHeight: 1.5,
-              }}
-            >
+            <p className={styles["source-status-description-warning"]}>
               {t("videoEdit.noSourceWarningDesc")}
             </p>
           </div>
         ) : (
-          <div
-            style={{
-              padding: "16px 20px",
-              background: "rgba(34, 197, 94, 0.12)",
-              border: "1.5px solid rgba(34, 197, 94, 0.4)",
-              borderRadius: 10,
-              display: "flex",
-              flexDirection: "column",
-              gap: 8,
-            }}
-          >
-            <div
-              style={{
-                fontWeight: 700,
-                color: "#4ade80",
-                fontSize: "0.95rem",
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
+          <div className={`${styles["source-status-card"]} ${styles["source-status-card-success"]}`}>
+            <div className={styles["source-status-title-success"]}>
               ✅ {t("videoEdit.mediaAttached")}
             </div>
-            <p style={{ margin: 0, fontSize: "0.85rem", color: "#86efac" }}>
+            <p className={styles["source-status-description-success"]}>
               {String(video?.video_url || sourceFile?.name || "")
                 .split("/")
                 .pop()}
@@ -901,29 +856,11 @@ export default function EditVideo() {
           </div>
         )}
 
-        <div
-          style={{
-            padding: "20px",
-            background: "var(--c--theme--colors--card-bg, #0f172a)",
-            border: isPublicEmpty
-              ? "1.5px solid #ef4444"
-              : "1.5px solid var(--border-color, #334155)",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "column",
-            gap: 16,
-          }}
-        >
-          <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>
+        <div className={`${styles["source-upload-card"]} ${isPublicEmpty ? styles["source-upload-card-error"] : ""}`}>
+          <div className={styles["source-upload-title"]}>
             {t("videoEdit.importHeaderTitle")}
           </div>
-          <p
-            style={{
-              margin: 0,
-              fontSize: "0.85rem",
-              color: "var(--text-color-muted, #94a3b8)",
-            }}
-          >
+          <p className={styles["source-upload-description"]}>
             {t("videoEdit.selectVideoFile")}
           </p>
 
@@ -945,15 +882,14 @@ export default function EditVideo() {
           />
 
           {sourceFile && (
-            <p style={{ margin: 0, fontSize: "0.85rem", fontWeight: 500 }}>
+            <p className={styles["source-upload-file"]}>
               📹 {sourceFile.name}
             </p>
           )}
 
           <button
             type="button"
-            className={`${styles["action-pill-btn"]} ${styles.primary}`}
-            style={{ alignSelf: "flex-start" }}
+            className={`${styles["action-pill-btn"]} ${styles.primary} ${styles["source-upload-button"]}`}
             disabled={!sourceFile || sourceUploading}
             onClick={handleSourceChange}
           >
@@ -968,7 +904,7 @@ export default function EditVideo() {
   };
 
   const renderDetailsStep = () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+    <div className={styles["step-content"]}>
       {/* Title */}
       <Controller
         name="title"
@@ -987,7 +923,7 @@ export default function EditVideo() {
               placeholder={t("videoEdit.titlePlaceholder")}
               error={Boolean(errors.title)}
               helperText={errors.title?.message ?? t("videoEdit.titleHelper")}
-              InputProps={{ style: { borderRadius: "8px" } }}
+              InputProps={{ className: styles["rounded-input"] }}
             />
           </div>
         )}
@@ -1010,7 +946,7 @@ export default function EditVideo() {
               variant="outlined"
               placeholder={t("videoEdit.descriptionPlaceholder")}
               helperText={t("videoEdit.descriptionHelper")}
-              InputProps={{ style: { borderRadius: "8px" } }}
+              InputProps={{ className: styles["rounded-input"] }}
             />
           </div>
         )}
@@ -1032,7 +968,7 @@ export default function EditVideo() {
               fullWidth
               variant="outlined"
               helperText={t("videoEdit.mainLanguageHelper")}
-              InputProps={{ style: { borderRadius: "8px" } }}
+              InputProps={{ className: styles["rounded-input"] }}
             >
               {(
                 config?.video?.metadata_languages || VIDEO_LANGUAGE_OPTIONS
@@ -1117,7 +1053,7 @@ export default function EditVideo() {
                     helperText={t("videoEdit.tagsHelper")}
                     InputProps={{
                       ...params.InputProps,
-                      style: { borderRadius: "8px" },
+                      className: styles["rounded-input"],
                     }}
                   />
                 )}
@@ -1167,12 +1103,7 @@ export default function EditVideo() {
               className={styles["vignette-empty-zone"]}
             >
               <div className={styles["vignette-empty-icon"]}>
-                <UploadFileIcon
-                  style={{
-                    fontSize: 32,
-                    color: "var(--c--globals--colors--primary-600, #00818a)",
-                  }}
-                />
+                <UploadFileIcon className={styles["vignette-upload-icon"]} />
               </div>
               <span className={styles["vignette-empty-title"]}>
                 {t("videoEdit.uploadThumbnailBtn")}
@@ -1186,7 +1117,7 @@ export default function EditVideo() {
             id="thumbnail-input"
             type="file"
             accept=".jpg,.jpeg,.png"
-            style={{ display: "none" }}
+            className={styles["visually-hidden"]}
             onChange={(e) => {
               const file = e.target.files?.[0] ?? null;
               handleThumbnailChange(file);
@@ -1198,13 +1129,7 @@ export default function EditVideo() {
           {t("videoEdit.thumbnailCopyrightHelper")}
         </p>
         {errors.thumbnail && (
-          <p
-            style={{
-              color: "var(--c--globals--colors--error-600, #d32f2f)",
-              fontSize: "0.8rem",
-              margin: "4px 0 0",
-            }}
-          >
+          <p className={styles["vignette-error"]}>
             {errors.thumbnail.message}
           </p>
         )}
@@ -1237,7 +1162,7 @@ export default function EditVideo() {
                     helperText={t("videoEdit.ownerHelper")}
                     InputProps={{
                       ...params.InputProps,
-                      style: { borderRadius: "8px" },
+                      className: styles["rounded-input"],
                     }}
                   />
                 )}
@@ -1274,7 +1199,7 @@ export default function EditVideo() {
                   helperText={t("videoEdit.coOwnersHelper")}
                   InputProps={{
                     ...params.InputProps,
-                    style: { borderRadius: "8px" },
+                    className: styles["rounded-input"],
                   }}
                 />
               )}
@@ -1298,7 +1223,7 @@ export default function EditVideo() {
               fullWidth
               variant="outlined"
               helperText={t("videoEdit.licenseHelper")}
-              InputProps={{ style: { borderRadius: "8px" } }}
+              InputProps={{ className: styles["rounded-input"] }}
             >
               {licenseOptions.map((opt) => (
                 <MenuItem key={opt.value} value={opt.value}>
@@ -1384,7 +1309,7 @@ export default function EditVideo() {
                             return (
                               <Box
                                 component="span"
-                                sx={{ color: "text.disabled" }}
+                                className={styles["theme-placeholder"]}
                               >
                                 {t("videoEdit.themesPlaceholder")}
                               </Box>
@@ -1401,15 +1326,19 @@ export default function EditVideo() {
                       <MenuItem
                         key={option.id}
                         value={option.id}
-                        sx={{ pl: `${2 + option.depth * 3}rem` }}
+                        className={`${styles["theme-option"]} ${styles[`theme-option-depth-${Math.min(option.depth, 6)}`]}`}
                       >
                         <Checkbox
                           checked={selectedIds.includes(option.id)}
-                          sx={{ mr: 1 }}
+                          className={styles["theme-option-checkbox"]}
                         />
                         <Box
                           component="span"
-                          sx={{ fontWeight: option.depth === 0 ? 700 : 400 }}
+                          className={
+                            option.depth === 0
+                              ? styles["theme-option-root"]
+                              : styles["theme-option-child"]
+                          }
                         >
                           {option.title}
                         </Box>
@@ -1476,7 +1405,7 @@ export default function EditVideo() {
             label={t("videoEdit.publicationDateLabel")}
             slotProps={{ inputLabel: { shrink: true } }}
             helperText={t("videoEdit.publicationDateHelper")}
-            InputProps={{ style: { borderRadius: "8px" } }}
+            InputProps={{ className: styles["rounded-input"] }}
           />
         )}
       />
@@ -1567,8 +1496,7 @@ export default function EditVideo() {
 
           {/* Chapitrage */}
           <div
-            className={styles["element-card"]}
-            style={{ opacity: hasEncodedSource ? 1 : 0.65 }}
+            className={`${styles["element-card"]} ${!hasEncodedSource ? styles["element-card-disabled"] : ""}`}
           >
             <div className={styles["element-card-info"]}>
               <span className={styles["element-card-title"]}>
@@ -1594,8 +1522,7 @@ export default function EditVideo() {
           {/* Habillage */}
           {config?.dressing?.use_dressing !== false && (
             <div
-              className={styles["element-card"]}
-              style={{ opacity: hasEncodedSource ? 1 : 0.65 }}
+              className={`${styles["element-card"]} ${!hasEncodedSource ? styles["element-card-disabled"] : ""}`}
             >
               <div className={styles["element-card-info"]}>
                 <span className={styles["element-card-title"]}>
@@ -1620,8 +1547,7 @@ export default function EditVideo() {
 
           {/* Trimming */}
           <div
-            className={styles["element-card"]}
-            style={{ opacity: hasEncodedSource ? 1 : 0.65 }}
+            className={`${styles["element-card"]} ${!hasEncodedSource ? styles["element-card-disabled"] : ""}`}
           >
             <div className={styles["element-card-info"]}>
               <span className={styles["element-card-title"]}>
@@ -1654,32 +1580,13 @@ export default function EditVideo() {
 
     return (
       <>
-        <p
-          style={{
-            fontSize: "0.875rem",
-            color: "var(--text-color-muted, #94a3b8)",
-            marginTop: 0,
-          }}
-        >
+        <p className={styles["visibility-description"]}>
           {t("videoEdit.visibilityHeaderSub")}
         </p>
 
         {!hasSource && (
-          <div
-            style={{
-              padding: "12px 16px",
-              background: "rgba(239, 68, 68, 0.12)",
-              border: "1.5px solid rgba(239, 68, 68, 0.4)",
-              borderRadius: 10,
-              color: "#fca5a5",
-              fontSize: "0.875rem",
-              marginBottom: 16,
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-            }}
-          >
-            <PriorityHighIcon style={{ fontSize: 20, flexShrink: 0 }} />
+          <div className={styles["no-source-notice"]}>
+            <PriorityHighIcon className={styles["no-source-notice-icon"]} />
             <span>{t("videoEdit.noSourceDraftNotice")}</span>
           </div>
         )}
@@ -1693,21 +1600,12 @@ export default function EditVideo() {
           >
             <span>{t("videoEdit.restrictionsHeader")}</span>
             <ExpandMoreIcon
-              style={{
-                transform: restrictionExpanded ? "rotate(180deg)" : "none",
-                transition: "0.2s",
-              }}
+              className={`${styles["expand-icon"]} ${restrictionExpanded ? styles.expanded : ""}`}
             />
           </button>
           {restrictionExpanded && (
             <div className={styles["visibility-section-content"]}>
-              <p
-                style={{
-                  fontSize: "0.8rem",
-                  color: "var(--text-color-muted, #94a3b8)",
-                  margin: "0 0 8px",
-                }}
-              >
+              <p className={styles["restriction-description"]}>
                 {t("videoEdit.restrictionsSub")}
               </p>
               <Controller
@@ -1716,7 +1614,11 @@ export default function EditVideo() {
                 render={({ field }) => (
                   <RadioGroup {...field}>
                     <div className={styles["radio-option"]}>
-                      <Radio value="DR" size="small" sx={{ mt: "-3px" }} />
+                      <Radio
+                        value="DR"
+                        size="small"
+                        className={styles["status-radio"]}
+                      />
                       <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.draftPrivateTitle")}</h4>
                         <p>{t("videoEdit.draftPrivateDesc")}</p>
@@ -1724,18 +1626,13 @@ export default function EditVideo() {
                     </div>
                     <Divider />
                     <div
-                      className={styles["radio-option"]}
-                      style={
-                        !hasSource
-                          ? { opacity: 0.45, cursor: "not-allowed" }
-                          : undefined
-                      }
+                      className={`${styles["radio-option"]} ${!hasSource ? styles["radio-option-disabled"] : ""}`}
                     >
                       <Radio
                         value="RE"
                         size="small"
                         disabled={!hasSource}
-                        sx={{ mt: "-3px" }}
+                        className={styles["status-radio"]}
                       />
                       <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.restrictedTitle")}</h4>
@@ -1744,18 +1641,13 @@ export default function EditVideo() {
                     </div>
                     <Divider />
                     <div
-                      className={styles["radio-option"]}
-                      style={
-                        !hasSource
-                          ? { opacity: 0.45, cursor: "not-allowed" }
-                          : undefined
-                      }
+                      className={`${styles["radio-option"]} ${!hasSource ? styles["radio-option-disabled"] : ""}`}
                     >
                       <Radio
                         value="PU"
                         size="small"
                         disabled={!hasSource}
-                        sx={{ mt: "-3px" }}
+                        className={styles["status-radio"]}
                       />
                       <div className={styles["radio-option-content"]}>
                         <h4>{t("videoEdit.publicTitle")}</h4>
@@ -1766,22 +1658,8 @@ export default function EditVideo() {
                 )}
               />
               {selectedStatus === "RE" && hasSource && (
-                <div
-                  style={{
-                    marginTop: 8,
-                    padding: "12px",
-                    background: "var(--c--theme--colors--card-bg, #0f172a)",
-                    borderRadius: 6,
-                    border: "1px solid var(--border-color, #334155)",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontWeight: 600,
-                      margin: "0 0 8px",
-                      fontSize: "0.875rem",
-                    }}
-                  >
+                <div className={styles["restriction-options"]}>
+                  <p className={styles["restriction-options-title"]}>
                     {t("videoEdit.restrictionOptions")}
                   </p>
                   <Controller
@@ -1863,10 +1741,7 @@ export default function EditVideo() {
               <span>{t("videoEdit.diffusionTitle")}</span>
             </div>
             <ExpandMoreIcon
-              style={{
-                transform: diffusionExpanded ? "rotate(180deg)" : "none",
-                transition: "0.2s",
-              }}
+              className={`${styles["expand-icon"]} ${diffusionExpanded ? styles.expanded : ""}`}
             />
           </button>
           {diffusionExpanded && (
@@ -1936,10 +1811,7 @@ export default function EditVideo() {
               <span>{t("videoEdit.advancedOptionsTitle")}</span>
             </div>
             <ExpandMoreIcon
-              style={{
-                transform: advancedExpanded ? "rotate(180deg)" : "none",
-                transition: "0.2s",
-              }}
+              className={`${styles["expand-icon"]} ${advancedExpanded ? styles.expanded : ""}`}
             />
           </button>
           {advancedExpanded && (
@@ -2003,7 +1875,7 @@ export default function EditVideo() {
               />
             ) : (
               <div className={styles["live-card-media-placeholder"]}>
-                <OndemandVideoIcon style={{ fontSize: 40, opacity: 0.3 }} />
+                <OndemandVideoIcon className={styles["live-card-placeholder-icon"]} />
               </div>
             )}
 
@@ -2018,10 +1890,11 @@ export default function EditVideo() {
             {video?.encoding_status && video.encoding_status !== "DO" && (
               <div className={styles["live-card-encoding-overlay"]}>
                 <div
-                  className={styles["live-card-encoding-progress-bar"]}
-                  style={{
-                    width: video.encoding_status === "PE" ? "30%" : "65%",
-                  }}
+                  className={`${styles["live-card-encoding-progress-bar"]} ${
+                    video.encoding_status === "PE"
+                      ? styles["encoding-progress-pending"]
+                      : styles["encoding-progress-processing"]
+                  }`}
                 ></div>
                 <div className={styles["live-card-encoding-text"]}>
                   {video.encoding_status_label || t("pending.encoding")}
@@ -2032,16 +1905,7 @@ export default function EditVideo() {
 
           {/* Details below */}
           <div className={styles["live-card-details"]}>
-            <Avatar
-              sx={{
-                width: 32,
-                height: 32,
-                mt: 0.5,
-                bgcolor: "var(--c--globals--colors--primary-600, #00818a)",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-              }}
-            >
+            <Avatar className={styles["live-card-avatar"]}>
               {liveInitials}
             </Avatar>
 
@@ -2055,13 +1919,7 @@ export default function EditVideo() {
                 <div className={styles["live-card-badges"]}>
                   {statusVal === "DR" && (
                     <Tooltip title={t("videoEdit.privateVideoTooltip")}>
-                      <span
-                        className="material-icons"
-                        style={{
-                          fontSize: "1rem",
-                          color: "var(--c--globals--colors--gray-500)",
-                        }}
-                      >
+                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
                         visibility_off
                       </span>
                     </Tooltip>
@@ -2070,26 +1928,14 @@ export default function EditVideo() {
                     <Tooltip
                       title={t("videoEdit.passwordProtectedVideoTooltip")}
                     >
-                      <span
-                        className="material-icons"
-                        style={{
-                          fontSize: "1rem",
-                          color: "var(--c--globals--colors--gray-500)",
-                        }}
-                      >
+                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
                         key
                       </span>
                     </Tooltip>
                   )}
                   {isAuthRequiredVal && (
                     <Tooltip title={t("videoEdit.authRequiredLabel")}>
-                      <span
-                        className="material-icons"
-                        style={{
-                          fontSize: "1rem",
-                          color: "var(--c--globals--colors--gray-500)",
-                        }}
-                      >
+                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
                         verified_user
                       </span>
                     </Tooltip>
@@ -2164,25 +2010,10 @@ export default function EditVideo() {
           {renderVideoPreview()}
 
           {/* Video title + views chip */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "8px 0",
-            }}
-          >
-            <span style={{ fontWeight: 600 }}>{video?.title}</span>
+          <div className={styles["mobile-video-heading"]}>
+            <span className={styles["mobile-video-title"]}>{video?.title}</span>
             {config?.video?.show_views !== false && video?.views != null && (
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 4,
-                  fontSize: "0.875rem",
-                  color: "var(--c--globals--colors--gray-600)",
-                }}
-              >
+              <span className={styles["mobile-video-views"]}>
                 <VisibilityIcon fontSize="small" /> {video?.views}
               </span>
             )}
@@ -2195,16 +2026,11 @@ export default function EditVideo() {
                 <button
                   key={step.label}
                   type="button"
-                  className={styles["mobile-menu-item"]}
                   onClick={() =>
                     step.index >= 0 && setMobilePanelIndex(step.index)
                   }
                   disabled={step.index < 0}
-                  style={
-                    step.index < 0
-                      ? { opacity: 0.5, cursor: "not-allowed" }
-                      : undefined
-                  }
+                  className={`${styles["mobile-menu-item"]} ${step.index < 0 ? styles["mobile-menu-item-disabled"] : ""}`}
                 >
                   <span className={styles["mobile-menu-item-icon"]}>
                     {step.icon}
@@ -2227,13 +2053,7 @@ export default function EditVideo() {
                 {MOBILE_STEPS.find((s) => s.index === mobilePanelIndex)
                   ?.label ?? t("common.back")}
               </button>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                }}
-              >
+              <div className={styles["mobile-step-content"]}>
                 {mobilePanelIndex === 0 && renderImportStep()}
                 {mobilePanelIndex === 1 && renderDetailsStep()}
                 {mobilePanelIndex === 2 && renderElementsStep()}
@@ -2246,7 +2066,7 @@ export default function EditVideo() {
         <Dialog
           open={confirmLeaveOpen}
           onClose={handleCancelLeave}
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle>{t("common.unsavedChangesTitle")}</DialogTitle>
           <DialogContent>
@@ -2278,18 +2098,11 @@ export default function EditVideo() {
           onClose={() => setChaptersModalOpen(false)}
           maxWidth="md"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <BookmarksIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.chaptersDialogTitle")}
           </DialogTitle>
@@ -2314,18 +2127,11 @@ export default function EditVideo() {
           onClose={() => setDressingModalOpen(false)}
           maxWidth="sm"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <StyleIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.dressingTitle")}
           </DialogTitle>
@@ -2355,71 +2161,29 @@ export default function EditVideo() {
           onClose={() => setSubtitlesModalOpen(false)}
           maxWidth="sm"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <SubtitlesIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.subtitlesTitle")}
           </DialogTitle>
           <DialogContent dividers>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 20,
-                padding: "4px 0",
-              }}
-            >
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "0.875rem",
-                  color: "var(--text-color-muted, #94a3b8)",
-                }}
-              >
+            <div className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}>
+              <p className={styles["modal-description"]}>
                 {t("videoEdit.subtitleDescription")}
               </p>
               {video?.subtitles?.length ? (
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: 8 }}
-                >
+                <div className={styles["subtitle-list"]}>
                   {video?.subtitles?.map((s) => (
-                    <div
-                      key={s.id}
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "10px 14px",
-                        border: "1.5px solid var(--border-color, #e5e7eb)",
-                        borderRadius: 10,
-                        background: "var(--c--theme--colors--card-bg, #ffffff)",
-                      }}
-                    >
+                    <div key={s.id} className={styles["subtitle-list-item"]}>
                       <div>
-                        <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                        <span className={styles["subtitle-language"]}>
                           {s.language.toUpperCase()}
                         </span>
                         {s.is_default && (
-                          <span
-                            style={{
-                              marginLeft: 8,
-                              fontSize: "0.75rem",
-                              background: "rgba(34, 197, 94, 0.2)",
-                              color: "#4ade80",
-                              padding: "2px 8px",
-                              borderRadius: 999,
-                            }}
-                          >
+                          <span className={styles["subtitle-default-badge"]}>
                             {t("common.default")}
                           </span>
                         )}
@@ -2438,40 +2202,15 @@ export default function EditVideo() {
                   ))}
                 </div>
               ) : (
-                <p
-                  style={{
-                    color: "var(--text-color-muted, #9ca3af)",
-                    fontStyle: "italic",
-                    fontSize: "0.875rem",
-                    margin: 0,
-                  }}
-                >
+                <p className={styles["empty-subtitles-message"]}>
                   {t("videoEdit.noSubtitles")}
                 </p>
               )}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                  padding: 16,
-                  background:
-                    "var(--c--theme--colors--card-bg, rgba(255,255,255,0.04))",
-                  borderRadius: 10,
-                  border: "1.5px solid var(--border-color, #e5e7eb)",
-                }}
-              >
-                <span style={{ fontWeight: 600, fontSize: "0.875rem" }}>
+              <div className={styles["add-subtitle-panel"]}>
+                <span className={styles["modal-section-title"]}>
                   {t("videoEdit.addSubtitle")}
                 </span>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: 12,
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                  }}
-                >
+                <div className={styles["subtitle-options-row"]}>
                   <TextField
                     select
                     label={t("videoEdit.subtitleLanguageLabel")}
@@ -2480,8 +2219,8 @@ export default function EditVideo() {
                       setSubtitleLanguage(e.target.value as LanguageSubtitle)
                     }
                     size="small"
-                    sx={{ minWidth: 140 }}
-                    InputProps={{ style: { borderRadius: 10 } }}
+                    className={styles["subtitle-language-select"]}
+                    InputProps={{ className: styles["rounded-input-large"] }}
                   >
                     {SUBTITLE_LANGUAGE_OPTIONS.map((opt) => (
                       <MenuItem key={opt.value} value={opt.value}>
@@ -2508,9 +2247,7 @@ export default function EditVideo() {
                   }
                 />
                 {subtitleFile && (
-                  <p
-                    style={{ margin: 0, fontSize: "0.8rem", color: "#374151" }}
-                  >
+                  <p className={styles["selected-file"]}>
                     📄 {subtitleFile?.name}
                   </p>
                 )}
@@ -2548,18 +2285,11 @@ export default function EditVideo() {
           onClose={() => setDocumentsModalOpen(false)}
           maxWidth="sm"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <AttachFileIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.documentsTitle")}
           </DialogTitle>
@@ -2584,18 +2314,11 @@ export default function EditVideo() {
           onClose={() => setContributorsModalOpen(false)}
           maxWidth="md"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <GroupIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.contributorsTitle")}
           </DialogTitle>
@@ -2623,31 +2346,17 @@ export default function EditVideo() {
           }}
           maxWidth="sm"
           fullWidth
-          PaperProps={{ sx: { borderRadius: 3 } }}
+          PaperProps={{ className: styles["modal-paper"] }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontWeight: 700,
-            }}
-          >
+          <DialogTitle className={styles["modal-title"]}>
             <SwitchVideoIcon
-              sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+              className={styles["modal-title-icon"]}
             />
             {t("videoEdit.changeSourceTitle")}
           </DialogTitle>
           <DialogContent dividers>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 16,
-                padding: "4px 0",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
+            <div className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}>
+              <p className={styles["source-modal-description"]}>
                 {t("videoEdit.changeSourceDesc")}
               </p>
               <FileUploader
@@ -2662,7 +2371,7 @@ export default function EditVideo() {
                 }
               />
               {sourceFile && (
-                <p style={{ margin: 0, fontSize: "0.8rem", color: "#374151" }}>
+                <p className={styles["selected-file"]}>
                   📹 {sourceFile?.name}
                 </p>
               )}
@@ -2765,10 +2474,7 @@ export default function EditVideo() {
           <div className={styles["custom-stepper"]}>
             <div className={styles["stepper-line-bg"]}></div>
             <div
-              className={styles["stepper-line-progress"]}
-              style={{
-                width: `${(activeStep / (ALL_STEPS.length - 1)) * 100}%`,
-              }}
+              className={`${styles["stepper-line-progress"]} ${styles[`stepper-progress-${activeStep}`]}`}
             ></div>
             {ALL_STEPS.map((label, index) => {
               const isActive = index === activeStep;
@@ -2834,9 +2540,9 @@ export default function EditVideo() {
                   <div className={styles["stepper-item-header"]}>
                     <div className={styles["stepper-dot"]}>
                       {isError ? (
-                        <PriorityHighIcon style={{ fontSize: 16 }} />
+                        <PriorityHighIcon className={styles["stepper-status-icon"]} />
                       ) : isCompleted && !isActive ? (
-                        <CheckIcon style={{ fontSize: 16 }} />
+                        <CheckIcon className={styles["stepper-status-icon"]} />
                       ) : (
                         index + 1
                       )}
@@ -2844,16 +2550,15 @@ export default function EditVideo() {
                     <span className={styles["stepper-title"]}>{label}</span>
                   </div>
                   <div
-                    className={styles["stepper-description"]}
-                    style={
+                    className={`${styles["stepper-description"]} ${
                       isActive
-                        ? { color: "#60a5fa", fontWeight: 600 }
+                        ? styles["stepper-description-active"]
                         : isError
-                          ? { color: "#fca5a5", fontWeight: 600 }
+                          ? styles["stepper-description-error"]
                           : index === 0 && !hasSource
-                            ? { color: "#60a5fa", fontWeight: 500 }
-                            : undefined
-                    }
+                            ? styles["stepper-description-no-source"]
+                            : ""
+                    }`}
                   >
                     {stepDesc}
                   </div>
@@ -2935,7 +2640,7 @@ export default function EditVideo() {
       <Dialog
         open={confirmLeaveOpen}
         onClose={handleCancelLeave}
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle>{t("common.unsavedChangesTitle")}</DialogTitle>
         <DialogContent>
@@ -2967,18 +2672,11 @@ export default function EditVideo() {
         onClose={() => setChaptersModalOpen(false)}
         maxWidth="md"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
+        <DialogTitle className={styles["modal-title"]}>
           <BookmarksIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+            className={styles["modal-title-icon"]}
           />
           {t("videoEdit.chaptersDialogTitle")}
         </DialogTitle>
@@ -3003,18 +2701,11 @@ export default function EditVideo() {
         onClose={() => setDressingModalOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
+        <DialogTitle className={styles["modal-title"]}>
           <StyleIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+            className={styles["modal-title-icon"]}
           />
           {t("videoEdit.dressingTitle")}
         </DialogTitle>
@@ -3044,71 +2735,31 @@ export default function EditVideo() {
         onClose={() => setSubtitlesModalOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
+        <DialogTitle className={styles["modal-title"]}>
           <SubtitlesIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+            className={styles["modal-title-icon"]}
           />
           {t("videoEdit.subtitlesTitle")}
         </DialogTitle>
         <DialogContent dividers>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 20,
-              padding: "4px 0",
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: "0.875rem",
-                color: "var(--text-color-muted, #94a3b8)",
-              }}
-            >
+          <div className={styles["modal-form-stack"]}>
+            <p className={styles["modal-description"]}>
               {t("videoEdit.subtitleDescription")}
             </p>
 
             {/* Existing subtitles */}
             {video?.subtitles?.length ? (
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <div className={styles["subtitle-list"]}>
                 {video?.subtitles?.map((s) => (
-                  <div
-                    key={s.id}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      padding: "10px 14px",
-                      border: "1.5px solid var(--border-color, #e5e7eb)",
-                      borderRadius: 10,
-                      background: "var(--c--theme--colors--card-bg, #ffffff)",
-                    }}
-                  >
+                  <div key={s.id} className={styles["subtitle-list-item"]}>
                     <div>
-                      <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                      <span className={styles["subtitle-language"]}>
                         {s.language.toUpperCase()}
                       </span>
                       {s.is_default && (
-                        <span
-                          style={{
-                            marginLeft: 8,
-                            fontSize: "0.75rem",
-                            background: "rgba(34, 197, 94, 0.2)",
-                            color: "#4ade80",
-                            padding: "2px 8px",
-                            borderRadius: 999,
-                          }}
-                        >
+                        <span className={styles["subtitle-default-badge"]}>
                           {t("common.default")}
                         </span>
                       )}
@@ -3127,42 +2778,17 @@ export default function EditVideo() {
                 ))}
               </div>
             ) : (
-              <p
-                style={{
-                  color: "var(--text-color-muted, #9ca3af)",
-                  fontStyle: "italic",
-                  fontSize: "0.875rem",
-                  margin: 0,
-                }}
-              >
+              <p className={styles["empty-subtitles-message"]}>
                 {t("videoEdit.noSubtitles")}
               </p>
             )}
 
             {/* Add new subtitle */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 12,
-                padding: 16,
-                background:
-                  "var(--c--theme--colors--card-bg, rgba(255,255,255,0.04))",
-                borderRadius: 10,
-                border: "1.5px solid var(--border-color, #e5e7eb)",
-              }}
-            >
-              <span style={{ fontWeight: 600, fontSize: "0.875rem" }}>
+            <div className={styles["add-subtitle-panel"]}>
+              <span className={styles["modal-section-title"]}>
                 {t("videoEdit.addSubtitle")}
               </span>
-              <div
-                style={{
-                  display: "flex",
-                  gap: 12,
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                }}
-              >
+              <div className={styles["subtitle-options-row"]}>
                 <TextField
                   select
                   label={t("videoEdit.subtitleLanguageLabel")}
@@ -3171,8 +2797,8 @@ export default function EditVideo() {
                     setSubtitleLanguage(e.target.value as LanguageSubtitle)
                   }
                   size="small"
-                  sx={{ minWidth: 140 }}
-                  InputProps={{ style: { borderRadius: 10 } }}
+                  className={styles["subtitle-language-select"]}
+                  InputProps={{ className: styles["rounded-input-large"] }}
                 >
                   {SUBTITLE_LANGUAGE_OPTIONS.map((opt) => (
                     <MenuItem key={opt.value} value={opt.value}>
@@ -3199,7 +2825,7 @@ export default function EditVideo() {
                 }
               />
               {subtitleFile && (
-                <p style={{ margin: 0, fontSize: "0.8rem", color: "#374151" }}>
+                <p className={styles["selected-file"]}>
                   📄 {subtitleFile?.name}
                 </p>
               )}
@@ -3237,18 +2863,11 @@ export default function EditVideo() {
         onClose={() => setDocumentsModalOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
+        <DialogTitle className={styles["modal-title"]}>
           <AttachFileIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+            className={styles["modal-title-icon"]}
           />
           {t("videoEdit.documentsTitle")}
         </DialogTitle>
@@ -3273,18 +2892,11 @@ export default function EditVideo() {
         onClose={() => setContributorsModalOpen(false)}
         maxWidth="md"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
+        <DialogTitle className={styles["modal-title"]}>
           <GroupIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
+            className={styles["modal-title-icon"]}
           />
           {t("videoEdit.contributorsTitle")}
         </DialogTitle>
@@ -3312,45 +2924,20 @@ export default function EditVideo() {
         }}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["modal-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
-          <SwitchVideoIcon
-            sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
-          />
+        <DialogTitle className={styles["modal-title"]}>
+          <SwitchVideoIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.changeSourceTitle")}
         </DialogTitle>
         <DialogContent dividers>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 16,
-              padding: "4px 0",
-            }}
-          >
-            <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
+          <div className={styles["modal-form-stack"]}>
+            <p className={styles["source-modal-description"]}>
               {t("videoEdit.changeSourceDesc")}
             </p>
             {video?.video_url && (
-              <div
-                style={{
-                  padding: "10px 14px",
-                  background: "#f9fafb",
-                  borderRadius: 10,
-                  border: "1.5px solid #e5e7eb",
-                  fontSize: "0.85rem",
-                  color: "#374151",
-                }}
-              >
-                <span style={{ fontWeight: 600 }}>
+              <div className={styles["current-source"]}>
+                <span className={styles["current-source-label"]}>
                   {t("videoEdit.sourceCurrentLabel")}:
                 </span>{" "}
                 {String(video?.video_url).split("/").pop()}
@@ -3368,7 +2955,7 @@ export default function EditVideo() {
               }
             />
             {sourceFile && (
-              <p style={{ margin: 0, fontSize: "0.8rem", color: "#374151" }}>
+              <p className={styles["selected-file"]}>
                 📹 {sourceFile?.name}
               </p>
             )}

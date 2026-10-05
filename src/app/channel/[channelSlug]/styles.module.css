@@ -5,3 +5,58 @@
 .theme-details {
   height: 200px;
 }
+
+.theme-error{
+  display: "flex";
+  flex-direction: "column";
+  gap: 1rem;
+}
+
+.center-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.column-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tabs-box {
+  width: 100%;
+}
+
+.unclassified-box {
+  margin-top: 16px;
+}
+
+.channel-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.channel-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.channel-box {
+  width: 100%;
+}
+
+.unclassified-channel-box {
+  margin-top: 16px;
+}

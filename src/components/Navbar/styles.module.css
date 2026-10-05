@@ -90,6 +90,112 @@ html[data-theme="dark"] .navbar-logo img {
   margin-right: var(--c--globals--spacings--s);
 }
 
+.preferences-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-color, rgba(140, 140, 140, 0.25));
+  border-radius: 8px;
+  background-color: rgba(128, 128, 128, 0.05);
+  color: var(--text-color, inherit);
+  transition: all 0.2s ease-in-out;
+}
+
+.preferences-button:hover {
+  border-color: rgba(128, 128, 128, 0.4);
+  background-color: rgba(128, 128, 128, 0.12);
+}
+
+.preferences-icon,
+.preferences-sun-icon {
+  font-size: 1.2rem;
+}
+
+.preferences-sun-icon {
+  color: #f59e0b;
+}
+
+.preferences-menu-paper {
+  min-width: 200px;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: var(--c--theme--colors--card-bg, #ffffff);
+  color: var(--text-color, inherit);
+}
+
+.preferences-menu-item {
+  gap: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 8px;
+}
+
+.preferences-language {
+  padding: 4px 8px;
+}
+
+.preferences-divider {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.profile-button {
+  padding: 2px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.profile-button-admin {
+  border-color: #3b82f6;
+}
+
+.profile-avatar {
+  width: 42px;
+  height: 42px;
+}
+
+.profile-menu-paper {
+  position: relative;
+  overflow: visible;
+  margin-top: 12px;
+  padding: 10px;
+  background-color: var(--background);
+  color: var(--c--contextuals--content--semantic--neutral--primary);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.32));
+}
+
+.profile-menu-paper::before {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  z-index: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--background);
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar-mobile-search {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-mobile-search-form {
+  flex-grow: 1;
+}
+
+.navbar-utilities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: var(--c--globals--spacings--s);
+  margin-left: var(--c--globals--spacings--s);
+}
+
 /* Styles for small screens & tablets */
 @media (max-width: 1024px) {
   .navbar-logo strong {

@@ -10,6 +10,20 @@
   flex: 1 1 300px;
 }
 
+.welcome-intro {
+  line-height: 1.6;
+}
+
+.welcome-icon {
+  font-size: 3rem;
+  opacity: 0.9;
+}
+
+.welcome-description {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
 .welcome-green-box {
   flex: 1 1 300px;
   background-color: var(--c--globals--colors--gray-050, #f8fafc);
@@ -70,6 +84,28 @@ html[data-theme="dark"] .welcome-link {
   flex-wrap: wrap;
   gap: var(--c--globals--spacings--md);
   margin-bottom: var(--c--globals--spacings--xxl);
+}
+
+.latest-videos-section {
+  margin-top: var(--c--globals--spacings--xxl);
+}
+
+.latest-videos-title {
+  margin-bottom: var(--c--globals--spacings--md);
+  padding-bottom: var(--c--globals--spacings--xs);
+  border-bottom: 2px solid var(--c--globals--colors--gray-200);
+  color: var(--c--contextuals--content--semantic--neutral--primary);
+}
+
+.latest-videos-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--c--globals--spacings--md);
+}
+
+.all-videos-action {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title {

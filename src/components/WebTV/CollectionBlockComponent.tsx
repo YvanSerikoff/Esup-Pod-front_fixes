@@ -5,18 +5,10 @@ import Link from "next/link";
 import { getRoutes } from "@/src/api/routes";
 import { requestJson } from "@/src/utils/requestJson";
 import type { BlockConfig, Channel } from "@/src/types";
-import styles from "./CollectionBlockComponent.module.css";
+import Image from "next/image";
+import styles from "./WebTVLayout.module.css";
 
-// Vibrant curated background color list matching the design mockups
-const cardColors = [
-  "#10b981", // Emerald green
-  "#f97316", // Vibrant orange
-  "#f472b6", // Soft pink
-  "#3b82f6", // Vibrant blue
-  "#64748b", // Slate gray
-  "#ef4444", // Red
-  "#eab308", // Yellow
-];
+const CARD_COLOR_COUNT = 7;
 
 interface CollectionItem {
   id: number | string;
@@ -25,7 +17,6 @@ interface CollectionItem {
   videos_count?: number;
   banner?: string | null;
   logo?: string | null;
-  color?: string;
 }
 
 interface CollectionBlockProps {
@@ -75,13 +66,12 @@ export default function CollectionBlockComponent({
         // Map items with color accents
         const mappedItems: CollectionItem[] = filtered
           .slice(0, limit)
-          .map((c, index) => ({
+          .map((c) => ({
             id: c.id,
             slug: c.slug,
             title: c.title,
             videos_count: c.videos_count,
             banner: c.banner || c.logo,
-            color: cardColors[index % cardColors.length],
           }));
 
         setItems(mappedItems);
@@ -99,30 +89,37 @@ export default function CollectionBlockComponent({
     block.display_title || block.subtitle_or_text || t("common.collections");
 
   return (
-    <section className={styles["block-wrapper"]}>
+    <section className={`${styles["block-wrapper"]} ${styles["collection-block"]}`}>
       <div className={styles["section-badge-header"]}>{displayTitle}</div>
 
       {loading ? (
-        <div style={{ padding: "1rem", color: "#666" }}>
+        <div className={styles["block-loading"]}>
           {t("common.loading")}
         </div>
       ) : items.length > 0 ? (
         <div className={styles["cards-grid"]}>
-          {items.map((item) => (
+          {items.map((item, index) => (
             <Link
               key={item.id}
               href={`/channel/${item.slug || item.id}`}
               className={styles["collection-card"]}
             >
               <div
-                className={styles["card-banner"]}
-                style={{
-                  backgroundColor: item.color,
-                  backgroundImage: item.banner
-                    ? `url(${item.banner})`
-                    : undefined,
-                }}
-              />
+                className={`${styles["collection-card-banner"]} ${
+                  styles[`collection-banner-color-${index % CARD_COLOR_COUNT}`]
+                }`}
+              >
+                {item.banner && (
+                  <Image
+                    unoptimized
+                    fill
+                    src={item.banner}
+                    alt=""
+                    aria-hidden="true"
+                    className={styles["collection-banner-image"]}
+                  />
+                )}
+              </div>
               <div className={styles["card-body"]}>
                 <h4 className={styles["card-title"]}>{item.title}</h4>
                 {item.videos_count !== undefined && (
@@ -138,7 +135,7 @@ export default function CollectionBlockComponent({
           ))}
         </div>
       ) : (
-        <div style={{ padding: "1rem", color: "#888", fontStyle: "italic" }}>
+        <div className={styles["block-empty"]}>
           {t("webtv.noContent")}
         </div>
       )}

@@ -143,9 +143,7 @@ export default function AddVideo() {
   return (
     <div>
       <BackButton label={t("common.back")} onClick={() => router.back()} />
-      <h1 style={{ fontWeight: 700, fontSize: "1.5rem", marginBottom: 16 }}>
-        {t("navbar.addVideo")}
-      </h1>
+      <h1 className={styles["page-title"]}>{t("navbar.addVideo")}</h1>
 
       {error && (
         <Alert canClose type={VariantType.ERROR} aria-live="assertive">
@@ -159,7 +157,6 @@ export default function AddVideo() {
             {t("a11y.videoProcessingMessage")}
           </Alert>
           <LinearProgress
-            sx={{ padding: "5px" }}
             className={styles["linear-progress"]}
             aria-label="Loading..."
           />
@@ -167,7 +164,6 @@ export default function AddVideo() {
       ) : (
         <form
           className={styles.form}
-          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
           onSubmit={handleSubmit(onSubmitImport)}
         >
           <Alert
@@ -211,10 +207,7 @@ export default function AddVideo() {
             }
           />
           {errors.videoFile && (
-            <p
-              id="videoFile-error"
-              style={{ color: "red", marginTop: "0.25rem" }}
-            >
+            <p id="videoFile-error" className={styles["field-error"]}>
               {errors.videoFile.message}
             </p>
           )}
@@ -239,24 +232,13 @@ export default function AddVideo() {
               })}
             />
             {errors.acceptTerm && (
-              <p
-                id="acceptTerm-error"
-                style={{ color: "red", marginTop: "0.25rem" }}
-              >
+              <p id="acceptTerm-error" className={styles["field-error"]}>
                 {errors.acceptTerm.message}
               </p>
             )}
           </fieldset>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              alignItems: "center",
-              flexWrap: "wrap",
-              marginTop: 8,
-            }}
-          >
+          <div className={styles["form-actions"]}>
             <Button
               type="submit"
               color="success"
@@ -271,7 +253,10 @@ export default function AddVideo() {
               disabled={isSubmitting || isRedirecting}
               onClick={() => setIsEmptyModalOpen(true)}
             >
-              <NoteAddIcon fontSize="small" style={{ marginRight: 6 }} />
+              <NoteAddIcon
+                fontSize="small"
+                className={styles["create-empty-icon"]}
+              />
               {t("a11y.skipImportCreateEmpty")}
             </Button>
           </div>
@@ -284,29 +269,15 @@ export default function AddVideo() {
         onClose={() => setIsEmptyModalOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3 } }}
+        PaperProps={{ className: styles["empty-record-dialog-paper"] }}
       >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            fontWeight: 700,
-          }}
-        >
-          <NoteAddIcon sx={{ color: "#00818a" }} />
+        <DialogTitle className={styles["empty-record-dialog-title"]}>
+          <NoteAddIcon className={styles["empty-record-dialog-icon"]} />
           {t("a11y.createEmptyRecord")}
         </DialogTitle>
         <DialogContent dividers>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 16,
-              padding: "8px 0",
-            }}
-          >
-            <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
+          <div className={styles["empty-record-dialog-content"]}>
+            <p className={styles["empty-record-warning"]}>
               {t.rich("a11y.emptyRecordWarning", {
                 b: (chunks) => <b>{chunks}</b>,
               })}
@@ -319,7 +290,7 @@ export default function AddVideo() {
                 errors.emptyTitle?.message ??
                 `${t("a11y.clearDescriptiveTitle")}`
               }
-              InputProps={{ style: { borderRadius: 10 } }}
+              InputProps={{ className: styles["empty-record-title-input"] }}
               {...register("emptyTitle")}
             />
           </div>

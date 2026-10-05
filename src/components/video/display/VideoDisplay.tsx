@@ -105,7 +105,7 @@ export default function VideosDisplay({
   return (
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div className={styles["toolbar-count"]}>
           {selectable && (
             <div className={styles["select-all-container"]}>
               <Checkbox

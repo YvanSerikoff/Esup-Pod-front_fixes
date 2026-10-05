@@ -1,21 +1,9 @@
 import { Loader } from "@openfun/cunningham-react";
+import styles from "./styles.module.css";
 
-type CenteredLoaderProps = {
-  minHeight?: string;
-};
-
-export default function CenteredLoader({
-  minHeight = "50vh",
-}: CenteredLoaderProps) {
+export default function CenteredLoader() {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight,
-      }}
-    >
+    <div className={styles["centered-loader"]}>
       <Loader />
     </div>
   );

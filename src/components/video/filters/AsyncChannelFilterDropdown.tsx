@@ -9,6 +9,7 @@ import { useChannel } from "@/src/hooks/useChannel";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import type { Channel } from "@/src/types";
 import { debounce } from "@mui/material/utils";
+import styles from "./styles.module.css";
 
 export type AsyncChannelFilterDropdownProps = {
   selectedChannelId: string | null;
@@ -77,7 +78,7 @@ export default function AsyncChannelFilterDropdown({
   }, [inputValue, open, fetchOptions]);
 
   return (
-    <Box sx={{ minWidth: 200, width: { xs: "100%", sm: "auto" } }}>
+    <Box className={styles["async-filter-field"]}>
       <Autocomplete
         open={open}
         onOpen={() => setOpen(true)}
@@ -114,12 +115,7 @@ export default function AsyncChannelFilterDropdown({
             }}
           />
         )}
-        sx={{
-          "& .MuiOutlinedInput-root": {
-            borderRadius: "4px",
-            backgroundColor: "#fff",
-          },
-        }}
+        className={styles["async-filter-autocomplete"]}
       />
     </Box>
   );

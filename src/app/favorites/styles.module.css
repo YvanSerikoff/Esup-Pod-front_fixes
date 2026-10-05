@@ -18,6 +18,12 @@
   text-decoration: none;
 }
 
+.fav-error {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 @media (max-width: 600px) {
   .title-row {
     flex-direction: column;

@@ -14,7 +14,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button } from "@openfun/cunningham-react";
-import styles from "@/src/components/video/filters/styles.module.css";
+import styles from "./styles.module.css";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 type DateFilterDropdownProps = {
@@ -64,8 +64,6 @@ export default function DateFilterDropdown({
     setOpen(false);
   };
 
-  const popperWidth = isMobile && anchorEl ? anchorEl.clientWidth : 280;
-
   return (
     <Box className={styles["filter-item"]}>
       <ListItemButton
@@ -77,11 +75,7 @@ export default function DateFilterDropdown({
           variant="body2"
           fontWeight={isActive ? 600 : 500}
           noWrap
-          sx={{
-            color: isActive
-              ? "var(--c--globals--colors--brand--main)"
-              : "inherit",
-          }}
+          className={isActive ? styles.activeFilterText : ""}
         >
           {isActive
             ? t("filters.activeCreationDate")
@@ -90,22 +84,12 @@ export default function DateFilterDropdown({
         {open ? (
           <ExpandLessIcon
             fontSize="small"
-            sx={{
-              color: isActive
-                ? "var(--c--globals--colors--brand--main)"
-                : "inherit",
-              ml: "auto",
-            }}
+            className={`${styles.filterChevron} ${isActive ? styles.filterChevronActive : ""}`}
           />
         ) : (
           <ExpandMoreIcon
             fontSize="small"
-            sx={{
-              color: isActive
-                ? "var(--c--globals--colors--brand--main)"
-                : "inherit",
-              ml: "auto",
-            }}
+            className={`${styles.filterChevron} ${isActive ? styles.filterChevronActive : ""}`}
           />
         )}
       </ListItemButton>
@@ -115,7 +99,7 @@ export default function DateFilterDropdown({
         anchorEl={anchorEl}
         placement="bottom-start"
         transition
-        sx={{ zIndex: 1300, width: popperWidth, maxWidth: "100vw" }}
+        className={`${styles.filterPopper} ${isMobile ? styles.filterPopperMobile : ""}`}
         modifiers={[
           { name: "offset", options: { offset: [0, 8] } },
           { name: "preventOverflow", options: { padding: 16 } },
@@ -126,17 +110,10 @@ export default function DateFilterDropdown({
             <Paper elevation={8} className={styles["filter-menu"]}>
               <ClickAwayListener onClickAway={handleClose}>
                 <Box>
-                  <Typography variant="subtitle2" sx={{ mb: 2, px: 1 }}>
+                  <Typography variant="subtitle2" className={styles.dateTitle}>
                     {t("filters.selectPeriod")}
                   </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 2,
-                      px: 1,
-                    }}
-                  >
+                  <Box className={styles.dateFields}>
                     <TextField
                       label={t("filters.createdAfter")}
                       type="datetime-local"
@@ -157,17 +134,7 @@ export default function DateFilterDropdown({
                     />
                   </Box>
 
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      mt: 2,
-                      pt: 1.5,
-                      borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-                      gap: "8px",
-                    }}
-                  >
+                  <Box className={styles.dateActions}>
                     <Button
                       onClick={handleClear}
                       variant="tertiary"

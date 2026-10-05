@@ -128,8 +128,6 @@ export default function FilterDropdown({
     }
   };
 
-  const popperWidth = isMobile && anchorEl ? anchorEl.clientWidth : 260;
-
   return (
     <Box className={styles["filter-dropdown"]}>
       <ListItemButton
@@ -138,20 +136,13 @@ export default function FilterDropdown({
         aria-expanded={open}
       >
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-            overflow: "hidden",
-          }}
+          className={styles["filter-label"]}
         >
           <Typography
             variant="body2"
             fontWeight={selectedCount > 0 ? 600 : 500}
             noWrap
-            sx={{
-              color: "inherit",
-            }}
+            className={styles["filter-label-text"]}
           >
             {!multiple && selectedCount === 1 && selectedLabel
               ? `${title} : ${selectedLabel}`
@@ -160,24 +151,7 @@ export default function FilterDropdown({
 
           {multiple && selectedCount > 0 && (
             <Box
-              sx={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: "#2563eb",
-                color: "#ffffff",
-                borderRadius: "9999px",
-                px: "6px",
-                fontSize: "0.725rem",
-                fontWeight: 700,
-                minWidth: "18px",
-                height: "18px",
-                lineHeight: 1,
-                flexShrink: 0,
-                "html[data-theme='dark'] &": {
-                  bgcolor: "#3b82f6",
-                },
-              }}
+              className={styles["filter-count"]}
             >
               {selectedCount}
             </Box>
@@ -187,26 +161,12 @@ export default function FilterDropdown({
         {open ? (
           <ExpandLessIcon
             fontSize="small"
-            sx={{
-              color: selectedCount > 0 ? "#2563eb" : "inherit",
-              ml: "auto",
-              flexShrink: 0,
-              "html[data-theme='dark'] &": {
-                color: selectedCount > 0 ? "#60a5fa" : "inherit",
-              },
-            }}
+            className={`${styles["filter-chevron"]} ${selectedCount > 0 ? styles["filter-chevron-active"] : ""}`}
           />
         ) : (
           <ExpandMoreIcon
             fontSize="small"
-            sx={{
-              color: selectedCount > 0 ? "#2563eb" : "inherit",
-              ml: "auto",
-              flexShrink: 0,
-              "html[data-theme='dark'] &": {
-                color: selectedCount > 0 ? "#60a5fa" : "inherit",
-              },
-            }}
+            className={`${styles["filter-chevron"]} ${selectedCount > 0 ? styles["filter-chevron-active"] : ""}`}
           />
         )}
       </ListItemButton>
@@ -216,11 +176,7 @@ export default function FilterDropdown({
         anchorEl={anchorEl}
         placement="bottom-start"
         transition
-        sx={{
-          zIndex: 1300,
-          width: popperWidth,
-          maxWidth: "100vw",
-        }}
+        className={`${styles["filter-popper"]} ${isMobile && anchorEl ? styles["filter-popper-mobile"] : ""}`}
         modifiers={[
           {
             name: "offset",
@@ -265,7 +221,7 @@ export default function FilterDropdown({
                           </InputAdornment>
                         ) : null,
                       }}
-                      sx={{ mb: 1.5 }}
+                      className={styles["filter-search"]}
                     />
                   )}
 
@@ -301,7 +257,7 @@ export default function FilterDropdown({
                       <Typography
                         color="text.secondary"
                         variant="body2"
-                        sx={{ p: 1 }}
+                        className={styles["filter-empty"]}
                       >
                         {t("common.noResults")}
                       </Typography>
@@ -310,15 +266,7 @@ export default function FilterDropdown({
 
                   {multiple && (
                     <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        mt: 1.5,
-                        pt: 1.5,
-                        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-                        gap: "8px",
-                      }}
+                      className={styles["filter-actions"]}
                     >
                       <Button
                         onClick={() => {

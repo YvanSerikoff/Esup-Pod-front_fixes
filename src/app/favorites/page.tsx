@@ -208,7 +208,7 @@ export default function FavoritesPlaylistPage() {
 
   if (useFavoritesError) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles["fav-error"]}>
         <Alert canClose type={VariantType.ERROR}>
           {useFavoritesError}
         </Alert>

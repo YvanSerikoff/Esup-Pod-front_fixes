@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import { useAuth } from "@/src/context/AuthProvider";
+import styles from "./VideoCard.module.css";
 
 interface VideoCardActionMenuProps {
   video: Video;
@@ -71,14 +72,7 @@ export default function VideoCardActionMenu({
         aria-controls={open ? "video-action-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        sx={{
-          color: "var(--text-color, inherit)",
-          padding: "4px",
-          borderRadius: "6px",
-          "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.12)",
-          },
-        }}
+        className={styles.videoActionTrigger}
       >
         <MoreVertIcon fontSize="small" />
       </IconButton>
@@ -93,14 +87,7 @@ export default function VideoCardActionMenu({
         slotProps={{
           paper: {
             elevation: 8,
-            sx: {
-              backgroundColor: "var(--c--theme--colors--card-bg, #ffffff)",
-              color: "var(--text-color, #0f172a)",
-              borderRadius: "10px",
-              mt: 0.5,
-              minWidth: "170px",
-              border: "1px solid var(--border-color, #e2e8f0)",
-            },
+            className: styles.videoActionMenuPaper,
           },
         }}
       >
@@ -109,22 +96,10 @@ export default function VideoCardActionMenu({
             component={Link}
             href={`/video/edit/${video.slug}`}
             onClick={handleClose}
-            sx={{
-              fontSize: "0.875rem",
-              gap: 1.5,
-              py: 1,
-              px: 2,
-              color: "var(--text-color, #0f172a)",
-              "&:hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.05)",
-              },
-            }}
+            className={styles.videoActionMenuItem}
           >
             <ListItemIcon
-              sx={{
-                color: "var(--text-color-muted, #64748b)",
-                minWidth: "auto !important",
-              }}
+              className={styles.videoActionItemIcon}
             >
               <EditIcon fontSize="small" />
             </ListItemIcon>
@@ -136,22 +111,10 @@ export default function VideoCardActionMenu({
           <MenuItem
             onClick={handleDuplicate}
             disabled={isDuplicating}
-            sx={{
-              fontSize: "0.875rem",
-              gap: 1.5,
-              py: 1,
-              px: 2,
-              color: "var(--text-color, #0f172a)",
-              "&:hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.05)",
-              },
-            }}
+            className={styles.videoActionMenuItem}
           >
             <ListItemIcon
-              sx={{
-                color: "var(--text-color-muted, #64748b)",
-                minWidth: "auto !important",
-              }}
+              className={styles.videoActionItemIcon}
             >
               <ContentCopyIcon fontSize="small" />
             </ListItemIcon>
@@ -161,28 +124,17 @@ export default function VideoCardActionMenu({
           </MenuItem>
         )}
 
-        <Divider
-          sx={{ my: 0.5, borderColor: "var(--border-color, #e2e8f0)" }}
-        />
+        <Divider className={styles.videoActionDivider} />
 
         {canEdit && (
           <MenuItem
             component={Link}
             href={`/video/delete/${video.slug}`}
             onClick={handleClose}
-            sx={{
-              fontSize: "0.875rem",
-              gap: 1.5,
-              py: 1,
-              px: 2,
-              color: "#ef4444 !important",
-              "&:hover": {
-                backgroundColor: "rgba(239, 68, 68, 0.12) !important",
-              },
-            }}
+            className={styles.videoActionDeleteItem}
           >
             <ListItemIcon
-              sx={{ color: "#ef4444 !important", minWidth: "auto !important" }}
+              className={styles.videoActionDeleteIcon}
             >
               <DeleteForeverIcon fontSize="small" />
             </ListItemIcon>

@@ -18,6 +18,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./VideoCard.module.css";
 
 interface VideoDocumentsFormProps {
   videoId: number;
@@ -67,7 +68,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
   };
 
   return (
-    <Box sx={{ mt: 2 }}>
+    <Box className={styles.videoDocumentsRoot}>
       <Typography variant="h6" gutterBottom>
         {t("videoEdit.documentsTitle")}
       </Typography>
@@ -78,17 +79,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
         </Alert>
       )}
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          p: 2,
-          border: "1px solid var(--c--globals--colors--gray-200)",
-          borderRadius: 2,
-          mb: 3,
-        }}
-      >
+      <Box className={styles.videoDocumentsUploadForm}>
         <Typography variant="subtitle1">{t("documents.addTitle")}</Typography>
         <TextField
           label={t("documents.titleLabel")}
@@ -120,7 +111,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
           onClick={handleUpload}
           disabled={isUploading || !title.trim() || !file}
           variant="primary"
-          style={{ alignSelf: "flex-start" }}
+          className={styles.videoDocumentsUploadButton}
         >
           {isUploading ? t("pending.sending") : t("documents.addBtn")}
         </Button>
@@ -133,11 +124,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
           {documents.map((doc) => (
             <ListItem
               key={doc.id}
-              sx={{
-                border: "1px solid var(--c--globals--colors--gray-200)",
-                borderRadius: 1,
-                mb: 1,
-              }}
+              className={styles.videoDocumentItem}
             >
               <ListItemText
                 primary={doc.title}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getRoutes } from "@/src/api/routes";
 import { requestJson } from "@/src/utils/requestJson";
 import type { BlockConfig } from "@/src/types";
-import styles from "./LiveBlockComponent.module.css";
+import styles from "./WebTVLayout.module.css";
 
 interface LiveEvent {
   id: number;
@@ -67,14 +67,7 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
   const title = block?.display_title || t("webtv.liveTitle");
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-        height: "100%",
-      }}
-    >
+    <div className={styles["live-block"]}>
       <div className={styles["live-container"]}>
         <div className={styles["live-header"]}>{title}</div>
         {loading ? (
@@ -88,13 +81,7 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
                   className={styles["live-item"]}
                 >
                   <span className={styles["red-dot"]} />
-                  <span
-                    style={{
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
+                  <span className={styles["live-title"]}>
                     {live.title}
                   </span>
                 </Link>

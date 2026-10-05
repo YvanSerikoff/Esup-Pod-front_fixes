@@ -74,56 +74,20 @@ const getDownloadFilename = (
 /** Loading skeleton — defined at module level to avoid recreation on every render */
 function VideoPageSkeleton() {
   return (
+    // Skeleton loading blocks
     <div>
-      <div
-        style={{
-          width: 100,
-          height: 40,
-          backgroundColor: "#e0e0e0",
-          borderRadius: 4,
-          marginBottom: 20,
-        }}
-      />
+      <div className={styles["skeleton-back-button"]} />
       <div className={styles["main-video-content"]}>
-        <section
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1.5rem",
-            padding: "10px",
-            minWidth: "70%",
-          }}
-        >
-          <div
-            className="skeleton-block"
-            style={{ width: "100%", aspectRatio: "16 / 9", borderRadius: 8 }}
-          />
-          <div
-            className="skeleton-block"
-            style={{ width: "60%", height: 32, borderRadius: 4 }}
-          />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div
-              className="skeleton-block"
-              style={{ width: "20%", height: 24, borderRadius: 4 }}
-            />
-            <div
-              className="skeleton-block"
-              style={{ width: "30%", height: 32, borderRadius: 4 }}
-            />
+        <section className={styles["skeleton-main-section"]}>
+          <div className={`skeleton-block ${styles["skeleton-video"]}`} />
+          <div className={`skeleton-block ${styles["skeleton-title"]}`} />
+          <div className={styles["skeleton-info-row"]}>
+            <div className={`skeleton-block ${styles["skeleton-info"]}`} />
+            <div className={`skeleton-block ${styles["skeleton-actions"]}`} />
           </div>
         </section>
         <aside className={styles["sidebar"]}>
-          <div
-            className="skeleton-block"
-            style={{ width: "100%", height: 300, borderRadius: 8 }}
-          />
+          <div className={`skeleton-block ${styles["skeleton-sidebar"]}`} />
         </aside>
       </div>
     </div>
@@ -463,7 +427,7 @@ export default function Video() {
 
   if (useVideoError || !video) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles["message-container"]}>
         <Alert canClose type={VariantType.ERROR}>
           {useVideoError ?? t("videoPage.unableToLoad")}
         </Alert>
@@ -473,14 +437,7 @@ export default function Video() {
 
   if (needsPassword) {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          alignItems: "center",
-        }}
-      >
+      <div className={styles["password-page-container"]}>
         <BackButton />
         <Alert type={VariantType.WARNING}>
           {t("videoPage.protectedByPassword")}
@@ -543,18 +500,7 @@ export default function Video() {
                 onEnded={handleVideoEnded}
               />
             ) : (
-              <div
-                style={{
-                  width: "100%",
-                  aspectRatio: "16 / 9",
-                  backgroundColor: "#000",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 8,
-                  overflow: "hidden",
-                }}
-              >
+              <div className={styles["video-loader-placeholder"]}>
                 <CenteredLoader />
               </div>
             )}
@@ -579,9 +525,8 @@ export default function Video() {
             <div className={styles["video-infos-header"]}>
               <div className={styles["video-infos-header-time"]}>
                 <span
-                  className="material-icons"
+                  className={`material-icons ${styles["video-metadata-icon"]}`}
                   aria-hidden="true"
-                  style={{ fontSize: "18px" }}
                 >
                   calendar_today
                 </span>
@@ -589,9 +534,8 @@ export default function Video() {
               </div>
               <div className={styles["video-infos-header-time"]}>
                 <span
-                  className="material-icons"
+                  className={`material-icons ${styles["video-metadata-icon"]}`}
                   aria-hidden="true"
-                  style={{ fontSize: "18px" }}
                 >
                   access_time
                 </span>
@@ -641,8 +585,8 @@ export default function Video() {
           </div>
 
           {isMobile ? (
-            <Box sx={{ width: "100%", mt: 2 }}>
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box className={styles["mobile-tabs-container"]}>
+              <Box className={styles["mobile-tabs-header"]}>
                 <Tabs
                   value={mobileTab}
                   onChange={(e, val) => setMobileTab(val)}
@@ -652,52 +596,41 @@ export default function Video() {
                   <Tab
                     label={t("videoEdit.descriptionLabel")}
                     value="description"
-                    sx={{ textTransform: "none" }}
+                    className={styles["mobile-tab"]}
                   />
                   {config?.video?.active_video_comment !== false && (
                     <Tab
                       label={t("comments.title")}
                       value="commentaires"
-                      sx={{ textTransform: "none" }}
+                      className={styles["mobile-tab"]}
                     />
                   )}
                   <Tab
                     label={t("videoPage.about")}
                     value="apropos"
-                    sx={{ textTransform: "none" }}
+                    className={styles["mobile-tab"]}
                   />
                   {video.documents && video.documents.length > 0 && (
                     <Tab
                       label={t("videoPage.resources")}
                       value="ressources"
-                      sx={{ textTransform: "none" }}
+                      className={styles["mobile-tab"]}
                     />
                   )}
                 </Tabs>
               </Box>
-              <Box sx={{ py: 2 }}>
+              <Box className={styles["mobile-tab-content"]}>
                 {mobileTab === "description" && (
                   <>
                     {video.description && (
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          marginBottom: "1rem",
-                        }}
-                      >
+                      <div className={styles["mobile-description-section"]}>
                         <div
                           className={`${styles["video-infos-description"]} ${!isDescriptionExpanded ? styles.collapsed : ""}`}
                         >
-                          <p style={{ margin: 0 }}>{video.description}</p>
-                          <p
-                            style={{
-                              margin: 0,
-                              marginTop: 8,
-                              color: "var(--c--globals--colors--gray-500)",
-                            }}
-                          >
+                          <p className={styles["description-text"]}>
+                            {video.description}
+                          </p>
+                          <p className={styles["description-updated-at"]}>
                             {t("videoPage.updatedAt")}{" "}
                             {formatDateWithTime(video.updated_at, locale)}
                           </p>
@@ -714,12 +647,12 @@ export default function Video() {
                           {isDescriptionExpanded ? (
                             <KeyboardArrowUpIcon
                               fontSize="inherit"
-                              style={{ verticalAlign: "middle" }}
+                              className={styles["read-more-icon"]}
                             />
                           ) : (
                             <KeyboardArrowDownIcon
                               fontSize="inherit"
-                              style={{ verticalAlign: "middle" }}
+                              className={styles["read-more-icon"]}
                             />
                           )}
                         </button>
@@ -773,7 +706,7 @@ export default function Video() {
                     <h2 className={styles["sidebar-card-title"]}>
                       {t("videoPage.about")}
                     </h2>
-                    <Divider sx={{ mb: 2 }} />
+                    <Divider className={styles["sidebar-divider"]} />
                     <div className={styles["sidebar-list-item"]}>
                       <h4>
                         <LibraryBooksIcon fontSize="small" />{" "}
@@ -900,24 +833,14 @@ export default function Video() {
 
               {/* Description */}
               {video.description && (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                >
+                <div className={styles["description-section"]}>
                   <div
                     className={`${styles["video-infos-description"]} ${!isDescriptionExpanded ? styles.collapsed : ""}`}
                   >
-                    <p style={{ margin: 0 }}>{video.description}</p>
-                    <p
-                      style={{
-                        margin: 0,
-                        marginTop: 8,
-                        color: "var(--c--globals--colors--gray-500)",
-                      }}
-                    >
+                    <p className={styles["description-text"]}>
+                      {video.description}
+                    </p>
+                    <p className={styles["description-updated-at"]}>
                       {t("videoPage.updatedAt")}{" "}
                       {formatDateWithTime(video.updated_at, locale)}
                     </p>
@@ -934,12 +857,12 @@ export default function Video() {
                     {isDescriptionExpanded ? (
                       <KeyboardArrowUpIcon
                         fontSize="inherit"
-                        style={{ verticalAlign: "middle" }}
+                        className={styles["read-more-icon"]}
                       />
                     ) : (
                       <KeyboardArrowDownIcon
                         fontSize="inherit"
-                        style={{ verticalAlign: "middle" }}
+                        className={styles["read-more-icon"]}
                       />
                     )}
                   </button>
@@ -972,7 +895,7 @@ export default function Video() {
                 )}
 
                 {playlist && !usePlaylistError && (
-                  <div style={{ marginBottom: "1.5rem" }}>
+                  <div className={styles["sidebar-section-spacing"]}>
                     <PlaylistSidebar
                       playlist={playlist}
                       currentVideoSlug={video.slug}
@@ -985,7 +908,7 @@ export default function Video() {
             {showFavoritesSidebar &&
               favoriteVideos.length > 0 &&
               config?.collection?.use_favorites !== false && (
-                <div style={{ marginBottom: "1.5rem" }}>
+                <div className={styles["sidebar-section-spacing"]}>
                   <FavoritesSidebar
                     videos={favoriteVideos}
                     currentVideoSlug={video.slug}
@@ -998,7 +921,7 @@ export default function Video() {
               <h2 className={styles["sidebar-card-title"]}>
                 {t("videoPage.about")}
               </h2>
-              <Divider sx={{ mb: 2 }} />
+              <Divider className={styles["sidebar-divider"]} />
 
               <div className={styles["sidebar-list-item"]}>
                 <h3>

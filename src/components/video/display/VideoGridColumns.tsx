@@ -34,7 +34,7 @@ export function getVideoGridColumns(
                 checked={!!row.selected}
                 onChange={(e) => row.onSelectToggle?.(e.target.checked)}
                 onClick={(e) => e.stopPropagation()}
-                style={{ width: "18px", height: "18px", cursor: "pointer" }}
+                className={styles["select-checkbox"]}
               />
             ),
           },
@@ -58,8 +58,7 @@ export function getVideoGridColumns(
           ) : (
             <div className={styles["default-thumbnail-poster"]}>
               <span
-                className="material-icons"
-                style={{ fontSize: "18px", color: "#ffffff" }}
+                className={`material-icons ${styles["thumbnail-play-icon"]}`}
               >
                 play_arrow
               </span>

@@ -179,18 +179,11 @@ export default function PlaylistActionMenu({
     }
   };
 
-  const infoColor =
-    infoKind === "added" || infoKind === "favorite-added"
-      ? "var(--c--contextuals--text--semantic--success--standard)"
-      : infoKind === "removed" || infoKind === "favorite-removed"
-        ? "var(--c--contextuals--text--semantic--warning--standard)"
-        : "inherit";
-
   const favorite = isFavorite(videoId);
 
   return (
     <>
-      <div style={{ display: "flex", gap: "0.25rem" }}>
+      <div className={styles["action-pill-group"]}>
         <button
           className={styles["action-pill"]}
           aria-describedby={id}
@@ -207,13 +200,13 @@ export default function PlaylistActionMenu({
             <FavoriteIcon
               fontSize="small"
               aria-hidden="true"
-              sx={{ color: "red" }}
+              className={styles["favorite-icon"]}
             />
           ) : (
             <FavoriteBorderIcon
               fontSize="small"
-              sx={{ color: "red" }}
               aria-hidden="true"
+              className={styles["favorite-icon"]}
             />
           )}
           {t("videoPage.favorite")}
@@ -235,25 +228,21 @@ export default function PlaylistActionMenu({
           horizontal: "right",
         }}
         PaperProps={{
-          sx: { minWidth: 260, maxWidth: 320, p: 0 },
+          className: styles["playlist-popover-paper"],
         }}
       >
-        <div style={{ padding: "0.5rem 1rem" }}>
+        <div className={styles["playlist-popover-header"]}>
           <Typography
             variant="subtitle2"
             component="h4"
-            sx={{ fontSize: "0.9rem", m: 0 }}
+            className={styles["playlist-popover-title"]}
           >
             {t("videoPage.addToPlaylist")}
           </Typography>
           {error && (
             <Typography
               variant="body2"
-              sx={{
-                color: "red",
-                fontSize: "0.75rem",
-                mt: 0.5,
-              }}
+              className={styles["playlist-popover-error"]}
             >
               {error}
             </Typography>
@@ -263,10 +252,7 @@ export default function PlaylistActionMenu({
         <MenuList
           dense
           disablePadding
-          sx={{
-            maxHeight: 200,
-            overflowY: "auto",
-          }}
+          className={styles["playlist-menu-list"]}
         >
           {playlists.length === 0 && (
             <MenuItem disabled>{t("videoPage.noPlaylistsAvailable")}</MenuItem>
@@ -281,7 +267,7 @@ export default function PlaylistActionMenu({
                 key={playlist.slug}
                 onClick={() => handleTogglePlaylist(playlist)}
                 disabled={loading}
-                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                className={styles["playlist-menu-item"]}
               >
                 {loading ? (
                   <CircularProgress size={18} />
@@ -291,7 +277,7 @@ export default function PlaylistActionMenu({
                     checked={checked}
                     tabIndex={-1}
                     disableRipple
-                    sx={{ padding: 0 }}
+                    className={styles["playlist-checkbox"]}
                   />
                 )}
                 <ListItemText
@@ -308,14 +294,13 @@ export default function PlaylistActionMenu({
 
         {infoMessage && (
           <div
-            style={{
-              padding: "0.5rem 1rem",
-              borderTop: "1px solid #eee",
-              fontSize: "0.75rem",
-              color: infoColor,
-              maxWidth: 280,
-              whiteSpace: "normal",
-            }}
+            className={`${styles["playlist-info-message"]} ${
+              infoKind === "added" || infoKind === "favorite-added"
+                ? styles["playlist-info-success"]
+                : infoKind === "removed" || infoKind === "favorite-removed"
+                  ? styles["playlist-info-warning"]
+                  : ""
+            }`}
           >
             {infoMessage}
           </div>

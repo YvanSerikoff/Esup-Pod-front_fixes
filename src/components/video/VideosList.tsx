@@ -13,6 +13,7 @@ interface VideosListProps {
 }
 
 import { useSidebar } from "@/src/context/SidebarProvider";
+import styles from "./VideoCard.module.css";
 
 export default function VideosList({
   videosList,
@@ -28,7 +29,7 @@ export default function VideosList({
 
   if (loading) {
     return (
-      <div style={{ padding: "var(--c--globals--spacings--md) 0" }}>
+      <div className={styles.videosList}>
         <Grid container spacing={2}>
           {Array.from({ length: 6 }).map((_, index) => (
             <Grid
@@ -44,13 +45,13 @@ export default function VideosList({
   }
 
   return (
-    <div style={{ padding: "var(--c--globals--spacings--md) 0" }}>
+    <div className={styles.videosList}>
       <Grid container spacing={2}>
         {videosList.map((video: Video) => (
           <Grid
             key={video.id ?? video.slug}
             size={{ xs: 12, sm: 12, md: mdSize, lg: lgSize, xl: xlSize }}
-            sx={{ display: "flex" }}
+            className={styles.videosGridItem}
           >
             <VideoCardItem
               video={video}

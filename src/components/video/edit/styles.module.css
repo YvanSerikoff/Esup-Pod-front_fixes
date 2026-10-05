@@ -1,0 +1,783 @@
+.socialNetworksForm {
+  padding: 16px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.element-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
+  border-radius: 10px;
+  background: white;
+  gap: var(--c--globals--spacings--sm);
+  flex-wrap: wrap;
+}
+
+.element-card_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.element-card_title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--c--globals--colors--gray-900);
+}
+
+.element-card_desc {
+  font-size: var(--c--globals--font--sizes--xs);
+  color: var(--c--globals--colors--gray-500);
+}
+
+.socialNetworksHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialNetworksIcon {
+  color: var(--c--globals--colors--primary-600, #00818a);
+}
+
+.socialNetworksTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.socialNetworksDescription {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.socialNetworksMessage,
+.socialNetworksLoading {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.socialNetworksSuccess {
+  color: #2e7d32;
+}
+
+.socialNetworksError {
+  color: #d32f2f;
+}
+
+.socialNetworksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.socialNetworkLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.chaptersForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chapterPlayer {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
+  background: #000;
+  position: relative;
+}
+
+.chapterVideo {
+  width: 100%;
+  display: block;
+  max-height: 320px;
+  background: #000;
+}
+
+.chapterProgress {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+
+.chapterProgressFill {
+  position: absolute;
+  inset: 0;
+  right: var(--chapter-progress-right);
+  background: var(--c--globals--colors--primary-600, #00818a);
+  transition: right 0.1s linear;
+}
+
+.chapterProgressDragging {
+  transition: none;
+}
+
+.chapterMarker {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: var(--chapter-marker-left);
+  width: 2px;
+  background: #fff;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.chapterPlayhead {
+  position: absolute;
+  top: 50%;
+  left: var(--chapter-playhead-left);
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c--globals--colors--primary-600, #00818a);
+  border: 2px solid white;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.chapterControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: #111;
+  color: #fff;
+}
+
+.chapterPlayButton,
+.chapterDeleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.chapterPlayButton {
+  color: #fff;
+}
+
+.chapterTime {
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  min-width: 90px;
+}
+
+.chapterControlsSpacer {
+  flex: 1;
+}
+
+.chapterCaptureButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--c--globals--colors--primary-400, #4db6bd);
+  background: rgba(0, 129, 138, 0.15);
+  color: var(--c--globals--colors--primary-300, #7dd4d8);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.chapterUnavailable {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  padding: 24px;
+  text-align: center;
+  background: #1a1a1a;
+}
+
+.chapterUnavailableIcon {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+.chapterUnavailableTitle {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.chapterUnavailableDescription {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.chapterList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chapterListHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.chapterListIcon {
+  font-size: 18px;
+  color: var(--c--globals--colors--primary-600, #00818a);
+}
+
+.chapterListTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.chapterListEmpty {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--c--globals--colors--gray-500);
+  padding: 12px 0;
+}
+
+.chapterRows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.chapterRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--c--globals--colors--gray-050, #f9fafb);
+  border: 1px solid var(--c--globals--colors--gray-200, #e5e7eb);
+  border-radius: 8px;
+  cursor: default;
+  transition: background 0.15s;
+}
+
+.chapterRowClickable {
+  cursor: pointer;
+}
+
+.chapterIndex {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--c--globals--colors--primary-600, #00818a);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chapterTimestamp {
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c--globals--colors--primary-600, #00818a);
+  padding: 2px 6px;
+  background: rgba(0, 129, 138, 0.08);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.chapterTitle {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--c--globals--colors--gray-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chapterDeleteButton {
+  color: #ef4444;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.chapterDeleteButton:hover {
+  opacity: 1;
+}
+
+.chapterAddPanel {
+  padding: 16px;
+  background: rgba(0, 129, 138, 0.04);
+  border: 1.5px solid var(--c--globals--colors--primary-200, #b2dfdb);
+  border-radius: 10px;
+}
+
+.chapterAddHeading {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c--globals--colors--primary-700, #005f65);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chapterFormError {
+  margin: 0 0 10px;
+  color: #d32f2f;
+  font-size: 0.82rem;
+}
+
+.chapterForm {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.chapterFormField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chapterFormLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c--globals--colors--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.chapterInput {
+  font-size: 0.95rem;
+  border: 1.5px solid var(--c--globals--colors--gray-300, #ccc);
+  border-radius: 8px;
+  padding: 8px 12px;
+  outline: none;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chapterInput:focus {
+  border-color: #00818a;
+}
+
+.chapterTimestampInput {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  color: var(--c--globals--colors--primary-700, #005f65);
+}
+
+.chapterSubmitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--c--globals--colors--primary-600, #00818a);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.chapterSubmitDisabled {
+  background: var(--c--globals--colors--gray-300, #ccc);
+  color: #888;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .chapterForm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dressingCreatePanel,
+.dressingSelectPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dressingBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #00818a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.dressingCreateCard {
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dressingSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dressingMainSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dressingCreateIconCircle,
+.dressingMainIconCircle,
+.dressingSmallIconCircle {
+  border-radius: 50%;
+  background: rgba(0, 129, 138, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dressingCreateIconCircle {
+  width: 36px;
+  height: 36px;
+}
+
+.dressingMainIconCircle {
+  width: 38px;
+  height: 38px;
+}
+
+.dressingSmallIconCircle {
+  width: 32px;
+  height: 32px;
+}
+
+.dressingPrimaryIcon {
+  color: #00818a;
+  font-size: 20px;
+}
+
+.dressingPaletteIcon {
+  color: #00818a;
+  font-size: 16px;
+}
+
+.dressingSectionTitle {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.dressingSectionDescription {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.dressingError {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+.dressingTitleField :global(.MuiOutlinedInput-root),
+.dressingSelect {
+  border-radius: 10px;
+}
+
+.dressingOpacityHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.dressingOpacityValue {
+  background: rgba(0, 129, 138, 0.08);
+  color: #00818a;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.dressingOpacitySlider {
+  color: #00818a !important;
+}
+
+.dressingOpacitySlider :global(.MuiSlider-thumb) {
+  border-radius: 50%;
+}
+
+.dressingHint {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 12px;
+}
+
+.dressingActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.dressingCancelButton,
+.dressingCreateButton {
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dressingCancelButton {
+  border: 1.5px solid #e5e7eb;
+  background: white;
+  color: #374151;
+}
+
+.dressingCreateButton {
+  padding: 8px 24px;
+  border: none;
+  background: #00818a;
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s;
+}
+
+.dressingButtonDisabled {
+  opacity: 0.5;
+}
+
+.dressingCreateButton.dressingButtonDisabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.dressingWhiteProgress {
+  color: white !important;
+}
+
+.dressingMainHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dressingHeaderCreateButton,
+.dressingEmptyCreateButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 10px;
+  border: 1.5px solid #00818a;
+  background: white;
+  color: #00818a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.dressingHeaderCreateButton {
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.dressingHeaderCreateButton:hover {
+  background: rgba(0, 129, 138, 0.08);
+}
+
+.dressingFeedback {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dressingFeedbackSuccess {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  color: #15803d;
+}
+
+.dressingFeedbackError {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  color: #b91c1c;
+}
+
+.dressingLoading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6b7280;
+  padding: 16px 0;
+}
+
+.dressingPrimaryProgress {
+  color: #00818a !important;
+}
+
+.dressingEmpty {
+  text-align: center;
+  padding: 32px 16px;
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  color: #9ca3af;
+}
+
+.dressingEmptyIcon {
+  font-size: 40px;
+  color: #d1d5db;
+  margin-bottom: 8px;
+}
+
+.dressingEmptyText {
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+
+.dressingEmptyCreateButton {
+  padding: 8px 18px;
+  background: #00818a;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.dressingCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dressingCard {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.dressingCardSelected {
+  border: 2px solid #00818a;
+  background: rgba(0, 129, 138, 0.08);
+}
+
+.dressingCardDisabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.dressingCardRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dressingMutedIcon {
+  color: #9ca3af;
+}
+
+.dressingNoneLabel {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.dressingCardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.dressingCardTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #111;
+}
+
+.dressingCardDescription {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.dressingSelectedIcon {
+  color: #00818a;
+  flex-shrink: 0;
+}
+
+.dressingDetails {
+  padding: 14px 16px;
+  background: rgba(0, 129, 138, 0.08);
+  border-radius: 10px;
+  border: 1.5px solid rgba(0, 129, 138, 0.19);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.83rem;
+  color: #374151;
+}
+
+.dressingDetailsTitle {
+  font-weight: 700;
+  color: #00818a;
+  font-size: 0.875rem;
+}

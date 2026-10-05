@@ -61,14 +61,14 @@ export default function Accueil() {
         <div className={styles["welcome-banner"]}>
           {/* Left Text */}
           <div className={styles["welcome-text"]}>
-            <p style={{ lineHeight: 1.6 }}>{t("home.welcomeIntro")}</p>
+            <p className={styles["welcome-intro"]}>{t("home.welcomeIntro")}</p>
           </div>
 
           {/* Right Box */}
           <div className={styles["welcome-green-box"]}>
             <span
-              className="material-icons"
-              style={{ fontSize: "3rem", opacity: 0.9 }}
+              className={`material-icons ${styles["welcome-icon"]}`}
+              aria-hidden="true"
             >
               help_outline
             </span>
@@ -79,7 +79,7 @@ export default function Accueil() {
               >
                 {t("home.howToTitle")}
               </Link>
-              <p style={{ fontSize: "0.85rem", lineHeight: 1.4 }}>
+              <p className={styles["welcome-description"]}>
                 {t("home.howToDescPrefix")}
                 <Link href="/pages/use-pod" className={styles["welcome-link"]}>
                   {t("home.quickGuideLink")}
@@ -126,28 +126,14 @@ export default function Accueil() {
           </Button>
         </div>
 
-        <div style={{ marginTop: "var(--c--globals--spacings--xxl)" }}>
-          <h2
-            style={{
-              color:
-                "var(--c--contextuals--content--semantic--neutral--primary)",
-              borderBottom: "2px solid var(--c--globals--colors--gray-200)",
-              paddingBottom: "var(--c--globals--spacings--xs)",
-              marginBottom: "var(--c--globals--spacings--md)",
-            }}
-          >
+        <div className={styles["latest-videos-section"]}>
+          <h2 className={styles["latest-videos-title"]}>
             {t("home.latestVideos")}
           </h2>
           {latestVisiblePublicVideos.length > 0 ? (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--c--globals--spacings--md)",
-              }}
-            >
+            <div className={styles["latest-videos-content"]}>
               <VideosList videosList={latestVisiblePublicVideos} />
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div className={styles["all-videos-action"]}>
                 <Link href="/video">
                   <Button
                     icon={<span className="material-icons">play_circle</span>}

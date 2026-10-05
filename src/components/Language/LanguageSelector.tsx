@@ -9,6 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LanguageIcon from "@mui/icons-material/Language";
 import CheckIcon from "@mui/icons-material/Check";
 import type { SupportedLocale } from "@/src/locales";
+import styles from "./styles.module.css";
 
 interface LanguageSelectorProps {
   variant?: "dropdown" | "compact" | "full";
@@ -38,34 +39,15 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
       <Button
         onClick={handleClick}
         size="small"
-        className={className}
         aria-controls={open ? "language-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         aria-label="Changer de langue"
-        startIcon={<LanguageIcon sx={{ fontSize: "1.1rem !important" }} />}
+        startIcon={<LanguageIcon className={styles["language-icon"]} />}
         endIcon={
-          <ExpandMoreIcon sx={{ fontSize: "1rem !important", opacity: 0.7 }} />
+          <ExpandMoreIcon className={styles["language-expand-icon"]} />
         }
-        sx={{
-          color: "var(--text-color, inherit)",
-          textTransform: "none",
-          fontWeight: 600,
-          fontSize: "0.825rem",
-          borderRadius: "8px",
-          height: "36px",
-          padding: "0 10px",
-          border: "1px solid var(--border-color, rgba(140, 140, 140, 0.25))",
-          backgroundColor: "rgba(128, 128, 128, 0.05)",
-          transition: "all 0.2s ease-in-out",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "4px",
-          "&:hover": {
-            backgroundColor: "rgba(128, 128, 128, 0.12)",
-            borderColor: "rgba(128, 128, 128, 0.4)",
-          },
-        }}
+        className={`${styles["language-button"]} ${className || ""}`}
       >
         <span>{locale.toUpperCase()}</span>
       </Button>
@@ -78,15 +60,7 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
         slotProps={{
           paper: {
             elevation: 4,
-            sx: {
-              backgroundColor: "var(--background, #ffffff)",
-              color: "var(--text-color, #0f172a)",
-              borderRadius: "8px",
-              mt: 1,
-              minWidth: "140px",
-              border: "1px solid var(--border-color, rgba(140, 140, 140, 0.2))",
-              padding: "4px",
-            },
+            className: styles["language-menu-paper"],
           },
         }}
       >
@@ -97,37 +71,13 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
               key={loc.code}
               selected={isSelected}
               onClick={() => handleSelect(loc.code as SupportedLocale)}
-              sx={{
-                fontSize: "0.85rem",
-                fontWeight: isSelected ? 700 : 500,
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                py: 0.75,
-                px: 1.5,
-                borderRadius: "6px",
-                color: "var(--text-color, #0f172a)",
-                "&.Mui-selected": {
-                  backgroundColor:
-                    "var(--c--contextuals--background--semantic--brand--secondary, rgba(59, 130, 246, 0.1)) !important",
-                  color:
-                    "var(--c--contextuals--background--semantic--brand--primary, #2563eb) !important",
-                },
-                "&:hover": {
-                  backgroundColor: "rgba(128, 128, 128, 0.08)",
-                },
-              }}
+              className={`${styles["language-menu-item"]} ${
+                isSelected ? styles["language-menu-item-selected"] : ""
+              }`}
             >
               <span>{loc.label}</span>
               {isSelected && (
-                <CheckIcon
-                  sx={{
-                    fontSize: "1rem",
-                    color:
-                      "var(--c--contextuals--background--semantic--brand--primary, #2563eb)",
-                    ml: 1,
-                  }}
-                />
+                <CheckIcon className={styles["language-selected-icon"]} />
               )}
             </MenuItem>
           );

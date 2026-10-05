@@ -61,84 +61,54 @@ const MenuItem = (props: MenuItemProps) => {
   const MenuItemRoot = (
     <ListItemButton
       key={name}
-      className={styles["menu-item"]}
       onClick={handleClick}
       component={isNavigable ? Link : "div"}
       href={isNavigable ? link : undefined}
       selected={isSelfActive || (isExpandable && isOpen)}
-      sx={{
-        position: "relative",
-        transition: "all 0.2s ease",
-        borderRadius: "8px",
-        margin: sidebarOpen ? "2px 8px" : "4px auto",
-        width: sidebarOpen ? "auto" : "44px",
-        height: sidebarOpen ? "auto" : "44px",
-        padding: sidebarOpen ? "6px 12px !important" : "8px 0 !important",
-        justifyContent: sidebarOpen ? "flex-start" : "center",
-        backgroundColor: isSelfActive
-          ? "rgba(59, 130, 246, 0.15) !important"
-          : "transparent",
-        "&.Mui-selected": {
-          backgroundColor: isSelfActive
-            ? "rgba(59, 130, 246, 0.15) !important"
-            : "rgba(59, 130, 246, 0.08)",
-        },
-        "&:hover": {
-          backgroundColor: isSelfActive
-            ? "rgba(59, 130, 246, 0.22) !important"
-            : "rgba(0, 0, 0, 0.04)",
-        },
-      }}
+      className={`${styles["menu-item"]} ${
+        sidebarOpen ? styles["menu-item-open"] : styles["menu-item-closed"]
+      } ${isSelfActive ? styles["menu-item-active"] : ""} ${
+        isExpandable && isOpen ? styles["menu-item-expanded"] : ""
+      }`}
     >
       {/* Display an icon if any */}
       {!!Icon && (
         <ListItemIcon
-          sx={{
-            minWidth: sidebarOpen ? "36px" : "0",
-            paddingLeft: sidebarOpen ? "2px" : "0",
-            justifyContent: "center",
-          }}
+          className={`${styles["menu-item-icon"]} ${
+            sidebarOpen
+              ? styles["menu-item-icon-open"]
+              : styles["menu-item-icon-closed"]
+          }`}
         >
           <Icon
-            sx={{
-              color: isSelfActive
-                ? "#3b82f6 !important"
-                : "var(--c--contextuals--content--semantic--neutral--secondary)",
-            }}
+            className={`${styles["menu-item-icon-svg"]} ${
+              isSelfActive ? styles["menu-item-icon-svg-active"] : ""
+            }`}
           />
         </ListItemIcon>
       )}
       <ListItemText
-        sx={{
-          display: sidebarOpen ? "block" : "none",
-          ".MuiTypography-root": {
-            fontSize: isChildItem ? "0.8rem" : "0.85rem",
-            fontWeight: isSelfActive ? 600 : 500,
-            color: isSelfActive
-              ? "#3b82f6 !important"
-              : "var(--c--contextuals--content--semantic--neutral--primary)",
-          },
-        }}
+        className={`${styles["menu-item-text"]} ${
+          sidebarOpen ? "" : styles["menu-item-text-hidden"]
+        } ${isChildItem ? styles["menu-item-text-child"] : ""} ${
+          isSelfActive ? styles["menu-item-text-active"] : ""
+        }`}
         primary={name}
         inset={!Icon}
       />
       {/* Display the expand menu if the item has children */}
       {isExpandable && sidebarOpen && !isOpen && (
         <IconExpandMore
-          style={{
-            color: isChildActive
-              ? "#3b82f6"
-              : "var(--c--contextuals--content--semantic--neutral--primary)",
-          }}
+          className={`${styles["menu-expand-icon"]} ${
+            isChildActive ? styles["menu-expand-icon-active"] : ""
+          }`}
         />
       )}
       {isExpandable && sidebarOpen && isOpen && (
         <IconExpandLess
-          style={{
-            color: isChildActive
-              ? "#3b82f6"
-              : "var(--c--contextuals--content--semantic--neutral--primary)",
-          }}
+          className={`${styles["menu-expand-icon"]} ${
+            isChildActive ? styles["menu-expand-icon-active"] : ""
+          }`}
         />
       )}
     </ListItemButton>

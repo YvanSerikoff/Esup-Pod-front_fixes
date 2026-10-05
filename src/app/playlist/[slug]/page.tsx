@@ -142,7 +142,7 @@ export default function PlaylistPage() {
 
   if (usePlaylistError && !effectivePlaylist) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles["playlist-error"]}>
         <Alert type={VariantType.ERROR} canClose>
           {usePlaylistError ?? `${t("playlists.unableToLoad")} ${slug}`}
         </Alert>
@@ -240,7 +240,7 @@ export default function PlaylistPage() {
         {effectivePlaylist.items && playlistItemVideos.length > 0 ? (
           <div>
             {useVideoError && (
-              <div style={{ marginBottom: "1rem" }}>
+              <div className={styles["usevideo-error"]}>
                 <Alert canClose type={VariantType.ERROR}>
                   {useVideoError}
                 </Alert>

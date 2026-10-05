@@ -13,7 +13,7 @@ import {
   PLAYLIST_ORDER_OPTIONS,
   type CollectionOrder,
 } from "@/src/constants/collection";
-import styles from "@/src/app/playlist/edit/[slug]/styles.module.css";
+import styles from "./styles.module.css";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 export type PlaylistFormValues = {
@@ -53,8 +53,8 @@ export function PlaylistForm({
 
   return (
     <>
-      <div className={styles["form-actions"]}>
-        <div className={styles["form-actions-buttons"]}>
+      <div className={styles.playlistFormActions}>
+        <div className={styles.playlistFormActionButtons}>
           {secondaryActions}
           <Button
             fullWidth={isMobile}
@@ -109,7 +109,7 @@ export function PlaylistForm({
       />
 
       {/* ---------- Playlist visibility ---------- */}
-      <fieldset className={styles["restreint-fields"]}>
+      <fieldset className={styles.playlistRestrictedFields}>
         <legend>{t("playlists.accessRestrictions")}</legend>
         <Controller
           name="is_public"

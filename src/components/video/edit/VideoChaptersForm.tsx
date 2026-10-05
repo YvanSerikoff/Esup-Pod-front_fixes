@@ -10,6 +10,7 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { useChapters } from "@/src/hooks/useChapters";
 import type { Video } from "@/src/types";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css";
 
 type Props = {
   video: Video;
@@ -165,29 +166,16 @@ export default function VideoChaptersForm({ video }: Props) {
 
   /* ── render ─────────────────────────────────────────────────── */
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+    <div className={styles.chaptersForm}>
       {/* ── PLAYER SECTION ─────────────────────────────────────── */}
-      <div
-        style={{
-          borderRadius: 12,
-          overflow: "hidden",
-          border: "1.5px solid var(--c--globals--colors--gray-200, #e0e0e0)",
-          background: "#000",
-          position: "relative",
-        }}
-      >
+      <div className={styles.chapterPlayer}>
         {isEncoded ? (
           <>
             {/* VIDEO ELEMENT */}
             <video
               ref={videoRef}
               src={videoSrc}
-              style={{
-                width: "100%",
-                display: "block",
-                maxHeight: 320,
-                background: "#000",
-              }}
+              className={styles.chapterVideo}
               onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
               onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
               onPlay={() => setIsPlaying(true)}
@@ -199,22 +187,19 @@ export default function VideoChaptersForm({ video }: Props) {
             <div
               ref={progressRef}
               onMouseDown={handleProgressMouseDown}
-              style={{
-                position: "relative",
-                height: 8,
-                background: "rgba(255,255,255,0.25)",
-                cursor: "pointer",
-              }}
+              className={styles.chapterProgress}
             >
               {/* Filled bar */}
               <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  right: `${100 - progressPct}%`,
-                  background: "var(--c--globals--colors--primary-600, #00818a)",
-                  transition: isDragging ? "none" : "right 0.1s linear",
-                }}
+                className={`${styles.chapterProgressFill} ${
+                  isDragging ? styles.chapterProgressDragging : ""
+                }`}
+                ref={(element) =>
+                  element?.style.setProperty(
+                    "--chapter-progress-right",
+                    `${100 - progressPct}%`,
+                  )
+                }
               />
 
               {/* Chapter segment separators */}
@@ -223,62 +208,37 @@ export default function VideoChaptersForm({ video }: Props) {
                   <div
                     key={ch.id}
                     title={`${formatTimestamp(ch.time_start)} — ${ch.title}`}
-                    style={{
-                      position: "absolute",
-                      top: -2,
-                      bottom: -2,
-                      left: `${(ch.time_start / duration) * 100}%`,
-                      width: 2,
-                      background: "#fff",
-                      borderRadius: 2,
-                      zIndex: 2,
-                    }}
+                    className={styles.chapterMarker}
+                    ref={(element) =>
+                      element?.style.setProperty(
+                        "--chapter-marker-left",
+                        `${(ch.time_start / duration) * 100}%`,
+                      )
+                    }
                   />
                 ))}
 
               {/* Playhead thumb */}
               <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: `${progressPct}%`,
-                  transform: "translate(-50%, -50%)",
-                  width: 14,
-                  height: 14,
-                  borderRadius: "50%",
-                  background: "var(--c--globals--colors--primary-600, #00818a)",
-                  border: "2px solid white",
-                  zIndex: 3,
-                  pointerEvents: "none",
-                  boxShadow: "0 0 4px rgba(0,0,0,0.5)",
-                }}
+                className={styles.chapterPlayhead}
+                ref={(element) =>
+                  element?.style.setProperty(
+                    "--chapter-playhead-left",
+                    `${progressPct}%`,
+                  )
+                }
               />
             </div>
 
             {/* CONTROLS BAR */}
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 12,
-                padding: "8px 14px",
-                background: "#111",
-                color: "#fff",
-              }}
+              className={styles.chapterControls}
             >
               {/* Play / Pause */}
               <button
                 type="button"
                 onClick={togglePlay}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "#fff",
-                  cursor: "pointer",
-                  display: "flex",
-                  padding: 4,
-                  borderRadius: 4,
-                }}
+                className={styles.chapterPlayButton}
                 title={isPlaying ? "Pause" : "Lecture"}
               >
                 {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
@@ -286,40 +246,20 @@ export default function VideoChaptersForm({ video }: Props) {
 
               {/* Current time */}
               <span
-                style={{
-                  fontFamily: "monospace",
-                  fontSize: "0.875rem",
-                  color: "rgba(255,255,255,0.85)",
-                  minWidth: 90,
-                }}
+                className={styles.chapterTime}
               >
                 {formatTimestamp(currentTime)}
                 {" / "}
                 {formatTimestamp(duration)}
               </span>
 
-              <div style={{ flex: 1 }} />
+              <div className={styles.chapterControlsSpacer} />
 
               {/* CAPTURE BUTTON */}
               <button
                 type="button"
                 onClick={captureCurrentTime}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                  padding: "5px 14px",
-                  borderRadius: 999,
-                  border:
-                    "1.5px solid var(--c--globals--colors--primary-400, #4db6bd)",
-                  background: "rgba(0,129,138,0.15)",
-                  color: "var(--c--globals--colors--primary-300, #7dd4d8)",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  transition: "all 0.15s",
-                  whiteSpace: "nowrap",
-                }}
+                className={styles.chapterCaptureButton}
                 title={t("chapters.captureTooltip")}
               >
                 <FlagIcon fontSize="small" />
@@ -330,25 +270,13 @@ export default function VideoChaptersForm({ video }: Props) {
         ) : (
           /* NOT ENCODED YET */
           <div
-            style={{
-              aspectRatio: "16/9",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-              color: "rgba(255,255,255,0.6)",
-              fontSize: "0.9rem",
-              padding: 24,
-              textAlign: "center",
-              background: "#1a1a1a",
-            }}
+            className={styles.chapterUnavailable}
           >
-            <BookmarksIcon style={{ fontSize: 40, opacity: 0.4 }} />
-            <span style={{ fontWeight: 600, opacity: 0.8 }}>
+            <BookmarksIcon className={styles.chapterUnavailableIcon} />
+            <span className={styles.chapterUnavailableTitle}>
               {t("videoPlayer.encodingInProgress")}
             </span>
-            <span style={{ fontSize: "0.8rem", opacity: 0.5 }}>
+            <span className={styles.chapterUnavailableDescription}>
               {t("chapters.playerUnavailable")}
             </span>
           </div>
@@ -356,50 +284,24 @@ export default function VideoChaptersForm({ video }: Props) {
       </div>
 
       {/* ── CHAPTER LIST ───────────────────────────────────────── */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div className={styles.chapterList}>
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            marginBottom: 4,
-          }}
+          className={styles.chapterListHeader}
         >
-          <BookmarksIcon
-            style={{
-              fontSize: 18,
-              color: "var(--c--globals--colors--primary-600, #00818a)",
-            }}
-          />
-          <span style={{ fontWeight: 600, fontSize: "0.95rem" }}>
+          <BookmarksIcon className={styles.chapterListIcon} />
+          <span className={styles.chapterListTitle}>
             {t("chapters.countLabel", { count: sortedChapters.length })}
           </span>
         </div>
 
         {sortedChapters.length === 0 ? (
-          <p
-            style={{
-              margin: 0,
-              fontSize: "0.85rem",
-              color: "var(--c--globals--colors--gray-500)",
-              padding: "12px 0",
-            }}
-          >
+          <p className={styles.chapterListEmpty}>
             {t.rich("chapters.empty", {
               strong: (chunks) => <strong>{chunks}</strong>,
             })}
           </p>
         ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              maxHeight: 220,
-              overflowY: "auto",
-              paddingRight: 4,
-            }}
-          >
+          <div className={styles.chapterRows}>
             {sortedChapters.map((ch, i) => (
               <div
                 key={ch.id}
@@ -410,68 +312,23 @@ export default function VideoChaptersForm({ video }: Props) {
                     setCurrentTime(ch.time_start);
                   }
                 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  padding: "8px 12px",
-                  background: "var(--c--globals--colors--gray-050, #f9fafb)",
-                  border:
-                    "1px solid var(--c--globals--colors--gray-200, #e5e7eb)",
-                  borderRadius: 8,
-                  cursor: isEncoded ? "pointer" : "default",
-                  transition: "background 0.15s",
-                }}
+                className={`${styles.chapterRow} ${
+                  isEncoded ? styles.chapterRowClickable : ""
+                }`}
                 title={isEncoded ? `${t("chapters.goToMoment")}` : undefined}
               >
                 {/* Index chip */}
-                <span
-                  style={{
-                    width: 24,
-                    height: 24,
-                    borderRadius: "50%",
-                    background:
-                      "var(--c--globals--colors--primary-600, #00818a)",
-                    color: "#fff",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
+                <span className={styles.chapterIndex}>
                   {i + 1}
                 </span>
 
                 {/* Timestamp */}
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: "0.82rem",
-                    fontWeight: 700,
-                    color: "var(--c--globals--colors--primary-600, #00818a)",
-                    padding: "2px 6px",
-                    background: "rgba(0,129,138,0.08)",
-                    borderRadius: 4,
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span className={styles.chapterTimestamp}>
                   {formatTimestamp(ch.time_start)}
                 </span>
 
                 {/* Title */}
-                <span
-                  style={{
-                    flex: 1,
-                    fontSize: "0.9rem",
-                    fontWeight: 500,
-                    color: "var(--c--globals--colors--gray-900)",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span className={styles.chapterTitle}>
                   {ch.title}
                 </span>
 
@@ -482,18 +339,7 @@ export default function VideoChaptersForm({ video }: Props) {
                     e.stopPropagation();
                     handleDelete(ch.id);
                   }}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    color: "#ef4444",
-                    padding: 4,
-                    borderRadius: 4,
-                    display: "flex",
-                    flexShrink: 0,
-                    opacity: 0.7,
-                    transition: "opacity 0.15s",
-                  }}
+                  className={styles.chapterDeleteButton}
                   title={t("chapters.deleteChapter")}
                 >
                   <DeleteOutlineIcon fontSize="small" />
@@ -506,60 +352,26 @@ export default function VideoChaptersForm({ video }: Props) {
 
       {/* ── ADD CHAPTER FORM ────────────────────────────────────── */}
       <div
-        style={{
-          padding: 16,
-          background: "rgba(0,129,138,0.04)",
-          border: "1.5px solid var(--c--globals--colors--primary-200, #b2dfdb)",
-          borderRadius: 10,
-        }}
+        className={styles.chapterAddPanel}
       >
-        <p
-          style={{
-            margin: "0 0 12px",
-            fontSize: "0.85rem",
-            fontWeight: 600,
-            color: "var(--c--globals--colors--primary-700, #005f65)",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-          }}
-        >
+        <p className={styles.chapterAddHeading}>
           <AddIcon fontSize="small" />
           {t("chapters.addTitle")}
         </p>
 
         {formError && (
-          <p
-            style={{
-              margin: "0 0 10px",
-              color: "#d32f2f",
-              fontSize: "0.82rem",
-            }}
-          >
+          <p className={styles.chapterFormError}>
             {formError}
           </p>
         )}
 
         <form
           onSubmit={handleAddChapter}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "120px 1fr auto",
-            gap: 10,
-            alignItems: "flex-end",
-          }}
+          className={styles.chapterForm}
         >
           {/* Timestamp input */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            <label
-              style={{
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                color: "var(--c--globals--colors--gray-600)",
-                textTransform: "uppercase",
-                letterSpacing: "0.4px",
-              }}
-            >
+          <div className={styles.chapterFormField}>
+            <label className={styles.chapterFormLabel}>
               {t("chapters.timeLabel")}
             </label>
             <input
@@ -568,38 +380,13 @@ export default function VideoChaptersForm({ video }: Props) {
               onChange={(e) => setTimestamp(e.target.value)}
               placeholder="00:00"
               pattern="[0-9]{1,2}:[0-5][0-9](:[0-5][0-9])?"
-              style={{
-                fontFamily: "monospace",
-                fontSize: "1rem",
-                fontWeight: 700,
-                border: "1.5px solid var(--c--globals--colors--gray-300, #ccc)",
-                borderRadius: 8,
-                padding: "8px 10px",
-                outline: "none",
-                color: "var(--c--globals--colors--primary-700, #005f65)",
-                background: "#fff",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#00818a")}
-              onBlur={(e) =>
-                (e.currentTarget.style.borderColor =
-                  "var(--c--globals--colors--gray-300, #ccc)")
-              }
+              className={`${styles.chapterInput} ${styles.chapterTimestampInput}`}
             />
           </div>
 
           {/* Title input */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            <label
-              style={{
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                color: "var(--c--globals--colors--gray-600)",
-                textTransform: "uppercase",
-                letterSpacing: "0.4px",
-              }}
-            >
+          <div className={styles.chapterFormField}>
+            <label className={styles.chapterFormLabel}>
               {t("chapters.titleLabel")}
             </label>
             <input
@@ -607,21 +394,7 @@ export default function VideoChaptersForm({ video }: Props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder={t("chapters.titlePlaceholder")}
-              style={{
-                fontSize: "0.95rem",
-                border: "1.5px solid var(--c--globals--colors--gray-300, #ccc)",
-                borderRadius: 8,
-                padding: "8px 12px",
-                outline: "none",
-                background: "#fff",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#00818a")}
-              onBlur={(e) =>
-                (e.currentTarget.style.borderColor =
-                  "var(--c--globals--colors--gray-300, #ccc)")
-              }
+              className={styles.chapterInput}
             />
           </div>
 
@@ -629,24 +402,9 @@ export default function VideoChaptersForm({ video }: Props) {
           <button
             type="submit"
             disabled={isSubmitting || !title.trim()}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              padding: "9px 20px",
-              borderRadius: 8,
-              border: "none",
-              background:
-                isSubmitting || !title.trim()
-                  ? "var(--c--globals--colors--gray-300, #ccc)"
-                  : "var(--c--globals--colors--primary-600, #00818a)",
-              color: isSubmitting || !title.trim() ? "#888" : "#fff",
-              fontWeight: 600,
-              fontSize: "0.9rem",
-              cursor: isSubmitting || !title.trim() ? "not-allowed" : "pointer",
-              whiteSpace: "nowrap",
-              transition: "background 0.15s",
-            }}
+            className={`${styles.chapterSubmitButton} ${
+              isSubmitting || !title.trim() ? styles.chapterSubmitDisabled : ""
+            }`}
           >
             <AddIcon fontSize="small" />
             {t("common.add")}

@@ -4,6 +4,12 @@
   margin-top: var(--c--globals--spacings--md);
 }
 
+.delete-paper {
+  width: 100%;
+  max-width: 520px;
+  padding: var(--c--globals--spacings--xl);
+}
+
 .delete-alert {
   margin-top: 0 !important;
 }

@@ -2,3 +2,43 @@
   padding: 0 var(--c--globals--spacings--lg);
   height: 40px;
 }
+
+.search-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.15));
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-icon,
+.search-clear-button {
+  color: var(--text-color-muted, #94a3b8);
+}
+
+.search-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.search-input-base {
+  flex: 1;
+  color: var(--text-color, inherit);
+  font-size: 0.9rem;
+}
+
+.search-input-base input::placeholder {
+  color: var(--text-color-muted, #94a3b8);
+  opacity: 0.8;
+}

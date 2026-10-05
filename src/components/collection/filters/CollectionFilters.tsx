@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@openfun/cunningham-react";
 import { getUserDisplayName } from "@/src/constants/user";
 import type { Channel, User } from "@/src/types";
-import styles from "@/src/components/video/filters/styles.module.css";
+import styles from "./styles.module.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import FilterDropdown from "@/src/components/video/filters/FilterDropdown";
@@ -76,27 +76,7 @@ const FilterChip = ({
     onDelete={onDelete}
     deleteIcon={<CloseIcon />}
     size="small"
-    sx={{
-      m: 0.25,
-      borderRadius: "16px",
-      backgroundColor: "rgba(59, 130, 246, 0.15)",
-      color: "var(--text-color, #0f172a)",
-      border: "1px solid rgba(59, 130, 246, 0.35)",
-      fontWeight: 600,
-      fontSize: "0.8rem",
-      "html[data-theme='dark'] &": {
-        backgroundColor: "rgba(59, 130, 246, 0.25)",
-        color: "#ffffff",
-        borderColor: "#3b82f6",
-        boxShadow: "0 2px 8px rgba(59, 130, 246, 0.2)",
-      },
-      "& .MuiChip-deleteIcon": {
-        color: "rgba(148, 163, 184, 0.9)",
-        "&:hover": {
-          color: "#ef4444",
-        },
-      },
-    }}
+    className={styles.filterChip}
   />
 );
 
@@ -195,14 +175,7 @@ export default function CollectionFilters({
               </InputAdornment>
             ),
           }}
-          sx={{
-            minWidth: isMobile ? "100%" : "220px",
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "9999px",
-              backgroundColor: "#fff",
-              paddingLeft: "12px",
-            },
-          }}
+          className={`${styles.searchField} ${isMobile ? styles.searchFieldMobile : ""}`}
         />
 
         <FilterDropdown
@@ -258,18 +231,7 @@ export default function CollectionFilters({
       </div>
 
       {appliedFiltersCount > 0 && (
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            mt: 2,
-            gap: "12px",
-            pt: 1.5,
-            borderTop: "1px solid rgba(0, 0, 0, 0.12)",
-          }}
-        >
+        <Box className={styles.activeFilterRow}>
           <Box className={styles.chips}>
             {value.search.trim() && (
               <FilterChip

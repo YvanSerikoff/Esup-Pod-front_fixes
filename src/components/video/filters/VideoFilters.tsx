@@ -87,23 +87,13 @@ const FilterChip = ({
       variant="body2"
       fontWeight={600}
       noWrap
-      sx={{ color: "inherit" }}
+      className={styles["filter-chip-label"]}
     >
       {label}
     </Typography>
     <CloseIcon
       fontSize="small"
-      sx={{
-        ml: 0.5,
-        fontSize: "1.1rem",
-        color: "inherit",
-        opacity: 0.8,
-        transition: "opacity 0.2s ease, color 0.2s ease",
-        "&:hover": {
-          opacity: 1,
-          color: "#ef4444",
-        },
-      }}
+      className={styles["filter-chip-close"]}
     />
   </div>
 );
@@ -303,13 +293,7 @@ export default function VideoFilters({
               </InputAdornment>
             ),
           }}
-          sx={{
-            minWidth: isMobile ? "100%" : "220px",
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "9999px",
-              paddingLeft: "12px",
-            },
-          }}
+          className={`${styles["search-field"]} ${isMobile ? styles["search-field-mobile"] : ""}`}
         />
 
         {/* Sorting pill */}
@@ -375,27 +359,21 @@ export default function VideoFilters({
           <Badge
             badgeContent={secondaryFiltersCount}
             color="primary"
-            sx={{
-              "& .MuiBadge-badge": {
-                fontSize: "0.7rem",
-                height: 18,
-                minWidth: 18,
-              },
-            }}
+            className={styles["advanced-badge"]}
           >
-            <TuneIcon fontSize="small" sx={{ color: "inherit" }} />
+            <TuneIcon fontSize="small" className={styles["filter-control-icon"]} />
           </Badge>
           <Typography
             variant="body2"
             fontWeight={600}
-            sx={{ color: "inherit" }}
+            className={styles["filter-chip-label"]}
           >
             {t("filters.advancedFilters")}
           </Typography>
           {showAdvanced ? (
-            <ExpandLessIcon fontSize="small" sx={{ color: "inherit" }} />
+            <ExpandLessIcon fontSize="small" className={styles["filter-control-icon"]} />
           ) : (
-            <ExpandMoreIcon fontSize="small" sx={{ color: "inherit" }} />
+            <ExpandMoreIcon fontSize="small" className={styles["filter-control-icon"]} />
           )}
         </div>
       </div>
@@ -404,16 +382,7 @@ export default function VideoFilters({
       <Collapse in={showAdvanced} timeout="auto" unmountOnExit>
         <Paper
           elevation={0}
-          sx={{
-            p: 2,
-            mt: 1.5,
-            borderRadius: "12px",
-            backgroundColor: "rgba(0, 0, 0, 0.02)",
-            border: "1px solid rgba(0, 0, 0, 0.08)",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 1.5,
-          }}
+          className={styles["advanced-panel"]}
         >
           {/* User Pill (Async multi select) */}
           {!hideUser && (
@@ -483,18 +452,7 @@ export default function VideoFilters({
 
       {/* Active Filter Chips Row with Clear Action */}
       {appliedFiltersCount > 0 && (
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            mt: 2,
-            gap: "12px",
-            pt: 1.5,
-            borderTop: "1px solid rgba(0, 0, 0, 0.12)",
-          }}
-        >
+        <Box className={styles["active-filters-row"]}>
           <Box className={styles["chips"]}>
             {value.search.trim() && (
               <FilterChip

@@ -134,26 +134,17 @@ const SideBar = () => {
         {accessToken && user ? (
           <>
             <Chip
+              className={`${styles["sidebar-welcome"]} ${
+                sidebarOpen ? "" : styles["sidebar-welcome-hidden"]
+              }`}
               label={`${t("sidebar.welcome")} ${user?.first_name || user?.username || "admin"} 👋`}
-              sx={{
-                display: sidebarOpen ? "inline-flex" : "none",
-                backgroundColor:
-                  "var(--background-brand-secondary, rgba(59, 130, 246, 0.15))",
-                color: "var(--background-brand, #3b82f6)",
-                fontWeight: 600,
-                fontSize: "0.85rem",
-                marginLeft: "14px",
-                marginTop: "16px",
-                marginBottom: "var(--c--globals--spacings--xs)",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
             />
             <List
               component="nav"
               disablePadding
-              sx={{ mt: sidebarOpen ? 2 : 1 }}
+              className={`${styles["sidebar-list"]} ${
+                sidebarOpen ? styles["sidebar-list-open"] : styles["sidebar-list-closed"]
+              }`}
             >
               {[...menuPodItems, ...menuPrincipalItems].map((item, index) => (
                 <MenuItem {...item} key={index} />
@@ -164,11 +155,9 @@ const SideBar = () => {
           <>
             <h3
               id="sidebar-title"
-              className={styles["menu-title"]}
-              style={{
-                display: sidebarOpen ? "block" : "none",
-                color: "var(--text-color-brand)",
-              }}
+              className={`${styles["menu-title"]} ${
+                sidebarOpen ? "" : styles["menu-title-hidden"]
+              }`}
             >
               {t("sidebar.mainMenu")}
             </h3>

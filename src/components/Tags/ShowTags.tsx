@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import type { Tags, Video } from "@/src/types";
 import { useTags } from "@/src/hooks/useTags";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css";
 
 export type ShowTagsProps = {
   onTagClick?: (tag: Tags) => void;
@@ -19,15 +20,6 @@ export type ShowTagsProps = {
   // Optional video list used to recalculate the video count for each tag
   videos?: Video[];
 };
-
-// Couleurs variables Cunningham
-const CHIP_BACKGROUND_COLORS: string[] = [
-  "var(--c--contextuals--background--palette--pink--primary)",
-  "var(--c--contextuals--background--palette--purple--primary)",
-  "var(--c--contextuals--background--palette--blue-1--primary)",
-  "var(--c--contextuals--background--palette--orange--primary)",
-  "var(--c--contextuals--background--palette--red--primary)",
-];
 
 export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
   const { tags, fetchAll, useTagsLoading, useTagsError } = useTags();
@@ -75,14 +67,7 @@ export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
 
   if (useTagsLoading) {
     return (
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          py: 1,
-        }}
-      >
+      <Box className={styles["tags-loading"]}>
         <CircularProgress size={20} />
         <p>{t("videoPage.keywordsloading")}</p>
       </Box>
@@ -104,17 +89,8 @@ export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
   }
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 1,
-        mt: 1.5,
-      }}
-    >
+    <Box className={styles["tags-list"]}>
       {displayedTags.map(({ tag, effectiveCount }, index) => {
-        const backgroundColor =
-          CHIP_BACKGROUND_COLORS[index % CHIP_BACKGROUND_COLORS.length];
         const label =
           effectiveCount != null ? `${tag.name} (${effectiveCount})` : tag.name;
 
@@ -124,6 +100,9 @@ export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
             label={label}
             variant="filled"
             size="medium"
+            className={`${styles["tag-chip"]} ${
+              styles[`tag-color-${index % 5}`]
+            }`}
             onClick={() => {
               if (onTagClick) {
                 onTagClick(tag);
@@ -131,21 +110,6 @@ export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
               }
 
               router.push(`/video?tag=${encodeURIComponent(tag.slug)}`);
-            }}
-            sx={{
-              cursor: "pointer",
-              fontSize: "0.95rem",
-              px: 2.5,
-              py: 2.5,
-              borderRadius: 9999,
-              backgroundColor,
-              fontWeight: 700,
-              color:
-                "var(--c--contextuals--content--semantic--neutral--on-neutral)",
-              "&:hover": {
-                backgroundColor,
-                boxShadow: "none",
-              },
             }}
           />
         );

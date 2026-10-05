@@ -47,7 +47,7 @@ export default function DeleteVideoPage() {
 
   return (
     <div className={styles["delete-container"]}>
-      <Paper sx={{ p: 4, maxWidth: 520, width: "100%" }}>
+      <Paper className={styles["delete-paper"]}>
         <h2>{t("videoEdit.deleteVideo")}</h2>
 
         {useVideoLoading && !video && <CenteredLoader />}

@@ -211,3 +211,213 @@
 .action-menu-container {
   display: flex;
 }
+
+.contributorsForm {
+  width: 100%;
+  padding: 1rem;
+}
+
+.contributorsFormFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contributorsFormRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.contributorsAutocomplete {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.contributorsRole {
+  min-width: 150px;
+}
+
+.contributorsList {
+  margin-top: 1rem;
+}
+
+.contributorsItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contributorItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid var(--c--globals--colors--gray-200);
+  border-radius: 8px;
+  background: var(--c--globals--colors--gray-000);
+}
+
+.contributorIdentity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contributorName {
+  font-weight: 600;
+}
+
+.contributorRoleText {
+  font-size: 0.85rem;
+  color: var(--c--globals--colors--gray-600);
+}
+
+.noContributors {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.videoActionTrigger {
+  color: var(--text-color, inherit);
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.videoActionTrigger:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.videoActionMenuPaper {
+  background-color: var(--c--theme--colors--card-bg, #fff);
+  color: var(--text-color, #0f172a);
+  border-radius: 10px;
+  margin-top: 4px;
+  min-width: 170px;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.videoActionMenuItem,
+.videoActionDeleteItem {
+  font-size: 0.875rem;
+  gap: 12px;
+  padding: 8px 16px;
+  color: var(--text-color, #0f172a);
+}
+
+.videoActionMenuItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.videoActionItemIcon {
+  color: var(--text-color-muted, #64748b);
+  min-width: auto !important;
+}
+
+.videoActionDivider {
+  margin: 4px 0;
+  border-color: var(--border-color, #e2e8f0);
+}
+
+.videoActionDeleteItem {
+  color: #ef4444 !important;
+}
+
+.videoActionDeleteItem:hover {
+  background-color: rgba(239, 68, 68, 0.12) !important;
+}
+
+.videoActionDeleteIcon {
+  color: #ef4444 !important;
+  min-width: auto !important;
+}
+
+.videoSkeletonCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.videoSkeletonThumbnail {
+  position: relative;
+  padding-top: 56.25%;
+  background-color: var(--c--globals--colors--gray-050, #fafafa);
+}
+
+.videoSkeletonThumbnailContent {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.videoSkeletonContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.videoSkeletonMetadata {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  gap: 12px;
+}
+
+.videoSkeletonMetadataText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+
+.videoDocumentsRoot {
+  margin-top: 16px;
+}
+
+.videoDocumentsUploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--c--globals--colors--gray-200);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.videoDocumentsUploadButton {
+  align-self: flex-start;
+}
+
+.videoDocumentItem {
+  border: 1px solid var(--c--globals--colors--gray-200);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.videoDownloadMenuPaper {
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+.videoDownloadMenuHeading {
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.videosList {
+  padding: var(--c--globals--spacings--md) 0;
+}
+
+.videosGridItem {
+  display: flex;
+}

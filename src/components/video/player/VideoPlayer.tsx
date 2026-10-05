@@ -7,6 +7,7 @@ import { useTranslation } from "@/src/hooks/useTranslation";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "videojs-hotkeys";
+import styles from "./styles.module.css";
 
 type Props = {
   video: Video;
@@ -293,56 +294,16 @@ export default function VideoPlayer({
       <div
         role="alert"
         aria-live="assertive"
-        style={{
-          position: "relative",
-          width: "100%",
-          maxWidth: "100%",
-          maxHeight: "78vh",
-          aspectRatio: aspectRatio,
-          margin: "0 auto",
-          overflow: "hidden",
-          borderRadius: "12px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#0f172a",
-          boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.15)",
-        }}
+        className={styles.playerError}
+        ref={(element) =>
+          element?.style.setProperty("--player-aspect-ratio", aspectRatio)
+        }
       >
         {poster && (
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundImage: `url(${poster})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              filter: "blur(20px) brightness(0.3)",
-              transform: "scale(1.1)",
-            }}
-          />
+          <img src={poster} alt="" className={styles.playerErrorPoster} />
         )}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "10px",
-            padding: "8px 16px",
-            backgroundColor: "rgba(15, 23, 42, 0.65)",
-            backdropFilter: "blur(8px)",
-            borderRadius: "9999px",
-            border: "1px solid rgba(255, 255, 255, 0.12)",
-            color: "#e2e8f0",
-            fontSize: "0.85rem",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.25)",
-          }}
-        >
-          <span
-            className="material-icons"
-            style={{ fontSize: "1.1rem", color: "#94a3b8" }}
-          >
+        <div className={styles.playerErrorMessage}>
+          <span className={`material-icons ${styles.playerErrorIcon}`}>
             {isEncoding ? "hourglass_empty" : "info"}
           </span>
           <span>
@@ -355,26 +316,9 @@ export default function VideoPlayer({
               setHasError(false);
               setIsReady(false);
             }}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#60a5fa",
-              fontWeight: 600,
-              fontSize: "0.825rem",
-              cursor: "pointer",
-              padding: "2px 6px",
-              borderRadius: "4px",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "4px",
-              marginLeft: "4px",
-            }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.textDecoration = "underline")
-            }
-            onMouseOut={(e) => (e.currentTarget.style.textDecoration = "none")}
+            className={styles.playerRetry}
           >
-            <span className="material-icons" style={{ fontSize: "0.95rem" }}>
+            <span className={`material-icons ${styles.playerRetryIcon}`}>
               refresh
             </span>
             {t("videoPlayer.retry")}
@@ -386,26 +330,12 @@ export default function VideoPlayer({
 
   return (
     <div
-      style={{
-        position: "relative",
-        width: "100%",
-        maxWidth: "100%",
-        maxHeight: "78vh",
-        aspectRatio: aspectRatio,
-        margin: "0 auto",
-        boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.15)",
-        zIndex: 0,
-        overflow: "hidden",
-        borderRadius: "12px",
-      }}
+      className={styles.playerContainer}
+      ref={(element) =>
+        element?.style.setProperty("--player-aspect-ratio", aspectRatio)
+      }
     >
-      <div
-        ref={containerRef}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      />
+      <div ref={containerRef} className={styles.videoJsContainer} />
 
       {/* Chapters Overlay / Segment Markers on progress bar */}
       {isReady &&
@@ -413,16 +343,7 @@ export default function VideoPlayer({
         video.duration &&
         video.duration > 0 && (
           <div
-            style={{
-              position: "absolute",
-              bottom: "35px",
-              left: "12px",
-              right: "12px",
-              height: "4px",
-              pointerEvents: "none",
-              zIndex: 12,
-              display: "flex",
-            }}
+            className={styles.chapterOverlay}
           >
             {chapters.map((ch, idx) => {
               const nextStart = chapters[idx + 1]
@@ -434,15 +355,14 @@ export default function VideoPlayer({
               return (
                 <div
                   key={ch.id || idx}
-                  style={{
-                    width: `${pct}%`,
-                    height: "100%",
-                    borderRight:
-                      idx < chapters.length - 1 ? "2px solid #000" : "none",
-                    boxSizing: "border-box",
-                    pointerEvents: "auto",
-                    cursor: "pointer",
-                  }}
+                  className={`${styles.chapterSegment} ${
+                    idx < chapters.length - 1
+                      ? styles.chapterSegmentDivider
+                      : ""
+                  }`}
+                  ref={(element) =>
+                    element?.style.setProperty("--chapter-segment-width", `${pct}%`)
+                  }
                   onMouseEnter={() => setHoveredChapter(ch.title)}
                   onMouseLeave={() => setHoveredChapter(null)}
                   title={ch.title}
@@ -454,86 +374,25 @@ export default function VideoPlayer({
 
       {/* Chapter Hover Title */}
       {hoveredChapter && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: "48px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.85)",
-            color: "#fff",
-            padding: "4px 10px",
-            borderRadius: "6px",
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            pointerEvents: "none",
-            zIndex: 15,
-            whiteSpace: "nowrap",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-          }}
-        >
+        <div className={styles.chapterHoverTitle}>
           {hoveredChapter}
         </div>
       )}
 
       {/* Seek Indicator Overlay */}
       {seekIndicator && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            color: "#fff",
-            padding: "16px 24px",
-            borderRadius: "50%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "80px",
-            height: "80px",
-            pointerEvents: "none",
-            zIndex: 20,
-            animation: "fadeOut 0.6s ease-out forwards",
-          }}
-        >
-          <span className="material-icons" style={{ fontSize: "2rem" }}>
+        <div className={styles.seekIndicator}>
+          <span className={`material-icons ${styles.seekIcon}`}>
             {seekIndicator.type === "forward" ? "fast_forward" : "fast_rewind"}
           </span>
-          <span
-            style={{
-              fontSize: "0.85rem",
-              fontWeight: "bold",
-              marginTop: "4px",
-            }}
-          >
+          <span className={styles.seekLabel}>
             {seekIndicator.type === "forward" ? "+10s" : "-10s"}
           </span>
-          <style>{`
-            @keyframes fadeOut {
-              0% { opacity: 1; transform: translate(-50%, -50%) scale(0.9); }
-              20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-              100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
-            }
-          `}</style>
         </div>
       )}
 
       {!isReady && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 10,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#171717",
-            color: "#fff",
-          }}
-        >
+        <div className={styles.playerLoadingOverlay}>
           <CenteredLoader />
         </div>
       )}

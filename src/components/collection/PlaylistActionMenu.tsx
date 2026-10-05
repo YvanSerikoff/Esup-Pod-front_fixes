@@ -10,6 +10,7 @@ import MenuButton from "@mui/joy/MenuButton";
 import Dropdown from "@mui/joy/Dropdown";
 import Link from "next/link";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css";
 
 interface PlaylistCardActionMenuProps {
   slug: string | null;
@@ -22,13 +23,7 @@ export default function PlaylistCardActionMenu({
   return (
     <Dropdown>
       <MenuButton
-        sx={{
-          backgroundColor: "white",
-          ":hover": {
-            backgroundColor:
-              "var(--c--contextuals--background--semantic--brand--tertiary)",
-          },
-        }}
+        className={styles.menuButton}
         slots={{ root: IconButton }}
         slotProps={{ root: { variant: "outlined" } }}
       >
@@ -48,7 +43,7 @@ export default function PlaylistCardActionMenu({
           variant="soft"
           color="danger"
         >
-          <ListItemDecorator sx={{ color: "inherit" }}>
+          <ListItemDecorator className={styles.deleteDecorator}>
             <DeleteForever />
           </ListItemDecorator>
           {t("playlists.delete")}

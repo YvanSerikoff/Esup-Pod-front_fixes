@@ -3,6 +3,7 @@ import CollectionCard from "@/src/components/collection/CollectionCard";
 import Grid from "@mui/material/Grid";
 import CollectionCardSkeleton from "./CollectionCardSkeleton";
 import { useSidebar } from "@/src/context/SidebarProvider";
+import styles from "./styles.module.css";
 
 type CollectionsListProps = {
   channels?: Channel[];
@@ -32,7 +33,7 @@ export default function CollectionsList({
 
   if (loading) {
     return (
-      <div style={{ padding: "var(--c--globals--spacings--sm) 0" }}>
+      <div className={styles.list}>
         <Grid container spacing={2}>
           {Array.from({ length: 6 }).map((_, index) => (
             <Grid
@@ -48,7 +49,7 @@ export default function CollectionsList({
   }
 
   return (
-    <div style={{ padding: "var(--c--globals--spacings--sm) 0" }}>
+    <div className={styles.list}>
       <Grid container spacing={2}>
         {channels.map((channel) => (
           <Grid

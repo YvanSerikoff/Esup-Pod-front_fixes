@@ -27,6 +27,7 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import type { Video, Type as VideoType, Discipline, Tags } from "@/src/types";
 import { useBulkActions } from "@/src/hooks/useBulkActions";
 import filterStyles from "@/src/components/video/filters/styles.module.css";
+import styles from "./styles.module.css";
 
 export interface BulkActionsBarProps {
   selectedVideos: Video[];
@@ -366,45 +367,16 @@ export default function BulkActionsBar({
     <>
       {/* ── Contextual action bar (shown only when items are selected) ── */}
       {hasSelection && (
-        <div
-          style={{
-            backgroundColor:
-              "var(--c--theme--colors--card-bg, rgba(255, 255, 255, 0.05))",
-            border: "1px solid var(--border-color, rgba(0, 0, 0, 0.12))",
-            borderRadius: "12px",
-            padding: "16px 20px",
-            marginBottom: "24px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "16px",
-            }}
-          >
+        <div className={styles.bulkActionBar}>
+          <div className={styles.bulkActionBarContent}>
             {/* Title + selection badge */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <h2 style={{ fontSize: "1.05rem", fontWeight: 700, margin: 0 }}>
+            <div className={styles.bulkActionTitleGroup}>
+              <h2 className={styles.bulkActionTitle}>
                 {t("bulk.title")}
               </h2>
               {hasSelection ? (
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <span
-                    style={{
-                      backgroundColor:
-                        "var(--c--contextuals--background--semantic--brand--primary)",
-                      color: "#fff",
-                      fontSize: "0.8rem",
-                      fontWeight: 600,
-                      borderRadius: "12px",
-                      padding: "2px 10px",
-                    }}
-                  >
+                <div className={styles.bulkSelectionGroup}>
+                  <span className={styles.bulkSelectionBadge}>
                     {count} {t("common.videos")}
                   </span>
                   {/* Warning that encoding is in progress */}
@@ -414,17 +386,7 @@ export default function BulkActionsBar({
                       placement="top"
                       arrow
                     >
-                      <span
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "4px",
-                          color: "#e67e22",
-                          fontSize: "0.8rem",
-                          fontWeight: 600,
-                          cursor: "help",
-                        }}
-                      >
+                      <span className={styles.bulkEncodingWarning}>
                         <WarningAmberIcon fontSize="small" />
                         {t("pending.encoding")}
                       </span>
@@ -432,15 +394,7 @@ export default function BulkActionsBar({
                   )}
                 </div>
               ) : (
-                <span
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    color: "var(--c--globals--colors--gray-500)",
-                    fontSize: "0.85rem",
-                  }}
-                >
+                <span className={styles.bulkSelectionPrompt}>
                   <InfoOutlinedIcon fontSize="small" />
                   {t("bulk.checkVideosPrompt")}
                 </span>
@@ -448,25 +402,15 @@ export default function BulkActionsBar({
             </div>
 
             {/* Controls */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className={styles.bulkActionControls}>
               <Box className={filterStyles.filterItem}>
                 <ListItemButton
                   onClick={handleDropdownClick}
-                  className={filterStyles.filterButton}
                   aria-expanded={dropdownOpen}
                   disabled={!hasSelection}
-                  style={{
-                    minWidth: "270px",
-                    justifyContent: "space-between",
-                    opacity: hasSelection ? 1 : 0.5,
-                  }}
+                  className={`${filterStyles.filterButton} ${styles.bulkActionDropdown} ${
+                    !hasSelection ? styles.bulkActionDropdownDisabled : ""
+                  }`}
                 >
                   <Typography variant="body2" fontWeight={500} noWrap>
                     {t("bulk.chooseAction")}
@@ -483,11 +427,13 @@ export default function BulkActionsBar({
                   anchorEl={anchorEl}
                   placement="bottom-start"
                   transition
-                  sx={{
-                    zIndex: 1300,
-                    minWidth: 320,
-                    width: Math.max(anchorEl?.clientWidth || 0, 320),
-                  }}
+                  className={styles.bulkActionsPopper}
+                  ref={(element: HTMLElement | null) =>
+                    element?.style.setProperty(
+                      "--bulk-action-width",
+                      `${Math.max(anchorEl?.clientWidth || 0, 320)}px`,
+                    )
+                  }
                   modifiers={[{ name: "offset", options: { offset: [0, 8] } }]}
                 >
                   {({ TransitionProps }) => (
@@ -496,20 +442,11 @@ export default function BulkActionsBar({
                         <ClickAwayListener
                           onClickAway={() => setDropdownOpen(false)}
                         >
-                          <Box sx={{ p: 0.5 }}>
+                          <Box className={styles.bulkActionsMenuContent}>
                             {/* Edit group */}
                             <Typography
                               variant="caption"
-                              sx={{
-                                fontWeight: 700,
-                                color: "text.secondary",
-                                px: 1.5,
-                                pt: 1,
-                                pb: 0.8,
-                                display: "block",
-                                textTransform: "uppercase",
-                                letterSpacing: "0.5px",
-                              }}
+                              className={styles.bulkMenuGroupHeading}
                             >
                               {t("bulk.editGroup")}
                             </Typography>
@@ -530,39 +467,21 @@ export default function BulkActionsBar({
                                   disableHoverListener={opt.enabled}
                                 >
                                   {/* A span is required for the Tooltip when MenuItem is disabled. */}
-                                  <span style={{ display: "block" }}>
+                                  <span className={styles.bulkMenuItemTooltipTarget}>
                                     <MenuItem
                                       disabled={!opt.enabled}
                                       onClick={() =>
                                         opt.enabled &&
                                         handleSelectAction(opt.value)
                                       }
-                                      sx={{
-                                        borderRadius: "6px",
-                                        py: 0.9,
-                                        px: 1.5,
-                                        fontSize: "0.875rem",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: 1.2,
-                                        whiteSpace: "nowrap",
-                                        color: opt.enabled
-                                          ? "var(--text-color, #0f172a)"
-                                          : "#64748b",
-                                        "&.Mui-disabled": {
-                                          opacity: 0.75,
-                                          color: "#64748b !important",
-                                        },
-                                      }}
+                                      className={`${styles.bulkMenuItem} ${
+                                        opt.enabled
+                                          ? styles.bulkMenuItemEnabled
+                                          : styles.bulkMenuItemDisabled
+                                      }`}
                                     >
                                       {!opt.enabled && (
-                                        <LockIcon
-                                          sx={{
-                                            fontSize: "0.9rem",
-                                            color: "#64748b !important",
-                                            opacity: 0.9,
-                                          }}
-                                        />
+                                        <LockIcon className={styles.bulkMenuLockIcon} />
                                       )}
                                       {opt.label}
                                     </MenuItem>
@@ -571,26 +490,13 @@ export default function BulkActionsBar({
                               ))}
 
                             <Divider
-                              sx={{
-                                my: 1.5,
-                                borderColor:
-                                  "var(--border-color, rgba(0, 0, 0, 0.12))",
-                              }}
+                              className={styles.bulkMenuDivider}
                             />
 
                             {/* Groupe danger */}
                             <Typography
                               variant="caption"
-                              sx={{
-                                fontWeight: 700,
-                                color: "error.main",
-                                px: 1.5,
-                                pt: 0.5,
-                                pb: 0.5,
-                                display: "block",
-                                textTransform: "uppercase",
-                                letterSpacing: "0.5px",
-                              }}
+                              className={`${styles.bulkMenuGroupHeading} ${styles.bulkMenuDangerHeading}`}
                             >
                               {t("bulk.dangerZone")}
                             </Typography>
@@ -600,15 +506,7 @@ export default function BulkActionsBar({
                                 <MenuItem
                                   key={opt.value}
                                   onClick={() => handleSelectAction(opt.value)}
-                                  sx={{
-                                    color: "error.main",
-                                    borderRadius: "6px",
-                                    py: 0.9,
-                                    px: 1.5,
-                                    fontSize: "0.875rem",
-                                    mb: 0.5,
-                                    fontWeight: 600,
-                                  }}
+                                  className={`${styles.bulkMenuItem} ${styles.bulkMenuDangerItem}`}
                                 >
                                   {opt.label}
                                 </MenuItem>
@@ -647,14 +545,7 @@ export default function BulkActionsBar({
         }
         size={ModalSize.MEDIUM}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-            padding: "8px 0",
-          }}
-        >
+        <div className={styles.bulkModalContent}>
           {/* Deletion warning */}
           {selectedAction === "delete" && (
             <Alert severity="warning" icon={<WarningAmberIcon />}>
@@ -663,7 +554,7 @@ export default function BulkActionsBar({
                 strong: (chunks) => <strong>{chunks}</strong>,
                 encoding: (chunks) =>
                   hasEncodingInProgress ? (
-                    <div style={{ marginTop: "8px" }}>{chunks}</div>
+                    <div className={styles.bulkDeleteEncodingNote}>{chunks}</div>
                   ) : null,
               })}
             </Alert>
@@ -672,14 +563,7 @@ export default function BulkActionsBar({
           {/* Formulaire dynamique */}
           {selectedAction !== "delete" && selectedAction !== "" && (
             <div>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: 600,
-                  marginBottom: "10px",
-                  fontSize: "0.95rem",
-                }}
-              >
+              <label className={styles.bulkFieldLabel}>
                 {t.rich("bulk.newValueFor", {
                   label: () => <em>{getActionLabel(selectedAction)}</em>,
                 })}
@@ -689,7 +573,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.chooseType")}
@@ -706,7 +590,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="">{t("bulk.noChannel")}</option>
                   {channels.map((ch) => (
@@ -723,11 +607,7 @@ export default function BulkActionsBar({
                   onChange={(e) => setFieldValue(e.target.value)}
                   rows={4}
                   placeholder="Nouvelle description…"
-                  style={{
-                    ...selectStyle,
-                    fontFamily: "inherit",
-                    resize: "vertical",
-                  }}
+                  className={`${styles.bulkFormControl} ${styles.bulkDescriptionInput}`}
                 />
               )}
 
@@ -735,7 +615,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.chooseStatus")}
@@ -750,7 +630,7 @@ export default function BulkActionsBar({
                 <select
                   value={String(fieldValue)}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.choose")}
@@ -764,7 +644,7 @@ export default function BulkActionsBar({
                 <select
                   value={String(fieldValue)}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.choose")}
@@ -778,7 +658,7 @@ export default function BulkActionsBar({
                 <select
                   value={String(fieldValue)}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     -- Choisir --
@@ -792,7 +672,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.chooseLicense")}
@@ -810,20 +690,20 @@ export default function BulkActionsBar({
                   type="date"
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 />
               )}
 
               {selectedAction === "date_delete" && (
                 <>
-                  <Alert severity="info" sx={{ mb: 1.5, fontSize: "0.85rem" }}>
+                  <Alert severity="info" className={styles.bulkScheduleNotice}>
                     {t("bulk.scheduleDeletionNotice")}
                   </Alert>
                   <input
                     type="date"
                     value={fieldValue}
                     onChange={(e) => setFieldValue(e.target.value)}
-                    style={selectStyle}
+                    className={styles.bulkFormControl}
                   />
                 </>
               )}
@@ -835,15 +715,9 @@ export default function BulkActionsBar({
                     value={fieldValue}
                     onChange={(e) => setFieldValue(e.target.value)}
                     placeholder={t("bulk.examplePlaceholder")}
-                    style={selectStyle}
+                    className={styles.bulkFormControl}
                   />
-                  <p
-                    style={{
-                      color: "var(--c--globals--colors--gray-500)",
-                      fontSize: "0.8rem",
-                      marginTop: "6px",
-                    }}
-                  >
+                  <p className={styles.bulkKeywordsHelper}>
                     {t("bulk.keywordsHelper")}
                   </p>
                 </>
@@ -853,7 +727,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.chooseDiscipline")}
@@ -870,7 +744,7 @@ export default function BulkActionsBar({
                 <select
                   value={fieldValue}
                   onChange={(e) => setFieldValue(e.target.value)}
-                  style={selectStyle}
+                  className={styles.bulkFormControl}
                 >
                   <option value="" disabled>
                     {t("bulk.chooseLevel")}
@@ -887,75 +761,25 @@ export default function BulkActionsBar({
 
           {/* Affected videos with encoding badge */}
           <div>
-            <p
-              style={{
-                fontWeight: 600,
-                fontSize: "0.9rem",
-                marginBottom: "8px",
-              }}
-            >
+            <p className={styles.bulkAffectedTitle}>
               {t("bulk.affectedVideos", { count })}
             </p>
-            <div
-              style={{
-                maxHeight: "140px",
-                overflowY: "auto",
-                border: "1px solid var(--c--globals--colors--gray-200)",
-                borderRadius: "8px",
-                padding: "8px 12px",
-                backgroundColor: "var(--c--globals--colors--gray-050)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-              }}
-            >
+            <div className={styles.bulkAffectedVideos}>
               {selectedVideos.map((video) => {
                 const isEncoding =
                   video.encoding_status === "PE" ||
                   video.encoding_status === "PR";
                 return (
-                  <div
-                    key={video.id}
-                    style={{
-                      fontSize: "0.85rem",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 600,
-                        color:
-                          "var(--c--contextuals--background--semantic--brand--primary)",
-                        minWidth: "32px",
-                      }}
-                    >
+                  <div key={video.id} className={styles.bulkAffectedVideo}>
+                    <span className={styles.bulkVideoId}>
                       #{video.id}
                     </span>
-                    <span
-                      style={{
-                        flex: 1,
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
+                    <span className={styles.bulkVideoTitle}>
                       {video.title}
                     </span>
                     {isEncoding && (
                       <Tooltip title="Encodage en cours" placement="left">
-                        <span
-                          style={{
-                            fontSize: "0.7rem",
-                            backgroundColor: "#fff3cd",
-                            color: "#856404",
-                            borderRadius: "6px",
-                            padding: "1px 6px",
-                            fontWeight: 600,
-                            whiteSpace: "nowrap",
-                          }}
-                        >
+                        <span className={styles.bulkEncodingBadge}>
                           {t("pending.encoding")}
                         </span>
                       </Tooltip>
@@ -965,17 +789,7 @@ export default function BulkActionsBar({
                         title={t("table.encodingError")}
                         placement="left"
                       >
-                        <span
-                          style={{
-                            fontSize: "0.7rem",
-                            backgroundColor: "#f8d7da",
-                            color: "#721c24",
-                            borderRadius: "6px",
-                            padding: "1px 6px",
-                            fontWeight: 600,
-                            whiteSpace: "nowrap",
-                          }}
-                        >
+                        <span className={styles.bulkEncodingErrorBadge}>
                           {t("bulk.errorBadge")}
                         </span>
                       </Tooltip>
@@ -987,14 +801,7 @@ export default function BulkActionsBar({
           </div>
 
           {/* Modal buttons */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              gap: "12px",
-              marginTop: "4px",
-            }}
-          >
+          <div className={styles.bulkModalActions}>
             <Button
               type="button"
               variant="tertiary"
@@ -1012,9 +819,7 @@ export default function BulkActionsBar({
               disabled={isConfirmDisabled}
             >
               {isLoading ? (
-                <span
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
+                <span className={styles.bulkProcessing}>
                   <CircularProgress size={16} color="inherit" />
                   {t("pending.processing")}
                 </span>
@@ -1046,7 +851,7 @@ export default function BulkActionsBar({
               <ErrorOutlineIcon />
             )
           }
-          sx={{ minWidth: "320px", borderRadius: "10px" }}
+          className={styles.bulkToast}
         >
           {toast.message}
         </Alert>
@@ -1054,13 +859,3 @@ export default function BulkActionsBar({
     </>
   );
 }
-
-/* ── Shared styles ───────────────────────────────────────── */
-const selectStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "10px 12px",
-  borderRadius: "8px",
-  border: "1px solid var(--c--globals--colors--gray-300)",
-  fontSize: "0.9rem",
-  backgroundColor: "#fff",
-};

@@ -29,6 +29,7 @@ import { useTheme } from "@/src/hooks/useTheme";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css"
 
 export const breadcrumbLabel = "Chaine";
 
@@ -210,14 +211,14 @@ export default function Channel() {
             height={0}
             loading={"eager"}
           />{" "}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+          <Box className={styles["channel-header"]}>
             <Avatar
-              sx={{ width: 80, height: 80 }}
+              className={styles["avatar"]}
               alt={t("a11y.channelLogo", { title: channel.title })}
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
             <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 2 }}
+              className={styles["channel-labels"]}
             >
               <h1>{channel.title}</h1>
               <p>{channel.description}</p>
@@ -230,7 +231,7 @@ export default function Channel() {
           )}
           <div>
             <div>
-              <Box sx={{ width: "100%", typography: "body1" }}>
+              <Box className={styles["channel-box"]}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -258,7 +259,7 @@ export default function Channel() {
                     {t("channels.noContent")}
                   </Alert>
                 ) : (
-                  <Box sx={{ mt: 2 }}>
+                  <Box className={styles["unclassified-channel-box"]}>
                     {value === "unclassified" && (
                       <div>
                         <h2>{t("channels.unclassified")}</h2>

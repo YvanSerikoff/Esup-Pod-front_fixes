@@ -11,6 +11,7 @@ import { truncateVideoTitle } from "@/src/constants/string";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import StyleIcon from "@mui/icons-material/Style";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./styles.module.css";
 
 export type CollectionCardType = "channel" | "theme";
 
@@ -38,33 +39,12 @@ export default function CollectionCard(props: CollectionCardProps) {
     return (
       <Card
         elevation={0}
-        sx={{
-          width: "100%",
-          position: "relative",
-          mb: 4,
-          backgroundColor: "var(--c--globals--colors--gray-000)",
-          border: "1px solid var(--c--globals--colors--gray-200)",
-          borderRadius: "12px",
-          transition: "all 0.3s ease",
-          "&:hover": {
-            borderColor:
-              "var(--c--contextuals--background--semantic--brand--primary)",
-            boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-            transform: "translateY(-2px)",
-          },
-        }}
+        className={styles.collectionCard}
       >
         <CardActionArea
           component={Link}
           href={`/channel/${channel.slug}`}
-          sx={{
-            display: "block",
-            textDecoration: "none",
-            color: "inherit",
-            "&:hover": {
-              backgroundColor: "transparent",
-            },
-          }}
+          className={styles.collectionCardActionArea}
           disableRipple
         >
           <CardMedia
@@ -73,52 +53,39 @@ export default function CollectionCard(props: CollectionCardProps) {
               channel.logo || channel.banner || "/default_channel_logo.png"
             }
             alt={t("a11y.channelLogo", { title: channel.title })}
-            sx={{
-              borderTopLeftRadius: "11px",
-              borderTopRightRadius: "11px",
-              aspectRatio: "16/9",
-              objectFit: "cover",
-            }}
+            className={styles.collectionCardImage}
           />
-          <Box sx={{ p: 2, pt: 1.5 }}>
+          <Box className={styles.collectionCardContent}>
             <Typography
               variant="subtitle1"
-              sx={{
-                fontSize: "var(--c--globals--font--sizes--lg)",
-                fontWeight: "var(--c--globals--font--weights--bold)",
-                mb: 1,
-                display: "-webkit-box",
-                overflow: "hidden",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-              }}
+              className={styles.collectionCardTitle}
             >
               {truncateVideoTitle(channel.title, 40)}
             </Typography>
 
-            <Box sx={{ display: "flex", gap: 2, mb: 1 }}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <Box className={styles.statistics}>
+              <Box className={styles.statistic}>
                 <VideoLibraryIcon
                   fontSize="small"
-                  sx={{ color: "text.secondary", fontSize: "1rem" }}
+                  className={styles.statisticIcon}
                 />
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: "var(--c--globals--font--sizes--md)" }}
+                  className={styles.statisticText}
                 >
                   {channelVideosCount} {videoLabel}
                 </Typography>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <Box className={styles.statistic}>
                 <StyleIcon
                   fontSize="small"
-                  sx={{ color: "text.secondary", fontSize: "1rem" }}
+                  className={styles.statisticIcon}
                 />
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: "var(--c--globals--font--sizes--md)" }}
+                  className={styles.statisticText}
                 >
                   {channelThemesCount} {themeLabel}
                 </Typography>
@@ -145,85 +112,51 @@ export default function CollectionCard(props: CollectionCardProps) {
   return (
     <Card
       elevation={0}
-      sx={{
-        width: "100%",
-        position: "relative",
-        mb: 4,
-        backgroundColor: "var(--c--globals--colors--gray-000)",
-        border: "1px solid var(--c--globals--colors--gray-200)",
-        borderRadius: "12px",
-        transition: "all 0.3s ease",
-        "&:hover": {
-          borderColor:
-            "var(--c--contextuals--background--semantic--brand--primary)",
-          boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-          transform: "translateY(-2px)",
-        },
-      }}
+      className={styles.collectionCard}
     >
       <CardActionArea
         component={Link}
         href={themeHref ?? `/themes/${theme.slug}`}
-        sx={{
-          display: "block",
-          textDecoration: "none",
-          color: "inherit",
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
-        }}
+        className={styles.collectionCardActionArea}
         disableRipple
       >
         <CardMedia
           component="img"
           image={theme.banner || "/default_theme_banner.png"}
           alt={t("a11y.themeBanner", { title: theme.title })}
-          sx={{
-            borderTopLeftRadius: "11px",
-            borderTopRightRadius: "11px",
-            aspectRatio: "16/9",
-            objectFit: "cover",
-          }}
+          className={styles.collectionCardImage}
         />
-        <Box sx={{ p: 2, pt: 1.5 }}>
+        <Box className={styles.collectionCardContent}>
           <Typography
             variant="subtitle1"
-            sx={{
-              mb: 1,
-              fontSize: "var(--c--globals--font--sizes--lg)",
-              fontWeight: "var(--c--globals--font--weights--bold)",
-              display: "-webkit-box",
-              overflow: "hidden",
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: "vertical",
-            }}
+            className={styles.collectionCardTitle}
           >
             {truncateVideoTitle(theme.title, 40)}
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 2, mb: 1 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+          <Box className={styles.statistics}>
+            <Box className={styles.statistic}>
               <VideoLibraryIcon
                 fontSize="small"
-                sx={{ color: "text.secondary", fontSize: "1rem" }}
+                className={styles.statisticIcon}
               />
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontSize: "var(--c--globals--font--sizes--md)" }}
+                className={styles.statisticText}
               >
                 {themeItemsCount} {themeVideoLabel}
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <Box className={styles.statistic}>
               <StyleIcon
                 fontSize="small"
-                sx={{ color: "text.secondary", fontSize: "1rem" }}
+                className={styles.statisticIcon}
               />
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontSize: "var(--c--globals--font--sizes--md)" }}
+                className={styles.statisticText}
               >
                 {themeChildrenCount} {themeChildrenLabel}
               </Typography>

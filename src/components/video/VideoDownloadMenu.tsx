@@ -9,6 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 import HighQualityIcon from "@mui/icons-material/HighQuality";
 import type { Video, DownloadOption } from "@/src/types";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import styles from "./VideoCard.module.css";
 
 type Props = {
   video: Video;
@@ -73,15 +74,10 @@ export default function VideoDownloadMenu({
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          slotProps={{ paper: { sx: { borderRadius: "8px", minWidth: 180 } } }}
+          slotProps={{ paper: { className: styles.videoDownloadMenuPaper } }}
         >
           <div
-            style={{
-              padding: "8px 16px",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              color: "#6b7280",
-            }}
+            className={styles.videoDownloadMenuHeading}
           >
             {t("videoPage.chooseQuality")}
           </div>

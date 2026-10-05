@@ -2,63 +2,34 @@
 
 import React from "react";
 import { Card, CardContent, Skeleton, Box } from "@mui/material";
+import styles from "./VideoCard.module.css";
 
 export const VideoCardSkeleton = () => {
   return (
     <Card
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        borderRadius: "12px",
-        overflow: "hidden",
-        boxShadow:
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-      }}
+      className={styles.videoSkeletonCard}
     >
       {/* Thumbnail area (16:9 ratio) */}
       <Box
-        sx={{
-          position: "relative",
-          paddingTop: "56.25%",
-          backgroundColor: "background.default",
-        }}
+        className={styles.videoSkeletonThumbnail}
       >
         <Skeleton
           variant="rectangular"
           animation="wave"
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
+          className={styles.videoSkeletonThumbnailContent}
         />
       </Box>
 
       {/* Text content */}
       <CardContent
-        sx={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: 1.5,
-          p: 2,
-        }}
+        className={styles.videoSkeletonContent}
       >
         <Skeleton variant="text" animation="wave" width="90%" height={28} />
         <Skeleton variant="text" animation="wave" width="60%" height={20} />
 
         {/* Metadata (avatar + name / date) */}
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mt: "auto",
-            pt: 1,
-            gap: 1.5,
-          }}
+          className={styles.videoSkeletonMetadata}
         >
           <Skeleton
             variant="circular"
@@ -67,12 +38,7 @@ export const VideoCardSkeleton = () => {
             height={32}
           />
           <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              gap: 0.5,
-            }}
+            className={styles.videoSkeletonMetadataText}
           >
             <Skeleton variant="text" animation="wave" width="50%" height={16} />
             <Skeleton variant="text" animation="wave" width="30%" height={14} />
