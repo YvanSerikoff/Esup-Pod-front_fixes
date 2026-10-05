@@ -25,11 +25,11 @@ type UnlockResponse = {
 };
 
 /**
- * Paramètres de filtrage, de tri et de pagination pour récupérer une liste de vidéos.
- * Ces paramètres correspondent aux filtres Django exposés par l'API (via django-filter).
+ * Filtering, sorting, and pagination parameters for fetching a video list.
+ * These parameters correspond to the Django filters exposed by the API (via django-filter).
  */
 export type VideoListParams = {
-  /** Filtrer par ID de chaîne (Channel) */
+  /** Filter by channel ID. */
   channel?: number;
   ordering?: string;
   search?: string;
@@ -117,13 +117,13 @@ export function useVideo(slug: string, enabled = true) {
 }
 
 /**
- * Hook personnalisé basé sur React Query (useInfiniteQuery) pour récupérer une liste de vidéos avec support de pagination infinie, filtrage et mise en cache.
+ * Custom React Query hook (useInfiniteQuery) for fetching a video list with infinite pagination, filtering, and caching.
  *
- * @param params Objet contenant les critères de recherche, de tri et de filtre (`VideoListParams`).
- * @param fetchType Détermine la route API utilisée : "all" (toutes les vidéos publiques/accessibles) ou "me" (vidéos de l'utilisateur connecté).
- * @param options Options supplémentaires, ex: `enabled` pour conditionner l'exécution de la requête.
+ * @param params Object containing search, sorting, and filtering criteria (`VideoListParams`).
+ * @param fetchType Selects the API route: "all" (all public/accessible videos) or "me" (the signed-in user's videos).
+ * @param options Additional options, e.g. `enabled` to control whether the query runs.
  *
- * @returns Un objet contenant les vidéos (`videos`), le compte total (`videosCount`), l'état de chargement (`useVideoLoading`), les erreurs (`useVideoError`), et les fonctions pour charger la page suivante.
+ * @returns An object containing the videos (`videos`), total count (`videosCount`), loading state (`useVideoLoading`), errors (`useVideoError`), and functions for loading the next page.
  */
 export function useVideosList(
   params?: VideoListParams,
@@ -136,7 +136,7 @@ export function useVideosList(
   const query = useInfiniteQuery<VideoListResponse, Error>({
     queryKey: ["videos", fetchType, params],
     queryFn: async ({ pageParam = 1 }) => {
-      // UTILISATION DE LA ROUTE OPTIMISÉE POUR RECUPÉRER PROPRIETAIRE + CO-PROPRIETAIRE
+      // Use the optimized route to fetch the owner and co-owners.
       const baseUrl =
         fetchType === "me" ? getRoutes().video.me : getRoutes().video.list;
       const response = await authFetch(
@@ -160,7 +160,7 @@ export function useVideosList(
       return requestJson<VideoListResponse>(response);
     },
     getNextPageParam: (lastPage, allPages) => {
-      // Vérifie si un lien 'next' existe dans la réponse paginée de DRF
+      // Check whether a 'next' link exists in the paginated DRF response.
       if (!Array.isArray(lastPage) && lastPage.next) {
         return allPages.length + 1;
       }
@@ -172,7 +172,7 @@ export function useVideosList(
     enabled: options?.enabled ?? true,
   });
 
-  // Aplatissement des pages pour retourner un simple tableau de vidéos
+  // Flatten pages into a single array of videos.
   const videos = query.data?.pages.flatMap(normalizeVideoList) ?? [];
   const videosCount = !Array.isArray(query.data?.pages[0])
     ? (query.data?.pages[0]?.count ?? videos.length)
@@ -207,7 +207,7 @@ export function useDeleteVideo() {
       return slug;
     },
     onSuccess: (deletedSlug) => {
-      // Nettoie le cache pour forcer un rafraichissement
+      // Clear the cache to force a refresh.
       queryClient.invalidateQueries({ queryKey: ["videos"] });
       queryClient.removeQueries({ queryKey: ["video", deletedSlug] });
     },

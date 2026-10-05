@@ -16,7 +16,7 @@ import { breadcrumbLabel as labelEditPlaylistsPage } from "@/src/app/playlist/ed
 import { breadcrumbLabel as labelThemePage } from "@/src/app/channel/[channelSlug]/[...themeSlug]/page";
 import { breadcrumbLabel as labelFavoritesPage } from "@/src/app/favorites/page";
 
-/*Labels qui apparaitront dans le breadcrumb selon l'url*/
+/* Breadcrumb labels displayed based on the URL */
 export const breadcrumbLabels: Record<string, string> = {
   "/user-settings": labelSettingsPage,
   "/login": labelLoginPage,

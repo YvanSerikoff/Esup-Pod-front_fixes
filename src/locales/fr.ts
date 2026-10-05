@@ -1,5 +1,5 @@
 export const fr = {
-  // === Commun ===
+  // === Common ===
   common: {
     // Actions
     close: "Fermer",
@@ -17,7 +17,7 @@ export const fr = {
     stayOnPage: "Rester sur la page",
     leaveWithoutSaving: "Quitter sans enregistrer",
 
-    // Statut & connexion
+    // Status & authentication
     login: "Connexion",
     logout: "Déconnexion",
     connected: "Connecté",
@@ -33,7 +33,7 @@ export const fr = {
     tab: "Tableau de bord",
     commingSoon: "Fonctionnalité à venir",
 
-    // Entités (singulier / pluriel)
+    // Entities (singular / plural)
     video: "Vidéo",
     videos: "Vidéos",
     pluralVideos: "{count, plural, one {# vidéo} other {# vidéos}}",
@@ -56,7 +56,7 @@ export const fr = {
     view: "vue",
     views: "vues",
 
-    // Affichage, recherche & pagination
+    // Display, search & pagination
     displayMode: "Affichage :",
     viewCards: "Cartes",
     viewTable: "Tableau",
@@ -68,7 +68,7 @@ export const fr = {
     paginationPage: " (Page {page} sur {pagesCount})",
     opacity: "Opacité",
 
-    // Métadonnées
+    // Metadata
     createdBy: "Créée par",
     latestUpdate: "Mise à jour le :",
     contributors: "Contributeurs & Intervenants",
@@ -77,7 +77,7 @@ export const fr = {
     infos: "Informations",
     configBase: "Configurez les paramètres de base",
 
-    // Visibilité
+    // Visibility
     public: "Publique",
     private: "Privée",
     passwordProtected:
@@ -91,7 +91,7 @@ export const fr = {
       "Vous avez des modifications non enregistrées. Voulez-vous vraiment quitter cette page ?",
     unsavedChangesTitle: "Modifications non enregistrées",
 
-    // Divers
+    // Miscellaneous
     recently: "Récemment",
     default: "Par défaut",
 
@@ -99,7 +99,7 @@ export const fr = {
       "{count, plural, one {# {label} trouvé} other {# {label} trouvés}}",
   },
   errors: {
-    // Général
+    // General
     error: "Une erreur est survenue",
     update: "Une erreur est survenue lors de la mise à jour",
     save: "Erreur lors de la sauvegarde",
@@ -122,7 +122,7 @@ export const fr = {
     savingFormError: "Erreur lors de l'enregistrement du formulaire",
     accessDenied: "Vous ne pouvez pas accéder à cette page",
 
-    // Vidéos
+    // Videos
     loadErrorVideo: "Erreur lors du chargement de la vidéo",
     loadErrorVideos: "Erreur lors du chargement des vidéos {status}.",
     deleteErrorVideo:
@@ -140,17 +140,17 @@ export const fr = {
     unableToSection: "Impossible de charger cette section de l'application",
     unableToTheme: "Impossible de charger ce thème.",
 
-    // Chaînes & thèmes
+    // Channels & themes
     getChannels:
       "Erreur lors de la récupération {count, plural, one {de la chaîne} other {des chaînes}}",
     getThemeError:
       "Erreur lors de la récupération {count, plural, one {du thème} other {des thèmes}}",
 
-    // Mots-clés
+    // Keywords
     tagsLoadError: "Erreur lors du chargement des mots-clés : {error}",
     noKeywords: "Aucun mot-clé disponible pour le moment.",
 
-    // Sous-titres
+    // Subtitles
     addSubtitleError: "Erreur lors de l'ajout du sous-titre",
     deleteSubtitleError: "Erreur lors de la suppression du sous-titre",
 
@@ -163,18 +163,18 @@ export const fr = {
     deleteVideoFromPlaylist:
       "Erreur lors du retrait de la vidéo de la playlist",
 
-    // Favoris
+    // Favorites
     loadFavorites: "Erreur lors du chargement des favoris",
     addFavorite: "Erreur lors de l'ajout de la vidéo aux favoris",
     deleteFavorite: "Erreur lors de la suppression de la vidéo des favoris",
 
-    // Commentaires & votes
+    // Comments & votes
     loadComments: "Erreur lors du chargement des commentaires",
     addComment: "Erreur lors de l'ajout du commentaire",
     deleteComment: "Erreur lors de la suppression du commentaire",
     addVote: "Erreur lors de l'ajout du vote",
 
-    // Chapitres
+    // Chapters
     loadChapters: "Erreur lors du chargement des chapitres",
     addChapter: "Erreur lors de l'ajout du chapitre",
     deleteChapter: "Erreur lors de la suppression du chapitre",
@@ -190,7 +190,7 @@ export const fr = {
     publishing: "Publication en cours…",
   },
   providers: {
-    // Hooks de contexte
+    // Context hooks
     auth: "useAuth doit être utilise dans AuthProvider.",
     sidebar: "useSidebar doit être utilise dans SidebarProvider.",
     playlistCreation:
@@ -198,7 +198,7 @@ export const fr = {
     cunninghamTheme:
       "useCunninghamTheme doit être utilisé dans CunninghamStyleProvider.",
 
-    // Erreurs
+    // Errors
     getChannels:
       "Erreur lors de la récupération {count, plural, one {de la chaîne} other {des chaînes}}",
   },
@@ -212,7 +212,7 @@ export const fr = {
     blueskyLogo: "Logo Bluesky",
     mastodonLogo: "Logo Mastodon",
 
-    // Bannières, logos & vignettes
+    // Banners, logos & thumbnails
     channelBanner: "Bannière de la chaîne {title}",
     channelLogo: "Logo de la chaîne {title}",
     themeBanner: "Bannière du thème {title}",
@@ -223,7 +223,7 @@ export const fr = {
     preview: "Aperçu",
     watermark: "Filigrane",
 
-    // Photo de profil
+    // Profile picture
     profilePreview: "Aperçu de la photo de profil",
     currentProfilePicture: "Photo de profil actuelle",
     changeProfilePicture: "Changer mon image de profil",
@@ -233,7 +233,7 @@ export const fr = {
     noProfilePicture: "Vous n’avez pas encore de photo de profil.",
     chooseImage: "Veuillez sélectionner une image",
 
-    // Import de vidéo
+    // Video import
     importVideo: "Importer une vidéo",
     chooseFile: "Veuillez sélectionner un fichier vidéo",
     chooseVideo: "Sélectionner cette vidéo",
@@ -253,7 +253,7 @@ export const fr = {
       "Vous vous apprêtez à créer une fiche vidéo sans fichier média source. Vous pourrez ajouter la vidéo source ultérieurement depuis l’étape <b>« Importation »</b> de la page d’édition.",
     clearDescriptiveTitle: "Saisissez un titre clair et descriptif.",
 
-    // Conditions d’utilisation & propriété intellectuelle
+    // Terms of use & intellectual property
     termsOfUse: "Conditions d’utilisation",
     acceptTermsRequired: "Veuillez accepter les conditions d’utilisation.",
     intellectualPropertyWarning:
@@ -263,13 +263,13 @@ export const fr = {
     publicationAuthorizations:
       "Je confirme que je dispose des autorisations nécessaires signées par les parties concernées par la publication de ce média, en ce compris le consentement relatif au droit à l’image et au traitement des données personnelles. Je certifie que l’ensemble des personnes concernées ont bénéficié d’une information complète relative au traitement de leurs données personnelles, conformément aux dispositions des articles 13 et 14 du RGPD.",
 
-    // Contrôles & menus
+    // Controls & menus
     collectionsDisplayMode: "Mode d’affichage des collections",
     videosDisplayMode: "Mode d’affichage des vidéos",
     videoActions: "Actions vidéo",
   },
 
-  // === Données de référence ===
+  // === Reference data ===
   languages: {
     fr: "Français",
     en: "English",
@@ -302,7 +302,7 @@ export const fr = {
     langues: "Langues",
   },
 
-  // === Mise en page ===
+  // === Layout ===
   navbar: {
     searchPlaceholder: "Rechercher…",
     addVideo: "Ajouter une vidéo",
@@ -326,7 +326,7 @@ export const fr = {
     playlists: "Lecture de la liste",
     videoBranding: "Habillages & Filigranes",
 
-    // Accueil & lecture
+    // Home & playback
     welcome: "Bienvenue",
     welcomeUser: "Bienvenue {name} !",
     nowPlaying: "Lecture en cours",
@@ -340,7 +340,7 @@ export const fr = {
     videoPlatform: "Plateforme vidéo",
   },
 
-  // === Pages & fonctionnalités ===
+  // === Pages & features ===
   home: {
     welcomeSubtitle: "Bienvenue sur votre plateforme POD !",
     welcomeIntro:
@@ -387,7 +387,7 @@ export const fr = {
     searchContent: "Rechercher des contenus",
   },
   blocks: {
-    // Bloc Collections
+    // Collections block
     collectionTitle: "Bloc général de collections",
     collectionDescription:
       "Affiche une sélection paramétrable de collections (chaînes, thèmes, playlists).",
@@ -399,11 +399,11 @@ export const fr = {
       "Identifiants ou Slugs de collections à afficher (séparés par virgule)",
     collectionSortCreated: "Date de création (Récents)",
 
-    // Bloc Texte personnalisé
+    // Custom text block
     customTextDescription: "Affiche un paragraphe ou contenu personnalisé.",
     customTextContentLabel: "Contenu texte ou HTML",
 
-    // Bloc Directs
+    // Live streams block
     liveDescription:
       "Affiche la liste des directs en cours avec un indicateur actif rouge.",
     liveSortLabel: "Ordre de tri des directs",
@@ -411,7 +411,7 @@ export const fr = {
     liveSortStartRecent: "Date de début (Récents)",
     liveSortPopularity: "Popularité (Nombre de spectateurs)",
 
-    // Bloc Grille de vidéos
+    // Video grid block
     videoGridTitle: "Bloc Grille de Vidéos",
     videoGridDescription:
       "Affiche une rangée ou grille de cartes vidéos paramétrable.",
@@ -429,20 +429,20 @@ export const fr = {
     lightModeLabel: "Mode clair",
   },
   filters: {
-    // Recherche
+    // Search
     searchPlaceholder: "Rechercher une vidéo…",
     search: "Recherche",
     advancedFilters: "Filtres avancés",
     showResults: "Afficher",
     clearFilters: "Effacer les filtres",
 
-    // Critères
+    // Criteria
     author: "Auteur",
     types: "Types",
     cursus: "Niveau d’études",
     keywords: "Mots-clés",
 
-    // Tri
+    // Sorting
     sort: "Tri",
     newest: "Plus récentes",
     oldest: "Plus anciennes",
@@ -457,7 +457,7 @@ export const fr = {
     createdBefore: "Créé avant",
   },
   bulk: {
-    // Général
+    // General
     title: "Modifier en lot",
     checkVideosPrompt: "Cocher des vidéos pour activer les actions",
     chooseAction: "Choisir une action…",
@@ -474,7 +474,7 @@ export const fr = {
     errorBadge: "❌ Erreur",
     examplePlaceholder: "ex: cours, informatique, python",
 
-    // Modification
+    // Editing
     editGroup: "MODIFIER LES VIDÉOS",
     changeType: "Changer le type",
     changeChannel: "Changer la chaîne",
@@ -498,7 +498,7 @@ export const fr = {
     updatedSuccessfully:
       "{count, plural, one {# vidéo mise à jour avec succès.} other {# vidéos mises à jour avec succès.}}",
 
-    // Visibilité & options
+    // Visibility & options
     publishUnpublish: "Publier / Dépublier",
     restrictAuth: "Restreindre aux membres connectés",
     allowDownloading: "Autoriser / Interdire le téléchargement",
@@ -507,7 +507,7 @@ export const fr = {
     scheduleDeletionNotice:
       "La vidéo sera automatiquement supprimée à la date choisie.",
 
-    // Suppression
+    // Deletion
     dangerZone: "ZONE DE DANGER",
     deleteSelected: "Supprimer les vidéos sélectionnées",
     confirmDelete: "Confirmer la suppression",
@@ -517,13 +517,19 @@ export const fr = {
       "Vous allez supprimer définitivement <strong>{count, plural, one {# vidéo} other {# vidéos}}</strong>. Cette action est <strong>irréversible</strong>.<encoding>⚠️ Attention : certaines vidéos sont actuellement en cours d'encodage.</encoding>",
     deletePermanently: "Supprimer définitivement",
 
-    // Licences
+    // Licenses
     licenseCopyright: "Copyright / Droits réservés",
     licenseCcByNcSa:
       "CC BY-NC-SA — Partage à l’identique, pas d’usage commercial",
     licenseCcBySa: "CC BY-SA — Partage à l’identique",
+    licenseCcBy: "CC BY — Attribution",
+    licenseCcByNc: "CC BY-NC — Pas d’usage commercial",
+    licenseCcByNcNd:
+      "CC BY-NC-ND — Pas de modification, pas d’usage commercial",
+    licenseCcByNd: "CC BY-ND — Pas de modification",
+    licenseCc0: "Domaine public (CC0)",
 
-    // Options de valeur
+    // Value options
     optionPublic: "🌐 Publique — visible par tous",
     optionPrivate: "🔒 Privée — brouillon, non visible",
     optionRestricted: "🔗 Restreinte — lien requis",
@@ -534,7 +540,7 @@ export const fr = {
     optionCommentsOn: "💬 Activer les commentaires",
     optionCommentsOff: "🚫 Désactiver les commentaires",
 
-    // Retours
+    // Feedback
     deleteSuccess:
       "{count, plural, one {# vidéo supprimée} other {# vidéos supprimées}} avec succès.",
     updateSuccess:
@@ -551,25 +557,25 @@ export const fr = {
       "Impossible : les paramètres de commentaires ne s’appliquent qu’aux vidéos encodées.",
   },
   table: {
-    // Colonnes
+    // Columns
     title: "Titre",
     duration: "Durée",
     dateAdded: "Date d’ajout",
     status: "Statut",
 
-    // Visibilité
+    // Visibility
     public: "Public",
     restricted: "Restreint",
     password: "Mot de passe",
     privateVideo: "Vidéo privée",
     passwordProtectedVideo: "Vidéo protégée par mot de passe",
 
-    // États d’encodage
+    // Encoding statuses
     pendingEncoding: "Vidéo en attente d’encodage",
     encodingCompleted: "Encodage terminé",
     encodingError: "Erreur d’encodage",
 
-    // Résultats
+    // Results
     noVideosFound: "Aucune vidéo trouvée.",
   },
   videoAction: {
@@ -587,7 +593,7 @@ export const fr = {
     retry: "Réessayer",
   },
   videoDressing: {
-    // Habillage
+    // Branding
     dressing: "Habillage de la vidéo",
     title: "Titre de l'habillage",
     unique: "Nom unique permettant d'identifier l'habillage",
@@ -595,7 +601,7 @@ export const fr = {
     noDressing: "Aucun habillage disponible pour le moment.",
     noConfig: "Aucun élément configuré",
 
-    // Éléments
+    // Items
     watermark: "Filigrane",
     opacity: "Opacité",
     start: "Amorce de début",
@@ -603,7 +609,7 @@ export const fr = {
     addWatermark:
       "Pour ajouter un filigrane ou des amorces, créez un nouvel habillage puis éditez-le.",
 
-    // Actions & retours
+    // Actions & feedback
     create: "Créer un nouvel habillage",
     creation: "Création…",
     successCreate: "Habillage appliqué avec succès",
@@ -626,7 +632,7 @@ export const fr = {
     chooseQuality: "Choisir la qualité :",
     shareOn: "Partager sur {network}",
 
-    // Informations
+    // Information
     about: "À propos",
     type: "Type",
     channel: "Chaîne",
@@ -645,7 +651,7 @@ export const fr = {
     views: "vues",
     none: "Aucune",
 
-    // États & messages
+    // States & messages
     notFound: "Vidéo introuvable.",
     noPlaylistsAvailable: "Aucune playlist disponible",
     protectedByPassword: "Cette vidéo est protégée par un mot de passe.",
@@ -657,7 +663,7 @@ export const fr = {
     videoRemovedFromFavorites: "Vidéo retirée de vos favoris.",
   },
   contributors: {
-    // Formulaire
+    // Form
     defaultRole: "Réalisateur",
     searchLabel: "Rechercher un contributeur…",
     roleLabel: "Rôle",
@@ -667,9 +673,19 @@ export const fr = {
     addError:
       "Impossible d’ajouter ce contributeur (peut-être déjà ajouté avec ce rôle ?)",
     noContributors: "Aucun contributeur associé.",
+    roles: {
+      actor: "Acteur",
+      author: "Auteur",
+      consultant: "Consultant",
+      contributor: "Contributeur",
+      director: "Réalisateur",
+      speaker: "Intervenant",
+      technician: "Technicien",
+      voiceOver: "Voix off",
+    },
   },
   documents: {
-    // Formulaire
+    // Form
     addTitle: "Ajouter un document",
     titleLabel: "Titre du document",
     dropzone: "Glissez et déposez un fichier ici",
@@ -678,7 +694,7 @@ export const fr = {
       "Document privé (visible uniquement par le propriétaire et les co-propriétaires)",
     addBtn: "Ajouter le document",
 
-    // Liste
+    // List
     loading: "Chargement des documents…",
     addedOn: "{title} - Ajouté le {date}",
     private: "Privé",
@@ -693,7 +709,7 @@ export const fr = {
     loadError: "Impossible de charger les documents.",
   },
   chapters: {
-    // Ajout
+    // Adding
     addTitle: "Ajouter un chapitre",
     titleLabel: "Titre du chapitre",
     titlePlaceholder: "Ex : Introduction, Démo, Conclusion…",
@@ -705,7 +721,7 @@ export const fr = {
     countLabel: "Chapitres ({count})",
     addError: "Erreur lors de l’ajout",
 
-    // Liste
+    // List
     noChapters:
       "Aucun chapitre. Lisez la vidéo et cliquez sur <bold>Capturer ce moment</bold> pour ajouter une entrée.",
     goToMoment: "Cliquer pour aller à ce moment",
@@ -718,7 +734,7 @@ export const fr = {
       "Le lecteur sera disponible une fois l’encodage terminé. Vous pouvez saisir les timestamps manuellement.",
   },
   comments: {
-    // Liste
+    // List
     title: "Commentaires",
     count: "{count} commentaire",
     countPlural: "{count} commentaires",
@@ -726,7 +742,7 @@ export const fr = {
     disabled: "Les commentaires sont désactivés pour cette vidéo.",
     loginToComment: "Connectez-vous pour ajouter un commentaire.",
 
-    // Saisie
+    // Input
     addPlaceholder: "Ajouter un commentaire",
     submit: "Commenter",
     submitting: "Publication…",
@@ -738,7 +754,7 @@ export const fr = {
     voteForComment: "Voter pour ce commentaire",
     liked: "Vous aimez ce commentaire",
 
-    // Réponses
+    // Responses
     hideReplies: "Masquer les réponses",
     showReplies: "{count} réponse",
     showRepliesPlural: "{count} réponses",
@@ -753,7 +769,7 @@ export const fr = {
     choice: "Sélectionnez un réseau social",
   },
   videoEdit: {
-    // En-tête & actions
+    // Header & actions
     pageTitle: "Éditer la vidéo « {title} »",
     pageTitleDefault: "Éditer la vidéo",
     duplicate: "Dupliquer",
@@ -763,7 +779,7 @@ export const fr = {
     next: "Suivant",
     requiredFieldsPrompt: "Les champs marqués d’un * sont obligatoires.",
 
-    // Étapes
+    // Steps
     stepImport: "Importation",
     stepDetails: "Détails",
     stepElements: "Éléments Vidéo",
@@ -780,7 +796,7 @@ export const fr = {
     subtitlesAndDocs: "Sous-titres & enrichissements",
     draftOrPublic: "Brouillon, restreint ou public",
 
-    // Étape Détails
+    // Details step
     titleLabel: "Titre",
     titlePlaceholder: "Titre de la vidéo",
     titleHelper:
@@ -827,7 +843,7 @@ export const fr = {
     cursusLabel: "Cursus",
     themesPlaceholder: "Sélectionnez un ou plusieurs thèmes",
 
-    // Étape Importation
+    // Import step
     importHeaderTitle: "Ajouter un fichier vidéo",
     importHeaderSub: "Gérez la vidéo source et l’encodage de votre média.",
     noSourceWarningTitle: "Fiche vide sans source vidéo",
@@ -839,7 +855,7 @@ export const fr = {
       "Sélectionnez un fichier vidéo depuis votre ordinateur. Un nouveau processus d’encodage sera automatiquement lancé.",
     addVideoFileBtn: "Ajouter la vidéo",
 
-    // Étape Éléments vidéo
+    // Video items step
     elementsHeaderSub:
       "Enrichissez votre vidéo avec des sous-titres, documents et contributeurs.",
     subtitlesTitle: "Sous-titres manuels",
@@ -864,7 +880,7 @@ export const fr = {
       "Délimitez un point d’entrée et de sortie pour raccourcir la vidéo.",
     chaptersDialogTitle: "Chapitres de la vidéo",
 
-    // Étape Visibilité
+    // Visibility step
     visibilityHeaderSub:
       "Choisissez quand publier votre vidéo et qui peut la voir.",
     restrictionsHeader: "Restrictions",
@@ -910,7 +926,7 @@ export const fr = {
     loginRequired: "Vous devez être connecté·e pour modifier cette vidéo.",
     updateSuccess: "Vidéo mise à jour avec succès !",
 
-    // Sous-titres
+    // Subtitles
     addSubtitle: "Ajouter un sous-titre",
     activeSubtitleCount: "{count, plural, one {# actif} other {# actifs}}",
     noSubtitles: "Aucun sous-titre ajouté.",
@@ -926,7 +942,7 @@ export const fr = {
     noSourceForPublic:
       "Aucun fichier source n’a été importé à l’étape Importation. La fiche ne peut pas être publiée en mode Public.",
 
-    // Changement de source
+    // Source change
     changeSourceTitle: "Changer la source vidéo",
     sourceCurrentLabel: "Source actuelle",
     changeSourceDesc:
@@ -935,6 +951,8 @@ export const fr = {
     replaceSourceBtn: "Remplacer la source",
     changeSourceError: "Erreur lors du changement de source.",
     sourceUpdated: "Source vidéo mise à jour. Re-encodage lancé.",
+    deleteVideo: "Supprimer la vidéo",
+    deleteVideoConfirmPrefix: "Êtes-vous sûr·e de vouloir supprimer la vidéo",
   },
   favorites: {
     title: "Mes vidéos favorites",
@@ -945,7 +963,7 @@ export const fr = {
       "Une erreur est survenue lors de la mise à jour des favoris.",
   },
   playlists: {
-    // Titres & libellés
+    // Titles & labels
     myTitle: "Mes listes de lecture",
     playlists: "Listes de lecture",
     playlist: "Liste de lecture",
@@ -954,7 +972,7 @@ export const fr = {
     unableToLoad: "Impossible de charger la playlist",
     backToMyPlaylists: "Retour à mes listes de lecture",
 
-    // Création & édition
+    // Creation & editing
     addPlaylist: "Ajouter une liste de lecture",
     addThePlaylist: "Ajouter la liste de lecture",
     editPlaylist: "Éditer la liste de lecture",
@@ -964,19 +982,19 @@ export const fr = {
     noPermissionToEditPlaylist:
       "Vous n’avez pas les droits pour modifier cette liste de lecture.",
 
-    // Suppression
+    // Deletion
     delete: "Supprimer la liste de lecture",
     deleteConfirm:
       "Êtes-vous sûr de vouloir supprimer cette liste de lecture ?",
     deleteSuccess: "La liste de lecture a été supprimée avec succès.",
 
-    // Listes vides
+    // Empty lists
     noVideos: "Aucune vidéo dans cette playlist",
     noPlaylists: "Vous n’avez encore aucune liste de lecture.",
     noMatchingFilters: "Aucune liste de lecture ne correspond à vos filtres.",
     noPublicPlaylists: "Aucune liste de lecture disponible pour le moment.",
 
-    // Erreurs
+    // Errors
     creationError:
       "Une erreur est survenue lors de la création de la liste de lecture.",
     deleteError:
@@ -984,11 +1002,11 @@ export const fr = {
     playlistUpdateError:
       "Une erreur est survenue lors de la mise à jour de la playlist.",
 
-    // Visibilité
+    // Visibility
     passwordProtected: "Playlist protégée par mot de passe",
     private: "Playlist privée",
 
-    // Formulaire
+    // Form
     titleHelper: "Donnez un titre court et explicite à votre liste de lecture.",
     descriptionHelper:
       "Décrivez le contenu et/ou le contexte de votre liste de lecture.",
@@ -1007,12 +1025,12 @@ export const fr = {
     publicPlaylist: "Liste de lecture publique",
   },
   channels: {
-    // Général
+    // General
     title: "Chaînes",
     content: "Contenus de la chaîne",
     unclassified: "Vidéos non classées",
 
-    // Listes vides
+    // Empty lists
     noChannels: "Aucune chaîne disponible pour le moment.",
     noMatchingFilters: "Aucune chaîne ne correspond à vos filtres.",
     noContent: "Cette chaîne n’a aucune vidéo ou thème associé.",
@@ -1033,15 +1051,20 @@ export const fr = {
     uploadError: "Erreur lors de l'upload de l'image",
   },
 
-  // === Métadonnées des pages ===
+  // === Page metadata ===
   titles: {
-    // Titres de pages
+    // Page titles
     platform: "Plateforme vidéo Esup-Pod",
     login: "Connexion | Esup-Pod",
     video: "Vidéo | Esup-Pod",
     allVideos: "Toutes les vidéos - Esup-Pod",
+    dashboard: "Tableau de bord | Esup-Pod",
+    playlists: "Listes de lecture - Esup-Pod",
+    loginPage: "Connexion - Esup-Pod",
   },
+
   descriptions: {
+    platform: "Plateforme vidéo Esup-Pod",
     dashboard:
       "Gérez vos vidéos et paramètres sur votre tableau de bord Esup-Pod.",
     login:
@@ -1050,6 +1073,7 @@ export const fr = {
       "Découvrez et gérez les listes de lecture publiques de la plateforme Esup-Pod.",
     videos: "Découvrez toutes les vidéos publiques de la plateforme Esup-Pod.",
     watchVideo: "Regarder la vidéo sur Esup-Pod",
+    loginPage: "Connectez-vous à la plateforme Esup-Pod pour gérer vos vidéos.",
   },
 };
 

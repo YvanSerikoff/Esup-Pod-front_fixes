@@ -312,7 +312,7 @@ export default function VideoFilters({
           }}
         />
 
-        {/* Tri/Ordering Pill */}
+        {/* Sorting pill */}
         <FilterDropdown
           title={t("filters.sort")}
           options={orderingOptions}
@@ -463,7 +463,7 @@ export default function VideoFilters({
             />
           )}
 
-          {/* Mots-clés Pill (Async multi select) */}
+          {/* Keywords pill (async multi-select) */}
           {!hideTags && (
             <AsyncFilterDropdown
               title={t("filters.keywords")}

@@ -25,7 +25,7 @@ const SideBar = () => {
   const { t } = useTranslation();
 
   /* ----------------------------- *
-   *  Menus – données statiques
+   *  Menus – static data
    * -------------------------------- */
   const publicVideoItems = [{ name: t("common.allVideos"), link: "/video" }];
   if (config?.collection?.use_channels !== false) {
@@ -119,7 +119,7 @@ const SideBar = () => {
       onMouseEnter={isMobile ? undefined : () => handleViewSidebar(true)}
       onMouseLeave={isMobile ? undefined : () => handleViewSidebar(false)}
     >
-      {/* ----- Bouton de fermeture (mobile) ----- */}
+      {/* ----- Close button (mobile) ----- */}
       {isMobile && (
         <Button
           className={styles["button-close"]}

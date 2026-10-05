@@ -18,13 +18,17 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Esup-Pod",
-    default: "Esup-Pod",
-  },
-  description: "Plateforme vidéo Esup-Pod",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: {
+      template: "%s | Esup-Pod",
+      default: t("titles.platform"),
+    },
+    description: t("descriptions.platform"),
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",

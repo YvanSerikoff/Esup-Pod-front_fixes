@@ -106,7 +106,7 @@ export default function PlaylistCard({
             }}
           />
 
-          {/* Feuille intermédiaire */}
+          {/* Intermediate layer */}
           <Box
             className="playlist-back-2"
             sx={{

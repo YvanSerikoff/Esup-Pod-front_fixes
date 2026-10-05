@@ -526,6 +526,11 @@ export const en: TranslationKeys = {
     licenseCopyright: "Copyright / All rights reserved",
     licenseCcByNcSa: "CC BY-NC-SA — ShareAlike, non-commercial use",
     licenseCcBySa: "CC BY-SA — ShareAlike",
+    licenseCcBy: "CC BY — Attribution",
+    licenseCcByNc: "CC BY-NC — Non-commercial use",
+    licenseCcByNcNd: "CC BY-NC-ND — No derivatives, non-commercial use",
+    licenseCcByNd: "CC BY-ND — No derivatives",
+    licenseCc0: "Public domain (CC0)",
 
     // Value options
     optionPublic: "🌐 Public — visible to everyone",
@@ -675,6 +680,16 @@ export const en: TranslationKeys = {
     addError:
       "Unable to add this contributor (perhaps already added with this role?)",
     noContributors: "No associated contributors.",
+    roles: {
+      actor: "Actor",
+      author: "Author",
+      consultant: "Consultant",
+      contributor: "Contributor",
+      director: "Director",
+      speaker: "Speaker",
+      technician: "Technician",
+      voiceOver: "Voice-over",
+    },
   },
 
   documents: {
@@ -935,6 +950,8 @@ export const en: TranslationKeys = {
     replaceSourceBtn: "Replace source",
     changeSourceError: "Error while changing the source.",
     sourceUpdated: "Video source updated. Re-encoding started.",
+    deleteVideo: "Delete video",
+    deleteVideoConfirmPrefix: "Are you sure you want to delete the video",
   },
 
   favorites: {
@@ -1036,13 +1053,18 @@ export const en: TranslationKeys = {
     login: "Login | Esup-Pod",
     video: "Video | Esup-Pod",
     allVideos: "All videos - Esup-Pod",
+    dashboard: "Dashboard | Esup-Pod",
+    playlists: "Playlists - Esup-Pod",
+    loginPage: "Login - Esup-Pod",
   },
 
   descriptions: {
+    platform: "Esup-Pod Video Platform",
     dashboard: "Manage your videos and settings from your Esup-Pod dashboard.",
     login: "Log in to access your videos and personal space on Esup-Pod.",
     playlists: "Discover and manage public playlists on the Esup-Pod platform.",
     videos: "Discover all public videos on the Esup-Pod platform.",
     watchVideo: "Watch the video on Esup-Pod",
+    loginPage: "Log in to the Esup-Pod platform to manage your videos.",
   },
 };

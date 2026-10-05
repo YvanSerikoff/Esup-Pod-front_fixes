@@ -50,14 +50,14 @@ export default function VideoContributorsForm({
   const { t } = useTranslation();
 
   const roleChoices = (config as any)?.completion?.role_choices || [
-    ["actor", "Acteur"],
-    ["author", "Auteur"],
-    ["consultant", "Consultant"],
-    ["contributor", "Contributeur"],
-    ["director", "Réalisateur"],
-    ["speaker", "Intervenant"],
-    ["technician", "Technicien"],
-    ["voice-over", "Voix off"],
+    ["actor", t("contributors.roles.actor")],
+    ["author", t("contributors.roles.author")],
+    ["consultant", t("contributors.roles.consultant")],
+    ["contributor", t("contributors.roles.contributor")],
+    ["director", t("contributors.roles.director")],
+    ["speaker", t("contributors.roles.speaker")],
+    ["technician", t("contributors.roles.technician")],
+    ["voice-over", t("contributors.roles.voiceOver")],
   ];
 
   const [searchInputValue, setSearchInputValue] = useState("");

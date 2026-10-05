@@ -1,10 +1,14 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Connexion | Esup-Pod",
-  description:
-    "Connectez-vous pour accéder à vos vidéos et votre espace personnel sur Esup-Pod.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: t("titles.login"),
+    description: t("descriptions.login"),
+  };
+}
 
 export default function LoginLayout({
   children,

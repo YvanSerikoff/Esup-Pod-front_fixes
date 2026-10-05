@@ -13,8 +13,8 @@ interface VideoGridProps {
   selectable?: boolean;
   onSelectAll?: (checked: boolean) => void;
 }
-/* Renderer tableau.
-Passe les rows à DataGrid avec les colonnes et tri des données
+/* Table renderer.
+Passes the rows to DataGrid with columns and data sorting.
 */
 export default function VideoGrid({
   rows,

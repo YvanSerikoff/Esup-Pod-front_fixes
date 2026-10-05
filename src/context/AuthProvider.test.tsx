@@ -5,7 +5,7 @@ import AuthProvider, { useAuth } from "./AuthProvider";
 import { useTranslation } from "../hooks/useTranslation";
 import { dictionaries } from "../locales";
 
-// Composant de test pour consommer le contexte
+// Test component that consumes the context
 const TestComponent = () => {
   const { isAuthenticated, logoutUrl } = useAuth();
   const { t } = useTranslation();

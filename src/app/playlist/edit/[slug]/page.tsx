@@ -33,18 +33,18 @@ type EditPlaylistFormValues = {
   default_order: CollectionOrder;
 };
 
-const FORM_FIELD_LABELS: Partial<Record<keyof EditPlaylistFormValues, string>> =
-  {
-    title: "Titre",
-    description: "Description",
-    is_password_required: "Ajouter un mot de passe",
-    is_public: "Statut",
-    password: "Mot de passe",
-    default_order: "Tri par défault",
-  };
-
 export default function EditPlaylist() {
   const { t } = useTranslation();
+  const formFieldLabels: Partial<
+    Record<keyof EditPlaylistFormValues, string>
+  > = {
+    title: t("common.title"),
+    description: t("common.description"),
+    is_password_required: t("playlists.protectWithPassword"),
+    is_public: t("playlists.publicPlaylist"),
+    password: t("playlists.passwordLabel"),
+    default_order: t("playlists.defaultSortLabel"),
+  };
   const router = useRouter();
   const params = useParams();
   const isMobile = useMediaQuery("(max-width: 932px)");
@@ -204,7 +204,7 @@ export default function EditPlaylist() {
     >;
 
     const labels = fieldNames.map((fieldName) => {
-      return FORM_FIELD_LABELS[fieldName] ?? fieldName;
+      return formFieldLabels[fieldName] ?? fieldName;
     });
 
     setSuccess(null);
@@ -322,7 +322,7 @@ export default function EditPlaylist() {
       </form>
 
       <Dialog open={confirmLeaveOpen} onClose={handleCancelLeave}>
-        <DialogTitle>Modifications non enregistrées</DialogTitle>
+        <DialogTitle>{t("common.unsavedChangesTitle")}</DialogTitle>
         <DialogContent>
           {t("common.unsavedChangesLeaveConfirmation")}
         </DialogContent>

@@ -533,6 +533,11 @@ export const es: TranslationKeys = {
     licenseCopyright: "Copyright / Todos los derechos reservados",
     licenseCcByNcSa: "CC BY-NC-SA — Compartir igual, uso no comercial",
     licenseCcBySa: "CC BY-SA — Compartir igual",
+    licenseCcBy: "CC BY — Atribución",
+    licenseCcByNc: "CC BY-NC — Uso no comercial",
+    licenseCcByNcNd: "CC BY-NC-ND — Sin obras derivadas, uso no comercial",
+    licenseCcByNd: "CC BY-ND — Sin obras derivadas",
+    licenseCc0: "Dominio público (CC0)",
 
     // Value options
     optionPublic: "🌐 Público — visible para todos",
@@ -683,6 +688,16 @@ export const es: TranslationKeys = {
     addError:
       "No se puede añadir este participante (¿quizás ya se ha añadido con este rol?)",
     noContributors: "No hay participantes asociados.",
+    roles: {
+      actor: "Actor",
+      author: "Autor",
+      consultant: "Consultor",
+      contributor: "Colaborador",
+      director: "Realizador",
+      speaker: "Ponente",
+      technician: "Técnico",
+      voiceOver: "Voz en off",
+    },
   },
 
   documents: {
@@ -940,6 +955,8 @@ export const es: TranslationKeys = {
     passwordProtectedVideoTooltip: "Vídeo protegido por contraseña",
     noSourceForPublic:
       "No se ha importado ningún archivo fuente durante la etapa Importación. La ficha no puede publicarse en modo Público.",
+    deleteVideo: "Eliminar el vídeo",
+    deleteVideoConfirmPrefix: "¿Está seguro de que desea eliminar el vídeo",
 
     // Source change
     changeSourceTitle: "Cambiar la fuente del vídeo",
@@ -1062,9 +1079,13 @@ export const es: TranslationKeys = {
     login: "Inicio de sesión | Esup-Pod",
     video: "Vídeo | Esup-Pod",
     allVideos: "Todos los vídeos - Esup-Pod",
+    dashboard: "Panel de control | Esup-Pod",
+    playlists: "Listas de reproducción - Esup-Pod",
+    loginPage: "Inicio de sesión - Esup-Pod",
   },
 
   descriptions: {
+    platform: "Plataforma de vídeo Esup-Pod",
     dashboard:
       "Gestiona tus vídeos y ajustes desde tu panel de control de Esup-Pod.",
     login:
@@ -1073,5 +1094,6 @@ export const es: TranslationKeys = {
       "Descubre y gestiona las listas de reproducción públicas de la plataforma Esup-Pod.",
     videos: "Descubre todos los vídeos públicos de la plataforma Esup-Pod.",
     watchVideo: "Ver el vídeo en Esup-Pod",
+    loginPage: "Inicia sesión en la plataforma Esup-Pod para gestionar tus vídeos.",
   },
 };

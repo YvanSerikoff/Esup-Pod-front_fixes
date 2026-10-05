@@ -226,7 +226,7 @@ export default function Video() {
   }, [favorites]);
 
   const nextVideoSlug = useMemo(() => {
-    // Cas playlist : on se base sur playlist.items (déjà ordonnés par position)
+    // For playlists, use playlist.items, which are already ordered by position
     if (playlistSlug && playlist?.items && playlist.items.length > 0) {
       const items = [...playlist.items].filter((item) => item.video != null);
 
@@ -268,19 +268,19 @@ export default function Video() {
     }
 
     if (playlistSlug) {
-      // On reste dans le contexte de la même playlist
+      // Stay within the same playlist context
       router.push(`/video/${nextVideoSlug}?playlist=${playlistSlug}`);
       return;
     }
 
     if (showFavoritesSidebar) {
-      // On reste dans le contexte favoris
+      // Stay within the favorites context
       router.push(`/video/${nextVideoSlug}?favorites=1`);
     }
   };
 
   /* ------------------------------------------------------------------
-   *  Récuperation de la vidéo et des co owners
+   *  Fetch the video and co-owners
    * ------------------------------------------------------------------ */
 
   useEffect(() => {
@@ -392,7 +392,7 @@ export default function Video() {
   };
 
   /* ------------------------------------------------------------------
-   * Gestion du téléchargement de la vidéo
+   * Handle video downloads
    * ------------------------------------------------------------------ */
   const handleDownload = async (targetUrl?: string, resolution?: string) => {
     if (!video || isDownloading) return;

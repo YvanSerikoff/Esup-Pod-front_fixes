@@ -4,7 +4,7 @@ import type { Video } from "@/src/types";
 import type { VideoDisplayRow } from "./types";
 
 /**
- * Convertit un objet Video envoyé par l’API en objet prêt pour l’affichage.
+ * Converts a Video object from the API into a display-ready object.
  */
 export function mapVideoToDisplayRow(
   video: Video,

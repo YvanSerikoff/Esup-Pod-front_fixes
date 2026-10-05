@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useMounted } from "@/src/hooks/useMounted";
 
-/* Verifie que le user est connecté et redirige vers la page login dans le cas contraire*/
+/* Check whether the user is signed in and redirect to the login page otherwise. */
 export function useRequireAuth(redirectTo = "/login", enabled = true) {
   const { isAuthenticated, isInitializing } = useAuth();
   const router = useRouter();

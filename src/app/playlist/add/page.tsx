@@ -75,7 +75,7 @@ export default function AddPlaylist() {
     name: "is_password_required",
   });
 
-  // Initialise la ref APRÈS le premier rendu (interdit pendant le render)
+  // Initialize the ref AFTER the first render (setting it during render is not allowed)
   useEffect(() => {
     if (!initialValuesRef.current) {
       initialValuesRef.current = watchedValues as AddPlaylistFormValues;
@@ -87,7 +87,7 @@ export default function AddPlaylist() {
     }
   }, [watchedValues]);
 
-  // isDirty est disponible pour une future confirmation de navigation non sauvegardée
+  // isDirty is available for a future unsaved-navigation confirmation
   void isDirty;
 
   const onSubmit = async (data: AddPlaylistFormValues) => {

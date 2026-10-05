@@ -30,7 +30,7 @@ export interface DownloadOption {
   url: string;
 }
 
-// Objet Video renvoye par l'API
+// Video object returned by the API
 export interface Video {
   id: number;
   title: string;
@@ -82,7 +82,7 @@ export interface Video {
   download_options?: DownloadOption[] | null;
 }
 
-// Objet Video pour le formulaire de creation et d'edition
+// Video object used by the create and edit form
 export interface VideoRequest {
   title: string;
   description?: string;

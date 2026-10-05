@@ -56,19 +56,19 @@ export type BulkActionKey =
   | "delete";
 
 /**
- * Définition d'une action groupée avec ses conditions d'activation.
+ * Defines a bulk action and its activation conditions.
  *
- * condition: (videos) => true = toujours disponible
- * condition: (videos) => false = jamais (selon critères)
- * conditionLabel: message explicatif affiché en tooltip si désactivée
+ * condition: (videos) => true = always available
+ * condition: (videos) => false = never available (depending on criteria)
+ * conditionLabel: explanatory tooltip shown when the action is disabled
  */
 interface ActionOption {
   value: BulkActionKey;
   label: string;
   group: "edit" | "danger";
-  /** Retourne true si l'action est applicable sur la sélection courante */
+  /** Returns true if the action applies to the current selection. */
   condition: (videos: Video[]) => boolean;
-  /** Message affiché si la condition n'est pas satisfaite */
+  /** Message shown when the condition is not met. */
   conditionLabel?: string;
 }
 
@@ -79,7 +79,7 @@ const SOME_ENCODING = (videos: Video[]) =>
   videos.some((v) => v.encoding_status === "PE" || v.encoding_status === "PR");
 
 const getActionsOptions = (t: (key: string) => string): ActionOption[] => [
-  // ── Métadonnées (toujours disponibles) ─────────────────────────
+  // ── Metadata (always available) ─────────────────────────
   {
     value: "type",
     label: t("bulk.changeType"),
@@ -128,38 +128,34 @@ const getActionsOptions = (t: (key: string) => string): ActionOption[] => [
     group: "edit",
     condition: () => true,
   },
-  // ── Actions nécessitant l'encodage terminé ──────────────────────
+  // ── Actions requiring completed encoding ────────────────────────
   {
     value: "status",
     label: t("bulk.publishUnpublish"),
     group: "edit",
     condition: ALL_ENCODED,
-    conditionLabel:
-      "Impossible : une ou plusieurs vidéos sélectionnées ne sont pas encore encodées. Attendez la fin de l'encodage pour modifier le statut de publication.",
+    conditionLabel: t("bulk.errorPublishNotEncoded"),
   },
   {
     value: "is_auth_required",
     label: t("bulk.restrictAuth"),
     group: "edit",
     condition: ALL_ENCODED,
-    conditionLabel:
-      "Impossible : la restriction d'accès ne peut être définie que sur des vidéos entièrement encodées.",
+    conditionLabel: t("bulk.errorRestrictNotEncoded"),
   },
   {
     value: "allow_downloading",
     label: t("bulk.allowDownloading"),
     group: "edit",
     condition: ALL_ENCODED,
-    conditionLabel:
-      "Impossible : le téléchargement ne peut être configuré que sur des vidéos encodées.",
+    conditionLabel: t("bulk.errorDownloadNotEncoded"),
   },
   {
     value: "disable_comment",
     label: t("bulk.disableComments"),
     group: "edit",
     condition: ALL_ENCODED,
-    conditionLabel:
-      "Impossible : les paramètres de commentaires ne s'appliquent qu'aux vidéos encodées.",
+    conditionLabel: t("bulk.errorCommentsNotEncoded"),
   },
   // ── Programmation temporelle (toujours disponible) ──────────────
   {
@@ -177,31 +173,25 @@ const getActionsOptions = (t: (key: string) => string): ActionOption[] => [
   },
 ];
 
-const LICENSE_CHOICES = [
-  { value: "NC", label: "Copyright / Droits réservés" },
-  { value: "CC-BY", label: "CC BY — Attribution" },
-  { value: "CC-BY-NC", label: "CC BY-NC — Pas d'usage commercial" },
-  {
-    value: "CC-BY-NC-ND",
-    label: "CC BY-NC-ND — Pas de modification, pas d'usage commercial",
-  },
-  {
-    value: "CC-BY-NC-SA",
-    label: "CC BY-NC-SA — Partage à l'identique, pas d'usage commercial",
-  },
-  { value: "CC-BY-SA", label: "CC BY-SA — Partage à l'identique" },
-  { value: "CC-BY-ND", label: "CC BY-ND — Pas de modification" },
-  { value: "CC0", label: "Domaine public (CC0)" },
+const getLicenseChoices = (t: (key: string) => string) => [
+  { value: "NC", label: t("bulk.licenseCopyright") },
+  { value: "CC-BY", label: t("bulk.licenseCcBy") },
+  { value: "CC-BY-NC", label: t("bulk.licenseCcByNc") },
+  { value: "CC-BY-NC-ND", label: t("bulk.licenseCcByNcNd") },
+  { value: "CC-BY-NC-SA", label: t("bulk.licenseCcByNcSa") },
+  { value: "CC-BY-SA", label: t("bulk.licenseCcBySa") },
+  { value: "CC-BY-ND", label: t("bulk.licenseCcByNd") },
+  { value: "CC0", label: t("bulk.licenseCc0") },
 ];
 
-const CURSUS_CHOICES = [
-  { value: "L1", label: "Licence 1" },
-  { value: "L2", label: "Licence 2" },
-  { value: "L3", label: "Licence 3" },
-  { value: "M1", label: "Master 1" },
-  { value: "M2", label: "Master 2" },
-  { value: "DOC", label: "Doctorat" },
-  { value: "OTHER", label: "Autre" },
+const getCursusChoices = (t: (key: string) => string) => [
+  { value: "L1", label: t("cursus.L1") },
+  { value: "L2", label: t("cursus.L2") },
+  { value: "L3", label: t("cursus.L3") },
+  { value: "M1", label: t("cursus.M1") },
+  { value: "M2", label: t("cursus.M2") },
+  { value: "DOC", label: t("cursus.D") },
+  { value: "OTHER", label: t("cursus.0") },
 ];
 
 interface Toast {
@@ -238,13 +228,13 @@ export default function BulkActionsBar({
   const count = selectedVideos.length;
   const hasSelection = count > 0;
 
-  // Calcul des états d'encodage sur la sélection courante
+  // Calculate encoding states for the current selection.
   const hasEncodingInProgress = useMemo(
     () => SOME_ENCODING(selectedVideos),
     [selectedVideos],
   );
 
-  // Actions disponibles / désactivées pour la sélection courante
+  // Available / disabled actions for the current selection.
   const resolvedActions = useMemo(
     () =>
       getActionsOptions(t).map((opt) => ({
@@ -365,8 +355,8 @@ export default function BulkActionsBar({
     getActionsOptions(t).find((opt: ActionOption) => opt.value === key)
       ?.label ?? key;
 
-  // La confirmation est désactivée si le champ requis est vide
-  // Sauf pour les actions ne nécessitant pas de valeur (delete, channel)
+  // Disable confirmation if a required field is empty,
+  // except for actions that do not require a value (delete, channel).
   const NO_VALUE_NEEDED: BulkActionKey[] = ["delete", "channel"];
   const isConfirmDisabled =
     isLoading ||
@@ -374,7 +364,7 @@ export default function BulkActionsBar({
 
   return (
     <>
-      {/* ── Barre d'actions contextuelle (affichée uniquement lors d'une sélection) ── */}
+      {/* ── Contextual action bar (shown only when items are selected) ── */}
       {hasSelection && (
         <div
           style={{
@@ -395,7 +385,7 @@ export default function BulkActionsBar({
               gap: "16px",
             }}
           >
-            {/* Titre + badge sélection */}
+            {/* Title + selection badge */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <h2 style={{ fontSize: "1.05rem", fontWeight: 700, margin: 0 }}>
                 {t("bulk.title")}
@@ -417,7 +407,7 @@ export default function BulkActionsBar({
                   >
                     {count} {t("common.videos")}
                   </span>
-                  {/* Avertissement encodage en cours */}
+                  {/* Warning that encoding is in progress */}
                   {hasEncodingInProgress && (
                     <Tooltip
                       title={t("bulk.encodingInProgressTooltip")}
@@ -457,7 +447,7 @@ export default function BulkActionsBar({
               )}
             </div>
 
-            {/* Contrôles */}
+            {/* Controls */}
             <div
               style={{
                 display: "flex",
@@ -507,7 +497,7 @@ export default function BulkActionsBar({
                           onClickAway={() => setDropdownOpen(false)}
                         >
                           <Box sx={{ p: 0.5 }}>
-                            {/* Groupe édition */}
+                            {/* Edit group */}
                             <Typography
                               variant="caption"
                               sx={{
@@ -539,7 +529,7 @@ export default function BulkActionsBar({
                                   arrow
                                   disableHoverListener={opt.enabled}
                                 >
-                                  {/* span requis pour le Tooltip quand MenuItem est disabled */}
+                                  {/* A span is required for the Tooltip when MenuItem is disabled. */}
                                   <span style={{ display: "block" }}>
                                     <MenuItem
                                       disabled={!opt.enabled}
@@ -665,7 +655,7 @@ export default function BulkActionsBar({
             padding: "8px 0",
           }}
         >
-          {/* Avertissement suppression */}
+          {/* Deletion warning */}
           {selectedAction === "delete" && (
             <Alert severity="warning" icon={<WarningAmberIcon />}>
               {t.rich("bulk.deleteVideosWarning", {
@@ -807,7 +797,7 @@ export default function BulkActionsBar({
                   <option value="" disabled>
                     {t("bulk.chooseLicense")}
                   </option>
-                  {LICENSE_CHOICES.map((lic) => (
+                  {getLicenseChoices(t).map((lic) => (
                     <option key={lic.value} value={lic.value}>
                       {lic.label}
                     </option>
@@ -885,7 +875,7 @@ export default function BulkActionsBar({
                   <option value="" disabled>
                     {t("bulk.chooseLevel")}
                   </option>
-                  {CURSUS_CHOICES.map((c) => (
+                  {getCursusChoices(t).map((c) => (
                     <option key={c.value} value={c.value}>
                       {c.label}
                     </option>
@@ -895,7 +885,7 @@ export default function BulkActionsBar({
             </div>
           )}
 
-          {/* Liste des vidéos concernées avec badge encodage */}
+          {/* Affected videos with encoding badge */}
           <div>
             <p
               style={{
@@ -996,7 +986,7 @@ export default function BulkActionsBar({
             </div>
           </div>
 
-          {/* Boutons de la modal */}
+          {/* Modal buttons */}
           <div
             style={{
               display: "flex",
@@ -1065,7 +1055,7 @@ export default function BulkActionsBar({
   );
 }
 
-/* ── Styles partagés ─────────────────────────────────────── */
+/* ── Shared styles ───────────────────────────────────────── */
 const selectStyle: React.CSSProperties = {
   width: "100%",
   padding: "10px 12px",

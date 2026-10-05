@@ -19,7 +19,7 @@ export default function DressingSettings() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   if (isInitializing || !isAuthenticated) {
-    return null; // ou loader
+    return null; // or a loader
   }
 
   const handleFileChange = async (

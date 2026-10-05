@@ -29,7 +29,7 @@
     width: 100%;
   }
 
-  /* Rendre le bouton full width en mobile */
+  /* Make the button full width on mobile */
   .add-playlist-button :global(button),
   .add-playlist-button :global(.c__button) {
     width: 100%;

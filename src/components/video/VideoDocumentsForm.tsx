@@ -17,12 +17,14 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 interface VideoDocumentsFormProps {
   videoId: number;
 }
 
 export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
+  const { t, locale } = useTranslation();
   const {
     documents,
     isLoading,
@@ -40,7 +42,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
 
   const handleUpload = async () => {
     if (!title.trim() || !file) {
-      setLocalError("Veuillez renseigner un titre et sélectionner un fichier.");
+      setLocalError(t("documents.fillTitleAndFile"));
       return;
     }
     setLocalError(null);
@@ -50,16 +52,16 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
       setFile(null);
       setIsPrivate(false);
     } catch (e: any) {
-      setLocalError(e.message || "Erreur lors de l'upload du document.");
+      setLocalError(e.message || t("documents.uploadError"));
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (confirm("Voulez-vous vraiment supprimer ce document ?")) {
+    if (confirm(t("documents.deleteConfirm"))) {
       try {
         await deleteDocument(id);
       } catch (e: any) {
-        setLocalError(e.message || "Erreur lors de la suppression.");
+        setLocalError(e.message || t("documents.deleteError"));
       }
     }
   };
@@ -67,12 +69,12 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
   return (
     <Box sx={{ mt: 2 }}>
       <Typography variant="h6" gutterBottom>
-        Documents joints
+        {t("videoEdit.documentsTitle")}
       </Typography>
 
       {(error || localError) && (
         <Alert type={VariantType.ERROR} canClose={true}>
-          {localError || "Impossible de charger les documents."}
+          {localError || t("documents.loadError")}
         </Alert>
       )}
 
@@ -87,22 +89,22 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
           mb: 3,
         }}
       >
-        <Typography variant="subtitle1">Ajouter un document</Typography>
+        <Typography variant="subtitle1">{t("documents.addTitle")}</Typography>
         <TextField
-          label="Titre du document"
+          label={t("documents.titleLabel")}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           fullWidth
           size="small"
         />
         <FileUploader
-          text="Glissez et déposez un fichier ici"
+          text={t("documents.dropzone")}
           onChange={(e: any) => setFile(e?.target?.files?.[0] || e || null)}
-          accept="" // Accepter tout type de document
+          accept="" // Accept any document type
         />
         {file && (
           <Typography variant="body2" color="textSecondary">
-            Fichier sélectionné : {file.name}
+            {t("documents.selectedFile")} {file.name}
           </Typography>
         )}
         <FormControlLabel
@@ -112,7 +114,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
               onChange={(e) => setIsPrivate(e.target.checked)}
             />
           }
-          label="Document privé (visible uniquement par le propriétaire et les co-propriétaires)"
+          label={t("documents.privateLabel")}
         />
         <Button
           onClick={handleUpload}
@@ -120,12 +122,12 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
           variant="primary"
           style={{ alignSelf: "flex-start" }}
         >
-          {isUploading ? "Envoi en cours..." : "Ajouter le document"}
+          {isUploading ? t("pending.sending") : t("documents.addBtn")}
         </Button>
       </Box>
 
       {isLoading ? (
-        <Typography>Chargement des documents...</Typography>
+        <Typography>{t("documents.loading")}</Typography>
       ) : documents && documents.length > 0 ? (
         <List>
           {documents.map((doc) => (
@@ -139,7 +141,12 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
             >
               <ListItemText
                 primary={doc.title}
-                secondary={`${doc.is_private ? "🔒 Privé" : "🌐 Public"} - Ajouté le ${new Date(doc.created_at).toLocaleDateString()}`}
+                secondary={t("documents.addedOn", {
+                  title: `${doc.title}${doc.is_private ? ` 🔒 ${t("documents.private")}` : ""}`,
+                  date: new Intl.DateTimeFormat(locale).format(
+                    new Date(doc.created_at),
+                  ),
+                })}
               />
               <ListItemSecondaryAction>
                 <IconButton
@@ -156,7 +163,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
         </List>
       ) : (
         <Typography color="textSecondary">
-          Aucun document n'est rattaché à cette vidéo pour le moment.
+          {t("documents.noDocuments")}
         </Typography>
       )}
     </Box>

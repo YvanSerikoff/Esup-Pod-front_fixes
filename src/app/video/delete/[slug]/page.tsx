@@ -48,14 +48,14 @@ export default function DeleteVideoPage() {
   return (
     <div className={styles["delete-container"]}>
       <Paper sx={{ p: 4, maxWidth: 520, width: "100%" }}>
-        <h2>Supprimer la vidéo</h2>
+        <h2>{t("videoEdit.deleteVideo")}</h2>
 
         {useVideoLoading && !video && <CenteredLoader />}
 
         {useVideoError ? (
           <div>
             <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
-              {useVideoError ?? "Vidéo introuvable."}
+              {useVideoError ?? t("videoPage.notFound")}
             </Alert>
             <Button
               variant="bordered"
@@ -67,14 +67,14 @@ export default function DeleteVideoPage() {
           </div>
         ) : !isOwnerOrCoOwner ? (
           <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
-            Vous ne pouvez pas accéder à cette page
+            {t("errors.accessDenied")}
           </Alert>
         ) : video ? (
           <>
             <p>
-              Etes-vous sûr.e de vouloir supprimer la vidéo{" "}
+              {t("videoEdit.deleteVideoConfirmPrefix")}{" "}
               <strong>{video.title}</strong> ? <br />
-              Cette action est définitive.
+              {t("common.permanentAction")}
             </p>
 
             <div className={styles["buttons-action"]}>
@@ -95,7 +95,7 @@ export default function DeleteVideoPage() {
                 onClick={handleDelete}
                 disabled={useVideoLoading}
               >
-                Supprimer la vidéo
+                {t("videoEdit.deleteVideo")}
               </Button>
             </div>
           </>

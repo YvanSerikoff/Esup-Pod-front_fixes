@@ -16,7 +16,7 @@ export const VideoCardSkeleton = () => {
           "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       }}
     >
-      {/* Zone de la Miniature (Ratio 16:9) */}
+      {/* Thumbnail area (16:9 ratio) */}
       <Box
         sx={{
           position: "relative",
@@ -37,7 +37,7 @@ export const VideoCardSkeleton = () => {
         />
       </Box>
 
-      {/* Contenu textuel */}
+      {/* Text content */}
       <CardContent
         sx={{
           flexGrow: 1,
@@ -50,7 +50,7 @@ export const VideoCardSkeleton = () => {
         <Skeleton variant="text" animation="wave" width="90%" height={28} />
         <Skeleton variant="text" animation="wave" width="60%" height={20} />
 
-        {/* Méta-données (Avatar + Nom / Date) */}
+        {/* Metadata (avatar + name / date) */}
         <Box
           sx={{
             display: "flex",

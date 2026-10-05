@@ -34,7 +34,7 @@ export function ProfileMenuContent({
 
   return (
     <div className={styles["navbar-profil-menu"]}>
-      {/* ---------- Bouton de fermeture (mobile) ---------- */}
+      {/* ---------- Close button (mobile) ---------- */}
       {isMobile && (
         <Button
           className={styles["button-close"]}
@@ -50,7 +50,7 @@ export function ProfileMenuContent({
       </span>
 
       <div className={styles["navbar-profil-menu-content"]}>
-        {/* ----- Modifier l’image de profil ----- */}
+        {/* ----- Change profile picture ----- */}
         <MenuItem
           className={styles["navbar-profil-menu-item"]}
           component={Link}
@@ -63,7 +63,7 @@ export function ProfileMenuContent({
           {t("navbar.myProfileImage")}
         </MenuItem>
 
-        {/* ----- Mes filigranes / Habillages ----- */}
+        {/* ----- My watermarks / branding ----- */}
         {(config as any)?.dressing?.use_dressing !== false && (
           <MenuItem
             className={styles["navbar-profil-menu-item"]}
@@ -78,7 +78,7 @@ export function ProfileMenuContent({
           </MenuItem>
         )}
 
-        {/* ----- Accès à l’administration (superUser uniquement) ----- */}
+        {/* ----- Administration access (superuser only) ----- */}
         {user.is_superuser && (
           <MenuItem
             className={styles["navbar-profil-menu-item"]}
@@ -95,7 +95,7 @@ export function ProfileMenuContent({
           </MenuItem>
         )}
 
-        {/* ----- Déconnexion ----- */}
+        {/* ----- Log out ----- */}
         <MenuItem
           className={styles["navbar-profil-menu-item"]}
           onClick={onLogout}

@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--c--globals--spacings--xxs);
-  max-height: 480px; /* scroll vertical comme sur YouTube */
+  max-height: 480px; /* Vertical scrolling, like on YouTube */
   overflow-y: auto;
 }
 

@@ -1,6 +1,12 @@
 import type { Channel, Theme, Playlist, Video } from "@/src/types";
 import type { CollectionDisplayRow } from "./types";
 
+type CollectionLabelKey =
+  | "common.channel"
+  | "common.theme"
+  | "playlists.playlist";
+type TranslateCollectionLabel = (key: CollectionLabelKey) => string;
+
 const dateFormatters = new Map<string, Intl.DateTimeFormat>();
 
 /** Returns the cached date formatter for a locale. */
@@ -27,11 +33,12 @@ function formatDate(value: string | undefined, locale: string) {
 export function mapChannelToDisplayRow(
   channel: Channel,
   locale: string,
+  t: TranslateCollectionLabel,
 ): CollectionDisplayRow {
   return {
     id: `channel-${channel.id}`,
     type: "channel",
-    typeLabel: "Chaîne",
+    typeLabel: t("common.channel"),
     title: channel.title,
     thumbnailUrl: channel.logo || channel.banner || "/default_channel_logo.png",
     videosCount: channel.videos_count ?? 0,
@@ -48,6 +55,7 @@ export function mapChannelToDisplayRow(
 export function mapThemeToDisplayRow(
   theme: Theme,
   locale: string,
+  t: TranslateCollectionLabel,
   options?: { channelSlug?: string; basePath?: string },
 ): CollectionDisplayRow {
   const { channelSlug, basePath } = options ?? {};
@@ -63,7 +71,7 @@ export function mapThemeToDisplayRow(
   return {
     id: `theme-${theme.id}`,
     type: "theme",
-    typeLabel: "Thème",
+    typeLabel: t("common.theme"),
     title: theme.title,
     thumbnailUrl: theme.banner || "/default_theme_banner.png",
     videosCount: theme.videos_count ?? theme.items?.length ?? 0,
@@ -80,6 +88,7 @@ export function mapThemeToDisplayRow(
 export function mapPlaylistToDisplayRow(
   playlist: Playlist,
   locale: string,
+  t: TranslateCollectionLabel,
   currentUserId?: number,
 ): CollectionDisplayRow {
   const isOwner = currentUserId != null && playlist.owner === currentUserId;
@@ -87,7 +96,7 @@ export function mapPlaylistToDisplayRow(
   return {
     id: `playlist-${playlist.id}`,
     type: "playlist",
-    typeLabel: "Playlist",
+    typeLabel: t("playlists.playlist"),
     title: playlist.title,
     thumbnailUrl: "/default_thumbnail.svg",
     videosCount: playlist.videos_count ?? playlist.items?.length ?? 0,
@@ -110,6 +119,7 @@ export function mapCollectionsToDisplayRows({
   basePath,
   currentUserId,
   locale,
+  t,
 }: {
   channels?: Channel[];
   themes?: Theme[];
@@ -119,13 +129,14 @@ export function mapCollectionsToDisplayRows({
   basePath?: string;
   currentUserId?: number;
   locale: string;
+  t: TranslateCollectionLabel;
 }): CollectionDisplayRow[] {
   const rows: CollectionDisplayRow[] = [];
 
   // Calculate the number of themes per channel.
   if (channels.length > 0) {
     rows.push(
-      ...channels.map((channel) => mapChannelToDisplayRow(channel, locale)),
+      ...channels.map((channel) => mapChannelToDisplayRow(channel, locale, t)),
     );
   }
 
@@ -133,7 +144,7 @@ export function mapCollectionsToDisplayRows({
   if (channels.length === 0 && themes.length > 0) {
     rows.push(
       ...themes.map((theme) =>
-        mapThemeToDisplayRow(theme, locale, { channelSlug, basePath }),
+        mapThemeToDisplayRow(theme, locale, t, { channelSlug, basePath }),
       ),
     );
   }
@@ -141,7 +152,7 @@ export function mapCollectionsToDisplayRows({
   if (playlists.length > 0) {
     rows.push(
       ...playlists.map((playlist) =>
-        mapPlaylistToDisplayRow(playlist, locale, currentUserId),
+        mapPlaylistToDisplayRow(playlist, locale, t, currentUserId),
       ),
     );
   }

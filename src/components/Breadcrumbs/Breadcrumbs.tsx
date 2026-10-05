@@ -42,6 +42,8 @@ export default function Breadcrumb() {
         return t("common.addVideo");
       case "/video/edit":
         return t("videoEdit.pageTitleDefault");
+      case "/video/delete":
+        return t("videoEdit.deleteVideo");
       case "/dashboard":
         return t("sidebar.dashboard");
       case "/favorites":
@@ -52,6 +54,10 @@ export default function Breadcrumb() {
         return t("sidebar.myPlaylists");
       case "/playlist/add":
         return `${t("common.playlist")} (+)`;
+      case "/playlist/edit":
+        return t("playlists.editPlaylist");
+      case "/playlist/delete":
+        return t("playlists.delete");
       case "/channel":
         return t("common.channels");
       case "/profile-picture":

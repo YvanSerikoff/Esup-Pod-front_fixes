@@ -80,7 +80,7 @@ export function usePlaylistList(
   };
 }
 
-// Rétrocompatibilité : Retourne toutes les méthodes attendues par tes anciens composants
+// Backward compatibility: return all methods expected by legacy components
 export function usePlaylist() {
   const { accessToken, refresh } = useAuth();
   const t = useTranslations();
@@ -214,8 +214,8 @@ export function usePlaylist() {
         : null) ||
       (currentSlug ? (playlistQuery.error?.message ?? null) : null),
 
-    // Remplacement par les mutations
-    // Remplacement par les mutations
+    // Replaced with mutations
+    // Replaced with mutations
     fetchAll: useCallback(async (newParams?: CollectionListParams) => {
       setListParams(newParams);
       return []; // Return type doesn't matter for the effect, returning empty is safe.

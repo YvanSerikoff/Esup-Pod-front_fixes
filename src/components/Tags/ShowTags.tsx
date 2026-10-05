@@ -13,10 +13,10 @@ import { useTranslation } from "@/src/hooks/useTranslation";
 export type ShowTagsProps = {
   onTagClick?: (tag: Tags) => void;
 
-  // Limite optionnelle du nombre de tags affichés.
+  // Optional limit on the number of displayed tags.
   limit?: number;
 
-  // Liste de vidéos optionnelle pour recalculer le nombre de vidéos par tag
+  // Optional video list used to recalculate the video count for each tag
   videos?: Video[];
 };
 

@@ -176,9 +176,9 @@ export default function EditVideo() {
   const { themes, fetchAll: fetchThemes, useThemeError } = useTheme();
   const { duplicateVideo, isDuplicating } = useDuplicate(getVideoSlug ?? "");
 
-  // Desktop stepper: starts on step index 1 (Détails), since Importation (0) is disabled
+  // Desktop stepper: starts at step index 1 (Details), since Import (0) is disabled
   const [activeStep, setActiveStep] = useState(1);
-  // Mobile step: null = menu, 0 = Détails, 1 = Éléments, 2 = Visibilité
+  // Mobile step: null = menu, 0 = Details, 1 = Items, 2 = Visibility
   const [mobilePanelIndex, setMobilePanelIndex] = useState<number | null>(null);
 
   const [formError, setformError] = useState<string | null>(null);
@@ -283,7 +283,7 @@ export default function EditVideo() {
     })),
   ];
 
-  // Fields validated per step (0=Importation, 1=Détails, 2=Éléments, 3=Visibilité)
+  // Fields validated per step (0=Import, 1=Details, 2=Items, 3=Visibility)
   const STEP_REQUIRED_FIELDS: Record<
     number,
     Array<keyof EditVideoFormValues>
@@ -1618,7 +1618,7 @@ export default function EditVideo() {
             </div>
           )}
 
-          {/* Découpage */}
+          {/* Trimming */}
           <div
             className={styles["element-card"]}
             style={{ opacity: hasEncodedSource ? 1 : 0.65 }}

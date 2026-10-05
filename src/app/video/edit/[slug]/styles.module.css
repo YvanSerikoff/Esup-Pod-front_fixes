@@ -1,5 +1,5 @@
 /* ==============================================================
- *  Page d'édition vidéo – Styles
+ *  Video editing page – styles
  * ============================================================== */
 
 /* -------  Breadcrumb --------- */
@@ -333,7 +333,7 @@
   border-radius: 4px;
 }
 
-/* -------  Éléments vidéo cards --------- */
+/* -------  Video item cards --------- */
 .elements-list {
   display: flex;
   flex-direction: column;
@@ -396,7 +396,7 @@
   background: rgba(0, 129, 138, 0.06);
 }
 
-/* -------  Visibilité accordion-style section --------- */
+/* -------  Visibility accordion-style section --------- */
 .visibility-section {
   border: 1.5px solid var(--c--globals--colors--gray-200);
   border-radius: 10px;

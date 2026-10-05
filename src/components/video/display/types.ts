@@ -1,6 +1,6 @@
 import type { Video } from "@/src/types";
 
-/*Typage des props pour le composant DisplayVideo*/
+/* Prop types for the DisplayVideo component */
 
 export type VideoViewMode = "cards" | "grid";
 

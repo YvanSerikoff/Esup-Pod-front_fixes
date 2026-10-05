@@ -5,11 +5,7 @@ import { Alert, VariantType } from "@openfun/cunningham-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/src/context/AuthProvider";
 import styles from "./AuthStatusAlert.module.css";
-
-const AUTH_STATUS_MESSAGES = {
-  login: "Vous êtes désormais connecté.",
-  logout: "Vous êtes désormais déconnecté.",
-} as const;
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 type AuthStatusAlertProps = {
   autoDismissMs?: number;
@@ -23,15 +19,16 @@ export default function AuthStatusAlert({
   const pathname = usePathname();
   const params = useSearchParams();
   const { user, isInitializing } = useAuth();
+  const { t } = useTranslation();
   const isAuthenticated = Boolean(user);
 
   const { message, shouldShow, shouldClear } = useMemo(() => {
     const loginSuccess = params.get("login") === "success";
     const logoutSuccess = params.get("logout") === "success";
     const message = loginSuccess
-      ? AUTH_STATUS_MESSAGES.login
+      ? t("auth.loginSuccess")
       : logoutSuccess
-        ? AUTH_STATUS_MESSAGES.logout
+        ? t("auth.logoutSuccess")
         : null;
     const shouldShow =
       (loginSuccess && isAuthenticated) || (logoutSuccess && !isAuthenticated);
@@ -41,7 +38,7 @@ export default function AuthStatusAlert({
       shouldShow,
       shouldClear: loginSuccess || logoutSuccess,
     };
-  }, [isAuthenticated, params]);
+  }, [isAuthenticated, params, t]);
 
   const handleClose = useCallback(() => {
     if (!shouldClear) return;

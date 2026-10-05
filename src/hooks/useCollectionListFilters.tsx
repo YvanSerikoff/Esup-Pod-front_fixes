@@ -11,7 +11,7 @@ import {
   type CollectionFiltersValue,
 } from "@/src/components/collection/filters/CollectionFilters";
 import type { CollectionListParams } from "@/src/hooks/collectionListParams";
-import { useAuth } from "@/src/context/AuthProvider"; // <-- ajout
+import { useAuth } from "@/src/context/AuthProvider"; // <-- added
 
 type UseCollectionListFiltersOptions = {
   mode: CollectionFilterMode;
@@ -87,7 +87,7 @@ export function useCollectionListFilters({
   );
 
   useEffect(() => {
-    // On attend d'avoir un accessToken pour charger les métadonnées dépendantes de l'auth
+    // Wait for an access token before loading metadata that depends on authentication
     if (!accessToken) return;
     if (fetchedMetadataRef.current) return;
 
@@ -100,7 +100,7 @@ export function useCollectionListFilters({
     fetchedMetadataRef.current = true;
   }, [fetchUsers, fetchChannels, fetchThemes, mode, accessToken]);
 
-  // Chargement de la collection selon le mode + filtres
+  // Load collections according to the mode and filters
   useEffect(() => {
     if (!enabled) return;
     if (lastRequestKeyRef.current === requestKey) return;

@@ -12,9 +12,9 @@ type Props = {
   video: Video;
   streamUrl: string;
   autoPlay?: boolean;
-  /** Callback appelé quand la vidéo commence. */
+  /** Callback called when the video starts. */
   onPlay?: () => void;
-  /** Callback appelé quand la vidéo se termine. */
+  /** Callback called when the video ends. */
   onEnded?: () => void;
 };
 

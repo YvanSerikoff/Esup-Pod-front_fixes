@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
+  const t = await getTranslations();
   const baseUrl =
     process.env.NEXT_PUBLIC_BACK_URL ?? "http://pod.localhost:8000/";
   const url = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
@@ -19,7 +21,7 @@ export async function generateMetadata({
       const video = await res.json();
       return {
         title: `${video.title} | Esup-Pod`,
-        description: video.description || "Regarder la vidéo sur Esup-Pod",
+        description: video.description || t("descriptions.watchVideo"),
       };
     }
   } catch (error) {
@@ -27,7 +29,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: "Vidéo | Esup-Pod",
+    title: t("titles.video"),
   };
 }
 

@@ -82,6 +82,7 @@ export default function CollectionDisplay({
         basePath,
         currentUserId,
         locale,
+        t: (key) => t(key),
       }),
     [
       channels,
@@ -92,6 +93,7 @@ export default function CollectionDisplay({
       basePath,
       currentUserId,
       locale,
+      t,
     ],
   );
 
