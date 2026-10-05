@@ -357,11 +357,7 @@ export default function BulkActionsBar({
       onClearSelection();
       onApplySuccess();
     } catch (err: any) {
-      showToast(
-        err?.message ??
-          t("bulk.actionError"),
-        "error",
-      );
+      showToast(err?.message ?? t("bulk.actionError"), "error");
     }
   };
 
@@ -975,7 +971,10 @@ export default function BulkActionsBar({
                       </Tooltip>
                     )}
                     {video.encoding_status === "ER" && (
-                      <Tooltip title={t("table.encodingError")} placement="left">
+                      <Tooltip
+                        title={t("table.encodingError")}
+                        placement="left"
+                      >
                         <span
                           style={{
                             fontSize: "0.7rem",

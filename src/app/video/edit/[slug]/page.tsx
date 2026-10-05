@@ -704,9 +704,7 @@ export default function EditVideo() {
       !video?.video_url &&
       !sourceFile
     ) {
-      setformError(
-        t("videoEdit.noSourceForPublic"),
-      );
+      setformError(t("videoEdit.noSourceForPublic"));
       setActiveStep(0);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -716,9 +714,7 @@ export default function EditVideo() {
       !data.is_auth_required &&
       !data.is_password_required
     ) {
-      setformError(
-        t("videoEdit.restrictedNeedsOption"),
-      );
+      setformError(t("videoEdit.restrictedNeedsOption"));
       return;
     }
     try {
@@ -786,9 +782,7 @@ export default function EditVideo() {
       }
       await requestJson(res);
     } catch (err: unknown) {
-      setformError(
-        err instanceof Error ? err.message : t("errors.error"),
-      );
+      setformError(err instanceof Error ? err.message : t("errors.error"));
     }
   };
 
@@ -2073,7 +2067,9 @@ export default function EditVideo() {
                     </Tooltip>
                   )}
                   {isPasswordRequiredVal && (
-                    <Tooltip title={t("videoEdit.passwordProtectedVideoTooltip")}>
+                    <Tooltip
+                      title={t("videoEdit.passwordProtectedVideoTooltip")}
+                    >
                       <span
                         className="material-icons"
                         style={{
@@ -2107,7 +2103,8 @@ export default function EditVideo() {
                 {config?.video?.show_views !== false && (
                   <>
                     {viewsCount}{" "}
-                    {viewsCount > 1 ? t("common.views") : t("common.view")} •{" "}
+                    {viewsCount > 1 ? t("common.views") : t("common.view")}{" "}
+                    •{" "}
                   </>
                 )}
                 {video?.created_at
