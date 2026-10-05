@@ -35,16 +35,15 @@ type EditPlaylistFormValues = {
 
 export default function EditPlaylist() {
   const { t } = useTranslation();
-  const formFieldLabels: Partial<
-    Record<keyof EditPlaylistFormValues, string>
-  > = {
-    title: t("common.title"),
-    description: t("common.description"),
-    is_password_required: t("playlists.protectWithPassword"),
-    is_public: t("playlists.publicPlaylist"),
-    password: t("playlists.passwordLabel"),
-    default_order: t("playlists.defaultSortLabel"),
-  };
+  const formFieldLabels: Partial<Record<keyof EditPlaylistFormValues, string>> =
+    {
+      title: t("common.title"),
+      description: t("common.description"),
+      is_password_required: t("playlists.protectWithPassword"),
+      is_public: t("playlists.publicPlaylist"),
+      password: t("playlists.passwordLabel"),
+      default_order: t("playlists.defaultSortLabel"),
+    };
   const router = useRouter();
   const params = useParams();
   const isMobile = useMediaQuery("(max-width: 932px)");

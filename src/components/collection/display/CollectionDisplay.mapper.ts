@@ -2,9 +2,7 @@ import type { Channel, Theme, Playlist, Video } from "@/src/types";
 import type { CollectionDisplayRow } from "./types";
 
 type CollectionLabelKey =
-  | "common.channel"
-  | "common.theme"
-  | "playlists.playlist";
+  "common.channel" | "common.theme" | "playlists.playlist";
 type TranslateCollectionLabel = (key: CollectionLabelKey) => string;
 
 const dateFormatters = new Map<string, Intl.DateTimeFormat>();

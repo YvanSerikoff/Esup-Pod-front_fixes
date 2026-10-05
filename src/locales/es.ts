@@ -1094,6 +1094,7 @@ export const es: TranslationKeys = {
       "Descubre y gestiona las listas de reproducción públicas de la plataforma Esup-Pod.",
     videos: "Descubre todos los vídeos públicos de la plataforma Esup-Pod.",
     watchVideo: "Ver el vídeo en Esup-Pod",
-    loginPage: "Inicia sesión en la plataforma Esup-Pod para gestionar tus vídeos.",
+    loginPage:
+      "Inicia sesión en la plataforma Esup-Pod para gestionar tus vídeos.",
   },
 };
