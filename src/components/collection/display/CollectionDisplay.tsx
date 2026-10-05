@@ -29,7 +29,7 @@ const getCollectionsLabel = (
   }
 
   if (playlistsCount > 0) {
-    return isPlural ? t("playlists.playlists") : "playlists.playlist";
+    return isPlural ? t("playlists.playlists") : t("playlists.playlist");
   }
 
   return isPlural ? t("common.collections") : t("common.collection");
@@ -164,7 +164,7 @@ export default function CollectionDisplay({
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
         <p>
-          {count} {label} {t("common.found", { count }).toLowerCase()}
+          {t("common.collectionCountLabel", { count, label }).toLowerCase()}
         </p>
         <CollectionViewToggle view={view} onChange={handleChangeView} />
       </div>

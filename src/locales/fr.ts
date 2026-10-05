@@ -94,6 +94,9 @@ export const fr = {
     // Divers
     recently: "Récemment",
     default: "Par défaut",
+
+    collectionCountLabel:
+      "{count, plural, one {# {label} trouvé} other {# {label} trouvés}}",
   },
   errors: {
     // Général
@@ -459,8 +462,8 @@ export const fr = {
     checkVideosPrompt: "Cocher des vidéos pour activer les actions",
     chooseAction: "Choisir une action…",
     deselectAll: "Tout désélectionner",
-    modalTitle: "Modifier en lot : {action}",
-    newValueFor: "Nouvelle valeur pour :",
+    modalTitle: "Modifier en lot : {action}",
+    newValueFor: "Nouvelle valeur pour : {label}",
     affectedVideos: "Vidéos concernées ({count})",
     confirmEdit: "Confirmer la modification",
     unavailableForSelection: "Non disponible pour cette sélection",
@@ -468,7 +471,8 @@ export const fr = {
       "Certaines vidéos sont en cours d’encodage. Les actions nécessitant l’encodage complet sont désactivées.",
     encodingWarning:
       "Attention : certaines vidéos sont actuellement en cours d’encodage.",
-    errorBadge: "Erreur",
+    errorBadge: "❌ Erreur",
+    examplePlaceholder: "ex: cours, informatique, python",
 
     // Modification
     editGroup: "MODIFIER LES VIDÉOS",
@@ -482,6 +486,17 @@ export const fr = {
     changeCursus: "Changer le niveau d’études",
     keywordsHelper:
       "Séparez les mots-clés par des virgules. Ils remplaceront les mots-clés existants.",
+    noChannel: "-- Aucune chaîne (retirer de toute chaîne) --",
+    chooseType: "-- Choisir un type --",
+    chooseStatus: "-- Choisir le statut --",
+    choose: "-- Choisir --",
+    chooseLicense: "-- Choisir une licence --",
+    chooseDiscipline: "-- Choisir une discipline --",
+    chooseLevel: "-- Choisir le niveau --",
+    deletedSuccessfully:
+      "{count, plural, one {# vidéo supprimée avec succès.} other {# vidéos supprimées avec succès.}}",
+    updatedSuccessfully:
+      "{count, plural, one {# vidéo mise à jour avec succès.} other {# vidéos mises à jour avec succès.}}",
 
     // Visibilité & options
     publishUnpublish: "Publier / Dépublier",
@@ -498,6 +513,8 @@ export const fr = {
     confirmDelete: "Confirmer la suppression",
     deleteWarning:
       "Vous êtes sur le point de supprimer définitivement les vidéos sélectionnées.",
+    deleteVideosWarning:
+      "Vous allez supprimer définitivement <strong>{count, plural, one {# vidéo} other {# vidéos}}</strong>. Cette action est <strong>irréversible</strong>.<encoding>⚠️ Attention : certaines vidéos sont actuellement en cours d'encodage.</encoding>",
     deletePermanently: "Supprimer définitivement",
 
     // Licences
@@ -507,14 +524,15 @@ export const fr = {
     licenseCcBySa: "CC BY-SA — Partage à l’identique",
 
     // Options de valeur
-    optionPublic: "Publique — visible par tous",
-    optionPrivate: "Privée — brouillon, non visible",
-    optionAuthYes: "Oui — connexion requise pour accéder",
-    optionAuthNo: "Non — accessible sans connexion",
-    optionDownloadYes: "Oui — autoriser le téléchargement",
-    optionDownloadNo: "Non — désactiver le téléchargement",
-    optionCommentsOn: "Activer les commentaires",
-    optionCommentsOff: "Désactiver les commentaires",
+    optionPublic: "🌐 Publique — visible par tous",
+    optionPrivate: "🔒 Privée — brouillon, non visible",
+    optionRestricted: "🔗 Restreinte — lien requis",
+    optionAuthYes: "✅ Oui — connexion requise pour accéder",
+    optionAuthNo: "🌐 Non — accessible sans connexion",
+    optionDownloadYes: "⬇️ Oui — autoriser le téléchargement",
+    optionDownloadNo: "🚫 Non — désactiver le téléchargement",
+    optionCommentsOn: "💬 Activer les commentaires",
+    optionCommentsOff: "🚫 Désactiver les commentaires",
 
     // Retours
     deleteSuccess:
@@ -681,6 +699,11 @@ export const fr = {
     titlePlaceholder: "Ex : Introduction, Démo, Conclusion…",
     captureMoment: "Capturer ce moment",
     captureTooltip: "Copie le temps actuel dans le champ Temps",
+    timeLabel: "Temps",
+    empty:
+      "Aucun chapitre. Lisez la vidéo et cliquez sur <strong>Capturer ce moment</strong> pour ajouter une entrée.",
+    countLabel: "Chapitres ({count})",
+    addError: "Erreur lors de l’ajout",
 
     // Liste
     noChapters:
@@ -768,6 +791,7 @@ export const fr = {
       "Décrivez votre contenu, ajoutez toutes les informations nécessaires, et mettez en forme le résultat.",
     mainLanguageLabel: "Langue principale",
     mainLanguageHelper: "La langue principalement utilisée dans ce contenu.",
+    tagsHelper: "Saisissez des mots-clés séparés par des virgules.",
     thumbnailLabel: "Vignettes",
     uploadThumbnailBtn: "+ Importer une vignette",
     thumbnailDimensionsHint: "JPG ou PNG · Recommandé : 1280 × 720 px",
@@ -798,6 +822,9 @@ export const fr = {
     publicationDateHelper:
       "Définissez une date/heure dans le futur à laquelle la vidéo sera rendue publique.",
     statusLabel: "Statut de la vidéo",
+    typeLabel: "Type",
+    tagsLabel: "Mots-clés",
+    cursusLabel: "Cursus",
     themesPlaceholder: "Sélectionnez un ou plusieurs thèmes",
 
     // Étape Importation
@@ -885,14 +912,23 @@ export const fr = {
 
     // Sous-titres
     addSubtitle: "Ajouter un sous-titre",
+    activeSubtitleCount: "{count, plural, one {# actif} other {# actifs}}",
     noSubtitles: "Aucun sous-titre ajouté.",
+    subtitleDescription:
+      "Ajoutez des fichiers de sous-titres au format .vtt ou .srt. Chaque fichier correspond à une langue.",
+    subtitleLanguageLabel: "Langue",
     subtitleFileHint: "Sélectionner un fichier .vtt ou .srt",
     addSubtitleBtn: "Ajouter le sous-titre",
     cannotAddSubtitle: "Impossible d’ajouter un sous-titre à cette vidéo.",
     selectSubtitleFile: "Veuillez sélectionner un fichier de sous-titre.",
+    privateVideoTooltip: "Vidéo privée",
+    passwordProtectedVideoTooltip: "Vidéo protégée par mot de passe",
+    noSourceForPublic:
+      "Aucun fichier source n’a été importé à l’étape Importation. La fiche ne peut pas être publiée en mode Public.",
 
     // Changement de source
     changeSourceTitle: "Changer la source vidéo",
+    sourceCurrentLabel: "Source actuelle",
     changeSourceDesc:
       "Remplacez le fichier source de cette vidéo. Un nouveau processus d’encodage sera lancé.",
     selectNewVideoFile: "Sélectionner un nouveau fichier vidéo",

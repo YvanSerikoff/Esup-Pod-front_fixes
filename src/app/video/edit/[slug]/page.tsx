@@ -122,14 +122,6 @@ function buildThemeOptions(themes: Theme[]): ThemeOption[] {
   return walk(themes);
 }
 
-// Mobile step keys
-const MOBILE_STEPS = [
-  { label: "Importation", icon: <UploadFileIcon />, index: 0 },
-  { label: "Détails", icon: <ListAltIcon />, index: 1 },
-  { label: "Eléments Video", icon: <TuneIcon />, index: 2 },
-  { label: "Visibilité", icon: <VisibilityIcon />, index: 3 },
-];
-
 type EditVideoFormValues = {
   title: string;
   description: string;
@@ -154,31 +146,6 @@ type EditVideoFormValues = {
   publication_date: string;
   channel: number | string | "";
   themes: number[];
-};
-
-const FORM_FIELD_LABELS: Partial<Record<keyof EditVideoFormValues, string>> = {
-  title: "Titre",
-  description: "Description",
-  status: "Statut de la vidéo",
-  language: "Langue",
-  thumbnail: "Vignette",
-  license: "Licence",
-  owner: "Propriétaire",
-  co_owners: "Co-propriétaires",
-  is_auth_required: "Authentification requise",
-  is_password_required: "Mot de passe requis",
-  password: "Mot de passe",
-  disciplines: "Disciplines",
-  type_id: "Type",
-  tags: "Tags",
-  allow_downloading: "Téléchargement",
-  disable_comment: "Commentaires",
-  is_360: "Vidéo 360",
-  cursus: "Cursus",
-  date_to_delete: "Date de suppression",
-  date_of_event: "Date de l'évènement",
-  channel: "Chaine",
-  themes: "Thèmes",
 };
 
 export default function EditVideo() {
@@ -249,6 +216,37 @@ export default function EditVideo() {
     ],
     [t],
   );
+  const MOBILE_STEPS = [
+    { label: ALL_STEPS[0], icon: <UploadFileIcon />, index: 0 },
+    { label: ALL_STEPS[1], icon: <ListAltIcon />, index: 1 },
+    { label: ALL_STEPS[2], icon: <TuneIcon />, index: 2 },
+    { label: ALL_STEPS[3], icon: <VisibilityIcon />, index: 3 },
+  ];
+  const formFieldLabels: Record<keyof EditVideoFormValues, string> = {
+    title: t("videoEdit.titleLabel"),
+    description: t("videoEdit.descriptionLabel"),
+    status: t("videoEdit.statusLabel"),
+    language: t("videoEdit.mainLanguageLabel"),
+    thumbnail: t("videoEdit.thumbnailLabel"),
+    license: t("videoEdit.licenseLabel"),
+    owner: t("videoEdit.ownerLabel"),
+    co_owners: t("videoEdit.coOwnersLabel"),
+    is_auth_required: t("videoEdit.authRequiredLabel"),
+    is_password_required: t("videoEdit.passwordRequiredLabel"),
+    password: t("videoEdit.passwordLabel"),
+    disciplines: t("common.disciplines"),
+    type_id: t("videoEdit.typeLabel"),
+    tags: t("videoEdit.tagsLabel"),
+    allow_downloading: t("videoEdit.allowDownloadLabel"),
+    disable_comment: t("videoEdit.disableCommentsLabel"),
+    is_360: t("videoEdit.is360Label"),
+    cursus: t("videoEdit.cursusLabel"),
+    date_to_delete: t("videoEdit.dateToDeleteLabel"),
+    date_of_event: t("videoEdit.dateOfEventLabel"),
+    publication_date: t("videoEdit.publicationDateLabel"),
+    channel: t("videoEdit.channelLabel"),
+    themes: t("videoEdit.themesLabel"),
+  };
 
   const hasSource = Boolean(
     video?.has_video_file || video?.video_url || sourceFile,
@@ -278,7 +276,7 @@ export default function EditVideo() {
       : DEFAULT_VIDEO_LICENSE_OPTIONS;
 
   const licenseOptions = [
-    { label: "Aucune", value: "_NONE_" },
+    { label: t("videoEdit.noneOption"), value: "_NONE_" },
     ...licenseOptionsSource.map((licenseCode: string) => ({
       label: licenseCode,
       value: licenseCode,
@@ -290,10 +288,10 @@ export default function EditVideo() {
     number,
     Array<keyof EditVideoFormValues>
   > = {
-    0: [], // Importation: optionnel (fiche vide)
-    1: ["title"], // Détails: title est obligatoire
-    2: ["type_id"], // Éléments Video: type est obligatoire
-    3: [], // Visibilité: validation sur submit
+    0: [], // Import: optional (empty form)
+    1: ["title"], // Details: title is required
+    2: ["type_id"], // Video Elements: type is required
+    3: [], // Visibility: validation on submit
   };
 
   const {
@@ -342,7 +340,7 @@ export default function EditVideo() {
   const watchedValues = useWatch({ control });
   const selectedChannel = useWatch({ control, name: "channel" });
 
-  // If no source file exists, enforce Brouillon / Privé status ("DR")
+  // If no source file exists, enforce Draft / Private status ("DR")
   useEffect(() => {
     if (!hasSource && watchedValues.status !== "DR") {
       setValue("status", "DR");
@@ -354,7 +352,7 @@ export default function EditVideo() {
 
   const hasUnsavedChanges = useRef(false);
 
-  // Comparaison après rendu pour détecter les modifications - l'accès à ref.current dans les callbacks est sûr
+  // Comparison after rendering to detect changes - accessing ref.current in callbacks is safe
   useEffect(() => {
     if (!initialValuesRef.current) return;
     hasUnsavedChanges.current =
@@ -519,7 +517,7 @@ export default function EditVideo() {
     return (
       <div>
         <Alert type={VariantType.ERROR} aria-live="assertive">
-          Vidéo introuvable.
+          {t("videoPage.notFound")}
         </Alert>
       </div>
     );
@@ -529,7 +527,7 @@ export default function EditVideo() {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <Alert type={VariantType.ERROR} aria-live="assertive">
-          {useVideoError ?? "Impossible de charger cette vidéo."}
+          {useVideoError ?? t("errors.loadErrorVideo")}
         </Alert>
       </div>
     );
@@ -539,7 +537,7 @@ export default function EditVideo() {
     return (
       <div>
         <Alert type={VariantType.ERROR} aria-live="assertive">
-          Vous n&apos;avez pas les droits pour modifier cette vidéo.
+          {t("videoEdit.noPermission")}
         </Alert>
       </div>
     );
@@ -552,10 +550,12 @@ export default function EditVideo() {
       if (!valid) {
         const labels = fieldsToValidate
           .filter((f) => !!errors[f] || !getValues(f))
-          .map((f) => FORM_FIELD_LABELS[f] ?? f);
+          .map((f) => formFieldLabels[f] ?? f);
         if (labels.length > 0) {
           setformError(
-            `Veuillez remplir le(s) champ(s) obligatoire(s) avant de continuer : ${labels.join(", ")}.`,
+            t("videoEdit.fillRequiredFields", {
+              fields: labels.join(", "),
+            }),
           );
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -578,10 +578,13 @@ export default function EditVideo() {
           if (!valid) {
             const labels = fieldsToValidate
               .filter((f) => !!errors[f] || !getValues(f))
-              .map((f) => FORM_FIELD_LABELS[f] ?? f);
+              .map((f) => formFieldLabels[f] ?? f);
             if (labels.length > 0) {
               setformError(
-                `Veuillez remplir le(s) champ(s) obligatoire(s) de l'étape "${ALL_STEPS[step]}" avant de continuer : ${labels.join(", ")}.`,
+                t("videoEdit.fillRequiredFieldsStep", {
+                  step: ALL_STEPS[step],
+                  fields: labels.join(", "),
+                }),
               );
               window.scrollTo({ top: 0, behavior: "smooth" });
               setActiveStep(step);
@@ -618,11 +621,11 @@ export default function EditVideo() {
     setformError(null);
     setSuccess(null);
     if (!video?.id) {
-      setformError("Impossible d'ajouter un sous‑titre à cette vidéo.");
+      setformError(t("videoEdit.cannotAddSubtitle"));
       return;
     }
     if (!subtitleFile) {
-      setformError("Veuillez sélectionner un fichier de sous‑titre.");
+      setformError(t("videoEdit.selectSubtitleFile"));
       return;
     }
     const created = await addSubtitle({
@@ -654,7 +657,7 @@ export default function EditVideo() {
         router.push(`/video/edit/${result.slug}`);
       }
     } catch (e: any) {
-      setformError(e.message || "Erreur lors de la duplication.");
+      setformError(e.message || t("errors.dupErrorVideo"));
     }
   };
 
@@ -671,9 +674,9 @@ export default function EditVideo() {
         method: "PATCH",
         body: fd,
       });
-      if (!res.ok) throw new Error("Erreur lors du changement de source.");
+      if (!res.ok) throw new Error(t("videoEdit.changeSourceError"));
       if (res.ok) {
-        setSuccess("Source vidéo mise à jour. Re-encodage lancé.");
+        setSuccess(t("videoEdit.sourceUpdated"));
         setSourceModalOpen(false);
         setSourceFile(null);
         await refetch();
@@ -681,7 +684,7 @@ export default function EditVideo() {
         setMobilePanelIndex(1);
       }
     } catch (e: any) {
-      setformError(e.message || "Erreur lors du changement de source.");
+      setformError(e.message || t("videoEdit.changeSourceError"));
     } finally {
       setSourceUploading(false);
     }
@@ -692,7 +695,7 @@ export default function EditVideo() {
     setformError(null);
     setSuccess(null);
     if (!accessToken) {
-      setformError("Vous devez être connecté·e pour modifier cette vidéo.");
+      setformError(t("videoEdit.loginRequired"));
       return;
     }
     if (
@@ -702,7 +705,7 @@ export default function EditVideo() {
       !sourceFile
     ) {
       setformError(
-        "Aucun fichier source n'a été importé à l'étape Importation. La fiche ne peut pas être publiée en mode Public.",
+        t("videoEdit.noSourceForPublic"),
       );
       setActiveStep(0);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -714,7 +717,7 @@ export default function EditVideo() {
       !data.is_password_required
     ) {
       setformError(
-        "Pour un statut restreint, choisissez au moins une restriction.",
+        t("videoEdit.restrictedNeedsOption"),
       );
       return;
     }
@@ -775,7 +778,7 @@ export default function EditVideo() {
       });
 
       if (res.ok) {
-        setSuccess("Vidéo mise à jour avec succès ! 🥳");
+        setSuccess(t("videoEdit.updateSuccess"));
         router.push("/dashboard");
         window.scrollTo({ top: 0, behavior: "smooth" });
         initialValuesRef.current = { ...data, thumbnail: null, password: "" };
@@ -784,7 +787,7 @@ export default function EditVideo() {
       await requestJson(res);
     } catch (err: unknown) {
       setformError(
-        err instanceof Error ? err.message : "Une erreur est survenue.",
+        err instanceof Error ? err.message : t("errors.error"),
       );
     }
   };
@@ -794,13 +797,14 @@ export default function EditVideo() {
       keyof EditVideoFormValues
     >;
     const labels = fieldNames.map(
-      (fieldName) => FORM_FIELD_LABELS[fieldName] ?? fieldName,
+      (fieldName) => formFieldLabels[fieldName] ?? fieldName,
     );
     setSuccess(null);
     setformError(
-      labels.length > 1
-        ? `Veuillez corriger les ${labels.length} champs suivants : ${labels.join(", ")}.`
-        : `Veuillez corriger le champ suivant : ${labels[0]}.`,
+      t("errors.formFieldsError", {
+        count: labels.length,
+        fields: labels.join(", "),
+      }),
     );
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -890,7 +894,7 @@ export default function EditVideo() {
                 gap: 8,
               }}
             >
-              ✅ {t("videoEdit.noSourceFileBadge")}
+              ✅ {t("videoEdit.mediaAttached")}
             </div>
             <p style={{ margin: 0, fontSize: "0.85rem", color: "#86efac" }}>
               {String(video?.video_url || sourceFile?.name || "")
@@ -1388,7 +1392,7 @@ export default function EditVideo() {
                                 component="span"
                                 sx={{ color: "text.disabled" }}
                               >
-                                Sélectionnez un ou plusieurs thèmes
+                                {t("videoEdit.themesPlaceholder")}
                               </Box>
                             );
                           return themeOptions
@@ -1502,7 +1506,9 @@ export default function EditVideo() {
               <span className={styles["element-card-desc"]}>
                 {t("videoEdit.subtitlesDesc")}
                 {video?.subtitles?.length
-                  ? ` — ${video.subtitles.length} active(s)`
+                  ? ` — ${t("videoEdit.activeSubtitleCount", {
+                      count: video.subtitles.length,
+                    })}`
                   : ""}
               </span>
             </div>
@@ -1828,7 +1834,7 @@ export default function EditVideo() {
                         validate: (value) =>
                           value.trim().length === 0 ||
                           value.trim().length >= 4 ||
-                          "Le mot de passe doit contenir au moins 4 caractères.",
+                          t("auth.passwordMinLength", { min: 4 }),
                       }}
                       render={({ field }) => (
                         <TextField
@@ -1840,7 +1846,7 @@ export default function EditVideo() {
                           error={Boolean(errors.password)}
                           helperText={
                             errors.password?.message ??
-                            "Laissez vide pour ne pas modifier le mot de passe existant."
+                            t("videoEdit.passwordKeepHelper")
                           }
                         />
                       )}
@@ -1975,14 +1981,15 @@ export default function EditVideo() {
    *  Video preview sidebar
    * --------------------------------------------------------------------- */
   const renderVideoPreview = () => {
-    const titleVal = watchedValues.title || video?.title || "Titre de la vidéo";
+    const titleVal =
+      watchedValues.title || video?.title || t("videoEdit.titlePlaceholder");
     const statusVal = watchedValues.status;
     const isAuthRequiredVal = watchedValues.is_auth_required;
     const isPasswordRequiredVal = watchedValues.is_password_required;
 
     const ownerName = liveOwnerUser
       ? getUserDisplayName(liveOwnerUser, config?.authentication, false)
-      : video?.owner || "Propriétaire";
+      : video?.owner || t("videoEdit.ownerLabel");
 
     const viewsCount = video?.views ?? 0;
 
@@ -2023,7 +2030,7 @@ export default function EditVideo() {
                   }}
                 ></div>
                 <div className={styles["live-card-encoding-text"]}>
-                  {video.encoding_status_label || "Encodage..."}
+                  {video.encoding_status_label || t("pending.encoding")}
                 </div>
               </div>
             )}
@@ -2053,7 +2060,7 @@ export default function EditVideo() {
                 {/* Badges based on form state */}
                 <div className={styles["live-card-badges"]}>
                   {statusVal === "DR" && (
-                    <Tooltip title="Vidéo privée">
+                    <Tooltip title={t("videoEdit.privateVideoTooltip")}>
                       <span
                         className="material-icons"
                         style={{
@@ -2066,7 +2073,7 @@ export default function EditVideo() {
                     </Tooltip>
                   )}
                   {isPasswordRequiredVal && (
-                    <Tooltip title="Vidéo protégée par mot de passe">
+                    <Tooltip title={t("videoEdit.passwordProtectedVideoTooltip")}>
                       <span
                         className="material-icons"
                         style={{
@@ -2079,7 +2086,7 @@ export default function EditVideo() {
                     </Tooltip>
                   )}
                   {isAuthRequiredVal && (
-                    <Tooltip title="Authentification requise">
+                    <Tooltip title={t("videoEdit.authRequiredLabel")}>
                       <span
                         className="material-icons"
                         style={{
@@ -2099,12 +2106,13 @@ export default function EditVideo() {
               <div className={styles["live-card-stats"]}>
                 {config?.video?.show_views !== false && (
                   <>
-                    {viewsCount} {viewsCount > 1 ? "vues" : "vue"} •{" "}
+                    {viewsCount}{" "}
+                    {viewsCount > 1 ? t("common.views") : t("common.view")} •{" "}
                   </>
                 )}
                 {video?.created_at
                   ? dayjs(video.created_at).format("DD/MM/YYYY")
-                  : "Récemment"}
+                  : t("common.recently")}
               </div>
             </div>
           </div>
@@ -2139,14 +2147,18 @@ export default function EditVideo() {
         <form className={styles.form} noValidate onSubmit={onFormSubmit}>
           {/* Header */}
           <div className={styles["page-header"]}>
-            <h1 className={styles["page-title"]}>Éditer la vidéo</h1>
+            <h1 className={styles["page-title"]}>
+              {video?.title
+                ? t("videoEdit.pageTitle", { title: video.title })
+                : t("videoEdit.pageTitleDefault")}
+            </h1>
             <div className={styles["header-actions"]}>
               <button
                 type="submit"
                 className={`${styles["action-pill-btn"]} ${styles.primary}`}
                 disabled={isSubmitting}
               >
-                <SaveIcon fontSize="small" /> Sauvegarder
+                <SaveIcon fontSize="small" /> {t("videoEdit.save")}
               </button>
             </div>
           </div>
@@ -2239,10 +2251,9 @@ export default function EditVideo() {
           onClose={handleCancelLeave}
           PaperProps={{ sx: { borderRadius: 3 } }}
         >
-          <DialogTitle>Modifications non enregistrées</DialogTitle>
+          <DialogTitle>{t("common.unsavedChangesTitle")}</DialogTitle>
           <DialogContent>
-            Vous avez des modifications non enregistrées. Voulez-vous vraiment
-            quitter cette page ?
+            {t("common.unsavedChangesLeaveConfirmation")}
           </DialogContent>
           <DialogActions>
             <Button
@@ -2251,7 +2262,7 @@ export default function EditVideo() {
               color="neutral"
               onClick={handleCancelLeave}
             >
-              Rester sur la page
+              {t("common.stayOnPage")}
             </Button>
             <Button
               type="button"
@@ -2259,7 +2270,7 @@ export default function EditVideo() {
               color="brand"
               onClick={handleConfirmLeave}
             >
-              Quitter sans enregistrer
+              {t("common.leaveWithoutSaving")}
             </Button>
           </DialogActions>
         </Dialog>
@@ -2283,7 +2294,7 @@ export default function EditVideo() {
             <BookmarksIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Chapitres de la vidéo
+            {t("videoEdit.chaptersDialogTitle")}
           </DialogTitle>
           <DialogContent dividers>
             {video && <VideoChaptersForm video={video!} />}
@@ -2319,7 +2330,7 @@ export default function EditVideo() {
             <StyleIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Habillage de la vidéo
+            {t("videoEdit.dressingTitle")}
           </DialogTitle>
           <DialogContent dividers>
             {video && (
@@ -2360,7 +2371,7 @@ export default function EditVideo() {
             <SubtitlesIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Sous-titres manuels
+            {t("videoEdit.subtitlesTitle")}
           </DialogTitle>
           <DialogContent dividers>
             <div
@@ -2378,8 +2389,7 @@ export default function EditVideo() {
                   color: "var(--text-color-muted, #94a3b8)",
                 }}
               >
-                Ajoutez des sous-titres au format <b>.vtt</b> ou <b>.srt</b>.
-                Chaque fichier correspond à une langue.
+                {t("videoEdit.subtitleDescription")}
               </p>
               {video?.subtitles?.length ? (
                 <div
@@ -2413,7 +2423,7 @@ export default function EditVideo() {
                               borderRadius: 999,
                             }}
                           >
-                            Par défaut
+                            {t("common.default")}
                           </span>
                         )}
                       </div>
@@ -2425,7 +2435,7 @@ export default function EditVideo() {
                         disabled={useSubtitleLoading}
                         onClick={() => handleDeleteSubtitle(s.id)}
                       >
-                        Supprimer
+                        {t("common.delete")}
                       </Button>
                     </div>
                   ))}
@@ -2439,7 +2449,7 @@ export default function EditVideo() {
                     margin: 0,
                   }}
                 >
-                  Aucun sous-titre ajouté.
+                  {t("videoEdit.noSubtitles")}
                 </p>
               )}
               <div
@@ -2455,7 +2465,7 @@ export default function EditVideo() {
                 }}
               >
                 <span style={{ fontWeight: 600, fontSize: "0.875rem" }}>
-                  Ajouter un sous-titre
+                  {t("videoEdit.addSubtitle")}
                 </span>
                 <div
                   style={{
@@ -2467,7 +2477,7 @@ export default function EditVideo() {
                 >
                   <TextField
                     select
-                    label="Langue"
+                    label={t("videoEdit.subtitleLanguageLabel")}
                     value={subtitleLanguage}
                     onChange={(e) =>
                       setSubtitleLanguage(e.target.value as LanguageSubtitle)
@@ -2490,11 +2500,11 @@ export default function EditVideo() {
                         size="small"
                       />
                     }
-                    label="Par défaut"
+                    label={t("common.default")}
                   />
                 </div>
                 <FileUploader
-                  text="Sélectionner un fichier .vtt ou .srt"
+                  text={t("videoEdit.subtitleFileHint")}
                   accept=".vtt,.srt"
                   onChange={(e: any) =>
                     setSubtitleFile(e?.target?.files?.[0] || e || null)
@@ -2517,8 +2527,8 @@ export default function EditVideo() {
                   }}
                 >
                   {useSubtitleLoading
-                    ? "Ajout en cours…"
-                    : "Ajouter le sous-titre"}
+                    ? t("common.adding")
+                    : t("videoEdit.addSubtitleBtn")}
                 </Button>
               </div>
             </div>
@@ -2554,7 +2564,7 @@ export default function EditVideo() {
             <AttachFileIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Documents joints
+            {t("videoEdit.documentsTitle")}
           </DialogTitle>
           <DialogContent dividers>
             {video && <VideoDocumentsForm videoId={video!.id} />}
@@ -2590,7 +2600,7 @@ export default function EditVideo() {
             <GroupIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Contributeurs &amp; Intervenants
+            {t("videoEdit.contributorsTitle")}
           </DialogTitle>
           <DialogContent dividers>
             {video && <VideoContributorsForm videoId={video!.id} />}
@@ -2629,7 +2639,7 @@ export default function EditVideo() {
             <SwitchVideoIcon
               sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
             />
-            Changer la source vidéo
+            {t("videoEdit.changeSourceTitle")}
           </DialogTitle>
           <DialogContent dividers>
             <div
@@ -2641,11 +2651,10 @@ export default function EditVideo() {
               }}
             >
               <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
-                Remplacez le fichier source de cette vidéo. Un nouveau processus
-                d&apos;encodage sera lancé.
+                {t("videoEdit.changeSourceDesc")}
               </p>
               <FileUploader
-                text="Sélectionner un nouveau fichier vidéo"
+                text={t("videoEdit.selectNewVideoFile")}
                 accept={
                   config?.encoding?.allowed_extensions
                     ?.map((ext: string) => `.${ext}`)
@@ -2680,7 +2689,9 @@ export default function EditVideo() {
               disabled={!sourceFile || sourceUploading}
               onClick={handleSourceChange}
             >
-              {sourceUploading ? "Upload…" : "Remplacer"}
+              {sourceUploading
+                ? t("pending.sending")
+                : t("videoEdit.replaceSourceBtn")}
             </Button>
           </DialogActions>
         </Dialog>
@@ -2929,10 +2940,9 @@ export default function EditVideo() {
         onClose={handleCancelLeave}
         PaperProps={{ sx: { borderRadius: 3 } }}
       >
-        <DialogTitle>Modifications non enregistrées</DialogTitle>
+        <DialogTitle>{t("common.unsavedChangesTitle")}</DialogTitle>
         <DialogContent>
-          Vous avez des modifications non enregistrées. Voulez-vous vraiment
-          quitter cette page ?
+          {t("common.unsavedChangesLeaveConfirmation")}
         </DialogContent>
         <DialogActions>
           <Button
@@ -2941,7 +2951,7 @@ export default function EditVideo() {
             color="neutral"
             onClick={handleCancelLeave}
           >
-            Rester sur la page
+            {t("common.stayOnPage")}
           </Button>
           <Button
             type="button"
@@ -2949,7 +2959,7 @@ export default function EditVideo() {
             color="brand"
             onClick={handleConfirmLeave}
           >
-            Quitter sans enregistrer
+            {t("common.leaveWithoutSaving")}
           </Button>
         </DialogActions>
       </Dialog>
@@ -2973,7 +2983,7 @@ export default function EditVideo() {
           <BookmarksIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Chapitres de la vidéo
+          {t("videoEdit.chaptersDialogTitle")}
         </DialogTitle>
         <DialogContent dividers>
           {video && <VideoChaptersForm video={video!} />}
@@ -3009,7 +3019,7 @@ export default function EditVideo() {
           <StyleIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Habillage de la vidéo
+          {t("videoEdit.dressingTitle")}
         </DialogTitle>
         <DialogContent dividers>
           {video && (
@@ -3050,7 +3060,7 @@ export default function EditVideo() {
           <SubtitlesIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Sous-titres manuels
+          {t("videoEdit.subtitlesTitle")}
         </DialogTitle>
         <DialogContent dividers>
           <div
@@ -3068,8 +3078,7 @@ export default function EditVideo() {
                 color: "var(--text-color-muted, #94a3b8)",
               }}
             >
-              Ajoutez des sous-titres au format <b>.vtt</b> ou <b>.srt</b>.
-              Chaque fichier correspond à une langue.
+              {t("videoEdit.subtitleDescription")}
             </p>
 
             {/* Existing subtitles */}
@@ -3103,7 +3112,7 @@ export default function EditVideo() {
                             borderRadius: 999,
                           }}
                         >
-                          Par défaut
+                          {t("common.default")}
                         </span>
                       )}
                     </div>
@@ -3115,7 +3124,7 @@ export default function EditVideo() {
                       disabled={useSubtitleLoading}
                       onClick={() => handleDeleteSubtitle(s.id)}
                     >
-                      Supprimer
+                      {t("common.delete")}
                     </Button>
                   </div>
                 ))}
@@ -3129,7 +3138,7 @@ export default function EditVideo() {
                   margin: 0,
                 }}
               >
-                Aucun sous-titre ajouté.
+                {t("videoEdit.noSubtitles")}
               </p>
             )}
 
@@ -3147,7 +3156,7 @@ export default function EditVideo() {
               }}
             >
               <span style={{ fontWeight: 600, fontSize: "0.875rem" }}>
-                Ajouter un sous-titre
+                {t("videoEdit.addSubtitle")}
               </span>
               <div
                 style={{
@@ -3159,7 +3168,7 @@ export default function EditVideo() {
               >
                 <TextField
                   select
-                  label="Langue"
+                  label={t("videoEdit.subtitleLanguageLabel")}
                   value={subtitleLanguage}
                   onChange={(e) =>
                     setSubtitleLanguage(e.target.value as LanguageSubtitle)
@@ -3182,11 +3191,11 @@ export default function EditVideo() {
                       size="small"
                     />
                   }
-                  label="Par défaut"
+                  label={t("common.default")}
                 />
               </div>
               <FileUploader
-                text="Sélectionner un fichier .vtt ou .srt"
+                text={t("videoEdit.subtitleFileHint")}
                 accept=".vtt,.srt"
                 onChange={(e: any) =>
                   setSubtitleFile(e?.target?.files?.[0] || e || null)
@@ -3207,8 +3216,8 @@ export default function EditVideo() {
                 }}
               >
                 {useSubtitleLoading
-                  ? "Ajout en cours…"
-                  : "Ajouter le sous-titre"}
+                  ? t("common.adding")
+                  : t("videoEdit.addSubtitleBtn")}
               </Button>
             </div>
           </div>
@@ -3244,7 +3253,7 @@ export default function EditVideo() {
           <AttachFileIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Documents joints
+          {t("videoEdit.documentsTitle")}
         </DialogTitle>
         <DialogContent dividers>
           {video && <VideoDocumentsForm videoId={video!.id} />}
@@ -3280,7 +3289,7 @@ export default function EditVideo() {
           <GroupIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Contributeurs &amp; Intervenants
+          {t("videoEdit.contributorsTitle")}
         </DialogTitle>
         <DialogContent dividers>
           {video && <VideoContributorsForm videoId={video!.id} />}
@@ -3319,7 +3328,7 @@ export default function EditVideo() {
           <SwitchVideoIcon
             sx={{ color: "var(--c--globals--colors--primary-600, #00818a)" }}
           />
-          Changer la source vidéo
+          {t("videoEdit.changeSourceTitle")}
         </DialogTitle>
         <DialogContent dividers>
           <div
@@ -3331,8 +3340,7 @@ export default function EditVideo() {
             }}
           >
             <p style={{ margin: 0, fontSize: "0.875rem", color: "#6b7280" }}>
-              Remplacez le fichier source de cette vidéo. Un nouveau processus
-              d&apos;encodage sera automatiquement lancé.
+              {t("videoEdit.changeSourceDesc")}
             </p>
             {video?.video_url && (
               <div
@@ -3345,12 +3353,14 @@ export default function EditVideo() {
                   color: "#374151",
                 }}
               >
-                <span style={{ fontWeight: 600 }}>Source actuelle :</span>{" "}
+                <span style={{ fontWeight: 600 }}>
+                  {t("videoEdit.sourceCurrentLabel")}:
+                </span>{" "}
                 {String(video?.video_url).split("/").pop()}
               </div>
             )}
             <FileUploader
-              text="Sélectionner un nouveau fichier vidéo"
+              text={t("videoEdit.selectNewVideoFile")}
               accept={
                 config?.encoding?.allowed_extensions
                   ?.map((ext: string) => `.${ext}`)
@@ -3385,7 +3395,9 @@ export default function EditVideo() {
             disabled={!sourceFile || sourceUploading}
             onClick={handleSourceChange}
           >
-            {sourceUploading ? "Upload en cours…" : "Remplacer la source"}
+            {sourceUploading
+              ? t("pending.sending")
+              : t("videoEdit.replaceSourceBtn")}
           </Button>
         </DialogActions>
       </Dialog>

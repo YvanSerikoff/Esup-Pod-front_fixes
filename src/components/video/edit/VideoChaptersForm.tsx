@@ -9,6 +9,7 @@ import FlagIcon from "@mui/icons-material/Flag";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { useChapters } from "@/src/hooks/useChapters";
 import type { Video } from "@/src/types";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 type Props = {
   video: Video;
@@ -38,6 +39,8 @@ export default function VideoChaptersForm({ video }: Props) {
     video.slug,
     video.id,
   );
+
+  const { t } = useTranslation();
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -116,13 +119,13 @@ export default function VideoChaptersForm({ video }: Props) {
   const handleAddChapter = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) {
-      setFormError("Veuillez saisir un titre.");
+      setFormError(`${t("chapters.titleRequired")}`);
       return;
     }
     const seconds = parseTimestamp(timestamp);
     if (duration && seconds > duration) {
       setFormError(
-        `Le timestamp dépasse la durée de la vidéo (${formatTimestamp(duration)}).`,
+        `${t("chapters.timestampTooLong", { duration: formatTimestamp(duration) })}`,
       );
       return;
     }
@@ -137,7 +140,7 @@ export default function VideoChaptersForm({ video }: Props) {
       setTitle("");
     } catch (err) {
       setFormError(
-        err instanceof Error ? err.message : "Erreur lors de l'ajout.",
+        err instanceof Error ? err.message : `${t("chapters.addError")}`,
       );
     } finally {
       setIsSubmitting(false);
@@ -317,10 +320,10 @@ export default function VideoChaptersForm({ video }: Props) {
                   transition: "all 0.15s",
                   whiteSpace: "nowrap",
                 }}
-                title="Copie le temps actuel dans le champ Temps"
+                title={t("chapters.captureTooltip")}
               >
                 <FlagIcon fontSize="small" />
-                Capturer ce moment
+                {t("chapters.captureMoment")}
               </button>
             </div>
           </>
@@ -343,11 +346,10 @@ export default function VideoChaptersForm({ video }: Props) {
           >
             <BookmarksIcon style={{ fontSize: 40, opacity: 0.4 }} />
             <span style={{ fontWeight: 600, opacity: 0.8 }}>
-              Vidéo en cours d&apos;encodage
+              {t("videoPlayer.encodingInProgress")}
             </span>
             <span style={{ fontSize: "0.8rem", opacity: 0.5 }}>
-              Le lecteur sera disponible une fois l&apos;encodage terminé. Vous
-              pouvez saisir les timestamps manuellement.
+              {t("chapters.playerUnavailable")}
             </span>
           </div>
         )}
@@ -370,7 +372,7 @@ export default function VideoChaptersForm({ video }: Props) {
             }}
           />
           <span style={{ fontWeight: 600, fontSize: "0.95rem" }}>
-            Chapitres ({sortedChapters.length})
+            {t("chapters.countLabel", { count: sortedChapters.length })}
           </span>
         </div>
 
@@ -383,8 +385,9 @@ export default function VideoChaptersForm({ video }: Props) {
               padding: "12px 0",
             }}
           >
-            Aucun chapitre. Lisez la vidéo et cliquez sur{" "}
-            <strong>Capturer ce moment</strong> pour ajouter une entrée.
+            {t.rich("chapters.empty", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </p>
         ) : (
           <div
@@ -419,7 +422,7 @@ export default function VideoChaptersForm({ video }: Props) {
                   cursor: isEncoded ? "pointer" : "default",
                   transition: "background 0.15s",
                 }}
-                title={isEncoded ? "Cliquer pour aller à ce moment" : undefined}
+                title={isEncoded ? `${t("chapters.goToMoment")}` : undefined}
               >
                 {/* Index chip */}
                 <span
@@ -491,7 +494,7 @@ export default function VideoChaptersForm({ video }: Props) {
                     opacity: 0.7,
                     transition: "opacity 0.15s",
                   }}
-                  title="Supprimer ce chapitre"
+                  title={t("chapters.deleteChapter")}
                 >
                   <DeleteOutlineIcon fontSize="small" />
                 </button>
@@ -522,7 +525,7 @@ export default function VideoChaptersForm({ video }: Props) {
           }}
         >
           <AddIcon fontSize="small" />
-          Ajouter un chapitre
+          {t("chapters.addTitle")}
         </p>
 
         {formError && (
@@ -557,7 +560,7 @@ export default function VideoChaptersForm({ video }: Props) {
                 letterSpacing: "0.4px",
               }}
             >
-              Temps
+              {t("chapters.timeLabel")}
             </label>
             <input
               type="text"
@@ -597,13 +600,13 @@ export default function VideoChaptersForm({ video }: Props) {
                 letterSpacing: "0.4px",
               }}
             >
-              Titre du chapitre
+              {t("chapters.titleLabel")}
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Ex : Introduction, Démo, Conclusion…"
+              placeholder={t("chapters.titlePlaceholder")}
               style={{
                 fontSize: "0.95rem",
                 border: "1.5px solid var(--c--globals--colors--gray-300, #ccc)",
@@ -646,7 +649,7 @@ export default function VideoChaptersForm({ video }: Props) {
             }}
           >
             <AddIcon fontSize="small" />
-            Ajouter
+            {t("common.add")}
           </button>
         </form>
       </div>

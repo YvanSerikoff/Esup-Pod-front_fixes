@@ -40,6 +40,8 @@ export default function Breadcrumb() {
         return t("common.videos");
       case "/video/add":
         return t("common.addVideo");
+      case "/video/edit":
+        return t("videoEdit.pageTitleDefault");
       case "/dashboard":
         return t("sidebar.dashboard");
       case "/favorites":

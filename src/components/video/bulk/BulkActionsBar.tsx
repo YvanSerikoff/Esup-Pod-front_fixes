@@ -289,10 +289,7 @@ export default function BulkActionsBar({
     try {
       if (selectedAction === "delete") {
         await bulkDelete(videoIds);
-        showToast(
-          `${count} vidéo${count > 1 ? "s supprimées" : " supprimée"} avec succès.`,
-          "success",
-        );
+        showToast(t("bulk.deletedSuccessfully", { count }), "success");
       } else {
         const fieldsPayload: Record<string, any> = {};
 
@@ -351,10 +348,7 @@ export default function BulkActionsBar({
         }
 
         await bulkUpdate({ videoIds, fields: fieldsPayload });
-        showToast(
-          `${count} vidéo${count > 1 ? "s mises à jour" : " mise à jour"} avec succès.`,
-          "success",
-        );
+        showToast(t("bulk.updatedSuccessfully", { count }), "success");
       }
 
       setIsModalOpen(false);
@@ -365,7 +359,7 @@ export default function BulkActionsBar({
     } catch (err: any) {
       showToast(
         err?.message ??
-          "Une erreur est survenue lors de l'exécution de l'action groupée.",
+          t("bulk.actionError"),
         "error",
       );
     }
@@ -430,7 +424,7 @@ export default function BulkActionsBar({
                   {/* Avertissement encodage en cours */}
                   {hasEncodingInProgress && (
                     <Tooltip
-                      title="Certaines vidéos sont en cours d'encodage. Les actions nécessitant l'encodage complet sont désactivées."
+                      title={t("bulk.encodingInProgressTooltip")}
                       placement="top"
                       arrow
                     >
@@ -446,7 +440,7 @@ export default function BulkActionsBar({
                         }}
                       >
                         <WarningAmberIcon fontSize="small" />
-                        Encodage en cours
+                        {t("pending.encoding")}
                       </span>
                     </Tooltip>
                   )}
@@ -542,7 +536,7 @@ export default function BulkActionsBar({
                                   title={
                                     !opt.enabled
                                       ? (opt.conditionLabel ??
-                                        "Non disponible pour cette sélection")
+                                        t("bulk.unavailableForSelection"))
                                       : ""
                                   }
                                   placement="right"
@@ -663,7 +657,7 @@ export default function BulkActionsBar({
         title={
           selectedAction === "delete"
             ? t("bulk.confirmDelete")
-            : `Modifier en lot : ${getActionLabel(selectedAction)}`
+            : `${t("bulk.modalTitle", { action: getActionLabel(selectedAction) })}`
         }
         size={ModalSize.MEDIUM}
       >
@@ -678,17 +672,14 @@ export default function BulkActionsBar({
           {/* Avertissement suppression */}
           {selectedAction === "delete" && (
             <Alert severity="warning" icon={<WarningAmberIcon />}>
-              Vous allez supprimer définitivement{" "}
-              <strong>
-                {count} vidéo{count > 1 ? "s" : ""}
-              </strong>
-              . Cette action est <strong>irréversible</strong>.
-              {hasEncodingInProgress && (
-                <div style={{ marginTop: "8px" }}>
-                  ⚠️ Attention : certaines vidéos sont actuellement en cours
-                  d'encodage.
-                </div>
-              )}
+              {t.rich("bulk.deleteVideosWarning", {
+                count,
+                strong: (chunks) => <strong>{chunks}</strong>,
+                encoding: (chunks) =>
+                  hasEncodingInProgress ? (
+                    <div style={{ marginTop: "8px" }}>{chunks}</div>
+                  ) : null,
+              })}
             </Alert>
           )}
 
@@ -703,7 +694,9 @@ export default function BulkActionsBar({
                   fontSize: "0.95rem",
                 }}
               >
-                Nouvelle valeur pour : <em>{getActionLabel(selectedAction)}</em>
+                {t.rich("bulk.newValueFor", {
+                  label: () => <em>{getActionLabel(selectedAction)}</em>,
+                })}
               </label>
 
               {selectedAction === "type" && (
@@ -713,7 +706,7 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir un type --
+                    {t("bulk.chooseType")}
                   </option>
                   {types.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -729,12 +722,10 @@ export default function BulkActionsBar({
                   onChange={(e) => setFieldValue(e.target.value)}
                   style={selectStyle}
                 >
-                  <option value="">
-                    -- Aucune chaîne (retirer de toute chaîne) --
-                  </option>
+                  <option value="">{t("bulk.noChannel")}</option>
                   {channels.map((ch) => (
                     <option key={ch} value={ch}>
-                      Chaîne #{ch}
+                      {t("common.channel")} #{ch}
                     </option>
                   ))}
                 </select>
@@ -761,11 +752,11 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir le statut --
+                    {t("bulk.chooseStatus")}
                   </option>
-                  <option value="PU">🌐 Publique — visible par tous</option>
-                  <option value="DR">🔒 Privée — brouillon, non visible</option>
-                  <option value="RE">🔗 Restreinte — lien requis</option>
+                  <option value="PU">{t("bulk.optionPublic")}</option>
+                  <option value="DR">{t("bulk.optionPrivate")}</option>
+                  <option value="RE">{t("bulk.optionRestricted")}</option>
                 </select>
               )}
 
@@ -776,14 +767,10 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir --
+                    {t("bulk.choose")}
                   </option>
-                  <option value="true">
-                    ✅ Oui — connexion requise pour accéder
-                  </option>
-                  <option value="false">
-                    🌐 Non — accessible sans connexion
-                  </option>
+                  <option value="true">{t("bulk.optionAuthYes")}</option>
+                  <option value="false">{t("bulk.optionAuthNo")}</option>
                 </select>
               )}
 
@@ -794,14 +781,10 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir --
+                    {t("bulk.choose")}
                   </option>
-                  <option value="true">
-                    ⬇️ Oui — autoriser le téléchargement
-                  </option>
-                  <option value="false">
-                    🚫 Non — désactiver le téléchargement
-                  </option>
+                  <option value="true">{t("bulk.optionDownloadYes")}</option>
+                  <option value="false">{t("bulk.optionDownloadNo")}</option>
                 </select>
               )}
 
@@ -814,8 +797,8 @@ export default function BulkActionsBar({
                   <option value="" disabled>
                     -- Choisir --
                   </option>
-                  <option value="false">💬 Activer les commentaires</option>
-                  <option value="true">🚫 Désactiver les commentaires</option>
+                  <option value="false">{t("bulk.optionCommentsOn")}</option>
+                  <option value="true">{t("bulk.optionCommentsOff")}</option>
                 </select>
               )}
 
@@ -826,7 +809,7 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir une licence --
+                    {t("bulk.chooseLicense")}
                   </option>
                   {LICENSE_CHOICES.map((lic) => (
                     <option key={lic.value} value={lic.value}>
@@ -848,7 +831,7 @@ export default function BulkActionsBar({
               {selectedAction === "date_delete" && (
                 <>
                   <Alert severity="info" sx={{ mb: 1.5, fontSize: "0.85rem" }}>
-                    La vidéo sera automatiquement supprimée à la date choisie.
+                    {t("bulk.scheduleDeletionNotice")}
                   </Alert>
                   <input
                     type="date"
@@ -865,7 +848,7 @@ export default function BulkActionsBar({
                     type="text"
                     value={fieldValue}
                     onChange={(e) => setFieldValue(e.target.value)}
-                    placeholder="ex: cours, informatique, python"
+                    placeholder={t("bulk.examplePlaceholder")}
                     style={selectStyle}
                   />
                   <p
@@ -875,8 +858,7 @@ export default function BulkActionsBar({
                       marginTop: "6px",
                     }}
                   >
-                    Séparez les mots-clés par des virgules. Ils remplaceront les
-                    mots-clés existants.
+                    {t("bulk.keywordsHelper")}
                   </p>
                 </>
               )}
@@ -888,7 +870,7 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir une discipline --
+                    {t("bulk.chooseDiscipline")}
                   </option>
                   {disciplines.map((d) => (
                     <option key={d.id} value={d.id}>
@@ -905,7 +887,7 @@ export default function BulkActionsBar({
                   style={selectStyle}
                 >
                   <option value="" disabled>
-                    -- Choisir le niveau --
+                    {t("bulk.chooseLevel")}
                   </option>
                   {CURSUS_CHOICES.map((c) => (
                     <option key={c.value} value={c.value}>
@@ -926,7 +908,7 @@ export default function BulkActionsBar({
                 marginBottom: "8px",
               }}
             >
-              Vidéos concernées ({count}) :
+              {t("bulk.affectedVideos", { count })}
             </p>
             <div
               style={{
@@ -988,12 +970,12 @@ export default function BulkActionsBar({
                             whiteSpace: "nowrap",
                           }}
                         >
-                          Encodage
+                          {t("pending.encoding")}
                         </span>
                       </Tooltip>
                     )}
                     {video.encoding_status === "ER" && (
-                      <Tooltip title="Erreur d'encodage" placement="left">
+                      <Tooltip title={t("table.encodingError")} placement="left">
                         <span
                           style={{
                             fontSize: "0.7rem",
@@ -1005,7 +987,7 @@ export default function BulkActionsBar({
                             whiteSpace: "nowrap",
                           }}
                         >
-                          ❌ Erreur
+                          {t("bulk.errorBadge")}
                         </span>
                       </Tooltip>
                     )}
@@ -1031,7 +1013,7 @@ export default function BulkActionsBar({
               onClick={handleCloseModal}
               disabled={isLoading}
             >
-              t("common.cancel")
+              {t("common.cancel")}
             </Button>
             <Button
               type="button"
@@ -1045,12 +1027,12 @@ export default function BulkActionsBar({
                   style={{ display: "flex", alignItems: "center", gap: "8px" }}
                 >
                   <CircularProgress size={16} color="inherit" />
-                  Traitement en cours…
+                  {t("pending.processing")}
                 </span>
               ) : selectedAction === "delete" ? (
-                "Supprimer définitivement"
+                `${t("bulk.deletePermanently")}`
               ) : (
-                "Confirmer la modification"
+                `${t("bulk.confirmEdit")}`
               )}
             </Button>
           </div>
