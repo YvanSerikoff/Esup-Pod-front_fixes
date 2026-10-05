@@ -135,9 +135,7 @@ export default function FilterDropdown({
         className={`${styles["filter-button"]} ${selectedCount > 0 ? styles["active"] : ""}`}
         aria-expanded={open}
       >
-        <Box
-          className={styles["filter-label"]}
-        >
+        <Box className={styles["filter-label"]}>
           <Typography
             variant="body2"
             fontWeight={selectedCount > 0 ? 600 : 500}
@@ -150,11 +148,7 @@ export default function FilterDropdown({
           </Typography>
 
           {multiple && selectedCount > 0 && (
-            <Box
-              className={styles["filter-count"]}
-            >
-              {selectedCount}
-            </Box>
+            <Box className={styles["filter-count"]}>{selectedCount}</Box>
           )}
         </Box>
 
@@ -265,9 +259,7 @@ export default function FilterDropdown({
                   </FormGroup>
 
                   {multiple && (
-                    <Box
-                      className={styles["filter-actions"]}
-                    >
+                    <Box className={styles["filter-actions"]}>
                       <Button
                         onClick={() => {
                           setLocalSelectedValues([]);

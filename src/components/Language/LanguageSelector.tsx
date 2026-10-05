@@ -44,9 +44,7 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
         aria-expanded={open ? "true" : undefined}
         aria-label="Changer de langue"
         startIcon={<LanguageIcon className={styles["language-icon"]} />}
-        endIcon={
-          <ExpandMoreIcon className={styles["language-expand-icon"]} />
-        }
+        endIcon={<ExpandMoreIcon className={styles["language-expand-icon"]} />}
         className={`${styles["language-button"]} ${className || ""}`}
       >
         <span>{locale.toUpperCase()}</span>

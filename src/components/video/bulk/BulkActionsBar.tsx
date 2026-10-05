@@ -371,9 +371,7 @@ export default function BulkActionsBar({
           <div className={styles.bulkActionBarContent}>
             {/* Title + selection badge */}
             <div className={styles.bulkActionTitleGroup}>
-              <h2 className={styles.bulkActionTitle}>
-                {t("bulk.title")}
-              </h2>
+              <h2 className={styles.bulkActionTitle}>{t("bulk.title")}</h2>
               {hasSelection ? (
                 <div className={styles.bulkSelectionGroup}>
                   <span className={styles.bulkSelectionBadge}>
@@ -467,7 +465,9 @@ export default function BulkActionsBar({
                                   disableHoverListener={opt.enabled}
                                 >
                                   {/* A span is required for the Tooltip when MenuItem is disabled. */}
-                                  <span className={styles.bulkMenuItemTooltipTarget}>
+                                  <span
+                                    className={styles.bulkMenuItemTooltipTarget}
+                                  >
                                     <MenuItem
                                       disabled={!opt.enabled}
                                       onClick={() =>
@@ -481,7 +481,9 @@ export default function BulkActionsBar({
                                       }`}
                                     >
                                       {!opt.enabled && (
-                                        <LockIcon className={styles.bulkMenuLockIcon} />
+                                        <LockIcon
+                                          className={styles.bulkMenuLockIcon}
+                                        />
                                       )}
                                       {opt.label}
                                     </MenuItem>
@@ -489,9 +491,7 @@ export default function BulkActionsBar({
                                 </Tooltip>
                               ))}
 
-                            <Divider
-                              className={styles.bulkMenuDivider}
-                            />
+                            <Divider className={styles.bulkMenuDivider} />
 
                             {/* Groupe danger */}
                             <Typography
@@ -554,7 +554,9 @@ export default function BulkActionsBar({
                 strong: (chunks) => <strong>{chunks}</strong>,
                 encoding: (chunks) =>
                   hasEncodingInProgress ? (
-                    <div className={styles.bulkDeleteEncodingNote}>{chunks}</div>
+                    <div className={styles.bulkDeleteEncodingNote}>
+                      {chunks}
+                    </div>
                   ) : null,
               })}
             </Alert>
@@ -771,12 +773,8 @@ export default function BulkActionsBar({
                   video.encoding_status === "PR";
                 return (
                   <div key={video.id} className={styles.bulkAffectedVideo}>
-                    <span className={styles.bulkVideoId}>
-                      #{video.id}
-                    </span>
-                    <span className={styles.bulkVideoTitle}>
-                      {video.title}
-                    </span>
+                    <span className={styles.bulkVideoId}>#{video.id}</span>
+                    <span className={styles.bulkVideoTitle}>{video.title}</span>
                     {isEncoding && (
                       <Tooltip title="Encodage en cours" placement="left">
                         <span className={styles.bulkEncodingBadge}>

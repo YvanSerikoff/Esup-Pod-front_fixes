@@ -37,10 +37,7 @@ export default function CollectionCard(props: CollectionCardProps) {
         : `${t("common.subtopic").toLowerCase()}`;
 
     return (
-      <Card
-        elevation={0}
-        className={styles.collectionCard}
-      >
+      <Card elevation={0} className={styles.collectionCard}>
         <CardActionArea
           component={Link}
           href={`/channel/${channel.slug}`}
@@ -78,10 +75,7 @@ export default function CollectionCard(props: CollectionCardProps) {
                 </Typography>
               </Box>
               <Box className={styles.statistic}>
-                <StyleIcon
-                  fontSize="small"
-                  className={styles.statisticIcon}
-                />
+                <StyleIcon fontSize="small" className={styles.statisticIcon} />
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -110,10 +104,7 @@ export default function CollectionCard(props: CollectionCardProps) {
       : `${t("common.subtopic").toLowerCase()}`;
 
   return (
-    <Card
-      elevation={0}
-      className={styles.collectionCard}
-    >
+    <Card elevation={0} className={styles.collectionCard}>
       <CardActionArea
         component={Link}
         href={themeHref ?? `/themes/${theme.slug}`}
@@ -149,10 +140,7 @@ export default function CollectionCard(props: CollectionCardProps) {
               </Typography>
             </Box>
             <Box className={styles.statistic}>
-              <StyleIcon
-                fontSize="small"
-                className={styles.statisticIcon}
-              />
+              <StyleIcon fontSize="small" className={styles.statisticIcon} />
               <Typography
                 variant="body2"
                 color="text.secondary"

@@ -29,7 +29,7 @@ import { useTheme } from "@/src/hooks/useTheme";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 export const breadcrumbLabel = "Chaine";
 
@@ -217,9 +217,7 @@ export default function Channel() {
               alt={t("a11y.channelLogo", { title: channel.title })}
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
-            <Box
-              className={styles["channel-labels"]}
-            >
+            <Box className={styles["channel-labels"]}>
               <h1>{channel.title}</h1>
               <p>{channel.description}</p>
             </Box>

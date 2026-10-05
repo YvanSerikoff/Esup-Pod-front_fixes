@@ -123,9 +123,7 @@ export default function VideoContributorsForm({
         )}
 
         <div className={videoStyles.contributorsFormFields}>
-          <div
-            className={videoStyles.contributorsFormRow}
-          >
+          <div className={videoStyles.contributorsFormRow}>
             <Autocomplete
               className={videoStyles.contributorsAutocomplete}
               options={searchResults || []}

@@ -714,7 +714,9 @@
   border: 1.5px solid #e5e7eb;
   background: white;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
 }
 
 .dressingCardSelected {

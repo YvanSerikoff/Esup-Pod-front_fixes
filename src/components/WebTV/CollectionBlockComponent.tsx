@@ -89,13 +89,13 @@ export default function CollectionBlockComponent({
     block.display_title || block.subtitle_or_text || t("common.collections");
 
   return (
-    <section className={`${styles["block-wrapper"]} ${styles["collection-block"]}`}>
+    <section
+      className={`${styles["block-wrapper"]} ${styles["collection-block"]}`}
+    >
       <div className={styles["section-badge-header"]}>{displayTitle}</div>
 
       {loading ? (
-        <div className={styles["block-loading"]}>
-          {t("common.loading")}
-        </div>
+        <div className={styles["block-loading"]}>{t("common.loading")}</div>
       ) : items.length > 0 ? (
         <div className={styles["cards-grid"]}>
           {items.map((item, index) => (
@@ -135,9 +135,7 @@ export default function CollectionBlockComponent({
           ))}
         </div>
       ) : (
-        <div className={styles["block-empty"]}>
-          {t("webtv.noContent")}
-        </div>
+        <div className={styles["block-empty"]}>{t("webtv.noContent")}</div>
       )}
     </section>
   );

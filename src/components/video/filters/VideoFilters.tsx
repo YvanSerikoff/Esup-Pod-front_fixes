@@ -91,10 +91,7 @@ const FilterChip = ({
     >
       {label}
     </Typography>
-    <CloseIcon
-      fontSize="small"
-      className={styles["filter-chip-close"]}
-    />
+    <CloseIcon fontSize="small" className={styles["filter-chip-close"]} />
   </div>
 );
 
@@ -361,7 +358,10 @@ export default function VideoFilters({
             color="primary"
             className={styles["advanced-badge"]}
           >
-            <TuneIcon fontSize="small" className={styles["filter-control-icon"]} />
+            <TuneIcon
+              fontSize="small"
+              className={styles["filter-control-icon"]}
+            />
           </Badge>
           <Typography
             variant="body2"
@@ -371,19 +371,22 @@ export default function VideoFilters({
             {t("filters.advancedFilters")}
           </Typography>
           {showAdvanced ? (
-            <ExpandLessIcon fontSize="small" className={styles["filter-control-icon"]} />
+            <ExpandLessIcon
+              fontSize="small"
+              className={styles["filter-control-icon"]}
+            />
           ) : (
-            <ExpandMoreIcon fontSize="small" className={styles["filter-control-icon"]} />
+            <ExpandMoreIcon
+              fontSize="small"
+              className={styles["filter-control-icon"]}
+            />
           )}
         </div>
       </div>
 
       {/* Advanced Secondary Filters Panel */}
       <Collapse in={showAdvanced} timeout="auto" unmountOnExit>
-        <Paper
-          elevation={0}
-          className={styles["advanced-panel"]}
-        >
+        <Paper elevation={0} className={styles["advanced-panel"]}>
           {/* User Pill (Async multi select) */}
           {!hideUser && (
             <AsyncFilterDropdown

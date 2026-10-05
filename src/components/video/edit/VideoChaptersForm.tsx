@@ -231,9 +231,7 @@ export default function VideoChaptersForm({ video }: Props) {
             </div>
 
             {/* CONTROLS BAR */}
-            <div
-              className={styles.chapterControls}
-            >
+            <div className={styles.chapterControls}>
               {/* Play / Pause */}
               <button
                 type="button"
@@ -245,9 +243,7 @@ export default function VideoChaptersForm({ video }: Props) {
               </button>
 
               {/* Current time */}
-              <span
-                className={styles.chapterTime}
-              >
+              <span className={styles.chapterTime}>
                 {formatTimestamp(currentTime)}
                 {" / "}
                 {formatTimestamp(duration)}
@@ -269,9 +265,7 @@ export default function VideoChaptersForm({ video }: Props) {
           </>
         ) : (
           /* NOT ENCODED YET */
-          <div
-            className={styles.chapterUnavailable}
-          >
+          <div className={styles.chapterUnavailable}>
             <BookmarksIcon className={styles.chapterUnavailableIcon} />
             <span className={styles.chapterUnavailableTitle}>
               {t("videoPlayer.encodingInProgress")}
@@ -285,9 +279,7 @@ export default function VideoChaptersForm({ video }: Props) {
 
       {/* ── CHAPTER LIST ───────────────────────────────────────── */}
       <div className={styles.chapterList}>
-        <div
-          className={styles.chapterListHeader}
-        >
+        <div className={styles.chapterListHeader}>
           <BookmarksIcon className={styles.chapterListIcon} />
           <span className={styles.chapterListTitle}>
             {t("chapters.countLabel", { count: sortedChapters.length })}
@@ -318,9 +310,7 @@ export default function VideoChaptersForm({ video }: Props) {
                 title={isEncoded ? `${t("chapters.goToMoment")}` : undefined}
               >
                 {/* Index chip */}
-                <span className={styles.chapterIndex}>
-                  {i + 1}
-                </span>
+                <span className={styles.chapterIndex}>{i + 1}</span>
 
                 {/* Timestamp */}
                 <span className={styles.chapterTimestamp}>
@@ -328,9 +318,7 @@ export default function VideoChaptersForm({ video }: Props) {
                 </span>
 
                 {/* Title */}
-                <span className={styles.chapterTitle}>
-                  {ch.title}
-                </span>
+                <span className={styles.chapterTitle}>{ch.title}</span>
 
                 {/* Delete */}
                 <button
@@ -351,24 +339,15 @@ export default function VideoChaptersForm({ video }: Props) {
       </div>
 
       {/* ── ADD CHAPTER FORM ────────────────────────────────────── */}
-      <div
-        className={styles.chapterAddPanel}
-      >
+      <div className={styles.chapterAddPanel}>
         <p className={styles.chapterAddHeading}>
           <AddIcon fontSize="small" />
           {t("chapters.addTitle")}
         </p>
 
-        {formError && (
-          <p className={styles.chapterFormError}>
-            {formError}
-          </p>
-        )}
+        {formError && <p className={styles.chapterFormError}>{formError}</p>}
 
-        <form
-          onSubmit={handleAddChapter}
-          className={styles.chapterForm}
-        >
+        <form onSubmit={handleAddChapter} className={styles.chapterForm}>
           {/* Timestamp input */}
           <div className={styles.chapterFormField}>
             <label className={styles.chapterFormLabel}>

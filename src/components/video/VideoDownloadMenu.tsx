@@ -76,9 +76,7 @@ export default function VideoDownloadMenu({
           onClose={handleClose}
           slotProps={{ paper: { className: styles.videoDownloadMenuPaper } }}
         >
-          <div
-            className={styles.videoDownloadMenuHeading}
-          >
+          <div className={styles.videoDownloadMenuHeading}>
             {t("videoPage.chooseQuality")}
           </div>
           {options.map((opt, idx) => (

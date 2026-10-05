@@ -96,9 +96,7 @@ export function PreferencesMenu() {
           className={styles["preferences-menu-item"]}
         >
           {isDark ? (
-            <LightModeOutlinedIcon
-              className={styles["preferences-sun-icon"]}
-            />
+            <LightModeOutlinedIcon className={styles["preferences-sun-icon"]} />
           ) : (
             <DarkModeOutlinedIcon className={styles["preferences-icon"]} />
           )}
@@ -269,9 +267,7 @@ export default function Navbar() {
     <div>
       <nav className={styles.navbar}>
         {isMobile && isSearchOpen ? (
-          <div
-            className={styles["navbar-mobile-search"]}
-          >
+          <div className={styles["navbar-mobile-search"]}>
             <IconButton
               aria-label={t("navbar.closeSearch")}
               onClick={() => setIsSearchOpen(false)}

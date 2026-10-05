@@ -98,9 +98,7 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon
-              className={styles.videoActionItemIcon}
-            >
+            <ListItemIcon className={styles.videoActionItemIcon}>
               <EditIcon fontSize="small" />
             </ListItemIcon>
             {t("videoAction.edit")}
@@ -113,9 +111,7 @@ export default function VideoCardActionMenu({
             disabled={isDuplicating}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon
-              className={styles.videoActionItemIcon}
-            >
+            <ListItemIcon className={styles.videoActionItemIcon}>
               <ContentCopyIcon fontSize="small" />
             </ListItemIcon>
             {isDuplicating
@@ -133,9 +129,7 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionDeleteItem}
           >
-            <ListItemIcon
-              className={styles.videoActionDeleteIcon}
-            >
+            <ListItemIcon className={styles.videoActionDeleteIcon}>
               <DeleteForeverIcon fontSize="small" />
             </ListItemIcon>
             {t("videoAction.delete")}

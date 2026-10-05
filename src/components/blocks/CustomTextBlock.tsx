@@ -21,11 +21,7 @@ export default function CustomTextBlock({ block }: CustomTextBlockProps) {
         color: block.text_color || "#111111",
       }}
     >
-      {title && (
-        <h3 className={styles["custom-text-title"]}>
-          {title}
-        </h3>
-      )}
+      {title && <h3 className={styles["custom-text-title"]}>{title}</h3>}
       <div
         className={styles["custom-text-content"]}
         dangerouslySetInnerHTML={{ __html: content }}

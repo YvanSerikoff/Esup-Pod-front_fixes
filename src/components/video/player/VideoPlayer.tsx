@@ -342,9 +342,7 @@ export default function VideoPlayer({
         chapters.length > 0 &&
         video.duration &&
         video.duration > 0 && (
-          <div
-            className={styles.chapterOverlay}
-          >
+          <div className={styles.chapterOverlay}>
             {chapters.map((ch, idx) => {
               const nextStart = chapters[idx + 1]
                 ? chapters[idx + 1].time_start
@@ -361,7 +359,10 @@ export default function VideoPlayer({
                       : ""
                   }`}
                   ref={(element) =>
-                    element?.style.setProperty("--chapter-segment-width", `${pct}%`)
+                    element?.style.setProperty(
+                      "--chapter-segment-width",
+                      `${pct}%`,
+                    )
                   }
                   onMouseEnter={() => setHoveredChapter(ch.title)}
                   onMouseLeave={() => setHoveredChapter(null)}
@@ -374,9 +375,7 @@ export default function VideoPlayer({
 
       {/* Chapter Hover Title */}
       {hoveredChapter && (
-        <div className={styles.chapterHoverTitle}>
-          {hoveredChapter}
-        </div>
+        <div className={styles.chapterHoverTitle}>{hoveredChapter}</div>
       )}
 
       {/* Seek Indicator Overlay */}

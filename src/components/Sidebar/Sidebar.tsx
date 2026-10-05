@@ -143,7 +143,9 @@ const SideBar = () => {
               component="nav"
               disablePadding
               className={`${styles["sidebar-list"]} ${
-                sidebarOpen ? styles["sidebar-list-open"] : styles["sidebar-list-closed"]
+                sidebarOpen
+                  ? styles["sidebar-list-open"]
+                  : styles["sidebar-list-closed"]
               }`}
             >
               {[...menuPodItems, ...menuPrincipalItems].map((item, index) => (

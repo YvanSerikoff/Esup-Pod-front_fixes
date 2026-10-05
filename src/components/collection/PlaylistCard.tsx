@@ -32,33 +32,21 @@ export default function PlaylistCard({
   const playlistThumbnail =
     playlist.items?.[0]?.video?.thumbnail_url ?? "/default_playlist_logo.png";
   return (
-    <Card
-      elevation={0}
-      className={styles.playlistCard}
-    >
+    <Card elevation={0} className={styles.playlistCard}>
       <CardActionArea
         component={Link}
         href={playlistHref}
         className={styles.playlistCardActionArea}
         disableRipple
       >
-        <Box
-          className={styles.playlistStack}
-        >
-          <Box
-            className={styles.playlistBack1}
-          />
+        <Box className={styles.playlistStack}>
+          <Box className={styles.playlistBack1} />
 
           {/* Intermediate layer */}
-          <Box
-            className={styles.playlistBack2}
-          />
+          <Box className={styles.playlistBack2} />
 
           {/* Thumbnail */}
-          <Card
-            className={styles.playlistFront}
-            elevation={0}
-          >
+          <Card className={styles.playlistFront} elevation={0}>
             <CardMedia
               component="img"
               image={playlistThumbnail}
@@ -110,15 +98,11 @@ export default function PlaylistCard({
                   fontSize="small"
                   className={styles.metadataIcon}
                 />
-                <Typography
-                  className={styles.metadataText}
-                >
+                <Typography className={styles.metadataText}>
                   {t("common.pluralVideos", { count: videosCount })}
                 </Typography>
               </Box>
-              <Typography
-                className={styles.metadataText}
-              >
+              <Typography className={styles.metadataText}>
                 {timeAgo(playlist.created_at, locale)}
               </Typography>
             </Box>

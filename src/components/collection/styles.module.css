@@ -14,9 +14,7 @@
 
 .collectionCard:hover,
 .playlistCard:hover {
-  border-color: var(
-    --c--contextuals--background--semantic--brand--primary
-  );
+  border-color: var(--c--contextuals--background--semantic--brand--primary);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }

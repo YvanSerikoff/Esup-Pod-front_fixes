@@ -81,9 +81,7 @@ export default function LiveBlockComponent({ block }: LiveBlockProps) {
                   className={styles["live-item"]}
                 >
                   <span className={styles["red-dot"]} />
-                  <span className={styles["live-title"]}>
-                    {live.title}
-                  </span>
+                  <span className={styles["live-title"]}>{live.title}</span>
                 </Link>
               </li>
             ))}

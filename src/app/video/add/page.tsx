@@ -162,10 +162,7 @@ export default function AddVideo() {
           />
         </div>
       ) : (
-        <form
-          className={styles.form}
-          onSubmit={handleSubmit(onSubmitImport)}
-        >
+        <form className={styles.form} onSubmit={handleSubmit(onSubmitImport)}>
           <Alert
             additional={
               <>

@@ -23,7 +23,7 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useMounted } from "@/src/hooks/useMounted";
 import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
-import styles from "../styles.module.css"
+import styles from "../styles.module.css";
 
 export const breadcrumbLabel = "Thème";
 

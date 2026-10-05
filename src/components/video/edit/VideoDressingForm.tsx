@@ -93,11 +93,7 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
           </div>
         </div>
 
-        {error && (
-          <div className={styles.dressingError}>
-            {error}
-          </div>
-        )}
+        {error && <div className={styles.dressingError}>{error}</div>}
 
         {/* Title */}
         <TextField
@@ -131,9 +127,7 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
         <div>
           <div className={styles.dressingOpacityHeader}>
             <span>{t("videoEdit.opacity")}</span>
-            <span className={styles.dressingOpacityValue}>
-              {opacity}%
-            </span>
+            <span className={styles.dressingOpacityValue}>{opacity}%</span>
           </div>
           <Slider
             value={opacity}
@@ -170,7 +164,10 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
           }`}
         >
           {saving ? (
-            <CircularProgress size={16} className={styles.dressingWhiteProgress} />
+            <CircularProgress
+              size={16}
+              className={styles.dressingWhiteProgress}
+            />
           ) : (
             <CheckCircleOutlineIcon fontSize="small" />
           )}
@@ -280,7 +277,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
       {msg && (
         <div
           className={`${styles.dressingFeedback} ${
-            msg.ok ? styles.dressingFeedbackSuccess : styles.dressingFeedbackError
+            msg.ok
+              ? styles.dressingFeedbackSuccess
+              : styles.dressingFeedbackError
           }`}
         >
           {msg.ok ? <CheckCircleOutlineIcon fontSize="small" /> : null}
@@ -291,7 +290,10 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
       {/* Dressing selector */}
       {isLoading ? (
         <div className={styles.dressingLoading}>
-          <CircularProgress size={20} className={styles.dressingPrimaryProgress} />
+          <CircularProgress
+            size={20}
+            className={styles.dressingPrimaryProgress}
+          />
           {t("videoDressing.loading")}
         </div>
       ) : dressings.length === 0 ? (
@@ -338,9 +340,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                   <PaletteIcon className={styles.dressingPaletteIcon} />
                 </div>
                 <div className={styles.dressingCardContent}>
-                  <div className={styles.dressingCardTitle}>
-                    {d.title}
-                  </div>
+                  <div className={styles.dressingCardTitle}>{d.title}</div>
                   <div className={styles.dressingCardDescription}>
                     {[
                       d.watermark ? t("videoDressing.watermark") : null,
@@ -352,7 +352,9 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                   </div>
                 </div>
                 {selectedDressingId === d.id && (
-                  <CheckCircleOutlineIcon className={styles.dressingSelectedIcon} />
+                  <CheckCircleOutlineIcon
+                    className={styles.dressingSelectedIcon}
+                  />
                 )}
               </div>
             </DressingCard>

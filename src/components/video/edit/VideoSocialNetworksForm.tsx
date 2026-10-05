@@ -103,9 +103,7 @@ export default function VideoSocialNetworksForm({
                   />
                 }
                 label={
-                  <span className={styles.socialNetworkLabel}>
-                    {net.name}
-                  </span>
+                  <span className={styles.socialNetworkLabel}>{net.name}</span>
                 }
               />
             );

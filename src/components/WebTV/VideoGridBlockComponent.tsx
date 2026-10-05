@@ -87,9 +87,7 @@ export default function VideoGridBlockComponent({
       )}
 
       {isLoading ? (
-        <div className={styles["block-loading"]}>
-          {t("common.loading")}
-        </div>
+        <div className={styles["block-loading"]}>{t("common.loading")}</div>
       ) : displayedVideos.length > 0 ? (
         <div className={isHero ? styles.heroGrid : styles["videos-grid"]}>
           {displayedVideos.map((video, index) => {
@@ -112,10 +110,14 @@ export default function VideoGridBlockComponent({
                   ) : (
                     <div
                       className={`${styles["thumbnail-placeholder"]} ${
-                        styles[`video-placeholder-color-${index % PLACEHOLDER_COLOR_COUNT}`]
+                        styles[
+                          `video-placeholder-color-${index % PLACEHOLDER_COLOR_COUNT}`
+                        ]
                       }`}
                     >
-                      <span className={`material-icons ${styles["video-placeholder-icon"]}`}>
+                      <span
+                        className={`material-icons ${styles["video-placeholder-icon"]}`}
+                      >
                         play_circle_outline
                       </span>
                     </div>
@@ -125,7 +127,9 @@ export default function VideoGridBlockComponent({
                   <h4 className={styles["card-title"]}>{video.title}</h4>
                   {showViews && video.views_count != null && (
                     <span className={styles["card-meta"]}>
-                      <span className={`material-icons ${styles["video-meta-icon"]}`}>
+                      <span
+                        className={`material-icons ${styles["video-meta-icon"]}`}
+                      >
                         visibility
                       </span>
                       {video.views_count}{" "}
@@ -140,9 +144,7 @@ export default function VideoGridBlockComponent({
           })}
         </div>
       ) : (
-        <div className={styles["block-empty"]}>
-          {t("webtv.noContent")}
-        </div>
+        <div className={styles["block-empty"]}>{t("webtv.noContent")}</div>
       )}
     </section>
   );

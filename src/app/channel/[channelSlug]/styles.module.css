@@ -6,7 +6,7 @@
   height: 200px;
 }
 
-.theme-error{
+.theme-error {
   display: "flex";
   flex-direction: "column";
   gap: 1rem;

@@ -22,10 +22,7 @@ export function SearchForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={styles["search-form"]}
-    >
+    <form onSubmit={handleSubmit} className={styles["search-form"]}>
       <div className={styles["search-container"]}>
         <SearchIcon className={styles["search-icon"]} />
         <InputBase

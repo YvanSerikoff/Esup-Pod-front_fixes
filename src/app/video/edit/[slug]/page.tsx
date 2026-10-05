@@ -841,7 +841,9 @@ export default function EditVideo() {
             </p>
           </div>
         ) : (
-          <div className={`${styles["source-status-card"]} ${styles["source-status-card-success"]}`}>
+          <div
+            className={`${styles["source-status-card"]} ${styles["source-status-card-success"]}`}
+          >
             <div className={styles["source-status-title-success"]}>
               ✅ {t("videoEdit.mediaAttached")}
             </div>
@@ -856,7 +858,9 @@ export default function EditVideo() {
           </div>
         )}
 
-        <div className={`${styles["source-upload-card"]} ${isPublicEmpty ? styles["source-upload-card-error"] : ""}`}>
+        <div
+          className={`${styles["source-upload-card"]} ${isPublicEmpty ? styles["source-upload-card-error"] : ""}`}
+        >
           <div className={styles["source-upload-title"]}>
             {t("videoEdit.importHeaderTitle")}
           </div>
@@ -882,9 +886,7 @@ export default function EditVideo() {
           />
 
           {sourceFile && (
-            <p className={styles["source-upload-file"]}>
-              📹 {sourceFile.name}
-            </p>
+            <p className={styles["source-upload-file"]}>📹 {sourceFile.name}</p>
           )}
 
           <button
@@ -1129,9 +1131,7 @@ export default function EditVideo() {
           {t("videoEdit.thumbnailCopyrightHelper")}
         </p>
         {errors.thumbnail && (
-          <p className={styles["vignette-error"]}>
-            {errors.thumbnail.message}
-          </p>
+          <p className={styles["vignette-error"]}>{errors.thumbnail.message}</p>
         )}
       </div>
 
@@ -1875,7 +1875,9 @@ export default function EditVideo() {
               />
             ) : (
               <div className={styles["live-card-media-placeholder"]}>
-                <OndemandVideoIcon className={styles["live-card-placeholder-icon"]} />
+                <OndemandVideoIcon
+                  className={styles["live-card-placeholder-icon"]}
+                />
               </div>
             )}
 
@@ -1919,7 +1921,9 @@ export default function EditVideo() {
                 <div className={styles["live-card-badges"]}>
                   {statusVal === "DR" && (
                     <Tooltip title={t("videoEdit.privateVideoTooltip")}>
-                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
+                      <span
+                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                      >
                         visibility_off
                       </span>
                     </Tooltip>
@@ -1928,14 +1932,18 @@ export default function EditVideo() {
                     <Tooltip
                       title={t("videoEdit.passwordProtectedVideoTooltip")}
                     >
-                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
+                      <span
+                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                      >
                         key
                       </span>
                     </Tooltip>
                   )}
                   {isAuthRequiredVal && (
                     <Tooltip title={t("videoEdit.authRequiredLabel")}>
-                      <span className={`material-icons ${styles["live-card-badge-icon"]}`}>
+                      <span
+                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                      >
                         verified_user
                       </span>
                     </Tooltip>
@@ -2101,9 +2109,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <BookmarksIcon
-              className={styles["modal-title-icon"]}
-            />
+            <BookmarksIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.chaptersDialogTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2130,9 +2136,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <StyleIcon
-              className={styles["modal-title-icon"]}
-            />
+            <StyleIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.dressingTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2164,13 +2168,13 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <SubtitlesIcon
-              className={styles["modal-title-icon"]}
-            />
+            <SubtitlesIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.subtitlesTitle")}
           </DialogTitle>
           <DialogContent dividers>
-            <div className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}>
+            <div
+              className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}
+            >
               <p className={styles["modal-description"]}>
                 {t("videoEdit.subtitleDescription")}
               </p>
@@ -2288,9 +2292,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <AttachFileIcon
-              className={styles["modal-title-icon"]}
-            />
+            <AttachFileIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.documentsTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2317,9 +2319,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <GroupIcon
-              className={styles["modal-title-icon"]}
-            />
+            <GroupIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.contributorsTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2349,13 +2349,13 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <SwitchVideoIcon
-              className={styles["modal-title-icon"]}
-            />
+            <SwitchVideoIcon className={styles["modal-title-icon"]} />
             {t("videoEdit.changeSourceTitle")}
           </DialogTitle>
           <DialogContent dividers>
-            <div className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}>
+            <div
+              className={`${styles["modal-form-stack"]} ${styles["source-modal-stack"]}`}
+            >
               <p className={styles["source-modal-description"]}>
                 {t("videoEdit.changeSourceDesc")}
               </p>
@@ -2371,9 +2371,7 @@ export default function EditVideo() {
                 }
               />
               {sourceFile && (
-                <p className={styles["selected-file"]}>
-                  📹 {sourceFile?.name}
-                </p>
+                <p className={styles["selected-file"]}>📹 {sourceFile?.name}</p>
               )}
             </div>
           </DialogContent>
@@ -2540,7 +2538,9 @@ export default function EditVideo() {
                   <div className={styles["stepper-item-header"]}>
                     <div className={styles["stepper-dot"]}>
                       {isError ? (
-                        <PriorityHighIcon className={styles["stepper-status-icon"]} />
+                        <PriorityHighIcon
+                          className={styles["stepper-status-icon"]}
+                        />
                       ) : isCompleted && !isActive ? (
                         <CheckIcon className={styles["stepper-status-icon"]} />
                       ) : (
@@ -2675,9 +2675,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <BookmarksIcon
-            className={styles["modal-title-icon"]}
-          />
+          <BookmarksIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.chaptersDialogTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2704,9 +2702,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <StyleIcon
-            className={styles["modal-title-icon"]}
-          />
+          <StyleIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.dressingTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2738,9 +2734,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <SubtitlesIcon
-            className={styles["modal-title-icon"]}
-          />
+          <SubtitlesIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.subtitlesTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2866,9 +2860,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <AttachFileIcon
-            className={styles["modal-title-icon"]}
-          />
+          <AttachFileIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.documentsTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2895,9 +2887,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <GroupIcon
-            className={styles["modal-title-icon"]}
-          />
+          <GroupIcon className={styles["modal-title-icon"]} />
           {t("videoEdit.contributorsTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2955,9 +2945,7 @@ export default function EditVideo() {
               }
             />
             {sourceFile && (
-              <p className={styles["selected-file"]}>
-                📹 {sourceFile?.name}
-              </p>
+              <p className={styles["selected-file"]}>📹 {sourceFile?.name}</p>
             )}
           </div>
         </DialogContent>

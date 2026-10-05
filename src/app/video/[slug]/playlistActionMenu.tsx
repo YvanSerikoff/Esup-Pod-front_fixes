@@ -249,11 +249,7 @@ export default function PlaylistActionMenu({
           )}
         </div>
 
-        <MenuList
-          dense
-          disablePadding
-          className={styles["playlist-menu-list"]}
-        >
+        <MenuList dense disablePadding className={styles["playlist-menu-list"]}>
           {playlists.length === 0 && (
             <MenuItem disabled>{t("videoPage.noPlaylistsAvailable")}</MenuItem>
           )}

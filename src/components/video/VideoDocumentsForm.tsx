@@ -122,10 +122,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
       ) : documents && documents.length > 0 ? (
         <List>
           {documents.map((doc) => (
-            <ListItem
-              key={doc.id}
-              className={styles.videoDocumentItem}
-            >
+            <ListItem key={doc.id} className={styles.videoDocumentItem}>
               <ListItemText
                 primary={doc.title}
                 secondary={t("documents.addedOn", {
