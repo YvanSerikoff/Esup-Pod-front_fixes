@@ -64,6 +64,14 @@
   width: 25px;
   margin-right: var(--c--globals--spacings--xxs);
 }
+
+.footer-extra-link-anchor {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .footer-link-esup {
   display: flex;
   flex-direction: column;

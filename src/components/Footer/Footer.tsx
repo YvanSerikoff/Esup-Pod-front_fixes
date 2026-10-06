@@ -62,6 +62,7 @@ export default function Footer() {
           <div className={styles["footer-extra-link-icons"]}>
             <span className={styles["footer-extra-link-icon"]}>
               <a
+                className={styles["footer-extra-link-anchor"]}
                 href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(currentUri)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -75,6 +76,7 @@ export default function Footer() {
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a
+                className={styles["footer-extra-link-anchor"]}
                 href={`https://twitter.com/share?url=${encodeURIComponent(currentUri)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -88,6 +90,7 @@ export default function Footer() {
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a
+                className={styles["footer-extra-link-anchor"]}
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUri)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -101,6 +104,7 @@ export default function Footer() {
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a
+                className={styles["footer-extra-link-anchor"]}
                 href={`https://bsky.app/intent/compose?text=${encodeURIComponent(currentUri)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -114,6 +118,7 @@ export default function Footer() {
             </span>
             <span className={styles["footer-extra-link-icon"]}>
               <a
+                className={styles["footer-extra-link-anchor"]}
                 href={`${encodeURIComponent(currentUri)}`}
                 target="_blank"
                 rel="noreferrer"
