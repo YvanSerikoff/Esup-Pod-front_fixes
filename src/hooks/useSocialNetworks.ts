@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { authFetch } from "@/src/api/authFetch";
+import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
 import { requestJson } from "@/src/utils/requestJson";
 import type { SocialNetwork } from "@/src/types";
@@ -20,7 +21,7 @@ export const useSocialNetworks = () => {
   } = useQuery<SocialNetwork[]>({
     queryKey: ["social-networks"],
     queryFn: async () => {
-      const res = await authFetch("/api/social-networks/", authOpts);
+      const res = await authFetch(getRoutes().socialNetworks.list, authOpts);
       if (!res.ok) {
         throw new Error(t("socialNetworks.unableToLoad"));
       }

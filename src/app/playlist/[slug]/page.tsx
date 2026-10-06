@@ -129,7 +129,7 @@ export default function PlaylistPage() {
   if (!slug) {
     return (
       <Alert type={VariantType.ERROR} canClose>
-        {t("playlist.noResults")}
+        {t("errors.notFound")}
       </Alert>
     );
   }
@@ -157,7 +157,7 @@ export default function PlaylistPage() {
       <div className={styles["playlist-content"]}>
         {playlistJustCreated && (
           <Alert type={VariantType.SUCCESS} aria-live="polite">
-            {t("playlist.playlistCreated")}
+            {t("playlists.playlistCreated")}
           </Alert>
         )}
         <div className={styles["playlist-header-row"]}>
@@ -183,7 +183,7 @@ export default function PlaylistPage() {
                       router.push(`/playlist/edit/${effectivePlaylist?.slug}`)
                     }
                   >
-                    {t("playlist.editPlaylist")}
+                    {t("playlists.editPlaylist")}
                   </Button>
                   <Button
                     color="error"

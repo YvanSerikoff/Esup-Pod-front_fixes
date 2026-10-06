@@ -6,6 +6,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useSocialNetworks } from "@/src/hooks/useSocialNetworks";
 import { authFetch } from "@/src/api/authFetch";
+import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
 import type { Video } from "@/src/types";
 import { useTranslation } from "@/src/hooks/useTranslation";
@@ -39,7 +40,7 @@ export default function VideoSocialNetworksForm({
     setMsg(null);
 
     try {
-      const res = await authFetch(`/api/videos/${video.id}/`, {
+      const res = await authFetch(getRoutes().video.update(video.slug), {
         accessToken,
         onRefresh: refresh,
         method: "PATCH",

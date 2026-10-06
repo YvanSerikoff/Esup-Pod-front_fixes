@@ -128,6 +128,9 @@ export const getRoutes = () => {
       search: (query: string) =>
         url + `api/contributors/?search=${encodeURIComponent(query)}`,
     },
+    socialNetworks: {
+      list: url + "api/social-networks/",
+    },
     chapters: {
       list: url + "api/chapters/",
       get: (id: number) => url + `api/chapters/${id}/`,

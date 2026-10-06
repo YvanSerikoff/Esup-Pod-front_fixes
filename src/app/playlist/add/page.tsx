@@ -177,7 +177,7 @@ export default function AddPlaylist() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("playlist.addPlaylist")}</h1>
+      <h1>{t("playlists.addPlaylist")}</h1>
 
       {(formError || error || usePlaylistError) && (
         <Alert type={VariantType.ERROR} canClose>
@@ -195,7 +195,7 @@ export default function AddPlaylist() {
           isSubmitting={isSubmitting}
           isMobile={isMobile}
           isLoading={usePlaylistLoading}
-          submitLabel={t("playlist.addThePlaylist")}
+          submitLabel={t("playlists.addThePlaylist")}
         />
       </form>
     </div>
