@@ -1,18 +1,18 @@
 .socialNetworksForm {
-  padding: 16px;
+  padding: var(--radius-lg);
   background-color: #f9fafb;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--radius-lg);
 }
 
 .element-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: var(--radius-md) var(--radius-lg);
   border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
   border-radius: 10px;
   background: white;
@@ -40,7 +40,7 @@
 .socialNetworksHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .socialNetworksIcon {
@@ -76,7 +76,7 @@
 .socialNetworksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .socialNetworkLabel {
@@ -91,7 +91,7 @@
 }
 
 .chapterPlayer {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
   background: #000;
@@ -107,7 +107,7 @@
 
 .chapterProgress {
   position: relative;
-  height: 8px;
+  height: var(--radius-sm);
   background: rgba(255, 255, 255, 0.25);
   cursor: pointer;
 }
@@ -153,8 +153,8 @@
 .chapterControls {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 14px;
+  gap: var(--radius-md);
+  padding: var(--radius-sm) 14px;
   background: #111;
   color: #fff;
 }
@@ -206,7 +206,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--radius-sm);
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   padding: 24px;
@@ -238,7 +238,7 @@
 .chapterListHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
   margin-bottom: 4px;
 }
 
@@ -256,7 +256,7 @@
   margin: 0;
   font-size: 0.85rem;
   color: var(--c--globals--colors--gray-500);
-  padding: 12px 0;
+  padding: var(--radius-md) 0;
 }
 
 .chapterRows {
@@ -271,11 +271,11 @@
 .chapterRow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
+  gap: var(--radius-md);
+  padding: var(--radius-sm) var(--radius-md);
   background: var(--c--globals--colors--gray-050, #f9fafb);
   border: 1px solid var(--c--globals--colors--gray-200, #e5e7eb);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: default;
   transition: background 0.15s;
 }
@@ -331,14 +331,14 @@
 }
 
 .chapterAddPanel {
-  padding: 16px;
+  padding: var(--radius-lg);
   background: rgba(0, 129, 138, 0.04);
   border: 1.5px solid var(--c--globals--colors--primary-200, #b2dfdb);
   border-radius: 10px;
 }
 
 .chapterAddHeading {
-  margin: 0 0 12px;
+  margin: 0 0 var(--radius-md);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--c--globals--colors--primary-700, #005f65);
@@ -377,8 +377,8 @@
 .chapterInput {
   font-size: 0.95rem;
   border: 1.5px solid var(--c--globals--colors--gray-300, #ccc);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  padding: var(--radius-sm) var(--radius-md);
   outline: none;
   background: #fff;
   width: 100%;
@@ -393,7 +393,7 @@
   font-family: monospace;
   font-size: 1rem;
   font-weight: 700;
-  padding: 8px 10px;
+  padding: var(--radius-sm) 10px;
   color: var(--c--globals--colors--primary-700, #005f65);
 }
 
@@ -402,7 +402,7 @@
   align-items: center;
   gap: 6px;
   padding: 9px 20px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: none;
   background: var(--c--globals--colors--primary-600, #00818a);
   color: #fff;
@@ -458,7 +458,7 @@
 .dressingSectionHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .dressingMainSectionHeader {
@@ -500,7 +500,7 @@
 
 .dressingPaletteIcon {
   color: #00818a;
-  font-size: 16px;
+  font-size: var(--radius-lg);
 }
 
 .dressingSectionTitle {
@@ -558,7 +558,7 @@
   font-size: 0.8rem;
   color: #9ca3af;
   border-top: 1px solid #f3f4f6;
-  padding-top: 12px;
+  padding-top: var(--radius-md);
 }
 
 .dressingActions {
@@ -569,7 +569,7 @@
 
 .dressingCancelButton,
 .dressingCreateButton {
-  padding: 8px 20px;
+  padding: var(--radius-sm) 20px;
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -583,14 +583,14 @@
 }
 
 .dressingCreateButton {
-  padding: 8px 24px;
+  padding: var(--radius-sm) 24px;
   border: none;
   background: #00818a;
   color: white;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
   transition: background 0.15s;
 }
 
@@ -612,7 +612,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--radius-md);
 }
 
 .dressingHeaderCreateButton,
@@ -631,7 +631,7 @@
 }
 
 .dressingHeaderCreateButton {
-  padding: 7px 16px;
+  padding: 7px var(--radius-lg);
   font-size: 0.85rem;
   flex-shrink: 0;
 }
@@ -646,7 +646,7 @@
   font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .dressingFeedbackSuccess {
@@ -666,7 +666,7 @@
   align-items: center;
   gap: 10px;
   color: #6b7280;
-  padding: 16px 0;
+  padding: var(--radius-lg) 0;
 }
 
 .dressingPrimaryProgress {
@@ -675,7 +675,7 @@
 
 .dressingEmpty {
   text-align: center;
-  padding: 32px 16px;
+  padding: 32px var(--radius-lg);
   border: 2px dashed #d1d5db;
   border-radius: 10px;
   color: #9ca3af;
@@ -684,16 +684,16 @@
 .dressingEmptyIcon {
   font-size: 40px;
   color: #d1d5db;
-  margin-bottom: 8px;
+  margin-bottom: var(--radius-sm);
 }
 
 .dressingEmptyText {
-  margin: 0 0 12px;
+  margin: 0 0 var(--radius-md);
   font-weight: 500;
 }
 
 .dressingEmptyCreateButton {
-  padding: 8px 18px;
+  padding: var(--radius-sm) 18px;
   background: #00818a;
   color: white;
   font-size: 0.875rem;
@@ -709,7 +709,7 @@
   display: block;
   width: 100%;
   text-align: left;
-  padding: 12px 14px;
+  padding: var(--radius-md) 14px;
   border-radius: 10px;
   border: 1.5px solid #e5e7eb;
   background: white;
@@ -767,7 +767,7 @@
 }
 
 .dressingDetails {
-  padding: 14px 16px;
+  padding: 14px var(--radius-lg);
   background: rgba(0, 129, 138, 0.08);
   border-radius: 10px;
   border: 1.5px solid rgba(0, 129, 138, 0.19);

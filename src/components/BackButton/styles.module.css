@@ -3,7 +3,7 @@
   border: 1px solid var(--border-color, rgba(0, 0, 0, 0.2));
   border-radius: 9999px;
   background-color: var(--c--theme--colors--card-bg, #ffffff);
-  padding: 6px 16px;
+  padding: 6px var(--radius-lg);
   transition: all 0.2s ease-in-out;
   display: inline-flex;
   align-items: center;

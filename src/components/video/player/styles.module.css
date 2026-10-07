@@ -7,7 +7,7 @@
   aspect-ratio: var(--player-aspect-ratio, 16 / 9);
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15);
 }
 
@@ -38,14 +38,14 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 16px;
+  padding: var(--radius-sm) var(--radius-lg);
   background-color: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(var(--radius-sm));
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #e2e8f0;
   font-size: 0.85rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px var(--radius-md) rgba(0, 0, 0, 0.25);
 }
 
 .playerErrorIcon {
@@ -84,8 +84,8 @@
 .chapterOverlay {
   position: absolute;
   bottom: 35px;
-  left: 12px;
-  right: 12px;
+  left: var(--radius-md);
+  right: var(--radius-md);
   height: 4px;
   pointer-events: none;
   z-index: 12;
@@ -118,7 +118,7 @@
   pointer-events: none;
   z-index: 15;
   white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px var(--radius-sm) rgba(0, 0, 0, 0.3);
 }
 
 .seekIndicator {
@@ -128,7 +128,7 @@
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  padding: 16px 24px;
+  padding: var(--radius-lg) 24px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;

@@ -76,8 +76,8 @@
   height: 34px;
   width: 56px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px var(--radius-sm) rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease;
 }
 
@@ -113,8 +113,8 @@
   display: inline-block;
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-color, #e2e8f0);
-  border-radius: 8px;
-  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  padding: 2px var(--radius-sm);
   font-weight: 600;
   font-size: 0.75rem;
 }

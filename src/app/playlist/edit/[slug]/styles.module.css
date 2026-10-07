@@ -2,7 +2,7 @@
   padding: var(--c--globals--spacings--sm);
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 .restreint-fields p {

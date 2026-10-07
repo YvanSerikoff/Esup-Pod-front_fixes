@@ -30,11 +30,11 @@
   color: var(--text-color, #0f172a);
   border: 1px solid var(--c--globals--colors--gray-200, #e2e8f0);
   padding: var(--c--globals--spacings--md);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   display: flex;
   gap: var(--c--globals--spacings--sm);
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px var(--radius-md) rgba(0, 0, 0, 0.05);
 }
 
 .welcome-green-box span[class*="material-icons"] {

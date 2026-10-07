@@ -21,7 +21,7 @@
 
 .watermark-card {
   border: 1px solid var(--c--theme--colors--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--c--theme--colors--card-bg, #ffffff);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -32,7 +32,7 @@
 
 .watermark-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 var(--radius-sm) var(--radius-md) rgba(0, 0, 0, 0.1);
 }
 
 .watermark-preview {

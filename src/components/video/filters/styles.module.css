@@ -52,7 +52,7 @@
   border-radius: 9999px !important;
   background-color: var(--c--theme--colors--card-bg, #ffffff) !important;
   color: var(--text-color, #0f172a) !important;
-  padding: 6px 16px !important;
+  padding: 6px var(--radius-lg) !important;
   transition: all 0.2s ease-in-out !important;
   display: flex !important;
   align-items: center !important;
@@ -88,7 +88,7 @@
 
 .search-field :global(.MuiOutlinedInput-root) {
   border-radius: 9999px;
-  padding-left: 12px;
+  padding-left: var(--radius-md);
 }
 
 .search-field-mobile {
@@ -102,14 +102,14 @@
 }
 
 .advanced-panel {
-  padding: 16px;
-  margin-top: 12px;
-  border-radius: 12px;
+  padding: var(--radius-lg);
+  margin-top: var(--radius-md);
+  border-radius: var(--radius-md);
   background-color: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--radius-md);
 }
 
 .active-filters-row {
@@ -117,9 +117,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
-  gap: 12px;
-  padding-top: 12px;
+  margin-top: var(--radius-lg);
+  gap: var(--radius-md);
+  padding-top: var(--radius-md);
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -151,14 +151,14 @@ html[data-theme="dark"] .filter-button.active {
   background-color: rgba(59, 130, 246, 0.25) !important;
   border: 1.5px solid #3b82f6 !important;
   color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25) !important;
+  box-shadow: 0 2px var(--radius-sm) rgba(59, 130, 246, 0.25) !important;
 }
 
 .filter-menu {
   padding: 0.75rem;
-  border-radius: 8px !important;
+  border-radius: var(--radius-sm) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px var(--radius-md) rgba(0, 0, 0, 0.1) !important;
   background-color: var(--c--theme--colors--card-bg, #ffffff) !important;
 }
 
@@ -218,21 +218,21 @@ html[data-theme="dark"] .filter-chevron-active {
 }
 
 .filter-search {
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-md);
 }
 
 .filter-empty {
-  padding: 8px;
+  padding: var(--radius-sm);
 }
 
 .filter-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: var(--radius-md);
+  padding-top: var(--radius-md);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .filter-options {
@@ -248,7 +248,7 @@ html[data-theme="dark"] .filter-chevron-active {
 .filter-option {
   margin: 0 !important;
   width: 100% !important;
-  padding: 8px 12px !important;
+  padding: var(--radius-sm) var(--radius-md) !important;
   border-radius: 6px;
   transition: background-color 0.15s ease;
   display: flex !important;
@@ -312,7 +312,7 @@ html[data-theme="dark"] .filter-chevron-active {
     flex-wrap: nowrap !important;
     flex-direction: row !important;
     overflow-x: auto !important;
-    padding-bottom: 8px !important;
+    padding-bottom: var(--radius-sm) !important;
     gap: 0.5rem !important;
     width: 100% !important;
     -webkit-overflow-scrolling: touch !important;

@@ -28,7 +28,7 @@
   border-radius: 9999px !important;
   background-color: var(--c--theme--colors--card-bg, #ffffff) !important;
   color: var(--text-color, #0f172a) !important;
-  padding: 6px 16px !important;
+  padding: 6px var(--radius-lg) !important;
   transition: all 0.2s ease-in-out !important;
   display: flex !important;
   align-items: center !important;
@@ -78,9 +78,9 @@ html[data-theme="dark"] .filter-button.active span {
 
 .filter-menu {
   padding: 0.75rem;
-  border-radius: 8px !important;
+  border-radius: var(--radius-sm) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px var(--radius-md) rgba(0, 0, 0, 0.1) !important;
   background-color: var(--c--theme--colors--card-bg, #ffffff) !important;
 }
 
@@ -110,24 +110,24 @@ html[data-theme="dark"] .filter-menu {
 }
 
 .dateTitle {
-  margin: 0 8px 16px;
+  margin: 0 var(--radius-sm) var(--radius-lg);
 }
 
 .dateFields {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 0 8px;
+  gap: var(--radius-lg);
+  padding: 0 var(--radius-sm);
 }
 
 .dateActions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
-  padding-top: 12px;
+  margin-top: var(--radius-lg);
+  padding-top: var(--radius-md);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .activeFilterRow {
@@ -135,9 +135,9 @@ html[data-theme="dark"] .filter-menu {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
-  gap: 12px;
-  padding-top: 12px;
+  margin-top: var(--radius-lg);
+  gap: var(--radius-md);
+  padding-top: var(--radius-md);
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -148,7 +148,7 @@ html[data-theme="dark"] .filter-menu {
 .searchField :global(.MuiOutlinedInput-root) {
   border-radius: 9999px;
   background-color: #fff;
-  padding-left: 12px;
+  padding-left: var(--radius-md);
 }
 
 .searchFieldMobile {
@@ -163,7 +163,7 @@ html[data-theme="dark"] .filter-menu {
 
 .filterChip {
   margin: 2px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   background-color: rgba(59, 130, 246, 0.15);
   color: var(--text-color, #0f172a);
   border: 1px solid rgba(59, 130, 246, 0.35);
@@ -183,7 +183,7 @@ html[data-theme="dark"] .filterChip {
   background-color: rgba(59, 130, 246, 0.25);
   color: #ffffff;
   border-color: #3b82f6;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 2px var(--radius-sm) rgba(59, 130, 246, 0.2);
 }
 
 .clear-filters-btn {
@@ -206,7 +206,7 @@ html[data-theme="dark"] .filterChip {
   .row {
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: var(--radius-sm);
     gap: 0.5rem;
     width: 100%;
     -webkit-overflow-scrolling: touch;

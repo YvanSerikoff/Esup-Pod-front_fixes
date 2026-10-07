@@ -89,7 +89,7 @@
   overflow: hidden;
   border-radius: 2px;
   background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px var(--radius-sm) rgba(0, 0, 0, 0.06);
 }
 
 .live-header {
@@ -204,7 +204,7 @@
   overflow: hidden;
   border-radius: 4px;
   background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px var(--radius-sm) rgba(0, 0, 0, 0.06);
   text-decoration: none;
   transition:
     transform 0.2s ease,
@@ -214,7 +214,7 @@
 .collection-card:hover,
 .video-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px var(--radius-lg) rgba(0, 0, 0, 0.12);
 }
 
 .collection-card-banner {
@@ -523,7 +523,7 @@
 
 .dialog-paper {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background-color: #ffffff;
 }
 

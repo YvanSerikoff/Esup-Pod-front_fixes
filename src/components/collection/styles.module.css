@@ -8,14 +8,14 @@
   margin-bottom: 32px;
   background-color: var(--c--globals--colors--gray-000);
   border: 1px solid var(--c--globals--colors--gray-200);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
 
 .collectionCard:hover,
 .playlistCard:hover {
   border-color: var(--c--contextuals--background--semantic--brand--primary);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px var(--radius-lg) rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
@@ -39,7 +39,7 @@
 }
 
 .collectionCardContent {
-  padding: 12px 16px 16px;
+  padding: var(--radius-md) var(--radius-lg) var(--radius-lg);
 }
 
 .collectionCardTitle {
@@ -47,15 +47,15 @@
   overflow: hidden;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin-bottom: 8px;
+  margin-bottom: var(--radius-sm);
   font-size: var(--c--globals--font--sizes--lg);
   font-weight: var(--c--globals--font--weights--bold);
 }
 
 .statistics {
   display: flex;
-  gap: 16px;
-  margin-bottom: 8px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-sm);
 }
 
 .statistic {
@@ -80,7 +80,7 @@
   margin-bottom: 32px;
   background-color: var(--c--globals--colors--gray-000);
   border: 1px solid var(--c--globals--colors--gray-200);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
 
@@ -99,8 +99,8 @@
 
 .playlistStack {
   position: relative;
-  padding-top: 16px;
-  padding-right: 16px;
+  padding-top: var(--radius-lg);
+  padding-right: var(--radius-lg);
 }
 
 .playlistBack1,
@@ -108,7 +108,7 @@
   position: absolute;
   top: 0;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   transition: transform 0.3s ease;
 }
 
@@ -117,12 +117,12 @@
   right: 22px;
   background-color: var(--mui-palette-grey-200, #eeeeee);
   opacity: 0.25;
-  transform: translate(12px, 10px);
+  transform: translate(var(--radius-md), 10px);
 }
 
 .playlistBack2 {
-  left: 12px;
-  right: 12px;
+  left: var(--radius-md);
+  right: var(--radius-md);
   background-color: var(--mui-palette-grey-400, #bdbdbd);
   opacity: 0.35;
   transform: translate(6px, 5px);
@@ -133,19 +133,19 @@
 }
 
 .playlistCardActionArea:hover .playlistBack2 {
-  transform: translate(8px, 7px);
+  transform: translate(var(--radius-sm), 7px);
 }
 
 .playlistFront {
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background-color: transparent;
 }
 
 .playlistCardContent {
-  padding: 16px !important;
-  padding-bottom: 16px !important;
+  padding: var(--radius-lg) !important;
+  padding-bottom: var(--radius-lg) !important;
 }
 
 .playlistTitleRow {
@@ -212,15 +212,15 @@
 
 .skeletonStack {
   position: relative;
-  padding-top: 16px;
-  padding-right: 16px;
+  padding-top: var(--radius-lg);
+  padding-right: var(--radius-lg);
 }
 
 .skeletonBack1,
 .skeletonBack2 {
   position: absolute;
   top: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 
 .skeletonBack1 {
@@ -232,8 +232,8 @@
 }
 
 .skeletonBack2 {
-  left: 12px;
-  right: 12px;
+  left: var(--radius-md);
+  right: var(--radius-md);
   height: 126px;
   background-color: var(--mui-palette-grey-400, #bdbdbd);
   opacity: 0.35;
@@ -241,7 +241,7 @@
 
 .skeletonFront {
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   height: 140px;
   background-color: var(--mui-palette-background-default, #fff);
@@ -256,7 +256,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: var(--radius-sm);
 }
 
 .skeletonMetadataRow {
@@ -275,7 +275,7 @@
 .collectionSkeletonCard {
   width: 100%;
   max-width: 345px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   position: relative;
   height: 150px;
   background-color: var(--mui-palette-background-default, #fff);
@@ -284,21 +284,21 @@
 .collectionSkeletonImage {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 .collectionSkeletonContent {
-  margin-top: 12px;
+  margin-top: var(--radius-md);
 }
 
 .collectionSkeletonTitle {
-  margin-bottom: 8px;
+  margin-bottom: var(--radius-sm);
 }
 
 .collectionSkeletonMetadata {
   display: flex;
-  gap: 16px;
-  margin-bottom: 8px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-sm);
 }
 
 .collectionSkeletonMetadataItem {
@@ -327,7 +327,7 @@
   padding: var(--c--globals--spacings--sm);
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 .playlistRestrictedFields p {

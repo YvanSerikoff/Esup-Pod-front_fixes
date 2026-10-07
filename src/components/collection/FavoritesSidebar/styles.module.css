@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: var(--c--globals--spacings--xs);
   border: 1px solid var(--c--contextuals--background--semantic--brand--tertiary);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: var(--c--globals--spacings--sm);
 }
 

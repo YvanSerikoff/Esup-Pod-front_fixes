@@ -76,7 +76,7 @@ html[data-theme="dark"] .navbar-logo img {
 }
 
 .navbar-profil-menu-name-user {
-  margin-left: 16px;
+  margin-left: var(--radius-lg);
   margin-bottom: var(--c--globals--spacings--xs);
   font-size: var(--c--globals--font--sizes--h6);
   background-color: var(--c--contextuals--background--semantic--brand--primary);
@@ -94,7 +94,7 @@ html[data-theme="dark"] .navbar-logo img {
   width: 36px;
   height: 36px;
   border: 1px solid var(--border-color, rgba(140, 140, 140, 0.25));
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background-color: rgba(128, 128, 128, 0.05);
   color: var(--text-color, inherit);
   transition: all 0.2s ease-in-out;
@@ -116,22 +116,22 @@ html[data-theme="dark"] .navbar-logo img {
 
 .preferences-menu-paper {
   min-width: 200px;
-  margin-top: 8px;
-  padding: 8px;
-  border-radius: 12px;
+  margin-top: var(--radius-sm);
+  padding: var(--radius-sm);
+  border-radius: var(--radius-md);
   background-color: var(--c--theme--colors--card-bg, #ffffff);
   color: var(--text-color, inherit);
 }
 
 .preferences-menu-item {
-  gap: 12px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-radius: 8px;
+  gap: var(--radius-md);
+  padding-top: var(--radius-sm);
+  padding-bottom: var(--radius-sm);
+  border-radius: var(--radius-sm);
 }
 
 .preferences-language {
-  padding: 4px 8px;
+  padding: 4px var(--radius-sm);
 }
 
 .preferences-divider {
@@ -157,11 +157,11 @@ html[data-theme="dark"] .navbar-logo img {
 .profile-menu-paper {
   position: relative;
   overflow: visible;
-  margin-top: 12px;
+  margin-top: var(--radius-md);
   padding: 10px;
   background-color: var(--background);
   color: var(--c--contextuals--content--semantic--neutral--primary);
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.32));
+  filter: drop-shadow(0 2px var(--radius-sm) rgba(0, 0, 0, 0.32));
 }
 
 .profile-menu-paper::before {
@@ -181,7 +181,7 @@ html[data-theme="dark"] .navbar-logo img {
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
 }
 
 .navbar-mobile-search-form {
@@ -191,7 +191,7 @@ html[data-theme="dark"] .navbar-logo img {
 .navbar-utilities {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
   margin-right: var(--c--globals--spacings--s);
   margin-left: var(--c--globals--spacings--s);
 }

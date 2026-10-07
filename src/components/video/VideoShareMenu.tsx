@@ -96,7 +96,7 @@ export default function VideoShareMenu({ video, className }: Props) {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        slotProps={{ paper: { sx: { borderRadius: "8px", minWidth: 200 } } }}
+        slotProps={{ paper: { className: "menu-paper" } }}
       >
         <MenuItem onClick={handleCopyLink}>
           <ListItemIcon>

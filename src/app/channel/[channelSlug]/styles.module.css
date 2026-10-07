@@ -15,15 +15,15 @@
 .center-box {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-lg);
 }
 
 .column-box {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-lg);
 }
 
 .tabs-box {
@@ -31,14 +31,14 @@
 }
 
 .unclassified-box {
-  margin-top: 16px;
+  margin-top: var(--radius-lg);
 }
 
 .channel-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-lg);
 }
 
 .avatar {
@@ -49,8 +49,8 @@
 .channel-labels {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: var(--radius-lg);
+  margin-bottom: var(--radius-lg);
 }
 
 .channel-box {
@@ -58,5 +58,5 @@
 }
 
 .unclassified-channel-box {
-  margin-top: 16px;
+  margin-top: var(--radius-lg);
 }

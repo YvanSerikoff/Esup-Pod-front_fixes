@@ -1,6 +1,6 @@
 .breadcrumb {
   background-color: var(--c--globals--colors--gray-025);
-  padding: 8px var(--c--globals--spacings--md);
+  padding: var(--radius-sm) var(--c--globals--spacings--md);
   border-bottom: 1px solid var(--c--globals--colors--gray-200);
   position: -webkit-sticky;
   position: sticky;

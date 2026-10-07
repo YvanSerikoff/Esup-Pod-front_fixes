@@ -2,7 +2,7 @@
   margin: var(--c--globals--spacings--md) 0;
   padding: var(--c--globals--spacings--md);
   border: 1px solid var(--background-brand);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 .bloc-terms legend {
   color: var(--text-color-brand);
@@ -28,7 +28,7 @@
 }
 
 .page-title {
-  margin-bottom: 16px;
+  margin-bottom: var(--radius-lg);
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -43,7 +43,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-top: 8px;
+  margin-top: var(--radius-sm);
 }
 
 .create-empty-icon {
@@ -51,13 +51,13 @@
 }
 
 .empty-record-dialog-paper {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 
 .empty-record-dialog-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--radius-sm);
   font-weight: 700;
 }
 
@@ -68,8 +68,8 @@
 .empty-record-dialog-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 8px 0;
+  gap: var(--radius-lg);
+  padding: var(--radius-sm) 0;
 }
 
 .empty-record-warning {
