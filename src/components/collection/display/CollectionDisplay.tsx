@@ -16,23 +16,21 @@ const getCollectionsLabel = (
   channelsCount: number,
   themesCount: number,
   playlistsCount: number,
-  t: (key: string) => string,
+  t: (key: string, options: { count: number }) => string,
 ) => {
-  const isPlural = rowsLength > 1;
-
   if (channelsCount > 0) {
-    return isPlural ? t("common.channels") : t("common.channel");
+    return t("common.countedChannels", { count: channelsCount });
   }
 
   if (themesCount > 0) {
-    return isPlural ? t("common.themes") : t("common.theme");
+    return t("common.countedThemes", { count: themesCount });
   }
 
   if (playlistsCount > 0) {
-    return isPlural ? t("playlists.playlists") : t("playlists.playlist");
+    return t("common.countedPlaylists", { count: playlistsCount });
   }
 
-  return isPlural ? t("common.collections") : t("common.collection");
+  return t("common.countedCollections", { count: rowsLength });
 };
 
 export default function CollectionDisplay({

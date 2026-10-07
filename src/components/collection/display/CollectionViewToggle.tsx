@@ -15,9 +15,7 @@ export default function CollectionViewToggle({
 
   return (
     <div className={styles["toggle-wrapper"]}>
-      <span className={styles["toggle-label"]}>
-        {t("common.displayMode")} :{" "}
-      </span>
+      <span className={styles["toggle-label"]}>{t("common.displayMode")}</span>
 
       <div
         className={styles["toggle-group"]}

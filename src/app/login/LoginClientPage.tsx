@@ -90,7 +90,9 @@ function LoginContent() {
             onClick={() => (window.location.href = `${backUrl}/login/cas/`)}
             variant="secondary"
           >
-            {t("navbar.login")} CAS
+            {t("navbar.login", {
+              serviceName: "CAS",
+            })}
           </Button>
         )}
         {config?.authentication?.use_shib && (
@@ -100,8 +102,10 @@ function LoginContent() {
             }
             variant="secondary"
           >
-            {t("navbar.login")}{" "}
-            {config?.authentication?.shibboleth_name || "Shibboleth"}
+            {t("navbar.login", {
+              serviceName:
+                config?.authentication?.shibboleth_name || "Shibboleth",
+            })}
           </Button>
         )}
         {config?.authentication?.use_oidc && (
@@ -109,7 +113,9 @@ function LoginContent() {
             onClick={() => (window.location.href = `${backUrl}/login/oidc/`)}
             variant="secondary"
           >
-            {t("navbar.login")} {config?.authentication?.oidc_name || "OIDC"}
+            {t("navbar.login", {
+              serviceName: config?.authentication?.oidc_name || "OIDC",
+            })}
           </Button>
         )}
       </div>
