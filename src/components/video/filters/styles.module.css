@@ -270,10 +270,7 @@ html[data-theme="dark"] .filter-chevron-active {
 }
 
 .row :global(.MuiAutocomplete-root),
-.row :global(.MuiTextField-root) {
-  min-width: var(--filters-field-width);
-}
-
+.row :global(.MuiTextField-root),
 .ordering-field {
   min-width: var(--filters-field-width);
 }

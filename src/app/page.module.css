@@ -154,9 +154,7 @@ html[data-theme="dark"] .welcome-link {
 }
 
 @media (max-width: 1024px) {
-  .welcome-text p {
-    display: none;
-  }
+  .welcome-text p,
   .welcome-green-box {
     display: none;
   }

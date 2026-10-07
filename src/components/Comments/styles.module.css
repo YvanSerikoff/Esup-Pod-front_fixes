@@ -207,10 +207,6 @@
     width: 100%;
   }
 
-  .form-content {
-    width: 100%;
-  }
-
   .replies {
     margin-left: var(--c--globals--spacings--sm);
     padding-left: var(--c--globals--spacings--sm);

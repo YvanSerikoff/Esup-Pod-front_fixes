@@ -198,9 +198,7 @@ html[data-theme="dark"] .navbar-logo img {
 
 /* Styles for small screens & tablets */
 @media (max-width: 1024px) {
-  .navbar-logo strong {
-    display: none;
-  }
+  .navbar-logo strong,
   .navbar-button-display {
     display: none;
   }

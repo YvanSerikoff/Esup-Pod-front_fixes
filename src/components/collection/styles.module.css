@@ -335,16 +335,18 @@
 }
 
 @media (max-width: 932px) {
-  .playlistFormActions {
-    flex-wrap: wrap;
+  .playlistFormActions,
+  .playlistFormActionButtons {
     flex-direction: column;
-    justify-content: center;
     padding-bottom: var(--c--globals--spacings--md);
   }
 
+  .playlistFormActions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .playlistFormActionButtons {
-    flex-direction: column;
     align-items: stretch;
-    padding-bottom: var(--c--globals--spacings--md);
   }
 }

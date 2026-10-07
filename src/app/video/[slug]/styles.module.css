@@ -491,9 +491,7 @@
   .main-video-content {
     flex-direction: column;
   }
-  .video-main-section {
-    width: 100%;
-  }
+  .video-main-section,
   .sidebar {
     width: 100%;
   }

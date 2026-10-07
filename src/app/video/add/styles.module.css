@@ -13,9 +13,13 @@
   margin-top: var(--c--globals--spacings--lg);
 }
 
-.form {
+.form,
+.empty-record-dialog-content {
   display: flex;
   flex-direction: column;
+}
+
+.form {
   gap: 1rem;
   padding: 0 var(--c--globals--spacings--md);
   margin: var(--c--globals--spacings--xxl);
@@ -30,6 +34,10 @@
 .page-title {
   margin-bottom: var(--radius-lg);
   font-size: 1.5rem;
+}
+
+.page-title,
+.empty-record-dialog-title {
   font-weight: 700;
 }
 
@@ -41,9 +49,14 @@
 .form-actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 1rem;
   margin-top: var(--radius-sm);
+}
+
+.form-actions,
+.empty-record-dialog-title {
+  display: flex;
+  align-items: center;
 }
 
 .create-empty-icon {
@@ -55,10 +68,7 @@
 }
 
 .empty-record-dialog-title {
-  display: flex;
-  align-items: center;
   gap: var(--radius-sm);
-  font-weight: 700;
 }
 
 .empty-record-dialog-icon {
@@ -66,8 +76,6 @@
 }
 
 .empty-record-dialog-content {
-  display: flex;
-  flex-direction: column;
   gap: var(--radius-lg);
   padding: var(--radius-sm) 0;
 }

@@ -12,11 +12,7 @@
   align-items: flex-start;
 }
 
-.row > * {
-  flex: 0 1 auto;
-  min-width: 150px;
-}
-
+.row > *,
 .filter-item {
   flex: 0 1 auto;
   min-width: 150px;
