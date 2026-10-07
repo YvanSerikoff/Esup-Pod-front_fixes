@@ -1955,11 +1955,7 @@ export default function EditVideo() {
 
               <div className={styles["live-card-stats"]}>
                 {config?.video?.show_views !== false && (
-                  <>
-                    {viewsCount}{" "}
-                    {viewsCount > 1 ? t("common.views") : t("common.view")}{" "}
-                    •{" "}
-                  </>
+                  <>{t("common.views", { count: viewsCount })} • </>
                 )}
                 {video?.created_at
                   ? dayjs(video.created_at).format("DD/MM/YYYY")

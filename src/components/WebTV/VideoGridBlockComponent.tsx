@@ -132,10 +132,7 @@ export default function VideoGridBlockComponent({
                       >
                         visibility
                       </span>
-                      {video.views_count}{" "}
-                      {video.views_count > 1
-                        ? t("common.views")
-                        : t("common.view")}
+                      {t("common.views", { count: video.views_count })}
                     </span>
                   )}
                 </div>

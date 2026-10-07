@@ -55,8 +55,7 @@ export const fr = {
     allVideos: "Toutes les vidéos",
     direct: "Direct",
     directs: "Les directs",
-    view: "vue",
-    views: "vues",
+    views: "{count, plural, one {# vue} other {# vues}}",
 
     // Display, search & pagination
     displayMode: "Affichage :",

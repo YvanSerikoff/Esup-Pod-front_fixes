@@ -57,8 +57,7 @@ export const en: TranslationKeys = {
     allVideos: "All videos",
     direct: "Live",
     directs: "Live streams",
-    view: "view",
-    views: "views",
+    views: "{count, plural, one {# view} other {# views}}",
 
     // Display, search & pagination
     displayMode: "Display:",
