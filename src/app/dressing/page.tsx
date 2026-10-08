@@ -41,7 +41,7 @@ export default function DressingPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm(t("dressingPage.confirmDelete"))) {
+    if (confirm(t("dressingPage.deleteConfirm"))) {
       await deleteWatermark(id);
     }
   };

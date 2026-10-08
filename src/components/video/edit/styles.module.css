@@ -1,3 +1,7 @@
+html[data-theme="dark"] .socialNetworksForm {
+  background: var(--c--theme--colors--card-bg, var(--color-slate-900));
+}
+
 .socialNetworksForm {
   padding: var(--radius-lg);
   background-color: var(--color-gray-50);

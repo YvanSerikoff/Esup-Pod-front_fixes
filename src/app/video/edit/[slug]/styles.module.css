@@ -1058,6 +1058,10 @@ html[data-theme="dark"] .visibility-section {
   color: var(--color-slate-50);
 }
 
+html[data-theme="dark"] .restriction-options {
+  background: var(--c--theme--colors--card-bg, var(--color-slate-900));
+}
+
 .video-error-container {
   display: flex;
   flex-direction: column;
@@ -1270,9 +1274,9 @@ html[data-theme="dark"] .visibility-section {
 .restriction-options {
   margin-top: var(--radius-sm);
   padding: var(--radius-md);
-  border: 1px solid var(--border-color, var(--color-slate-700));
+  border: 1px solid var(--border-color, var(--color-gray-200));
   border-radius: 6px;
-  background: var(--c--theme--colors--card-bg, var(--color-slate-900));
+  background: var(--c--theme--colors--card-bg, var(--color-gray-50));
 }
 
 .restriction-options-title {

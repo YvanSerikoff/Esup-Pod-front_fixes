@@ -1,4 +1,4 @@
-.language-button {
+.language-button:global(.MuiButton-root) {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -14,7 +14,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.language-button:hover {
+.language-button:global(.MuiButton-root):hover {
   border-color: rgba(var(--color-neutral-rgb), 0.4);
   background-color: rgba(var(--color-neutral-rgb), 0.12);
 }
@@ -28,7 +28,7 @@
   opacity: 0.7;
 }
 
-.language-button,
+.language-button:global(.MuiButton-root),
 .language-menu-paper {
   border-radius: var(--radius-sm);
 }

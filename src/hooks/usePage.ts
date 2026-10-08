@@ -23,7 +23,7 @@ export const usePage = (slug: string) => {
       const res = await fetch(url);
       if (!res.ok) {
         if (res.status === 404) {
-          throw new Error(t("errors.pageNotFound"));
+          throw new Error(t("errors.notFound"));
         }
         throw new Error(t("errors.loadPage"));
       }
