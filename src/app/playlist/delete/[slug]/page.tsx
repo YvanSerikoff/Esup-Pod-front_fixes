@@ -70,8 +70,11 @@ export default function DeletePlaylistPage() {
         ) : playlist ? (
           <>
             <p>
-              {t("playlists.deleteConfirmation")}{" "}
-              <strong>{playlist.title}</strong> ? <br />
+              {t.rich("playlists.deleteConfirm", {
+                title: playlist.title,
+                bold: (chunks) => <strong>{chunks}</strong>,
+              })}
+              <br />
               {t("common.permanentAction")}
             </p>
 

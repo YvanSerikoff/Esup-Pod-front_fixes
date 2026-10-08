@@ -26,33 +26,33 @@
 
 .welcome-green-box {
   flex: 1 1 300px;
-  background-color: var(--c--globals--colors--gray-050, #f8fafc);
-  color: var(--text-color, #0f172a);
-  border: 1px solid var(--c--globals--colors--gray-200, #e2e8f0);
+  background-color: var(--c--globals--colors--gray-050, var(--color-slate-50));
+  color: var(--text-color, var(--color-slate-900));
+  border: 1px solid var(--c--globals--colors--gray-200, var(--color-slate-200));
   padding: var(--c--globals--spacings--md);
   border-radius: var(--radius-md);
   display: flex;
   gap: var(--c--globals--spacings--sm);
   align-items: center;
-  box-shadow: 0 4px var(--radius-md) rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.05);
 }
 
 .welcome-green-box span[class*="material-icons"] {
-  color: var(--c--globals--colors--primary-600, #2563eb);
+  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
 }
 
 html[data-theme="dark"] .welcome-green-box {
-  background-color: #1e293b;
-  color: #f8fafc;
-  border-color: #334155;
+  background-color: var(--color-slate-800);
+  color: var(--color-slate-50);
+  border-color: var(--color-slate-700);
 }
 
 html[data-theme="dark"] .welcome-green-box span[class*="material-icons"] {
-  color: #60a5fa;
+  color: var(--color-blue-400);
 }
 
 .welcome-link-title {
-  color: var(--c--globals--colors--primary-600, #2563eb);
+  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
@@ -61,17 +61,17 @@ html[data-theme="dark"] .welcome-green-box span[class*="material-icons"] {
 }
 
 html[data-theme="dark"] .welcome-link-title {
-  color: #60a5fa !important;
+  color: var(--color-blue-400) !important;
 }
 
 .welcome-link {
-  color: var(--c--globals--colors--primary-600, #2563eb);
+  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
   text-decoration: none;
   font-weight: 600;
 }
 
 html[data-theme="dark"] .welcome-link {
-  color: #60a5fa !important;
+  color: var(--color-blue-400) !important;
 }
 
 .welcome-link-title:hover,

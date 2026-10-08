@@ -1,6 +1,12 @@
+import { Description } from "@mui/icons-material";
+
 export const fr = {
   // === Common ===
   common: {
+    // Common words
+    title: "Titre",
+    description: "Description",
+
     // Actions
     close: "Fermer",
     save: "Enregistrer",
@@ -982,6 +988,7 @@ export const fr = {
     addPlaylist: "Ajouter une liste de lecture",
     addThePlaylist: "Ajouter la liste de lecture",
     editPlaylist: "Éditer la liste de lecture",
+    editThisPlaylist: "Éditer la playlist de lecture : {title}",
     seePlaylist: "Voir la liste de lecture",
     playlistCreated: "La liste de lecture a été créée avec succès.",
     playlistUpdated: "Liste de lecture mise à jour avec succès !",
@@ -991,7 +998,7 @@ export const fr = {
     // Deletion
     delete: "Supprimer la liste de lecture",
     deleteConfirm:
-      "Êtes-vous sûr de vouloir supprimer cette liste de lecture ?",
+      "Êtes-vous sûr·e de vouloir supprimer la liste de lecture « <bold>{title}</bold> » ?",
     deleteSuccess: "La liste de lecture a été supprimée avec succès.",
 
     // Empty lists
@@ -1028,6 +1035,10 @@ export const fr = {
     defaultSort: "Tri par défaut",
     defaultSortLabel: "Tri de l’affichage des vidéos par défaut.",
     defaultSortHelper: "Choisissez l’ordre d’affichage des vidéos.",
+    sortNewest: "Plus récentes",
+    sortOldest: "Plus anciennes",
+    sortTitleAscending: "A-Z",
+    sortTitleDescending: "Z-A",
     publicPlaylist: "Liste de lecture publique",
   },
   channels: {

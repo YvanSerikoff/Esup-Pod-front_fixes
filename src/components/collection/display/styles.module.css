@@ -77,7 +77,7 @@
   width: 56px;
   object-fit: cover;
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px var(--radius-sm) rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
   transition: transform 0.2s ease;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .table-title-link {
-  color: var(--text-color, #f8fafc);
+  color: var(--text-color, var(--color-slate-50));
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
@@ -94,14 +94,14 @@
 }
 
 .table-title-link:hover {
-  color: #60a5fa;
+  color: var(--color-blue-400);
   text-decoration: underline;
 }
 
 .type-badge {
   display: inline-block;
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  background: rgba(var(--color-blue-500-rgb), 0.15);
+  color: var(--color-blue-400);
   border-radius: 9999px;
   padding: 3px 10px;
   font-weight: 600;
@@ -111,8 +111,8 @@
 
 .count-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-color, #e2e8f0);
+  background: rgba(var(--color-white-rgb), 0.08);
+  color: var(--text-color, var(--color-slate-200));
   border-radius: var(--radius-sm);
   padding: 2px var(--radius-sm);
   font-weight: 600;
@@ -120,7 +120,7 @@
 }
 
 .date-text {
-  color: #94a3b8;
+  color: var(--color-slate-400);
   font-size: 0.8rem;
 }
 

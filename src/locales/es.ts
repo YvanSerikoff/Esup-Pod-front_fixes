@@ -3,6 +3,10 @@ import type { TranslationKeys } from "./fr";
 export const es: TranslationKeys = {
   // === Commun ===
   common: {
+    // Common words
+    title: "Título",
+    description: "Descripción",
+
     // Actions
     close: "Cerrar",
     save: "Guardar",
@@ -1000,6 +1004,7 @@ export const es: TranslationKeys = {
     addPlaylist: "Añadir una lista de reproducción",
     addThePlaylist: "Añadir la lista de reproducción",
     editPlaylist: "Editar la lista de reproducción",
+    editThisPlaylist: "Editar la lista de reproducción: {title}",
     seePlaylist: "Ver la lista de reproducción",
     playlistCreated: "La lista de reproducción se ha creado correctamente.",
     playlistUpdated: "¡Lista de reproducción actualizada correctamente!",
@@ -1008,7 +1013,8 @@ export const es: TranslationKeys = {
 
     // Deletion
     delete: "Eliminar la lista de reproducción",
-    deleteConfirm: "¿Seguro que quieres eliminar esta lista de reproducción?",
+    deleteConfirm:
+      "¿Seguro que quieres eliminar la lista de reproducción «<bold>{title}</bold>»?",
     deleteSuccess: "La lista de reproducción se ha eliminado correctamente.",
 
     // Empty lists
@@ -1048,6 +1054,10 @@ export const es: TranslationKeys = {
     defaultSort: "Ordenación predeterminada",
     defaultSortLabel: "Ordenación predeterminada de los vídeos.",
     defaultSortHelper: "Elige el orden en el que se mostrarán los vídeos.",
+    sortNewest: "Más recientes",
+    sortOldest: "Más antiguas",
+    sortTitleAscending: "A-Z",
+    sortTitleDescending: "Z-A",
     publicPlaylist: "Lista de reproducción pública",
   },
 

@@ -1,8 +1,8 @@
 .socialNetworksForm {
   padding: var(--radius-lg);
-  background-color: #f9fafb;
+  background-color: var(--color-gray-50);
   border-radius: var(--radius-sm);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-gray-200);
   display: flex;
   flex-direction: column;
   gap: var(--radius-lg);
@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--radius-md) var(--radius-lg);
-  border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
+  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
   border-radius: 10px;
   background: white;
   gap: var(--c--globals--spacings--sm);
@@ -44,7 +44,7 @@
 }
 
 .socialNetworksIcon {
-  color: var(--c--globals--colors--primary-600, #00818a);
+  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
 }
 
 .socialNetworksTitle {
@@ -56,7 +56,7 @@
 .socialNetworksDescription {
   margin: 0;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--color-gray-500);
 }
 
 .socialNetworksMessage,
@@ -66,11 +66,11 @@
 }
 
 .socialNetworksSuccess {
-  color: #2e7d32;
+  color: var(--color-green-800);
 }
 
 .socialNetworksError {
-  color: #d32f2f;
+  color: var(--color-red-700);
 }
 
 .socialNetworksGrid {
@@ -93,8 +93,8 @@
 .chapterPlayer {
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1.5px solid var(--c--globals--colors--gray-200, #e0e0e0);
-  background: #000;
+  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
+  background: var(--color-black);
   position: relative;
 }
 
@@ -102,13 +102,13 @@
   width: 100%;
   display: block;
   max-height: 320px;
-  background: #000;
+  background: var(--color-black);
 }
 
 .chapterProgress {
   position: relative;
   height: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(var(--color-white-rgb), 0.25);
   cursor: pointer;
 }
 
@@ -116,7 +116,7 @@
   position: absolute;
   inset: 0;
   right: var(--chapter-progress-right);
-  background: var(--c--globals--colors--primary-600, #00818a);
+  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   transition: right 0.1s linear;
 }
 
@@ -130,7 +130,7 @@
   bottom: -2px;
   left: var(--chapter-marker-left);
   width: 2px;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 2px;
   z-index: 2;
 }
@@ -143,11 +143,11 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--c--globals--colors--primary-600, #00818a);
+  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   border: 2px solid white;
   z-index: 3;
   pointer-events: none;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px rgba(var(--color-black-rgb), 0.5);
 }
 
 .chapterControls {
@@ -156,7 +156,7 @@
   gap: var(--radius-md);
   padding: var(--radius-sm) 14px;
   background: #111;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .chapterPlayButton,
@@ -170,13 +170,13 @@
 }
 
 .chapterPlayButton {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .chapterTime {
   font-family: monospace;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(var(--color-white-rgb), 0.85);
   min-width: 90px;
 }
 
@@ -191,7 +191,7 @@
   padding: 5px 14px;
   border-radius: 999px;
   border: 1.5px solid var(--c--globals--colors--primary-400, #4db6bd);
-  background: rgba(0, 129, 138, 0.15);
+  background: rgba(var(--color-brand-teal-rgb), 0.15);
   color: var(--c--globals--colors--primary-300, #7dd4d8);
   font-size: 0.82rem;
   font-weight: 600;
@@ -207,7 +207,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--radius-sm);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(var(--color-white-rgb), 0.6);
   font-size: 0.9rem;
   padding: 24px;
   text-align: center;
@@ -244,7 +244,7 @@
 
 .chapterListIcon {
   font-size: 18px;
-  color: var(--c--globals--colors--primary-600, #00818a);
+  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
 }
 
 .chapterListTitle {
@@ -273,8 +273,8 @@
   align-items: center;
   gap: var(--radius-md);
   padding: var(--radius-sm) var(--radius-md);
-  background: var(--c--globals--colors--gray-050, #f9fafb);
-  border: 1px solid var(--c--globals--colors--gray-200, #e5e7eb);
+  background: var(--c--globals--colors--gray-050, var(--color-gray-50));
+  border: 1px solid var(--c--globals--colors--gray-200, var(--color-gray-200));
   border-radius: var(--radius-sm);
   cursor: default;
   transition: background 0.15s;
@@ -288,8 +288,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--c--globals--colors--primary-600, #00818a);
-  color: #fff;
+  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  color: var(--color-white);
   font-size: 0.75rem;
   font-weight: 700;
   display: flex;
@@ -302,9 +302,9 @@
   font-family: monospace;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--c--globals--colors--primary-600, #00818a);
+  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   padding: 2px 6px;
-  background: rgba(0, 129, 138, 0.08);
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -320,7 +320,7 @@
 }
 
 .chapterDeleteButton {
-  color: #ef4444;
+  color: var(--color-red-500);
   flex-shrink: 0;
   opacity: 0.7;
   transition: opacity 0.15s;
@@ -332,7 +332,7 @@
 
 .chapterAddPanel {
   padding: var(--radius-lg);
-  background: rgba(0, 129, 138, 0.04);
+  background: rgba(var(--color-brand-teal-rgb), 0.04);
   border: 1.5px solid var(--c--globals--colors--primary-200, #b2dfdb);
   border-radius: 10px;
 }
@@ -349,7 +349,7 @@
 
 .chapterFormError {
   margin: 0 0 10px;
-  color: #d32f2f;
+  color: var(--color-red-700);
   font-size: 0.82rem;
 }
 
@@ -380,13 +380,13 @@
   border-radius: var(--radius-sm);
   padding: var(--radius-sm) var(--radius-md);
   outline: none;
-  background: #fff;
+  background: var(--color-white);
   width: 100%;
   box-sizing: border-box;
 }
 
 .chapterInput:focus {
-  border-color: #00818a;
+  border-color: var(--color-brand-teal);
 }
 
 .chapterTimestampInput {
@@ -404,8 +404,8 @@
   padding: 9px 20px;
   border-radius: var(--radius-sm);
   border: none;
-  background: var(--c--globals--colors--primary-600, #00818a);
-  color: #fff;
+  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  color: var(--color-white);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
@@ -439,15 +439,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #00818a;
+  color: var(--color-brand-teal);
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0;
 }
 
 .dressingCreateCard {
-  background: #f9fafb;
-  border: 1.5px solid #e5e7eb;
+  background: var(--color-gray-50);
+  border: 1.5px solid var(--color-gray-200);
   border-radius: 10px;
   padding: 20px;
   display: flex;
@@ -471,7 +471,7 @@
 .dressingMainIconCircle,
 .dressingSmallIconCircle {
   border-radius: 50%;
-  background: rgba(0, 129, 138, 0.08);
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -494,12 +494,12 @@
 }
 
 .dressingPrimaryIcon {
-  color: #00818a;
+  color: var(--color-brand-teal);
   font-size: 20px;
 }
 
 .dressingPaletteIcon {
-  color: #00818a;
+  color: var(--color-brand-teal);
   font-size: var(--radius-lg);
 }
 
@@ -511,7 +511,7 @@
 
 .dressingSectionDescription {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--color-gray-500);
 }
 
 .dressingError {
@@ -533,13 +533,13 @@
   justify-content: space-between;
   margin-bottom: 6px;
   font-size: 0.85rem;
-  color: #374151;
+  color: var(--color-gray-700);
   font-weight: 500;
 }
 
 .dressingOpacityValue {
-  background: rgba(0, 129, 138, 0.08);
-  color: #00818a;
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  color: var(--color-brand-teal);
   border-radius: 999px;
   padding: 2px 10px;
   font-weight: 700;
@@ -547,7 +547,7 @@
 }
 
 .dressingOpacitySlider {
-  color: #00818a !important;
+  color: var(--color-brand-teal) !important;
 }
 
 .dressingOpacitySlider :global(.MuiSlider-thumb) {
@@ -556,7 +556,7 @@
 
 .dressingHint {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: var(--color-gray-400);
   border-top: 1px solid #f3f4f6;
   padding-top: var(--radius-md);
 }
@@ -577,15 +577,15 @@
 }
 
 .dressingCancelButton {
-  border: 1.5px solid #e5e7eb;
+  border: 1.5px solid var(--color-gray-200);
   background: white;
-  color: #374151;
+  color: var(--color-gray-700);
 }
 
 .dressingCreateButton {
   padding: var(--radius-sm) 24px;
   border: none;
-  background: #00818a;
+  background: var(--color-brand-teal);
   color: white;
   font-weight: 600;
   display: inline-flex;
@@ -621,9 +621,9 @@
   align-items: center;
   gap: 6px;
   border-radius: 10px;
-  border: 1.5px solid #00818a;
+  border: 1.5px solid var(--color-brand-teal);
   background: white;
-  color: #00818a;
+  color: var(--color-brand-teal);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s;
@@ -637,7 +637,7 @@
 }
 
 .dressingHeaderCreateButton:hover {
-  background: rgba(0, 129, 138, 0.08);
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
 }
 
 .dressingFeedback {
@@ -665,12 +665,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #6b7280;
+  color: var(--color-gray-500);
   padding: var(--radius-lg) 0;
 }
 
 .dressingPrimaryProgress {
-  color: #00818a !important;
+  color: var(--color-brand-teal) !important;
 }
 
 .dressingEmpty {
@@ -678,7 +678,7 @@
   padding: 32px var(--radius-lg);
   border: 2px dashed #d1d5db;
   border-radius: 10px;
-  color: #9ca3af;
+  color: var(--color-gray-400);
 }
 
 .dressingEmptyIcon {
@@ -694,7 +694,7 @@
 
 .dressingEmptyCreateButton {
   padding: var(--radius-sm) 18px;
-  background: #00818a;
+  background: var(--color-brand-teal);
   color: white;
   font-size: 0.875rem;
 }
@@ -711,7 +711,7 @@
   text-align: left;
   padding: var(--radius-md) 14px;
   border-radius: 10px;
-  border: 1.5px solid #e5e7eb;
+  border: 1.5px solid var(--color-gray-200);
   background: white;
   cursor: pointer;
   transition:
@@ -720,8 +720,8 @@
 }
 
 .dressingCardSelected {
-  border: 2px solid #00818a;
-  background: rgba(0, 129, 138, 0.08);
+  border: 2px solid var(--color-brand-teal);
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
 }
 
 .dressingCardDisabled {
@@ -736,11 +736,11 @@
 }
 
 .dressingMutedIcon {
-  color: #9ca3af;
+  color: var(--color-gray-400);
 }
 
 .dressingNoneLabel {
-  color: #6b7280;
+  color: var(--color-gray-500);
   font-style: italic;
 }
 
@@ -757,29 +757,29 @@
 
 .dressingCardDescription {
   font-size: 0.78rem;
-  color: #9ca3af;
+  color: var(--color-gray-400);
   margin-top: 2px;
 }
 
 .dressingSelectedIcon {
-  color: #00818a;
+  color: var(--color-brand-teal);
   flex-shrink: 0;
 }
 
 .dressingDetails {
   padding: 14px var(--radius-lg);
-  background: rgba(0, 129, 138, 0.08);
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
   border-radius: 10px;
-  border: 1.5px solid rgba(0, 129, 138, 0.19);
+  border: 1.5px solid rgba(var(--color-brand-teal-rgb), 0.19);
   display: flex;
   flex-direction: column;
   gap: 6px;
   font-size: 0.83rem;
-  color: #374151;
+  color: var(--color-gray-700);
 }
 
 .dressingDetailsTitle {
   font-weight: 700;
-  color: #00818a;
+  color: var(--color-brand-teal);
   font-size: 0.875rem;
 }

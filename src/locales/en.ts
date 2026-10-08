@@ -3,6 +3,10 @@ import type { TranslationKeys } from "./fr";
 export const en: TranslationKeys = {
   // === Commun ===
   common: {
+    // Common words
+    title: "Title",
+    description: "Description",
+
     // Actions
     close: "Close",
     save: "Save",
@@ -982,6 +986,7 @@ export const en: TranslationKeys = {
     addPlaylist: "Add a playlist",
     addThePlaylist: "Add the playlist",
     editPlaylist: "Edit playlist",
+    editThisPlaylist: "Edit playlist: {title}",
     seePlaylist: "View playlist",
     playlistCreated: "The playlist was created successfully.",
     playlistUpdated: "Playlist updated successfully!",
@@ -990,7 +995,8 @@ export const en: TranslationKeys = {
 
     // Deletion
     delete: "Delete playlist",
-    deleteConfirm: "Are you sure you want to delete this playlist?",
+    deleteConfirm:
+      "Are you sure you want to delete the playlist “<bold>{title}</bold>”?",
     deleteSuccess: "The playlist was deleted successfully.",
 
     // Empty lists
@@ -1021,6 +1027,10 @@ export const en: TranslationKeys = {
     defaultSort: "Default sorting",
     defaultSortLabel: "Default sorting for video display.",
     defaultSortHelper: "Choose the order in which videos are displayed.",
+    sortNewest: "Newest first",
+    sortOldest: "Oldest first",
+    sortTitleAscending: "A-Z",
+    sortTitleDescending: "Z-A",
     publicPlaylist: "Public playlist",
   },
 

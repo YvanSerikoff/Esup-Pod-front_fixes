@@ -1,6 +1,6 @@
 .bulkActionBar {
-  background-color: var(--c--theme--colors--card-bg, rgba(255, 255, 255, 0.05));
-  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.12));
+  background-color: var(--c--theme--colors--card-bg, rgba(var(--color-white-rgb), 0.05));
+  border: 1px solid var(--border-color, rgba(var(--color-black-rgb), 0.12));
   border-radius: var(--radius-md);
   padding: var(--radius-lg) 20px;
   margin-bottom: 24px;
@@ -34,7 +34,7 @@
 
 .bulkSelectionBadge {
   background-color: var(--c--contextuals--background--semantic--brand--primary);
-  color: #fff;
+  color: var(--color-white);
   font-size: 0.8rem;
   font-weight: 600;
   border-radius: var(--radius-md);
@@ -88,14 +88,14 @@
 .bulkMenuGroupHeading {
   display: block;
   font-weight: 700;
-  color: #64748b;
+  color: var(--color-slate-500);
   padding: var(--radius-sm) var(--radius-md) 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .bulkMenuDangerHeading {
-  color: #d32f2f;
+  color: var(--color-red-700);
   padding-top: 4px;
   padding-bottom: 4px;
 }
@@ -115,29 +115,29 @@
 }
 
 .bulkMenuItemEnabled {
-  color: var(--text-color, #0f172a) !important;
+  color: var(--text-color, var(--color-slate-900)) !important;
 }
 
 .bulkMenuItemDisabled,
 .bulkMenuItemDisabled:global(.Mui-disabled) {
   opacity: 0.75 !important;
-  color: #64748b !important;
+  color: var(--color-slate-500) !important;
 }
 
 .bulkMenuLockIcon {
   font-size: 0.9rem !important;
-  color: #64748b !important;
+  color: var(--color-slate-500) !important;
   opacity: 0.9;
 }
 
 .bulkMenuDivider {
   margin-top: var(--radius-md) !important;
   margin-bottom: var(--radius-md) !important;
-  border-color: var(--border-color, rgba(0, 0, 0, 0.12)) !important;
+  border-color: var(--border-color, rgba(var(--color-black-rgb), 0.12)) !important;
 }
 
 .bulkMenuDangerItem {
-  color: #d32f2f !important;
+  color: var(--color-red-700) !important;
   margin-bottom: 4px !important;
   font-weight: 600 !important;
 }
@@ -166,7 +166,7 @@
   border-radius: var(--radius-sm);
   border: 1px solid var(--c--globals--colors--gray-300);
   font-size: 0.9rem;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 .bulkDescriptionInput {

@@ -34,8 +34,8 @@
   padding: 4px;
   border: 1px solid var(--border-color, rgba(140, 140, 140, 0.2));
   border-radius: var(--radius-sm);
-  background-color: var(--background, #ffffff);
-  color: var(--text-color, #0f172a);
+  background-color: var(--background, var(--color-white));
+  color: var(--text-color, var(--color-slate-900));
 }
 
 .language-menu-item {
@@ -44,7 +44,7 @@
   justify-content: space-between;
   padding: 6px var(--radius-md);
   border-radius: 6px;
-  color: var(--text-color, #0f172a);
+  color: var(--text-color, var(--color-slate-900));
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -60,16 +60,16 @@
 .language-menu-item:global(.Mui-selected) {
   background-color: var(
     --c--contextuals--background--semantic--brand--secondary,
-    rgba(59, 130, 246, 0.1)
+    rgba(var(--color-blue-500-rgb), 0.1)
   ) !important;
   color: var(
     --c--contextuals--background--semantic--brand--primary,
-    #2563eb
+    var(--color-blue-600)
   ) !important;
 }
 
 .language-selected-icon {
   margin-left: var(--radius-sm);
-  color: var(--c--contextuals--background--semantic--brand--primary, #2563eb);
+  color: var(--c--contextuals--background--semantic--brand--primary, var(--color-blue-600));
   font-size: 1rem;
 }

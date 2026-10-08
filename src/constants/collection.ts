@@ -1,11 +1,15 @@
 export type CollectionOrder = "-created_at" | "created_at" | "title" | "-title";
 
 export const PLAYLIST_ORDER_OPTIONS = [
-  { label: "Plus récentes", value: "created_at" },
-  { label: "Plus anciennes", value: "-created_at" },
-  { label: "A-Z", value: "title" },
-  { label: "Z-A", value: "-title" },
+  { labelKey: "playlists.sortNewest", value: "created_at" },
+  { labelKey: "playlists.sortOldest", value: "-created_at" },
+  { labelKey: "playlists.sortTitleAscending", value: "title" },
+  { labelKey: "playlists.sortTitleDescending", value: "-title" },
 ] satisfies Array<{
-  label: string;
+  labelKey:
+    | "playlists.sortNewest"
+    | "playlists.sortOldest"
+    | "playlists.sortTitleAscending"
+    | "playlists.sortTitleDescending";
   value: CollectionOrder;
 }>;

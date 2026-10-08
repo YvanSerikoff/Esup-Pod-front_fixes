@@ -195,7 +195,7 @@ export function PlaylistForm({
           >
             {PLAYLIST_ORDER_OPTIONS.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
-                {opt.label}
+                {t(opt.labelKey)}
               </MenuItem>
             ))}
           </TextField>

@@ -251,7 +251,7 @@ export default function EditPlaylist() {
     <div>
       <BackButton label={t("common.back")} />
       <h1>
-        {t("playlists.editPlaylist")} {playlist?.title}
+        {t("playlists.editThisPlaylist", { title: playlist?.title ?? "" })}
       </h1>
 
       {/* ---------- Global alerts ---------- */}

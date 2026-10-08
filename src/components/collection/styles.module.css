@@ -15,7 +15,7 @@
 .collectionCard:hover,
 .playlistCard:hover {
   border-color: var(--c--contextuals--background--semantic--brand--primary);
-  box-shadow: 0 6px var(--radius-lg) rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px var(--radius-lg) rgba(var(--color-black-rgb), 0.08);
   transform: translateY(-2px);
 }
 
@@ -66,7 +66,7 @@
 
 .statisticIcon,
 .metadataIcon {
-  color: var(--mui-palette-text-secondary, rgba(0, 0, 0, 0.6));
+  color: var(--mui-palette-text-secondary, rgba(var(--color-black-rgb), 0.6));
   font-size: 1rem !important;
 }
 
@@ -115,7 +115,7 @@
 .playlistBack1 {
   left: 22px;
   right: 22px;
-  background-color: var(--mui-palette-grey-200, #eeeeee);
+  background-color: var(--mui-palette-grey-200, var(--color-gray-100));
   opacity: 0.25;
   transform: translate(var(--radius-md), 10px);
 }
@@ -123,7 +123,7 @@
 .playlistBack2 {
   left: var(--radius-md);
   right: var(--radius-md);
-  background-color: var(--mui-palette-grey-400, #bdbdbd);
+  background-color: var(--mui-palette-grey-400, var(--color-neutral-400));
   opacity: 0.35;
   transform: translate(6px, 5px);
 }
@@ -187,7 +187,7 @@
 
 .metadataText {
   font-size: var(--c--globals--font--sizes--sm);
-  color: var(--mui-palette-text-secondary, rgba(0, 0, 0, 0.6));
+  color: var(--mui-palette-text-secondary, rgba(var(--color-black-rgb), 0.6));
 }
 
 .menuButton {
@@ -227,7 +227,7 @@
   left: 22px;
   right: 22px;
   height: 118px;
-  background-color: var(--mui-palette-grey-200, #eeeeee);
+  background-color: var(--mui-palette-grey-200, var(--color-gray-100));
   opacity: 0.25;
 }
 
@@ -235,7 +235,7 @@
   left: var(--radius-md);
   right: var(--radius-md);
   height: 126px;
-  background-color: var(--mui-palette-grey-400, #bdbdbd);
+  background-color: var(--mui-palette-grey-400, var(--color-neutral-400));
   opacity: 0.35;
 }
 
@@ -244,7 +244,7 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   height: 140px;
-  background-color: var(--mui-palette-background-default, #fff);
+  background-color: var(--mui-palette-background-default, var(--color-white));
 }
 
 .imageSkeleton {
@@ -278,7 +278,7 @@
   border-radius: var(--radius-md);
   position: relative;
   height: 150px;
-  background-color: var(--mui-palette-background-default, #fff);
+  background-color: var(--mui-palette-background-default, var(--color-white));
 }
 
 .collectionSkeletonImage {

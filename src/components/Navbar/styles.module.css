@@ -55,7 +55,7 @@
 }
 
 html[data-theme="dark"] .navbar-logo img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(var(--color-white-rgb), 0.4));
 }
 
 .navbar-logo strong {
@@ -119,7 +119,7 @@ html[data-theme="dark"] .navbar-logo img {
   margin-top: var(--radius-sm);
   padding: var(--radius-sm);
   border-radius: var(--radius-md);
-  background-color: var(--c--theme--colors--card-bg, #ffffff);
+  background-color: var(--c--theme--colors--card-bg, var(--color-white));
   color: var(--text-color, inherit);
 }
 
@@ -146,7 +146,7 @@ html[data-theme="dark"] .navbar-logo img {
 }
 
 .profile-button-admin {
-  border-color: #3b82f6;
+  border-color: var(--color-blue-500);
 }
 
 .profile-avatar {
@@ -161,7 +161,7 @@ html[data-theme="dark"] .navbar-logo img {
   padding: 10px;
   background-color: var(--background);
   color: var(--c--contextuals--content--semantic--neutral--primary);
-  filter: drop-shadow(0 2px var(--radius-sm) rgba(0, 0, 0, 0.32));
+  filter: drop-shadow(0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.32));
 }
 
 .profile-menu-paper::before {

@@ -18,7 +18,7 @@
 
 .card:hover {
   border-color: var(--c--contextuals--background--semantic--brand--primary);
-  box-shadow: 0 6px var(--radius-lg) rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px var(--radius-lg) rgba(var(--color-black-rgb), 0.08);
   transform: translateY(-2px);
 }
 
@@ -55,7 +55,7 @@
 }
 
 .video_duration {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(var(--color-black-rgb), 0.8);
   color: white;
   position: absolute;
   bottom: var(--radius-sm);
@@ -129,7 +129,7 @@
 
 .video-info {
   font-size: 0.85rem;
-  color: var(--text-color-muted, #94a3b8);
+  color: var(--text-color-muted, var(--color-slate-400));
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -139,7 +139,7 @@
 
 .video-owner {
   font-style: normal;
-  color: var(--text-color-muted, #94a3b8);
+  color: var(--text-color-muted, var(--color-slate-400));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -147,7 +147,7 @@
 }
 
 .video-date {
-  color: var(--text-color-muted, #94a3b8);
+  color: var(--text-color-muted, var(--color-slate-400));
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -200,7 +200,7 @@
 
 .status-icon {
   font-size: 1.1rem;
-  color: var(--text-color-muted, #94a3b8);
+  color: var(--text-color-muted, var(--color-slate-400));
 }
 
 .downloading-icon {
@@ -286,16 +286,16 @@
 }
 
 .videoActionTrigger:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(var(--color-white-rgb), 0.12);
 }
 
 .videoActionMenuPaper {
-  background-color: var(--c--theme--colors--card-bg, #fff);
-  color: var(--text-color, #0f172a);
+  background-color: var(--c--theme--colors--card-bg, var(--color-white));
+  color: var(--text-color, var(--color-slate-900));
   border-radius: 10px;
   margin-top: 4px;
   min-width: 170px;
-  border: 1px solid var(--border-color, #e2e8f0);
+  border: 1px solid var(--border-color, var(--color-slate-200));
 }
 
 .videoActionMenuItem,
@@ -303,25 +303,25 @@
   font-size: 0.875rem;
   gap: var(--radius-md);
   padding: var(--radius-sm) var(--radius-lg);
-  color: var(--text-color, #0f172a);
+  color: var(--text-color, var(--color-slate-900));
 }
 
 .videoActionMenuItem:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(var(--color-black-rgb), 0.05);
 }
 
 .videoActionItemIcon {
-  color: var(--text-color-muted, #64748b);
+  color: var(--text-color-muted, var(--color-slate-500));
   min-width: auto !important;
 }
 
 .videoActionDivider {
   margin: 4px 0;
-  border-color: var(--border-color, #e2e8f0);
+  border-color: var(--border-color, var(--color-slate-200));
 }
 
 .videoActionDeleteItem {
-  color: #ef4444 !important;
+  color: var(--color-red-500) !important;
 }
 
 .videoActionDeleteItem:hover {
@@ -329,7 +329,7 @@
 }
 
 .videoActionDeleteIcon {
-  color: #ef4444 !important;
+  color: var(--color-red-500) !important;
   min-width: auto !important;
 }
 
@@ -413,7 +413,7 @@
   padding: var(--radius-sm) var(--radius-lg);
   font-size: 0.75rem;
   font-weight: 700;
-  color: #6b7280;
+  color: var(--color-gray-500);
 }
 
 .videosList {

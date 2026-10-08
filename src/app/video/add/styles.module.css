@@ -72,7 +72,7 @@
 }
 
 .empty-record-dialog-icon {
-  color: #00818a;
+  color: var(--color-brand-teal);
 }
 
 .empty-record-dialog-content {
@@ -82,7 +82,7 @@
 
 .empty-record-warning {
   margin: 0;
-  color: #6b7280;
+  color: var(--color-gray-500);
   font-size: 0.875rem;
 }
 
