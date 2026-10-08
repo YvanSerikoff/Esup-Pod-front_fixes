@@ -78,7 +78,7 @@ export default function Comments({ videoSlug }: CommentsProps) {
 
   return (
     <section className={styles.comments}>
-      <h2 className={styles.title}>{t("comments.title")}</h2>
+      <h2 className={`${styles.title} shared-title`}>{t("comments.title")}</h2>
       <p className={styles.count}>{commentCountLabel}</p>
 
       {useCommentsError && (

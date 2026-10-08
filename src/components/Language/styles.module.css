@@ -4,9 +4,9 @@
   gap: 4px;
   height: 36px;
   padding: 0 10px;
-  border: 1px solid var(--border-color, rgba(140, 140, 140, 0.25));
-  border-radius: var(--radius-sm);
-  background-color: rgba(128, 128, 128, 0.05);
+  border: 1px solid
+    var(--border-color, rgba(var(--color-neutral-border-rgb), 0.25));
+  background-color: rgba(var(--color-neutral-rgb), 0.05);
   color: var(--text-color, inherit);
   font-size: 0.825rem;
   font-weight: 600;
@@ -15,8 +15,8 @@
 }
 
 .language-button:hover {
-  border-color: rgba(128, 128, 128, 0.4);
-  background-color: rgba(128, 128, 128, 0.12);
+  border-color: rgba(var(--color-neutral-rgb), 0.4);
+  background-color: rgba(var(--color-neutral-rgb), 0.12);
 }
 
 .language-icon {
@@ -28,12 +28,17 @@
   opacity: 0.7;
 }
 
+.language-button,
+.language-menu-paper {
+  border-radius: var(--radius-sm);
+}
+
 .language-menu-paper {
   min-width: 140px;
   margin-top: var(--radius-sm);
   padding: 4px;
-  border: 1px solid var(--border-color, rgba(140, 140, 140, 0.2));
-  border-radius: var(--radius-sm);
+  border: 1px solid
+    var(--border-color, rgba(var(--color-neutral-border-rgb), 0.2));
   background-color: var(--background, var(--color-white));
   color: var(--text-color, var(--color-slate-900));
 }
@@ -54,7 +59,7 @@
 }
 
 .language-menu-item:hover {
-  background-color: rgba(128, 128, 128, 0.08);
+  background-color: rgba(var(--color-neutral-rgb), 0.08);
 }
 
 .language-menu-item:global(.Mui-selected) {

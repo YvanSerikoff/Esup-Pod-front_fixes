@@ -1,25 +1,18 @@
+.settings-container,
+.settings-content {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
 .settings-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem 0;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
 }
 
 .settings-content {
   flex-grow: 1;
-  background: transparent !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* Dark mode flat overrides */
-[data-theme="dark"] .settings-content,
-[data-theme="dark"] .settings-container {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+  border-radius: 0;
+  padding: 0;
 }

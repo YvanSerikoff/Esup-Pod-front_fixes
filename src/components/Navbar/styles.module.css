@@ -27,24 +27,23 @@
   font-size: var(--c--globals--font--sizes--h1);
 }
 
-.navbar-search-mobile span {
-  font-size: var(--c--globals--font--sizes--h1);
-}
-
 .navbar-search-dialog {
   padding: var(--c--globals--spacings--md);
+}
+
+.navbar-logo,
+.navbar-button-menu {
+  color: var(--text-color);
 }
 
 .navbar-logo {
   display: flex;
   text-decoration: none;
-  color: var(--text-color);
 }
 
 .navbar-button-menu {
   font-size: var(--c--globals--font--sizes--h1);
   border: 0;
-  color: var(--text-color);
   background: none;
   padding: 0 var(--c--globals--spacings--sm) 0 var(--c--globals--spacings--sm);
   cursor: pointer;
@@ -94,16 +93,17 @@ html[data-theme="dark"] .navbar-logo img {
 .preferences-button {
   width: 36px;
   height: 36px;
-  border: 1px solid var(--border-color, rgba(140, 140, 140, 0.25));
+  border: 1px solid
+    var(--border-color, rgba(var(--color-neutral-border-rgb), 0.25));
   border-radius: var(--radius-sm);
-  background-color: rgba(128, 128, 128, 0.05);
+  background-color: rgba(var(--color-neutral-rgb), 0.05);
   color: var(--text-color, inherit);
   transition: all 0.2s ease-in-out;
 }
 
 .preferences-button:hover {
-  border-color: rgba(128, 128, 128, 0.4);
-  background-color: rgba(128, 128, 128, 0.12);
+  border-color: rgba(var(--color-neutral-rgb), 0.4);
+  background-color: rgba(var(--color-neutral-rgb), 0.12);
 }
 
 .preferences-icon,
@@ -112,7 +112,7 @@ html[data-theme="dark"] .navbar-logo img {
 }
 
 .preferences-sun-icon {
-  color: #f59e0b;
+  color: var(--color-amber-500);
 }
 
 .preferences-menu-paper {
@@ -155,12 +155,16 @@ html[data-theme="dark"] .navbar-logo img {
   height: 42px;
 }
 
+.profile-menu-paper,
+.profile-menu-paper::before {
+  background-color: var(--background);
+}
+
 .profile-menu-paper {
   position: relative;
   overflow: visible;
   margin-top: var(--radius-md);
   padding: 10px;
-  background-color: var(--background);
   color: var(--c--contextuals--content--semantic--neutral--primary);
   filter: drop-shadow(
     0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.32)
@@ -175,7 +179,6 @@ html[data-theme="dark"] .navbar-logo img {
   display: block;
   width: 10px;
   height: 10px;
-  background-color: var(--background);
   content: "";
   transform: translateY(-50%) rotate(45deg);
 }

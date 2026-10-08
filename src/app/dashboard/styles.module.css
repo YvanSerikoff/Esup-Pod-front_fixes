@@ -1,4 +1,4 @@
 .title {
-  margin-top: var(--radius-lg);
-  margin-bottom: 28px;
+  --shared-title-margin-top: var(--radius-lg);
+  --shared-title-margin-bottom: 28px;
 }

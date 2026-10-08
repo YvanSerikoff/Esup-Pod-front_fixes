@@ -71,34 +71,32 @@
   margin-top: var(--radius-sm);
 }
 
-.menu-item-open {
+.menu-item:global(.MuiListItemButton-root).menu-item-open {
   width: auto;
   height: auto;
   margin: 2px var(--radius-sm);
-  padding: 6px var(--radius-md) !important;
+  padding: 6px var(--radius-md);
   justify-content: flex-start;
 }
 
-.menu-item-closed {
+.menu-item:global(.MuiListItemButton-root).menu-item-closed {
   width: 44px;
   height: 44px;
   margin: 4px auto;
-  padding: var(--radius-sm) 0 !important;
+  padding: var(--radius-sm) 0;
   justify-content: center;
 }
 
-.menu-item-active,
-.menu-item-active:global(.Mui-selected) {
-  background-color: rgba(var(--color-blue-500-rgb), 0.15) !important;
+.menu-item:global(.MuiListItemButton-root.Mui-selected).menu-item-active {
+  background-color: rgba(var(--color-blue-500-rgb), 0.15);
 }
 
 .menu-item-expanded:global(.Mui-selected) {
   background-color: rgba(var(--color-blue-500-rgb), 0.08);
 }
 
-.menu-item-active:hover,
-.menu-item-active:global(.Mui-selected):hover {
-  background-color: rgba(var(--color-blue-500-rgb), 0.22) !important;
+.menu-item:global(.MuiListItemButton-root.Mui-selected).menu-item-active:hover {
+  background-color: rgba(var(--color-blue-500-rgb), 0.22);
 }
 
 .menu-item:hover {
@@ -123,9 +121,9 @@
   color: var(--c--contextuals--content--semantic--neutral--secondary);
 }
 
-.menu-item-icon-svg-active,
+.menu-item-icon-svg-active:global(.MuiSvgIcon-root),
 .menu-item-text-active :global(.MuiTypography-root) {
-  color: var(--color-blue-500) !important;
+  color: var(--color-blue-500);
 }
 
 .menu-item-text :global(.MuiTypography-root) {

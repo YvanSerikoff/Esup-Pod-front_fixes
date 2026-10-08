@@ -6,9 +6,12 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
+  --shared-title-font-size: 2rem;
+  --shared-title-font-weight: var(--c--globals--font--weights--bold, 700);
+  --shared-title-margin-top: 0;
+  --shared-title-margin-right: 0;
+  --shared-title-margin-bottom: 0;
+  --shared-title-margin-left: 0;
 }
 
 .subtitle {

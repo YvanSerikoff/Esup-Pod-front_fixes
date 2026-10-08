@@ -54,7 +54,7 @@ export default function Accueil() {
 
   return (
     <div>
-      <h1 className={styles.title}>Pod Univ</h1>
+      <h1 className={`${styles.title} shared-title`}>Pod Univ</h1>
       <h2 className={styles.subtitle}>{t("home.welcomeSubtitle")}</h2>
 
       <div>

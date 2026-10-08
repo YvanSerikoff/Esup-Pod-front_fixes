@@ -8,6 +8,7 @@ import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "videojs-hotkeys";
 import styles from "./styles.module.css";
+import Image from "next/image";
 
 type Props = {
   video: Video;
@@ -300,7 +301,16 @@ export default function VideoPlayer({
         }
       >
         {poster && (
-          <img src={poster} alt="" className={styles.playerErrorPoster} />
+          /* Error thumbnail image — no alternative text needed */
+          <Image
+            unoptimized
+            src={poster}
+            alt="" //
+            className="styles.playerErrorPoster"
+            width={0}
+            height={0}
+            loading={"eager"}
+          />
         )}
         <div className={styles.playerErrorMessage}>
           <span className={`material-icons ${styles.playerErrorIcon}`}>

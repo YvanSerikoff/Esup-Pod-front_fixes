@@ -39,7 +39,7 @@
 
 .filter-button:hover {
   border-color: var(--color-blue-600) !important;
-  background-color: rgba(37, 99, 235, 0.04) !important;
+  background-color: rgba(var(--color-blue-600-rgb), 0.04) !important;
 }
 
 .filter-button.active {
@@ -47,13 +47,17 @@
   background-color: var(--color-blue-50) !important;
   color: var(--color-blue-700) !important;
   font-weight: 600 !important;
-  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.12) !important;
+  box-shadow: 0 1px 3px rgba(var(--color-blue-600-rgb), 0.12) !important;
+}
+
+html[data-theme="dark"] .filter-button,
+html[data-theme="dark"] .filter-menu {
+  background-color: var(--color-slate-800) !important;
+  border-color: var(--color-slate-700) !important;
 }
 
 html[data-theme="dark"] .filter-button {
-  background-color: var(--color-slate-800) !important;
   color: var(--color-slate-400) !important;
-  border-color: var(--color-slate-700) !important;
 }
 
 html[data-theme="dark"] .filter-button:hover {
@@ -96,9 +100,7 @@ html[data-theme="dark"] .filter-button.active span {
 }
 
 html[data-theme="dark"] .filter-menu {
-  background-color: var(--color-slate-800) !important;
   color: var(--color-slate-50) !important;
-  border-color: var(--color-slate-700) !important;
 }
 
 .filterPopper {
@@ -174,7 +176,7 @@ html[data-theme="dark"] .filter-menu {
 }
 
 .filterChip :global(.MuiChip-deleteIcon) {
-  color: rgba(148, 163, 184, 0.9);
+  color: rgba(var(--color-slate-400-rgb), 0.9);
 }
 
 .filterChip :global(.MuiChip-deleteIcon:hover) {

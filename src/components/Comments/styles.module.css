@@ -6,10 +6,13 @@
   width: 100%;
 
   .title {
-    margin: 0;
-    color: var(--text-color-brand);
-    font-size: var(--c--globals--font--sizes--h3);
-    font-weight: var(--c--globals--font--weights--bold);
+    --shared-title-margin-top: 0;
+    --shared-title-margin-right: 0;
+    --shared-title-margin-bottom: 0;
+    --shared-title-margin-left: 0;
+    --shared-title-color: var(--text-color-brand);
+    --shared-title-font-size: var(--c--globals--font--sizes--h3);
+    --shared-title-font-weight: var(--c--globals--font--weights--bold);
   }
 
   .form {
