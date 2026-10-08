@@ -46,7 +46,10 @@
   display: inline-flex;
   overflow: hidden;
   margin: var(--radius-lg) 0 var(--c--globals--spacings--xs) 14px;
-  background-color: var(--background-brand-secondary, rgba(var(--color-blue-500-rgb), 0.15));
+  background-color: var(
+    --background-brand-secondary,
+    rgba(var(--color-blue-500-rgb), 0.15)
+  );
   color: var(--background-brand, var(--color-blue-500));
   font-size: 0.85rem;
   font-weight: 600;

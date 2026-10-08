@@ -10,7 +10,9 @@
 }
 
 .theme-forest {
-  --c--contextuals--background--semantic--brand--primary: var(--color-green-800);
+  --c--contextuals--background--semantic--brand--primary: var(
+    --color-green-800
+  );
   --c--contextuals--background--semantic--brand--primary-hover: #1b5e20;
   --c--contextuals--background--semantic--brand--secondary: #e8f5e9;
   --c--contextuals--background--semantic--brand--tertiary: #c8e6c9;
@@ -37,9 +39,13 @@
 
 .theme-monochrome {
   --c--contextuals--background--semantic--brand--primary: #212121;
-  --c--contextuals--background--semantic--brand--primary-hover: var(--color-black);
+  --c--contextuals--background--semantic--brand--primary-hover: var(
+    --color-black
+  );
   --c--contextuals--background--semantic--brand--secondary: #f5f5f5;
-  --c--contextuals--background--semantic--brand--tertiary: var(--color-gray-100);
+  --c--contextuals--background--semantic--brand--tertiary: var(
+    --color-gray-100
+  );
   --c--contextuals--content--semantic--brand--primary: var(--color-black);
 
   --c--components--button--primary--background: #212121;

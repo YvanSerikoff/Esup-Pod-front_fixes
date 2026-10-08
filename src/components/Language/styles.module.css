@@ -70,6 +70,9 @@
 
 .language-selected-icon {
   margin-left: var(--radius-sm);
-  color: var(--c--contextuals--background--semantic--brand--primary, var(--color-blue-600));
+  color: var(
+    --c--contextuals--background--semantic--brand--primary,
+    var(--color-blue-600)
+  );
   font-size: 1rem;
 }

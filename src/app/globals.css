@@ -268,9 +268,15 @@ body.dark-mode {
   --background: var(--color-slate-900) !important;
   --text-color: var(--color-slate-50) !important;
   --text-color-brand: var(--color-blue-300) !important;
-  --c--contextuals--content--semantic--neutral--primary: var(--color-slate-50) !important;
-  --c--contextuals--background--semantic--brand--primary: var(--color-blue-600) !important;
-  --c--contextuals--background--semantic--brand--secondary: var(--color-slate-800) !important;
+  --c--contextuals--content--semantic--neutral--primary: var(
+    --color-slate-50
+  ) !important;
+  --c--contextuals--background--semantic--brand--primary: var(
+    --color-blue-600
+  ) !important;
+  --c--contextuals--background--semantic--brand--secondary: var(
+    --color-slate-800
+  ) !important;
 
   background-color: var(--color-slate-900) !important;
   color: var(--color-slate-50) !important;
@@ -459,7 +465,8 @@ div[class*="dataGrid"] thead {
 .c__datagrid thead tr,
 .c__datagrid__header-row,
 div[class*="dataGrid"] thead tr {
-  border-bottom: 2px solid var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
+  border-bottom: 2px solid
+    var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
 }
 
 html[data-theme="dark"] .c__datagrid thead tr,
@@ -479,7 +486,8 @@ div[class*="dataGrid"] th {
   padding: 14px var(--radius-lg) !important;
   background: transparent !important;
   background-color: transparent !important;
-  border-bottom: 2px solid var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
+  border-bottom: 2px solid
+    var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
 }
 
 html[data-theme="dark"] .c__datagrid th,
@@ -496,7 +504,8 @@ div[class*="dataGrid"] tbody tr {
   background: transparent !important;
   background-color: transparent !important;
   transition: background-color 0.2s ease !important;
-  border-bottom: 1px solid var(--c--globals--colors--gray-200, var(--color-slate-200)) !important;
+  border-bottom: 1px solid
+    var(--c--globals--colors--gray-200, var(--color-slate-200)) !important;
 }
 
 html[data-theme="dark"] .c__datagrid tr,

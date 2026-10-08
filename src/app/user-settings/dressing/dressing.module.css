@@ -32,7 +32,8 @@
 
 .watermark-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 var(--radius-sm) var(--radius-md) rgba(var(--color-black-rgb), 0.1);
+  box-shadow: 0 var(--radius-sm) var(--radius-md)
+    rgba(var(--color-black-rgb), 0.1);
 }
 
 .watermark-preview {

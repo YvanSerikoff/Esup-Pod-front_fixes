@@ -1,5 +1,8 @@
 .bulkActionBar {
-  background-color: var(--c--theme--colors--card-bg, rgba(var(--color-white-rgb), 0.05));
+  background-color: var(
+    --c--theme--colors--card-bg,
+    rgba(var(--color-white-rgb), 0.05)
+  );
   border: 1px solid var(--border-color, rgba(var(--color-black-rgb), 0.12));
   border-radius: var(--radius-md);
   padding: var(--radius-lg) 20px;
@@ -133,7 +136,10 @@
 .bulkMenuDivider {
   margin-top: var(--radius-md) !important;
   margin-bottom: var(--radius-md) !important;
-  border-color: var(--border-color, rgba(var(--color-black-rgb), 0.12)) !important;
+  border-color: var(
+    --border-color,
+    rgba(var(--color-black-rgb), 0.12)
+  ) !important;
 }
 
 .bulkMenuDangerItem {

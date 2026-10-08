@@ -382,7 +382,8 @@
 }
 
 .mobile-tabs-header {
-  border-bottom: 1px solid var(--mui-palette-divider, rgba(var(--color-black-rgb), 0.12));
+  border-bottom: 1px solid
+    var(--mui-palette-divider, rgba(var(--color-black-rgb), 0.12));
 }
 
 .mobile-tab:global(.MuiTab-root) {
