@@ -54,8 +54,8 @@ export default function Accueil() {
 
   return (
     <div>
-      <h1 className={`${styles.title} shared-title`}>Pod Univ</h1>
-      <h2 className={styles.subtitle}>{t("home.welcomeSubtitle")}</h2>
+      <h1 className={`title`}>Pod Univ</h1>
+      <h2 className={"subtitle"}>{t("home.welcomeSubtitle")}</h2>
 
       <div>
         <div className={styles["welcome-banner"]}>
@@ -127,9 +127,7 @@ export default function Accueil() {
         </div>
 
         <div className={styles["latest-videos-section"]}>
-          <h2 className={styles["latest-videos-title"]}>
-            {t("home.latestVideos")}
-          </h2>
+          <h2 className={"subtitle"}>{t("home.latestVideos")}</h2>
           {latestVisiblePublicVideos.length > 0 ? (
             <div className={styles["latest-videos-content"]}>
               <VideosList videosList={latestVisiblePublicVideos} />

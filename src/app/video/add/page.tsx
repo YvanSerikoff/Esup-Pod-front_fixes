@@ -143,7 +143,7 @@ export default function AddVideo() {
   return (
     <div>
       <BackButton label={t("common.back")} onClick={() => router.back()} />
-      <h1 className={styles["page-title"]}>{t("navbar.addVideo")}</h1>
+      <h1 className={"title"}>{t("navbar.addVideo")}</h1>
 
       {error && (
         <Alert canClose type={VariantType.ERROR} aria-live="assertive">

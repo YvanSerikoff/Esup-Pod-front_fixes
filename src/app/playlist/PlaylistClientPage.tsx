@@ -48,7 +48,7 @@ export default function PlaylistsPage() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("playlists.playlists")}</h1>
+      <h1 className="title">{t("playlists.playlists")}</h1>
 
       {error && (
         <Alert canClose type={VariantType.ERROR}>

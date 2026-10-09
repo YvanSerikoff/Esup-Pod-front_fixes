@@ -218,7 +218,7 @@ export default function Channel() {
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
             <Box className={styles["channel-labels"]}>
-              <h1>{channel.title}</h1>
+              <h1 className="title">{channel.title}</h1>
               <p>{channel.description}</p>
             </Box>
           </Box>

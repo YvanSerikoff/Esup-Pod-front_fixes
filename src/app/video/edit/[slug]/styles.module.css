@@ -7,7 +7,6 @@
   --video-edit-color-gray-100-fallback: #f5f5f5;
   --video-edit-color-thumbnail-background: #eaf1fb;
   --video-edit-color-blue-200: #bfdbfe;
-  --video-edit-color-blue-600-rgb: 37, 99, 235;
   --video-edit-color-red-500-rgb: 239, 68, 68;
   --video-edit-color-completed: #047857;
   --video-edit-color-error: #dc2626;
@@ -773,7 +772,7 @@
   background: var(--color-blue-600);
   border-color: var(--color-blue-600);
   color: var(--color-white);
-  box-shadow: 0 0 0 4px rgba(var(--video-edit-color-blue-600-rgb), 0.15);
+  box-shadow: 0 0 0 4px rgba(var(--color-blue-600-rgb), 0.15);
 }
 
 .stepper-item-active .stepper-description {

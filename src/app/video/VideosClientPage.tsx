@@ -65,7 +65,7 @@ function VideosList() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("common.allVideos")}</h1>
+      <h1 className="title">{t("common.allVideos")}</h1>
 
       {useVideoError && (
         <Alert canClose type={VariantType.ERROR}>

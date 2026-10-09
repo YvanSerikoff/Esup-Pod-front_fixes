@@ -52,7 +52,7 @@ export default function Channels() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("channels.title")}</h1>
+      <h1 className="title">{t("channels.title")}</h1>
 
       {error && (
         <Alert canClose type={VariantType.ERROR}>

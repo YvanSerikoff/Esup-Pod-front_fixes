@@ -266,7 +266,7 @@ export default function Theme() {
         />{" "}
         <Box className={styles["center-box"]}>
           <Box className={styles["column-box"]}>
-            {channel && <h1>{channel.title}</h1>}
+            {channel && <h1 className="title">{channel.title}</h1>}
             {parentTheme ? (
               <h2>
                 {parentTheme.title} / {theme.title}

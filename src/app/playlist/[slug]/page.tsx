@@ -162,7 +162,9 @@ export default function PlaylistPage() {
         )}
         <div className={styles["playlist-header-row"]}>
           <div>
-            <h1>{capitalize(effectivePlaylist?.title ?? "")}</h1>
+            <h1 className="title">
+              {capitalize(effectivePlaylist?.title ?? "")}
+            </h1>
             <div className={styles["playlist-actions"]}>
               <Button
                 color="brand"

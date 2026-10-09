@@ -48,7 +48,7 @@ export default function DressingSettings() {
 
   return (
     <div>
-      <h2>{t("sidebar.videoBranding")}</h2>
+      <h1 className="title">{t("sidebar.videoBranding")}</h1>
       <p className={styles["desc"]}>{t("dressingPage.pageDescription")}</p>
 
       {error && (
@@ -58,7 +58,7 @@ export default function DressingSettings() {
       )}
 
       <div className={styles["header-row"]}>
-        <h3>{t("dressingPage.myWatermarks")}</h3>
+        <h2 className="subtitle">{t("dressingPage.myWatermarks")}</h2>
         <input
           type="file"
           accept="image/png, image/jpeg"

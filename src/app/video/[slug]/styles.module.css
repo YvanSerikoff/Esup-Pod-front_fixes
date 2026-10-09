@@ -224,15 +224,6 @@
   color: var(--c--globals--colors--gray-500);
 }
 
-.sidebar-list-item p,
-.sidebar-list-item ul {
-  margin: 0;
-  padding: 0;
-  color: var(--c--globals--colors--gray-900);
-  font-size: var(--c--globals--font--sizes--sm);
-  font-weight: var(--c--globals--font--weights--regular);
-}
-
 .sidebar-list-item ul {
   list-style-type: none;
 }

@@ -47,7 +47,7 @@ export default function DeletePlaylistPage() {
   return (
     <div className={styles["delete-container"]}>
       <Paper className={styles["paper"]}>
-        <h2>{t("playlists.delete")}</h2>
+        <h2 className="subtitle">{t("playlists.delete")}</h2>
 
         {usePlaylistLoading && !playlist && <CenteredLoader />}
 

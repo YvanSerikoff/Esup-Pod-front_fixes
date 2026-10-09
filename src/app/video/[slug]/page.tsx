@@ -505,8 +505,8 @@ export default function Video() {
               </div>
             )}
           </div>
-          <div className={styles["video-title-row"]}>
-            <h1>{video.title}</h1>
+          <div>
+            <h1 className="title">{video.title}</h1>
             {config?.video?.show_views !== false && video.views != null && (
               <span className={styles["video-views"]}>
                 {video.views} {t("videoPage.views")}
@@ -922,7 +922,7 @@ export default function Video() {
                 {t("videoPage.about")}
               </h2>
               <Divider className={styles["sidebar-divider"]} />
-
+              <br />
               <div className={styles["sidebar-list-item"]}>
                 <h3>
                   <LibraryBooksIcon fontSize="small" /> {t("videoPage.type")}
@@ -965,9 +965,9 @@ export default function Video() {
               </div>
 
               <div className={styles["sidebar-list-item"]}>
-                <h4>
+                <h3>
                   <SchoolIcon fontSize="small" /> {t("videoPage.contributors")}
-                </h4>
+                </h3>
                 <p className={styles["sidebar-blue-text"]}>
                   {getVideoOwnerDisplayName(
                     video,

@@ -61,7 +61,7 @@ export default function MyPlaylistsPage() {
     <div>
       <BackButton label={t("common.back")} />
       <div className={styles["title-row"]}>
-        <h1>{t("playlists.myTitle")}</h1>
+        <h1 className="title">{t("playlists.myTitle")}</h1>
         <Link href="/playlist/add" className={styles["add-playlist-button"]}>
           <Button color="brand" variant="primary" size="small">
             {t("playlists.addPlaylist")}

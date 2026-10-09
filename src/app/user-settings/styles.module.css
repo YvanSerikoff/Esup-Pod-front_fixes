@@ -1,18 +1,8 @@
-.settings-container,
-.settings-content {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-}
-
 .settings-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem 0;
-}
-
-.settings-content {
-  flex-grow: 1;
-  border-radius: 0;
-  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }

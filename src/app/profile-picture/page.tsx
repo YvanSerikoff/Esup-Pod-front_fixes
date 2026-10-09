@@ -134,7 +134,7 @@ export default function UserProfilePicture() {
 
   return (
     <div>
-      <h1>{t("a11y.changeProfilePicture")}</h1>
+      <h1 className="title">{t("a11y.changeProfilePicture")}</h1>
       {error && (
         <Alert canClose type={VariantType.ERROR}>
           {error}

@@ -26,8 +26,8 @@
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: var(--image-size);
+  height: var(--image-size);
 }
 
 .channel-box,

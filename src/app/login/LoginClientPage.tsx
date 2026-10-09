@@ -81,7 +81,7 @@ function LoginContent() {
         </div>
       )}
 
-      <h1>{t("common.login")}</h1>
+      <h1 className="title">{t("common.login")}</h1>
 
       {/* ==== SSO Buttons ==== */}
       <div className={styles["sso-button"]}>

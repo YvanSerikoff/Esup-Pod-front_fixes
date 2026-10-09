@@ -11,7 +11,6 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import { useVideoListFilters } from "@/src/hooks/useVideoListFilters";
 import { Alert, VariantType } from "@openfun/cunningham-react";
-import styles from "./styles.module.css";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 
@@ -89,9 +88,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 className={`${styles["title"]} shared-title`}>
-        {t("sidebar.dashboard")}
-      </h1>
+      <h1 className={`title`}>{t("sidebar.dashboard")}</h1>
 
       {useVideoError && (
         <Alert canClose type={VariantType.ERROR}>

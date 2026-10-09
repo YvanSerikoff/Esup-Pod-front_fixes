@@ -80,12 +80,6 @@
   background-color: #222;
 }
 
-.title {
-  --shared-title-font-size: 1.75rem;
-  --shared-title-font-weight: var(--c--globals--font--weights--bold, 700);
-  --shared-title-margin-bottom: 0.5rem;
-}
-
 .content-box {
   max-width: 1000px;
   margin: 0 auto;

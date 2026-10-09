@@ -223,7 +223,7 @@ export default function FavoritesPlaylistPage() {
 
       <div>
         <div className={styles["title-row"]}>
-          <h1>{t("favorites.title")}</h1>
+          <h1 className="title">{t("favorites.title")}</h1>
           {favoriteVideos.length > 0 && (
             <div className={styles["start-favorites-button"]}>
               <Button

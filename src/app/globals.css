@@ -53,6 +53,7 @@ Extra Large Screens: min-width: 1441px
   --color-green-800: #2e7d32;
   --color-amber-500: #f59e0b;
   --navbar-height: 80px;
+  --image-size: 80px;
   --sidebar-open: 285px;
   --background: var(--c--globals--colors--gray-025);
   --background-brand: var(
@@ -68,20 +69,8 @@ Extra Large Screens: min-width: 1441px
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-full: 9999px;
-  --shadow-subtle: 0 4px var(--radius-md) rgba(0, 0, 0, 0.05);
-  --shadow-medium: 0 var(--radius-sm) 24px rgba(0, 0, 0, 0.08);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.shared-title {
-  font-size: var(--shared-title-font-size, revert);
-  font-weight: var(--shared-title-font-weight, revert);
-  color: var(--shared-title-color, revert);
-  margin-top: var(--shared-title-margin-top, revert);
-  margin-right: var(--shared-title-margin-right, revert);
-  margin-bottom: var(--shared-title-margin-bottom, revert);
-  margin-left: var(--shared-title-margin-left, revert);
+  --title-size: 2rem;
+  --subtitle-size: 1.5rem;
 }
 
 html,
@@ -178,6 +167,24 @@ button:active,
   padding: var(--c--globals--spacings--lg);
   max-width: 1600px;
   margin: 0 auto;
+}
+
+/** TITLES **/
+
+.title {
+  margin-bottom: var(--c--globals--spacings--xs);
+  color: var(--text-color-brand);
+  font-size: var(--title-size);
+  font-weight: var(--c--globals--font--weights--bold);
+  margin-top: var(--radius-lg);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--subtitle-size);
+  margin-top: 0;
+  margin-bottom: var(--c--globals--spacings--md);
+  font-weight: var(--c--globals--font--weights--bold);
 }
 
 .pod-image-banner {
