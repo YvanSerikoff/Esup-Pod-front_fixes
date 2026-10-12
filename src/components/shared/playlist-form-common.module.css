@@ -1,0 +1,42 @@
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: var(--c--globals--spacings--xl);
+  gap: var(--c--globals--spacings--sm);
+}
+
+.formActionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--c--globals--spacings--sm);
+}
+
+.restrictedFields {
+  padding: var(--c--globals--spacings--sm);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-sm);
+}
+
+.restrictedFields p {
+  font-weight: var(--c--globals--font--weights--bold);
+}
+
+@media (max-width: 932px) {
+  .formActions,
+  .formActionButtons {
+    flex-direction: column;
+    padding-bottom: var(--c--globals--spacings--md);
+  }
+
+  .formActions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .formActionButtons {
+    align-items: stretch;
+  }
+}

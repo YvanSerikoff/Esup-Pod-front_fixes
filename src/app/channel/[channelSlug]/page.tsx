@@ -211,13 +211,13 @@ export default function Channel() {
             height={0}
             loading={"eager"}
           />{" "}
-          <Box className={styles["channel-header"]}>
+          <Box className={styles["page-header"]}>
             <Avatar
-              className={styles["avatar"]}
+              className={styles["page-avatar"]}
               alt={t("a11y.channelLogo", { title: channel.title })}
               src={channel.logo || "/default_channel_logo.png"}
             ></Avatar>{" "}
-            <Box className={styles["channel-labels"]}>
+            <Box className={styles["page-stack"]}>
               <h1 className="title">{channel.title}</h1>
               <p>{channel.description}</p>
             </Box>
@@ -229,7 +229,7 @@ export default function Channel() {
           )}
           <div>
             <div>
-              <Box className={styles["channel-box"]}>
+              <Box className={styles["page-full"]}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -257,7 +257,7 @@ export default function Channel() {
                     {t("channels.noContent")}
                   </Alert>
                 ) : (
-                  <Box className={styles["unclassified-channel-box"]}>
+                  <Box className={styles["page-section"]}>
                     {value === "unclassified" && (
                       <div>
                         <h2>{t("channels.unclassified")}</h2>

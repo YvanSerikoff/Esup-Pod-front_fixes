@@ -1,0 +1,52 @@
+.deleteContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--c--globals--spacings--md);
+}
+
+.deleteAlert {
+  margin-top: 0 !important;
+}
+
+.buttonsAction {
+  display: flex;
+  gap: var(--c--globals--spacings--xs);
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--c--globals--spacings--sm);
+  padding-bottom: var(--c--globals--spacings--md);
+}
+
+.actionLink {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.actionLink:link,
+.actionLink:visited,
+.actionLink:hover,
+.actionLink:active {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .titleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--c--globals--spacings--xs);
+  }
+
+  .actionLink {
+    width: 100%;
+  }
+
+  .actionLink :global(button),
+  .actionLink :global(.c__button) {
+    width: 100%;
+    justify-content: center;
+  }
+}

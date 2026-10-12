@@ -1,100 +1,60 @@
 .playlist-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--c--globals--spacings--xs);
-  border: 1px solid var(--c--contextuals--background--semantic--brand--tertiary);
-  border-radius: var(--radius-sm);
-  padding: var(--c--globals--spacings--sm);
+  composes: sidebar from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--c--globals--spacings--xxs);
+  composes: sidebarHeader from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-label {
-  font-size: var(--c--globals--font--sizes--sm);
-  text-transform: uppercase;
-  color: var(--c--globals--colors--gray-700);
+  composes: sidebarLabel from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-title {
-  margin: 0;
-  font-size: var(--c--globals--font--sizes--md);
-  font-weight: var(--c--globals--font--weights--bold);
+  composes: sidebarTitle from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-count {
-  font-size: var(--c--globals--font--sizes--xs);
-  color: var(--c--globals--colors--gray-700);
+  composes: sidebarCount from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--c--globals--spacings--xxs);
+  composes: sidebarList from "../../shared/sidebar-common.module.css";
   max-height: 480px; /* Vertical scrolling, like on YouTube */
-  overflow-y: auto;
 }
 
 .playlist-sidebar-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--c--globals--spacings--xs);
-  padding: var(--c--globals--spacings--xxs);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+  composes: sidebarItem from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-thumbnail {
-  width: 64px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 4px;
+  composes: sidebarThumbnail from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-item:hover {
-  background-color: var(--c--globals--colors--gray-100);
 }
 
 .playlist-sidebar-item-active {
-  background-color: var(
-    --c--contextuals--background--semantic--brand--secondary
-  );
+  composes: sidebarItemActive from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-index {
+  composes: sidebarIndex from "../../shared/sidebar-common.module.css";
   font-size: var(--c--globals--font--sizes--md);
-  color: var(--c--globals--colors--gray-700);
-  min-width: 1.5rem;
 }
 
 .playlist-sidebar-text {
-  display: flex;
-  flex-direction: column;
+  composes: sidebarText from "../../shared/sidebar-common.module.css";
 }
 
 .playlist-sidebar-video-title {
-  margin: 0;
+  composes: sidebarVideoTitle from "../../shared/sidebar-common.module.css";
   font-size: var(--c--globals--font--sizes--md);
-  font-weight: var(--c--globals--font--weights--medium);
 }
 
 .playlist-sidebar-now-playing {
-  margin: 0;
+  composes: sidebarNowPlaying from "../../shared/sidebar-common.module.css";
   font-size: var(--c--globals--font--sizes--md);
   color: var(--c--contextuals--content--palette--brand--neutral);
   font-weight: var(--c--globals--font--weights--bold);
-}
-
-@media (max-width: 1024px) {
-  .playlist-sidebar {
-    max-height: none;
-  }
 }

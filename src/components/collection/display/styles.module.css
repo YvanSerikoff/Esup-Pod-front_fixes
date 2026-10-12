@@ -5,23 +5,18 @@
   flex-wrap: wrap;
 }
 
-.toggle-label {
-  font-size: var(--c--globals--font--sizes--sm);
-  font-weight: var(--c--globals--font--weights--bold);
-  color: var(--background-brand);
-}
-
+  .toggle-wrapper {
+    composes: toggle-wrapper from "../../shared/display-common.module.css";
+  }
 .toggle-group {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
   border: 1px solid var(--background-brand-secondary);
   max-width: 100%;
-  background-color: var(--background-brand-secondary);
-}
-
-.toolbar {
-  display: flex;
+  .toggle-label {
+    composes: toggle-label from "../../shared/display-common.module.css";
+  }
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
@@ -31,14 +26,9 @@
   .toolbar {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+  .toggle-group {
+    composes: toggle-group from "../../shared/display-common.module.css";
   }
-}
-
-.toggle-button,
-.toggle-buttonActive {
-  border-radius: 999px !important;
-  min-width: 0;
   font-weight: var(--c--globals--font--weights--bold) !important;
 }
 
@@ -78,11 +68,9 @@
   object-fit: cover;
   border-radius: var(--radius-sm);
   box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
-  transition: transform 0.2s ease;
-}
-
-.thumbnail-wrapper:hover .thumbnail {
-  transform: scale(1.08);
+.toggle-button,
+.toggle-button-active {
+  composes: toggle-button from "../../shared/display-common.module.css";
 }
 
 .table-title-link {

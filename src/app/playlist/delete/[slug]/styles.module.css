@@ -1,11 +1,9 @@
 .delete-container {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--c--globals--spacings--md);
+  composes: deleteContainer from "../../../shared/common.module.css";
 }
 
 .delete-error-alert {
-  margin-top: 0 !important;
+  composes: deleteAlert from "../../../shared/common.module.css";
 }
 
 .delete-container p {
@@ -15,8 +13,7 @@
 }
 
 .buttons-action {
-  display: flex;
-  gap: var(--c--globals--spacings--xs);
+  composes: buttonsAction from "../../../shared/common.module.css";
 }
 
 .paper {

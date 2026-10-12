@@ -309,44 +309,16 @@
 }
 
 .playlistFormActions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: var(--c--globals--spacings--xl);
-  gap: var(--c--globals--spacings--sm);
+  composes: formActions from "../shared/playlist-form-common.module.css";
 }
 
 .playlistFormActionButtons {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--c--globals--spacings--sm);
+  composes: formActionButtons from "../shared/playlist-form-common.module.css";
 }
 
 .playlistRestrictedFields {
-  padding: var(--c--globals--spacings--sm);
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--radius-sm);
+  composes: restrictedFields from "../shared/playlist-form-common.module.css";
 }
 
 .playlistRestrictedFields p {
-  font-weight: var(--c--globals--font--weights--bold);
-}
-
-@media (max-width: 932px) {
-  .playlistFormActions,
-  .playlistFormActionButtons {
-    flex-direction: column;
-    padding-bottom: var(--c--globals--spacings--md);
-  }
-
-  .playlistFormActions {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .playlistFormActionButtons {
-    align-items: stretch;
-  }
 }

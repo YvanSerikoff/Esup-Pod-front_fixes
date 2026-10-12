@@ -1,99 +1,57 @@
 .favorites-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--c--globals--spacings--xs);
-  border: 1px solid var(--c--contextuals--background--semantic--brand--tertiary);
-  border-radius: var(--radius-sm);
-  padding: var(--c--globals--spacings--sm);
+  composes: sidebar from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--c--globals--spacings--xxs);
+  composes: sidebarHeader from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-label {
-  font-size: var(--c--globals--font--sizes--sm);
-  text-transform: uppercase;
-  color: var(--c--globals--colors--gray-700);
+  composes: sidebarLabel from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-title {
-  margin: 0;
-  font-size: var(--c--globals--font--sizes--md);
-  font-weight: var(--c--globals--font--weights--bold);
+  composes: sidebarTitle from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-count {
-  font-size: var(--c--globals--font--sizes--xs);
-  color: var(--c--globals--colors--gray-700);
+  composes: sidebarCount from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--c--globals--spacings--xxs);
-  max-height: 480px;
-  overflow-y: auto;
+  composes: sidebarList from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--c--globals--spacings--xs);
-  padding: var(--c--globals--spacings--xxs);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+  composes: sidebarItem from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-thumbnail {
-  width: 64px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 4px;
+  composes: sidebarThumbnail from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-item:hover {
-  background-color: var(--c--globals--colors--gray-100);
 }
 
 .favorites-sidebar-item-active {
-  background-color: var(
-    --c--contextuals--background--semantic--brand--secondary
-  );
+  composes: sidebarItemActive from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-index {
-  font-size: var(--c--globals--font--sizes--sm);
-  color: var(--c--globals--colors--gray-700);
-  min-width: 1.5rem;
+  composes: sidebarIndex from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-text {
-  display: flex;
-  flex-direction: column;
+  composes: sidebarText from "../../shared/sidebar-common.module.css";
 }
 
 .favorites-sidebar-video-title {
-  margin: 0;
+  composes: sidebarVideoTitle from "../../shared/sidebar-common.module.css";
   font-size: var(--c--globals--font--sizes--sm);
-  font-weight: var(--c--globals--font--weights--medium);
 }
 
 .favorites-sidebar-now-playing {
-  margin: 0;
+  composes: sidebarNowPlaying from "../../shared/sidebar-common.module.css";
   font-size: var(--c--globals--font--sizes--xs);
   color: var(--c--contextuals--content--palette--brand--primary);
-}
-
-@media (max-width: 1024px) {
-  .favorites-sidebar {
-    max-height: none;
-  }
 }

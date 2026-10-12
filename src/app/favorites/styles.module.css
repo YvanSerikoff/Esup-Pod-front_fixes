@@ -1,21 +1,9 @@
 .title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--c--globals--spacings--sm);
-  padding-bottom: var(--c--globals--spacings--md);
+  composes: titleRow from "../shared/common.module.css";
 }
 
 .start-favorites-button {
-  display: inline-flex;
-  text-decoration: none;
-}
-
-.start-favorites-button:link,
-.start-favorites-button:visited,
-.start-favorites-button:hover,
-.start-favorites-button:active {
-  text-decoration: none;
+  composes: actionLink from "../shared/common.module.css";
 }
 
 .fav-error {
@@ -24,20 +12,3 @@
   gap: 1rem;
 }
 
-@media (max-width: 600px) {
-  .title-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--c--globals--spacings--xs);
-  }
-
-  .start-favorites-button {
-    width: 100%;
-  }
-
-  .start-favorites-button :global(button),
-  .start-favorites-button :global(.c__button) {
-    width: 100%;
-    justify-content: center;
-  }
-}

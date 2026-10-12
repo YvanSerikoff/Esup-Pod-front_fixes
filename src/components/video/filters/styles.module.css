@@ -1,8 +1,5 @@
 .filters-content {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(var(--color-black-rgb), 0.12);
-  margin-bottom: 1.5rem;
+  composes: filters-content from "../../shared/filters-common.module.css";
 }
 
 .filters-content-header {
@@ -34,35 +31,17 @@
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  align-items: flex-start;
+  composes: row from "../../shared/filters-common.module.css";
   --filters-field-width: 150px;
 }
 
 .filter-item {
-  flex: 0 1 auto;
+  composes: filter-item from "../../shared/filters-common.module.css";
   min-width: var(--filters-field-width);
 }
 
 .filter-button {
-  min-height: 38px;
-  border: 1px solid rgba(var(--color-black-rgb), 0.2) !important;
-  border-radius: 9999px !important;
-  background-color: var(
-    --c--theme--colors--card-bg,
-    var(--color-white)
-  ) !important;
-  color: var(--text-color, var(--color-slate-900)) !important;
-  padding: 6px var(--radius-lg) !important;
-  transition: all 0.2s ease-in-out !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  text-transform: none !important;
-  cursor: pointer !important;
-  font-family: inherit !important;
+  composes: filter-button from "../../shared/filters-common.module.css";
 }
 
 .filter-chip-label,
@@ -158,14 +137,7 @@ html[data-theme="dark"] .filter-button.active {
 }
 
 .filter-menu {
-  padding: 0.75rem;
-  border-radius: var(--radius-sm) !important;
-  border: 1px solid rgba(var(--color-black-rgb), 0.15) !important;
-  box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.1) !important;
-  background-color: var(
-    --c--theme--colors--card-bg,
-    var(--color-white)
-  ) !important;
+  composes: filter-menu from "../../shared/filters-common.module.css";
 }
 
 .filter-label {
@@ -381,18 +353,6 @@ html[data-theme="dark"] .filter-option:hover {
   background-color: rgba(var(--color-white-rgb), 0.08) !important;
 }
 
-.clear-filters-btn {
-  color: var(--color-blue-600) !important;
-  font-weight: 600 !important;
-  font-size: 0.85rem !important;
-  transition: color 0.2s ease !important;
-}
-
 :global(html[data-theme="dark"]) .clear-filters-btn {
   color: var(--color-blue-400) !important;
-}
-
-.clear-filters-btn:hover {
-  color: var(--color-red-500) !important;
-  text-decoration: underline !important;
 }

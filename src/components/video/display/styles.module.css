@@ -1,30 +1,17 @@
 .toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+  composes: toggle-wrapper from "../../shared/display-common.module.css";
 }
 
 .toggle-label {
-  font-size: var(--c--globals--font--sizes--sm);
-  font-weight: var(--c--globals--font--weights--bold);
-  color: var(--background-brand);
+  composes: toggle-label from "../../shared/display-common.module.css";
 }
 
 .toggle-group {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  border: 1px solid var(--background-brand-secondary);
-  max-width: 100%;
-  background-color: var(--background-brand-secondary);
+  composes: toggle-group from "../../shared/display-common.module.css";
 }
 
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  composes: toolbar from "../../shared/display-common.module.css";
 }
 
 .toolbar-count {
@@ -58,39 +45,26 @@
 
 .toggle-button,
 .toggle-button-active {
-  border-radius: 999px !important;
-  min-width: 0;
-  font-weight: var(--c--globals--font--weights--bold) !important;
+  composes: toggle-button from "../../shared/display-common.module.css";
 }
 
 .toggle-button {
-  background: transparent !important;
-  color: var(--background-brand) !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 .toggle-button-active {
-  background: var(--background-brand) !important;
-  color: white !important;
+  composes: toggle-button-active from "../../shared/display-common.module.css";
 }
 
 .toggle-button-content {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
+  composes: toggle-button-content from "../../shared/display-common.module.css";
 }
 
 .toggle-text {
-  display: inline;
+  composes: toggle-text from "../../shared/display-common.module.css";
 }
 
 .thumbnail-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  composes: thumbnail-wrapper from "../../shared/display-common.module.css";
 }
 
 .select-checkbox {
@@ -105,12 +79,7 @@
 }
 
 .thumbnail {
-  height: 34px;
-  width: 56px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
-  transition: transform 0.2s ease;
+  composes: thumbnail from "../../shared/display-common.module.css";
 }
 
 .default-thumbnail-poster {
@@ -131,11 +100,8 @@
 }
 
 .table-title-link {
+  composes: table-title-link from "../../shared/display-common.module.css";
   color: var(--color-slate-900);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: color 0.2s ease;
 }
 
 :global(html[data-theme="dark"]) .table-title-link {
@@ -152,13 +118,9 @@
 }
 
 .count-badge {
-  display: inline-block;
+  composes: count-badge from "../../shared/display-common.module.css";
   background: rgba(var(--color-black-rgb), 0.06);
   color: var(--color-slate-700);
-  border-radius: var(--radius-sm);
-  padding: 2px var(--radius-sm);
-  font-weight: 600;
-  font-size: 0.75rem;
 }
 
 :global(html[data-theme="dark"]) .count-badge {
@@ -167,8 +129,8 @@
 }
 
 .date-text {
+  composes: date-text from "../../shared/display-common.module.css";
   color: var(--color-slate-500);
-  font-size: 0.8rem;
   font-weight: 500;
 }
 
@@ -210,30 +172,6 @@
 
 :global(html[data-theme="dark"]) .status-password {
   color: var(--color-blue-400);
-}
-
-@media (max-width: 640px) {
-  .toggle-wrapper {
-    width: 100%;
-    justify-content: flex-end;
-  }
-
-  .toggle-label {
-    display: none;
-  }
-
-  .toggle-group {
-    width: 100%;
-  }
-
-  .toggle-button,
-  .toggle-button-active {
-    flex: 1;
-  }
-
-  .toggle-button-content {
-    width: 100%;
-  }
 }
 
 .pagination-wrapper {

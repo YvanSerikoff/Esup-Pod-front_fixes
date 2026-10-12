@@ -237,7 +237,7 @@ export default function Theme() {
 
   if (useThemeError && !theme && !channel) {
     return (
-      <div className={styles["theme-error"]}>
+      <div className={styles["page-error"]}>
         <Alert canClose type={VariantType.ERROR}>
           {useThemeError ?? `${t("errors.unableToTheme")}`}
         </Alert>
@@ -264,8 +264,8 @@ export default function Theme() {
           className="pod-image-banner"
           fill
         />{" "}
-        <Box className={styles["center-box"]}>
-          <Box className={styles["column-box"]}>
+        <Box className={styles["page-header"]}>
+          <Box className={styles["page-stack"]}>
             {channel && <h1 className="title">{channel.title}</h1>}
             {parentTheme ? (
               <h2>
@@ -284,7 +284,7 @@ export default function Theme() {
         {baseChildThemes.length === 0 && themeItems.length === 0 ? (
           <Alert type={VariantType.INFO}>{t("common.noResults")}</Alert>
         ) : (
-          <Box className={styles["tabs-box"]}>
+          <Box className={styles["page-full"]}>
             <Tabs
               value={selectedTab}
               onChange={handleChange}
@@ -303,7 +303,7 @@ export default function Theme() {
               />
             </Tabs>
 
-            <Box className={styles["unclassified-box"]}>
+            <Box className={styles["page-section"]}>
               {selectedTab === "unclassified" && (
                 <div>
                   <h2>{t("channels.unclassified")}</h2>

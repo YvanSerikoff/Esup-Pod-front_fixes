@@ -1,0 +1,117 @@
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toggle-label {
+  font-size: var(--c--globals--font--sizes--sm);
+  font-weight: var(--c--globals--font--weights--bold);
+  color: var(--background-brand);
+}
+
+.toggle-group {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--background-brand-secondary);
+  max-width: 100%;
+  background-color: var(--background-brand-secondary);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.toggle-button,
+.toggle-button-active {
+  border-radius: 999px !important;
+  min-width: 0;
+  font-weight: var(--c--globals--font--weights--bold) !important;
+}
+
+.toggle-button {
+  background: transparent !important;
+  color: var(--background-brand) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.toggle-button-active {
+  background: var(--background-brand) !important;
+  color: white !important;
+}
+
+.toggle-button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.toggle-text {
+  display: inline;
+}
+
+.thumbnail-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail {
+  height: 34px;
+  width: 56px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
+  transition: transform 0.2s ease;
+}
+
+.table-title-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.count-badge {
+  display: inline-block;
+  border-radius: var(--radius-sm);
+  padding: 2px var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.date-text {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .toggle-wrapper {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .toggle-label {
+    display: none;
+  }
+
+  .toggle-group {
+    width: 100%;
+  }
+
+  .toggle-button,
+  .toggle-button-active {
+    flex: 1;
+  }
+
+  .toggle-button-content {
+    width: 100%;
+  }
+}
