@@ -6,7 +6,10 @@
   composes: row from "../../shared/filters-common.module.css";
 }
 
-.row > *,
+.row > * {
+  min-width: 150px;
+}
+
 .filter-item {
   composes: filter-item from "../../shared/filters-common.module.css";
   min-width: 150px;
