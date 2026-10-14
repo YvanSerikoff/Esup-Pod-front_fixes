@@ -1,3 +1,23 @@
+.socialNetworksForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.socialNetworksForm,
+.restriction-options {
+  padding: var(--radius-lg);
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-200);
+  gap: var(--radius-lg);
+}
+
+html[data-theme="dark"] .socialNetworksForm,
+html[data-theme="dark"] .restriction-options {
+  background-color: var(--c--theme--colors--card-bg, var(--color-slate-900));
+  border-color: var(--color-slate-700);
+}
+
 .deleteContainer {
   display: flex;
   justify-content: center;
