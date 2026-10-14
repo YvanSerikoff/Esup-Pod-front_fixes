@@ -833,7 +833,7 @@ html[data-theme="dark"] .stepper-description {
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-item-header {
-  background: rgba(var(--color-blue-500-rgb), 0.25);
+  background: var(--video-edit-color-stepper-dark-background);
   border-color: var(--color-blue-500);
 }
 
