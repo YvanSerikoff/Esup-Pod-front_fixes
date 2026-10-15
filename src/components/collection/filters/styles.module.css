@@ -97,6 +97,7 @@ html[data-theme="dark"] .filter-menu {
   flex-direction: column;
   gap: var(--radius-lg);
   padding: 0 var(--radius-sm);
+  margin-top: var(--radius-lg);
 }
 
 .dateActions {

@@ -30,3 +30,7 @@
 .page-section {
   margin-top: var(--radius-lg);
 }
+
+html[data-theme="dark"] .tabs {
+  color: var(--color-slate-700);
+}

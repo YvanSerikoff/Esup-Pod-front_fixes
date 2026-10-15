@@ -190,8 +190,9 @@
   color: var(--mui-palette-text-secondary, rgba(var(--color-black-rgb), 0.6));
 }
 
-.menuButton {
-  background-color: white !important;
+html[data-theme="dark"] .menuButton {
+  background-color: var(--color-gray-900);
+  color: var(--color-slate-50);
 }
 
 .menuButton:hover {
@@ -318,7 +319,4 @@
 
 .playlistRestrictedFields {
   composes: restrictedFields from "../shared/playlist-form-common.module.css";
-}
-
-.playlistRestrictedFields p {
 }
