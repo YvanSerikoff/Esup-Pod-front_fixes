@@ -89,14 +89,14 @@
 }
 
 .table-title-link:hover {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
   text-decoration: underline;
 }
 
 .type-badge {
   display: inline-block;
   background: rgba(var(--color-blue-500-rgb), 0.15);
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
   border-radius: 9999px;
   padding: 3px 10px;
   font-weight: 600;

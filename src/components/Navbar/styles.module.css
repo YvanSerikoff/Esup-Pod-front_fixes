@@ -222,6 +222,6 @@ html[data-theme="dark"] .navbar-logo img {
     padding-top: 20px;
   }
   .navbar-profil {
-    margin-left: 0px;
+    margin-left: 0;
   }
 }

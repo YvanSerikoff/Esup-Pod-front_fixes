@@ -38,7 +38,7 @@
 }
 
 .welcome-green-box span[class*="material-icons"] {
-  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
+  color: var(--c--globals--colors--primary-600, var(--color-primary));
 }
 
 html[data-theme="dark"] .welcome-green-box {
@@ -48,11 +48,11 @@ html[data-theme="dark"] .welcome-green-box {
 }
 
 html[data-theme="dark"] .welcome-green-box span[class*="material-icons"] {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .welcome-link-title {
-  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
+  color: var(--c--globals--colors--primary-600, var(--color-primary));
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
@@ -61,17 +61,17 @@ html[data-theme="dark"] .welcome-green-box span[class*="material-icons"] {
 }
 
 html[data-theme="dark"] .welcome-link-title {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .welcome-link {
-  color: var(--c--globals--colors--primary-600, var(--color-blue-600));
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 600;
 }
 
 html[data-theme="dark"] .welcome-link {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .welcome-link-title:hover,

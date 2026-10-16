@@ -102,11 +102,11 @@
 }
 
 :global(html[data-theme="dark"]) .table-title-link {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primarymary);
 }
 
 .table-title-link:hover {
-  color: var(--color-blue-600);
+  color: var(--color-light-primary);
   text-decoration: underline;
 }
 
@@ -164,11 +164,11 @@
 
 .status-password {
   background: rgba(var(--color-blue-500-rgb), 0.15);
-  color: var(--color-blue-600);
+  color: var(--color-light-primary);
 }
 
 :global(html[data-theme="dark"]) .status-password {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .pagination-wrapper {

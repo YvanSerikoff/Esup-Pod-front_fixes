@@ -39,6 +39,6 @@ html[data-theme="dark"] .back-button {
 
 html[data-theme="dark"] .back-button:hover {
   background-color: var(--color-slate-700);
-  color: var(--color-blue-400);
-  border-color: var(--color-blue-400);
+  color: var(--color-dark-primary);
+  border-color: var(--color-dark-primary);
 }

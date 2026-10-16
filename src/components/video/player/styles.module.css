@@ -56,7 +56,7 @@
 .playerRetry {
   background: none;
   border: none;
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
   font-weight: 600;
   font-size: 0.825rem;
   cursor: pointer;

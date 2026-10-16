@@ -106,16 +106,16 @@
 }
 
 .filter-button:hover {
-  border-color: var(--color-blue-600) !important;
-  background-color: rgba(var(--color-blue-600-rgb), 0.04) !important;
+  border-color: var(--color-light-primaryimary) !important;
+  background-color: rgba(var(--color-light-primary-rgb), 0.04) !important;
 }
 
 .filter-button.active {
-  border: 1.5px solid var(--color-blue-600) !important;
+  border: 1.5px solid var(--color-light-primary) !important;
   background-color: var(--color-blue-50) !important;
   color: var(--color-blue-700) !important;
   font-weight: 600 !important;
-  box-shadow: 0 1px 3px rgba(var(--color-blue-600-rgb), 0.12) !important;
+  box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
 }
 
 html[data-theme="dark"] .filter-button {
@@ -126,7 +126,7 @@ html[data-theme="dark"] .filter-button {
 
 html[data-theme="dark"] .filter-button:hover {
   background-color: var(--color-slate-700) !important;
-  border-color: var(--color-blue-400) !important;
+  border-color: var(--color-dark-primary) !important;
 }
 
 html[data-theme="dark"] .filter-button.active {
@@ -155,7 +155,7 @@ html[data-theme="dark"] .filter-button.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-blue-600);
+  background-color: var(--color-light-primary);
   color: var(--color-white);
   border-radius: 9999px;
   padding: 0 6px;
@@ -178,11 +178,11 @@ html[data-theme="dark"] .filter-count {
 }
 
 .filter-chevron-active {
-  color: var(--color-blue-600);
+  color: var(--color-light-primary);
 }
 
 html[data-theme="dark"] .filter-chevron-active {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .filter-popper {
@@ -326,7 +326,7 @@ html[data-theme="dark"] .filter-button {
 
 html[data-theme="dark"] .filter-button:hover {
   background-color: var(--color-slate-700) !important;
-  border-color: var(--color-blue-400) !important;
+  border-color: var(--color-dark-primary) !important;
   color: var(--color-slate-50) !important;
 }
 
@@ -354,5 +354,5 @@ html[data-theme="dark"] .filter-option:hover {
 }
 
 :global(html[data-theme="dark"]) .clear-filters-btn {
-  color: var(--color-blue-400) !important;
+  color: var(--color-dark-primary) !important;
 }

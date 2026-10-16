@@ -676,7 +676,7 @@
   top: 14px;
   left: 30px;
   height: 2px;
-  background-color: var(--color-blue-600);
+  background-color: var(--color-primary);
   z-index: 2;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -750,14 +750,14 @@
 }
 
 .stepper-item-active .stepper-dot {
-  background: var(--color-blue-600);
-  border-color: var(--color-blue-600);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: var(--color-white);
-  box-shadow: 0 0 0 4px rgba(var(--color-blue-600-rgb), 0.15);
+  box-shadow: 0 0 0 4px rgba(var(--color-light-primary-rgb), 0.15);
 }
 
 .stepper-item-active .stepper-description {
-  color: var(--color-blue-600);
+  color: var(--color-light-primary);
 }
 
 /* Completed State - Light Mode */
@@ -819,12 +819,12 @@ html[data-theme="dark"] .stepper-item-active .stepper-item-header {
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-title {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-dot {
   background: var(--color-blue-500);
-  border-color: var(--color-blue-400);
+  border-color: var(--color-dark-primary);
   color: var(--color-white);
   box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.35);
 }
@@ -1017,8 +1017,8 @@ html[data-theme="dark"] .step-nav-btn {
 html[data-theme="dark"] .action-pill-btn:hover:not(:disabled),
 html[data-theme="dark"] .step-nav-btn:hover:not(:disabled) {
   background-color: var(--color-slate-700);
-  border-color: var(--color-blue-400);
-  color: var(--color-blue-400);
+  border-color: var(--color-dark-primarymary);
+  color: var(--color-dark-primarymary);
 }
 
 html[data-theme="dark"] .action-pill-btn:disabled,
@@ -1359,7 +1359,7 @@ html[data-theme="dark"] .visibility-section {
 
 .stepper-description-active,
 .stepper-description-no-source {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .stepper-description-active,
