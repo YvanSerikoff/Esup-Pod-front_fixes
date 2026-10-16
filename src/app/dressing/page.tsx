@@ -48,7 +48,7 @@ export default function DressingPage() {
 
   return (
     <div className={styles["content-box"]}>
-      <h1 className={`title`}>{t("dressingPage.title")}</h1>
+      <h1 className="title">{t("dressingPage.title")}</h1>
       <p className={styles["desc"]}>{t("dressingPage.pageDescription")}</p>
 
       {error && (

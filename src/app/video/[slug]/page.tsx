@@ -613,7 +613,7 @@ export default function Video() {
                   {video.documents && video.documents.length > 0 && (
                     <Tab
                       label={t("videoPage.resources")}
-                      value="ressources"
+                      value="resources"
                       className={styles["mobile-tab"]}
                     />
                   )}
@@ -692,7 +692,7 @@ export default function Video() {
                     </div>
                   </>
                 )}
-                {mobileTab === "commentaires" &&
+                {mobileTab === "comments" &&
                   config?.video?.active_video_comment !== false &&
                   (video.disable_comment ? (
                     <Alert type={VariantType.INFO}>
@@ -701,7 +701,7 @@ export default function Video() {
                   ) : (
                     <Comments videoSlug={video.slug} />
                   ))}
-                {mobileTab === "apropos" && (
+                {mobileTab === "about" && (
                   <section className={styles["sidebar-card"]}>
                     <h2 className={styles["sidebar-card-title"]}>
                       {t("videoPage.about")}

@@ -110,7 +110,7 @@ export default function AddPlaylist() {
     }
 
     if (!payload.description) {
-      setError(`${t("common.descRequired")}`);
+      setError(t("common.descRequired"));
       return;
     }
 
