@@ -25,7 +25,7 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .deleteAlert {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 .buttonsAction {

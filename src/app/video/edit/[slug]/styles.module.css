@@ -25,25 +25,6 @@
   --video-edit-color-error-light: #fca5a5;
 }
 
-/* -------  Breadcrumb --------- */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: var(--c--globals--font--sizes--sm);
-  color: var(--c--globals--colors--gray-600);
-  margin-bottom: var(--c--globals--spacings--sm);
-}
-
-.breadcrumb a {
-  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 /* -------  Page header --------- */
 .page-header {
   display: flex;

@@ -32,13 +32,13 @@
 }
 
 html[data-theme="dark"] .back-button {
-  background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-50) !important;
-  border-color: var(--color-slate-700) !important;
+  background-color: var(--color-slate-800);
+  color: var(--color-slate-50);
+  border-color: var(--color-slate-700);
 }
 
 html[data-theme="dark"] .back-button:hover {
-  background-color: var(--color-slate-700) !important;
-  color: var(--color-blue-400) !important;
-  border-color: var(--color-blue-400) !important;
+  background-color: var(--color-slate-700);
+  color: var(--color-blue-400);
+  border-color: var(--color-blue-400);
 }

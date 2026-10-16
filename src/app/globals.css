@@ -144,9 +144,7 @@ button:active,
   display: flex;
   flex-direction: column;
 }
-.back-button {
-  margin-bottom: var(--c--globals--spacings--md);
-}
+
 .main {
   padding-top: var(--navbar-height);
   transition: all 0.4s ease;
@@ -414,7 +412,7 @@ html[data-theme="dark"] .MuiDialogContent-dividers {
   border-color: var(--color-slate-700) !important;
 }
 
-html[data-theme="dark"] .MuiTypography-root,
+html[data-theme="dark"] .MuiTypography-root:not(.MuiLink-root),
 html[data-theme="dark"] .MuiFormLabel-root,
 html[data-theme="dark"] .MuiFormControlLabel-label,
 html[data-theme="dark"] .c__checkbox__label,
