@@ -286,17 +286,20 @@ export default function Theme() {
         ) : (
           <Box className={styles["page-full"]}>
             <Tabs
+              className={styles.tabs}
               value={selectedTab}
               onChange={handleChange}
               aria-label={t("channels.content")}
             >
               <Tab
+                className={styles.tabs}
                 disabled={themeItemVideos.length === 0}
                 label={`${t("channels.unclassified")} (${themeItemVideos.length})`}
                 value="unclassified"
               />
 
               <Tab
+                className={styles.tabs}
                 disabled={baseChildThemes.length === 0}
                 label={`${t("common.subtopics")} (${baseChildThemes.length})`}
                 value="childThemes"

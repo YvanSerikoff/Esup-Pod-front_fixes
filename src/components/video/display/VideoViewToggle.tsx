@@ -5,7 +5,6 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
 import type { VideoViewToggleProps } from "./types";
 import styles from "./styles.module.css";
-
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 export default function VideoViewToggle({
@@ -34,7 +33,7 @@ export default function VideoViewToggle({
           onClick={() => onChange("cards")}
           aria-pressed={view === "cards"}
         >
-          <span className={styles["toggle-buttonContent"]}>
+          <span className={styles["toggle-button-content"]}>
             <GridViewIcon fontSize="small" />
             <span className={styles["toggle-text"]}>
               {t("common.viewCards")}
@@ -53,7 +52,7 @@ export default function VideoViewToggle({
           onClick={() => onChange("grid")}
           aria-pressed={view === "grid"}
         >
-          <span className={styles["toggle-buttonContent"]}>
+          <span className={styles["toggle-button-content"]}>
             <TableRowsIcon fontSize="small" />
             <span className={styles["toggle-text"]}>
               {t("common.viewTable")}

@@ -231,17 +231,20 @@ export default function Channel() {
             <div>
               <Box className={styles["page-full"]}>
                 <Tabs
+                  className={styles.tabs}
                   value={value}
                   onChange={handleChange}
                   aria-label={t("channels.content")}
                 >
                   <Tab
+                    className={styles.tabs}
                     disabled={visibleAndPublicVideos.length === 0}
                     label={`${t("channels.unclassified")} (${videosCount})`}
                     value="unclassified"
                   />
 
                   <Tab
+                    className={styles.tabs}
                     disabled={channelAllThemes.length === 0}
                     label={` ${t("common.themes")} (${channelAllThemes.length})`}
                     value="themes"

@@ -197,6 +197,10 @@
   margin-bottom: var(--radius-sm);
 }
 
+html[data-theme="dark"] .bulkAffectedVideos {
+  background-color: var(--color-slate-900);
+}
+
 .bulkAffectedVideos {
   max-height: 140px;
   overflow-y: auto;
@@ -238,9 +242,19 @@
   white-space: nowrap;
 }
 
+html[data-theme="dark"] .bulkEncodingBadge {
+  background-color: #856404;
+  color: #fff3cd;
+}
+
 .bulkEncodingBadge {
   background-color: #fff3cd;
   color: #856404;
+}
+
+html[data-theme="dark"] .bulkEncodingErrorBadge {
+  background-color: #721c24;
+  color: #f8d7da;
 }
 
 .bulkEncodingErrorBadge {

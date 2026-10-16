@@ -5,31 +5,41 @@
   flex-wrap: wrap;
 }
 
-  .toggle-wrapper {
-    composes: toggle-wrapper from "../../shared/display-common.module.css";
-  }
+.toggle-wrapper {
+  composes: toggle-wrapper from "../../shared/display-common.module.css";
+}
+
+.toolbar {
+  composes: toolbar from "../../shared/display-common.module.css";
+}
+
 .toggle-group {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
   border: 1px solid var(--background-brand-secondary);
   max-width: 100%;
-  .toggle-label {
-    composes: toggle-label from "../../shared/display-common.module.css";
-  }
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+}
+
+.toggle-label {
+  composes: toggle-label from "../../shared/display-common.module.css";
+}
+
+.toggle-group {
+  composes: toggle-group from "../../shared/display-common.module.css";
 }
 
 @media (max-width: 600px) {
   .toolbar {
     flex-direction: column;
     align-items: stretch;
-  .toggle-group {
-    composes: toggle-group from "../../shared/display-common.module.css";
   }
-  font-weight: var(--c--globals--font--weights--bold) !important;
+}
+
+.toggle-button,
+.toggle-button-active {
+  composes: toggle-button from "../../shared/display-common.module.css";
 }
 
 .toggle-button {
@@ -68,9 +78,6 @@
   object-fit: cover;
   border-radius: var(--radius-sm);
   box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
-.toggle-button,
-.toggle-button-active {
-  composes: toggle-button from "../../shared/display-common.module.css";
 }
 
 .table-title-link {

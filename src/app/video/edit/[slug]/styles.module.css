@@ -833,7 +833,7 @@ html[data-theme="dark"] .stepper-description {
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-item-header {
-  background: rgba(var(--color-blue-500-rgb), 0.25);
+  background: var(--video-edit-color-stepper-dark-background);
   border-color: var(--color-blue-500);
 }
 
@@ -1057,10 +1057,6 @@ html[data-theme="dark"] .visibility-section {
   color: var(--color-slate-50);
 }
 
-html[data-theme="dark"] .restriction-options {
-  background: var(--c--theme--colors--card-bg, var(--color-slate-900));
-}
-
 .video-error-container {
   display: flex;
   flex-direction: column;
@@ -1271,11 +1267,7 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .restriction-options {
-  margin-top: var(--radius-sm);
-  padding: var(--radius-md);
-  border: 1px solid var(--border-color, var(--color-gray-200));
-  border-radius: 6px;
-  background: var(--c--theme--colors--card-bg, var(--color-gray-50));
+  composes: restriction-options from "../../../shared/common.module.css";
 }
 
 .restriction-options-title {

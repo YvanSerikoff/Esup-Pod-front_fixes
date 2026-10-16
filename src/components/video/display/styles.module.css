@@ -48,9 +48,6 @@
   composes: toggle-button from "../../shared/display-common.module.css";
 }
 
-.toggle-button {
-}
-
 .toggle-button-active {
   composes: toggle-button-active from "../../shared/display-common.module.css";
 }
