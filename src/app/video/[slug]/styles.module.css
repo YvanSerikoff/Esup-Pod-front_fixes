@@ -218,11 +218,11 @@
   list-style-type: none;
 }
 
-.sidebar-blue-text {
+.sidebar-text {
   color: var(--color-brand-teal); /* Teal/Blue color matching the mockup */
   padding-left: 28px;
 }
-.sidebar-list-item ul li.sidebar-blue-text {
+.sidebar-list-item ul li.sidebar-text {
   padding-left: 28px;
 }
 
@@ -490,12 +490,11 @@
 :global(html[data-theme="dark"]) .video-infos-header-time,
 :global(html[data-theme="dark"]) .video-infos-details dt,
 :global(html[data-theme="dark"]) .sidebar-list-item h4,
-:global(html[data-theme="dark"]) .sidebar-list-item p,
 :global(html[data-theme="dark"]) .sidebar-list-item ul {
   color: var(--color-slate-400);
 }
 
-:global(html[data-theme="dark"]) .sidebar-blue-text {
+html[data-theme="dark"] .sidebar-text {
   color: var(--color-dark-primary);
 }
 

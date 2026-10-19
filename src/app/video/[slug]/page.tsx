@@ -601,13 +601,13 @@ export default function Video() {
                   {config?.video?.active_video_comment !== false && (
                     <Tab
                       label={t("comments.title")}
-                      value="comments"
+                      value="commentaires"
                       className={styles["mobile-tab"]}
                     />
                   )}
                   <Tab
                     label={t("videoPage.about")}
-                    value="about"
+                    value="apropos"
                     className={styles["mobile-tab"]}
                   />
                   {video.documents && video.documents.length > 0 && (
@@ -712,7 +712,7 @@ export default function Video() {
                         <LibraryBooksIcon fontSize="small" />{" "}
                         {t("videoPage.type")}
                       </h4>
-                      <p className={styles["sidebar-blue-text"]}>
+                      <p className={styles["sidebar-text"]}>
                         {video.type_name || `${t("videoPage.none")}`}
                       </p>
                     </div>
@@ -724,15 +724,12 @@ export default function Video() {
                       <ul>
                         {video.discipline_details?.length ? (
                           video.discipline_details.map((d) => (
-                            <li
-                              key={d.id}
-                              className={styles["sidebar-blue-text"]}
-                            >
+                            <li key={d.id} className={styles["sidebar-text"]}>
                               {d.title}
                             </li>
                           ))
                         ) : (
-                          <li className={styles["sidebar-blue-text"]}>
+                          <li className={styles["sidebar-text"]}>
                             {t("videoPage.none")}
                           </li>
                         )}
@@ -743,7 +740,7 @@ export default function Video() {
                         <SchoolIcon fontSize="small" />{" "}
                         {t("videoPage.contributors")}
                       </h4>
-                      <p className={styles["sidebar-blue-text"]}>
+                      <p className={styles["sidebar-text"]}>
                         {getVideoOwnerDisplayName(
                           video,
                           config?.authentication,
@@ -927,7 +924,7 @@ export default function Video() {
                 <h3>
                   <LibraryBooksIcon fontSize="small" /> {t("videoPage.type")}
                 </h3>
-                <p className={styles["sidebar-blue-text"]}>
+                <p className={styles["sidebar-text"]}>
                   {video.type_name || t("videoPage.none")}
                 </p>
               </div>
@@ -938,7 +935,7 @@ export default function Video() {
                     <PieChartIcon fontSize="small" aria-hidden="true" />{" "}
                     {t("videoPage.eventDate")}
                   </h3>
-                  <p className={styles["sidebar-blue-text"]}>
+                  <p className={styles["sidebar-text"]}>
                     {formatDateOnly(video.date_of_event, locale)}
                   </p>
                 </div>
@@ -952,12 +949,12 @@ export default function Video() {
                 <ul>
                   {video.discipline_details?.length ? (
                     video.discipline_details.map((d) => (
-                      <li key={d.id} className={styles["sidebar-blue-text"]}>
+                      <li key={d.id} className={styles["sidebar-text"]}>
                         {d.title}
                       </li>
                     ))
                   ) : (
-                    <li className={styles["sidebar-blue-text"]}>
+                    <li className={styles["sidebar-text"]}>
                       {t("videoPage.none")}
                     </li>
                   )}
@@ -968,7 +965,7 @@ export default function Video() {
                 <h3>
                   <SchoolIcon fontSize="small" /> {t("videoPage.contributors")}
                 </h3>
-                <p className={styles["sidebar-blue-text"]}>
+                <p className={styles["sidebar-text"]}>
                   {getVideoOwnerDisplayName(
                     video,
                     config?.authentication,
@@ -989,7 +986,7 @@ export default function Video() {
                   <MonitorIcon fontSize="small" aria-hidden="true" />{" "}
                   {t("videoPage.license")}
                 </h3>
-                <p className={styles["sidebar-blue-text"]}>
+                <p className={styles["sidebar-text"]}>
                   {video.license ?? t("videoPage.none")}
                 </p>
               </div>
@@ -999,7 +996,7 @@ export default function Video() {
                   <PieChartIcon fontSize="small" aria-hidden="true" />{" "}
                   {t("videoPage.cursus")}
                 </h3>
-                <p className={styles["sidebar-blue-text"]}>
+                <p className={styles["sidebar-text"]}>
                   {getCursusLabel(video.cursus, t)}
                 </p>
               </div>
