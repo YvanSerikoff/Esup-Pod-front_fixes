@@ -141,29 +141,23 @@ html[data-theme="dark"] .filter-menu {
   gap: 0.5rem;
 }
 
-.filterChip {
-  margin: 2px;
-  border-radius: var(--radius-lg);
-  background-color: rgba(var(--color-primary-accent-rgb), 0.15);
-  color: var(--text-color, var(--color-slate-900));
-  border: 1px solid rgba(var(--color-primary-accent-rgb), 0.35);
-  font-weight: 600;
-  font-size: 0.8rem;
+.filter-chip-label {
+  color: inherit;
 }
 
-.filterChip :global(.MuiChip-deleteIcon) {
-  color: rgba(var(--color-slate-400-rgb), 0.9);
+.filter-chip-close {
+  margin-left: 4px;
+  font-size: 1.1rem;
+  color: inherit;
+  opacity: 0.8;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
 }
 
-.filterChip :global(.MuiChip-deleteIcon:hover) {
+.filter-chip-close:hover {
+  opacity: 1;
   color: var(--color-red-500);
-}
-
-html[data-theme="dark"] .filterChip {
-  background-color: rgba(var(--color-primary-accent-rgb), 0.25);
-  color: var(--color-white);
-  border-color: var(--color-primary-accent);
-  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-primary-accent-rgb), 0.2);
 }
 
 :global(html[data-theme="dark"]) .clear-filters-btn {

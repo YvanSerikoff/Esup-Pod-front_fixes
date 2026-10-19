@@ -2,9 +2,9 @@
 
 import { useMemo } from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@openfun/cunningham-react";
@@ -71,13 +71,28 @@ const FilterChip = ({
   label: string;
   onDelete: () => void;
 }) => (
-  <Chip
-    label={label}
-    onDelete={onDelete}
-    deleteIcon={<CloseIcon />}
-    size="small"
-    className={styles.filterChip}
-  />
+  <div
+    className={`${styles["filter-button"]} ${styles["active"]}`}
+    onClick={onDelete}
+    role="button"
+    tabIndex={0}
+    onKeyDown={(event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onDelete();
+      }
+    }}
+  >
+    <Typography
+      variant="body2"
+      fontWeight={600}
+      noWrap
+      className={styles["filter-chip-label"]}
+    >
+      {label}
+    </Typography>
+    <CloseIcon fontSize="small" className={styles["filter-chip-close"]} />
+  </div>
 );
 
 export const INITIAL_COLLECTION_FILTERS: CollectionFiltersValue = {
