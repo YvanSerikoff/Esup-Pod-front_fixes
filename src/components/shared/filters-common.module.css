@@ -43,8 +43,8 @@
 
 .filter-button.active {
   border: 1.5px solid var(--color-light-primary) !important;
-  background-color: var(--color-blue-50) !important;
-  color: var(--color-blue-700) !important;
+  background-color: var(--background-primary-subtle) !important;
+  color: var(--color-primary-text) !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
 }

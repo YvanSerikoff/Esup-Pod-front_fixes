@@ -48,9 +48,9 @@
   margin: var(--radius-lg) 0 var(--c--globals--spacings--xs) 14px;
   background-color: var(
     --background-brand-secondary,
-    rgba(var(--color-blue-500-rgb), 0.15)
+    rgba(var(--color-primary-accent-rgb), 0.15)
   );
-  color: var(--background-brand, var(--color-blue-500));
+  color: var(--background-brand, var(--color-primary-accent));
   font-size: 0.85rem;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -88,15 +88,15 @@
 }
 
 .menu-item:global(.MuiListItemButton-root.Mui-selected).menu-item-active {
-  background-color: rgba(var(--color-blue-500-rgb), 0.15);
+  background-color: rgba(var(--color-primary-accent-rgb), 0.15);
 }
 
 .menu-item-expanded:global(.Mui-selected) {
-  background-color: rgba(var(--color-blue-500-rgb), 0.08);
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08);
 }
 
 .menu-item:global(.MuiListItemButton-root.Mui-selected).menu-item-active:hover {
-  background-color: rgba(var(--color-blue-500-rgb), 0.22);
+  background-color: rgba(var(--color-primary-accent-rgb), 0.22);
 }
 
 .menu-item:hover {
@@ -123,7 +123,7 @@
 
 .menu-item-icon-svg-active:global(.MuiSvgIcon-root),
 .menu-item-text-active :global(.MuiTypography-root) {
-  color: var(--color-blue-500);
+  color: var(--color-primary-accent);
 }
 
 .menu-item-text :global(.MuiTypography-root) {
@@ -145,7 +145,7 @@
 }
 
 .menu-expand-icon-active {
-  color: var(--color-blue-500);
+  color: var(--color-primary-accent);
 }
 
 .navbar-profil-menu {

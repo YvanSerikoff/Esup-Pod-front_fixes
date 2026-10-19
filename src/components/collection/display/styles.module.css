@@ -95,7 +95,7 @@
 
 .type-badge {
   display: inline-block;
-  background: rgba(var(--color-blue-500-rgb), 0.15);
+  background: rgba(var(--color-primary-accent-rgb), 0.15);
   color: var(--color-dark-primary);
   border-radius: 9999px;
   padding: 3px 10px;

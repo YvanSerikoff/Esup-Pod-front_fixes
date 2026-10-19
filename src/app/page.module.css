@@ -38,7 +38,7 @@
 }
 
 .welcome-green-box span[class*="material-icons"] {
-  color: var(--c--globals--colors--primary-600, var(--color-primary));
+  color: var(--c--globals--colors--primary-600, var(--color-light-primary));
 }
 
 html[data-theme="dark"] .welcome-green-box {
@@ -52,7 +52,7 @@ html[data-theme="dark"] .welcome-green-box span[class*="material-icons"] {
 }
 
 .welcome-link-title {
-  color: var(--c--globals--colors--primary-600, var(--color-primary));
+  color: var(--c--globals--colors--primary-600, var(--color-light-primary));
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
@@ -65,7 +65,7 @@ html[data-theme="dark"] .welcome-link-title {
 }
 
 .welcome-link {
-  color: var(--color-primary);
+  color: var(--color-light-primary);
   text-decoration: none;
   font-weight: 600;
 }

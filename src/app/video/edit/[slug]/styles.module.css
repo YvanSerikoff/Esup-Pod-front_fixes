@@ -6,7 +6,7 @@
   --video-edit-color-primary-700-fallback: #006b72;
   --video-edit-color-gray-100-fallback: #f5f5f5;
   --video-edit-color-thumbnail-background: #eaf1fb;
-  --video-edit-color-blue-200: #bfdbfe;
+  --video-edit-color-border-highlight: #bfdbfe;
   --video-edit-color-red-500-rgb: 239, 68, 68;
   --video-edit-color-completed: #047857;
   --video-edit-color-error: #dc2626;
@@ -740,12 +740,12 @@
 
 /* Active State - Light Mode */
 .stepper-item-active .stepper-item-header {
-  background: var(--color-blue-50);
-  border-color: var(--video-edit-color-blue-200);
+  background: var(--background-primary-subtle);
+  border-color: var(--video-edit-color-border-highlight);
 }
 
 .stepper-item-active .stepper-title {
-  color: var(--color-blue-700);
+  color: var(--color-primary-text);
   font-weight: 700;
 }
 
@@ -791,7 +791,7 @@ html[data-theme="dark"] .stepper-line-bg {
 }
 
 html[data-theme="dark"] .stepper-line-progress {
-  background-color: var(--color-blue-500);
+  background-color: var(--color-primary-accent);
 }
 
 html[data-theme="dark"] .stepper-item-header {
@@ -815,7 +815,7 @@ html[data-theme="dark"] .stepper-description {
 
 html[data-theme="dark"] .stepper-item-active .stepper-item-header {
   background: var(--video-edit-color-stepper-dark-background);
-  border-color: var(--color-blue-500);
+  border-color: var(--color-primary-accent);
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-title {
@@ -823,14 +823,14 @@ html[data-theme="dark"] .stepper-item-active .stepper-title {
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-dot {
-  background: var(--color-blue-500);
+  background: var(--color-primary-accent);
   border-color: var(--color-dark-primary);
   color: var(--color-white);
-  box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.35);
+  box-shadow: 0 0 0 4px rgba(var(--color-primary-accent-rgb), 0.35);
 }
 
 html[data-theme="dark"] .stepper-item-active .stepper-description {
-  color: var(--color-blue-300);
+  color: var(--color-primary-highlight);
 }
 
 html[data-theme="dark"] .stepper-item-completed .stepper-title {

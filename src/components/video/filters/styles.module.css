@@ -112,8 +112,8 @@
 
 .filter-button.active {
   border: 1.5px solid var(--color-light-primary) !important;
-  background-color: var(--color-blue-50) !important;
-  color: var(--color-blue-700) !important;
+  background-color: var(--background-primary-subtle) !important;
+  color: var(--color-primary-text) !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
 }
@@ -130,10 +130,10 @@ html[data-theme="dark"] .filter-button:hover {
 }
 
 html[data-theme="dark"] .filter-button.active {
-  background-color: rgba(var(--color-blue-500-rgb), 0.25) !important;
-  border: 1.5px solid var(--color-blue-500) !important;
+  background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
+  border: 1.5px solid var(--color-primary-accent) !important;
   color: var(--color-white) !important;
-  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-blue-500-rgb), 0.25) !important;
+  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-primary-accent-rgb), 0.25) !important;
 }
 
 .filter-menu {
@@ -168,7 +168,7 @@ html[data-theme="dark"] .filter-button.active {
 }
 
 html[data-theme="dark"] .filter-count {
-  background-color: var(--color-blue-500);
+  background-color: var(--color-primary-accent);
 }
 
 .filter-chevron {
@@ -331,10 +331,10 @@ html[data-theme="dark"] .filter-button:hover {
 }
 
 html[data-theme="dark"] .filter-button.active {
-  background-color: rgba(var(--color-blue-500-rgb), 0.25) !important;
-  border-color: var(--color-blue-500) !important;
+  background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
+  border-color: var(--color-primary-accent) !important;
   color: var(--color-white) !important;
-  box-shadow: 0 0 10px rgba(var(--color-blue-500-rgb), 0.3) !important;
+  box-shadow: 0 0 10px rgba(var(--color-primary-accent-rgb), 0.3) !important;
 }
 
 html[data-theme="dark"] .filter-button.active p,

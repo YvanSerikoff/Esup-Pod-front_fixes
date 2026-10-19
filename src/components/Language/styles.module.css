@@ -65,7 +65,7 @@
 .language-menu-item:global(.Mui-selected) {
   background-color: var(
     --c--contextuals--background--semantic--brand--secondary,
-    rgba(var(--color-blue-500-rgb), 0.1)
+    rgba(var(--color-primary-accent-rgb), 0.1)
   ) !important;
   color: var(
     --c--contextuals--background--semantic--brand--primary,
