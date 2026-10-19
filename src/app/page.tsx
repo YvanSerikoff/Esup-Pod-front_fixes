@@ -65,7 +65,7 @@ export default function Accueil() {
           </div>
 
           {/* Right Box */}
-          <div className={styles["welcome-green-box"]}>
+          <div className={styles["welcome-box"]}>
             <span
               className={`material-icons ${styles["welcome-icon"]}`}
               aria-hidden="true"
