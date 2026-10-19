@@ -50,7 +50,7 @@
     0 0,
     0 10px,
     10px -10px,
-    -10px 0px;
+    -10px 0;
   background-color: var(--color-white);
   border-bottom: 1px solid var(--c--theme--colors--border);
 }

@@ -526,7 +526,7 @@
 }
 
 :global(html[data-theme="dark"]) .sidebar-blue-text {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 :global(html[data-theme="dark"]) .video-infos-description {

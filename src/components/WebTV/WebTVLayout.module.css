@@ -172,7 +172,11 @@
   height: 120px;
   margin-top: 1rem;
   border-radius: 2px;
-  background: linear-gradient(135deg, #4f46e5 0%, var(--color-blue-500) 100%);
+  background: linear-gradient(
+    135deg,
+    #4f46e5 0%,
+    var(--color-primary-accent) 100%
+  );
 }
 
 .block-wrapper {
@@ -247,7 +251,7 @@
 }
 
 .collection-banner-color-3 {
-  background-color: var(--color-blue-500);
+  background-color: var(--color-primary-accent);
 }
 
 .collection-banner-color-4 {

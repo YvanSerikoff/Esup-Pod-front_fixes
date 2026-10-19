@@ -24,15 +24,15 @@
   display: inline-flex;
   align-items: center;
   padding: 2px 10px;
-  background-color: rgba(var(--color-blue-500-rgb), 0.08);
-  border: 1px solid rgba(var(--color-blue-500-rgb), 0.2);
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08);
+  border: 1px solid rgba(var(--color-primary-accent-rgb), 0.2);
   border-radius: 9999px;
   transition: all 0.2s ease;
 }
 
 .select-all-container:hover {
-  background-color: rgba(var(--color-blue-500-rgb), 0.15);
-  border-color: var(--color-blue-500);
+  background-color: rgba(var(--color-primary-accent-rgb), 0.15);
+  border-color: var(--color-primary-accent);
 }
 
 @media (max-width: 600px) {
@@ -102,16 +102,16 @@
 }
 
 :global(html[data-theme="dark"]) .table-title-link {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primarymary);
 }
 
 .table-title-link:hover {
-  color: var(--color-blue-600);
+  color: var(--color-light-primary);
   text-decoration: underline;
 }
 
 :global(html[data-theme="dark"]) .table-title-link:hover {
-  color: var(--color-blue-300);
+  color: var(--color-primary-highlight);
 }
 
 .count-badge {
@@ -163,12 +163,12 @@
 }
 
 .status-password {
-  background: rgba(var(--color-blue-500-rgb), 0.15);
-  color: var(--color-blue-600);
+  background: rgba(var(--color-primary-accent-rgb), 0.15);
+  color: var(--color-light-primary);
 }
 
 :global(html[data-theme="dark"]) .status-password {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 .pagination-wrapper {

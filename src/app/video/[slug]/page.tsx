@@ -76,7 +76,7 @@ function VideoPageSkeleton() {
   return (
     // Skeleton loading blocks
     <div>
-      <div className={styles["skeleton-back-button"]} />
+      <div className={`skeleton-block ${styles["skeleton-back-button"]}`} />
       <div className={styles["main-video-content"]}>
         <section className={styles["skeleton-main-section"]}>
           <div className={`skeleton-block ${styles["skeleton-video"]}`} />

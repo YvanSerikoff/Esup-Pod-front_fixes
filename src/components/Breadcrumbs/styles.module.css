@@ -1,5 +1,10 @@
 .breadcrumb {
-  background-color: var(--c--globals--colors--gray-025);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--c--globals--font--sizes--sm);
+  margin-bottom: var(--c--globals--spacings--sm);
+  background-color: var(--background);
   padding: var(--radius-sm) var(--c--globals--spacings--md);
   border-bottom: 1px solid var(--c--globals--colors--gray-200);
   position: -webkit-sticky;
@@ -11,20 +16,20 @@
     border-color 0.3s ease;
 }
 
-.breadcrumbLink {
-  font-size: var(--c--globals--font--sizes--xs) !important;
-  color: var(--text-color) !important;
+.breadcrumb-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
 }
 
 html[data-theme="dark"] .breadcrumb {
-  background-color: var(--color-slate-800) !important;
-  border-bottom-color: var(--color-slate-700) !important;
+  background-color: var(--color-slate-800);
+  border-bottom-color: var(--color-slate-700);
 }
 
 html[data-theme="dark"] .breadcrumb-link {
-  color: var(--color-slate-400) !important;
-}
-
-html[data-theme="dark"] .breadcrumb-link:hover {
-  color: var(--color-blue-400) !important;
+  color: var(--color-slate-400);
 }

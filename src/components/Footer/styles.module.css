@@ -92,7 +92,7 @@
 /* For Mobile & Tablets screens */
 @media (max-width: 1024px) {
   .footer {
-    margin-left: 0px;
+    margin-left: 0;
   }
   .footer-content,
   .footer-link {

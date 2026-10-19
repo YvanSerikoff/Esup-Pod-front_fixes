@@ -12,8 +12,6 @@ Extra Large Screens: min-width: 1441px
 */
 
 :root {
-  --color-blue-500: #3b82f6;
-  --color-blue-500-rgb: 59, 130, 246;
   --color-brand-teal: #00818a;
   --color-brand-teal-rgb: 0, 129, 138;
   --color-white: #ffffff;
@@ -32,12 +30,6 @@ Extra Large Screens: min-width: 1441px
   --color-slate-300: #cbd5e1;
   --color-slate-600: #475569;
   --color-slate-400-rgb: 148, 163, 184;
-  --color-blue-400: #60a5fa;
-  --color-blue-600: #2563eb;
-  --color-blue-600-rgb: 37, 99, 235;
-  --color-blue-700: #1d4ed8;
-  --color-blue-300: #93c5fd;
-  --color-blue-50: #eff6ff;
   --color-red-500: #ef4444;
   --color-red-700: #d32f2f;
   --color-gray-50: #f9fafb;
@@ -71,6 +63,16 @@ Extra Large Screens: min-width: 1441px
   --radius-lg: 16px;
   --title-size: 2rem;
   --subtitle-size: 1.5rem;
+
+  /* Main Colors */
+  --color-dark-primary: #60a5fa;
+  --color-light-primary: #2563eb;
+  --color-primary-text: #1d4ed8;
+  --color-primary-highlight: #93c5fd;
+  --background-primary-subtle: #eff6ff;
+  --color-primary-accent: #3b82f6;
+  --color-light-primary-rgb: 37, 99, 235;
+  --color-primary-accent-rgb: 59, 130, 246;
 }
 
 html,
@@ -144,9 +146,7 @@ button:active,
   display: flex;
   flex-direction: column;
 }
-.back-button {
-  margin-bottom: var(--c--globals--spacings--md);
-}
+
 .main {
   padding-top: var(--navbar-height);
   transition: all 0.4s ease;
@@ -289,12 +289,12 @@ html[data-theme="dark"],
 body.dark-mode {
   --background: var(--color-slate-900) !important;
   --text-color: var(--color-slate-50) !important;
-  --text-color-brand: var(--color-blue-300) !important;
+  --text-color-brand: var(--color-primary-highlight) !important;
   --c--contextuals--content--semantic--neutral--primary: var(
     --color-slate-50
   ) !important;
   --c--contextuals--background--semantic--brand--primary: var(
-    --color-blue-600
+    --color-light-primary
   ) !important;
   --c--contextuals--background--semantic--brand--secondary: var(
     --color-slate-800
@@ -327,7 +327,7 @@ html[data-theme="dark"] dd {
 }
 
 html[data-theme="dark"] a {
-  color: var(--color-blue-400);
+  color: var(--color-dark-primary);
 }
 
 /* Cards & Containers in Dark Mode */
@@ -414,7 +414,7 @@ html[data-theme="dark"] .MuiDialogContent-dividers {
   border-color: var(--color-slate-700) !important;
 }
 
-html[data-theme="dark"] .MuiTypography-root,
+html[data-theme="dark"] .MuiTypography-root:not(.MuiLink-root),
 html[data-theme="dark"] .MuiFormLabel-root,
 html[data-theme="dark"] .MuiFormControlLabel-label,
 html[data-theme="dark"] .c__checkbox__label,
@@ -431,15 +431,15 @@ html[data-theme="dark"] .c__file-uploader,
 html[data-theme="dark"] div[class*="vignette-upload"],
 html[data-theme="dark"] div[class*="vignette-empty-zone"],
 html[data-theme="dark"] div[class*="dropzone"] {
-  background-color: rgba(var(--color-blue-500-rgb), 0.08) !important;
-  border-color: var(--color-blue-500) !important;
-  color: var(--color-blue-400) !important;
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08) !important;
+  border-color: var(--color-primary-accent) !important;
+  color: var(--color-dark-primary) !important;
 }
 
 html[data-theme="dark"] .c__file-uploader__label,
 html[data-theme="dark"] div[class*="vignette-empty-title"],
 html[data-theme="dark"] div[class*="vignette-empty-hint"] {
-  color: var(--color-blue-400) !important;
+  color: var(--color-dark-primary) !important;
 }
 
 /* Container boxes inside edit form & modals in Dark Mode */
@@ -557,5 +557,5 @@ html[data-theme="dark"] div[class*="dataGrid"] td {
 .c__datagrid__row:hover,
 div[class*="dataGrid"] tbody tr:hover,
 div[class*="dataGrid"] tbody tr:hover td {
-  background-color: rgba(var(--color-blue-500-rgb), 0.08) !important;
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08) !important;
 }

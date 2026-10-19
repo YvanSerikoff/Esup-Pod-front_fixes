@@ -67,7 +67,7 @@
 .statisticIcon,
 .metadataIcon {
   color: var(--mui-palette-text-secondary, rgba(var(--color-black-rgb), 0.6));
-  font-size: 1rem !important;
+  font-size: 1rem;
 }
 
 .statisticText {
@@ -144,8 +144,7 @@
 }
 
 .playlistCardContent {
-  padding: var(--radius-lg) !important;
-  padding-bottom: var(--radius-lg) !important;
+  padding: var(--radius-lg);
 }
 
 .playlistTitleRow {
@@ -195,10 +194,10 @@ html[data-theme="dark"] .menuButton {
   color: var(--color-slate-50);
 }
 
-.menuButton:hover {
+.menuButton:global(.MuiIconButton-root):hover {
   background-color: var(
     --c--contextuals--background--semantic--brand--tertiary
-  ) !important;
+  );
 }
 
 .deleteDecorator {
