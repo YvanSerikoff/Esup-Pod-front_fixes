@@ -321,7 +321,7 @@
 }
 
 .videoActionDeleteItem {
-  color: var(--color-red-500) !important;
+  color: var(--c--contextuals--content--semantic--error--secondary) !important;
 }
 
 .videoActionDeleteItem:hover {
@@ -329,7 +329,7 @@
 }
 
 .videoActionDeleteIcon {
-  color: var(--color-red-500) !important;
+  color: var(--c--contextuals--content--semantic--error--secondary) !important;
   min-width: auto !important;
 }
 

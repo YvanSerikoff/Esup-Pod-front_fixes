@@ -599,7 +599,10 @@
 }
 
 .required-star {
-  color: var(--c--globals--colors--error-600, var(--color-red-700));
+  color: var(
+    --c--contextuals--background--semantic--error--primary,
+    var(--color-red-700)
+  );
 }
 
 .lang-indicator {
@@ -676,7 +679,7 @@
   top: 14px;
   left: 30px;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--color-light-primary);
   z-index: 2;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -750,9 +753,9 @@
 }
 
 .stepper-item-active .stepper-dot {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-white);
+  background: rgba(var(--color-light-primary-rgb), 0.15);
+  border-color: var(--color-light-primary);
+  color: var(--color-light-primary);
   box-shadow: 0 0 0 4px rgba(var(--color-light-primary-rgb), 0.15);
 }
 

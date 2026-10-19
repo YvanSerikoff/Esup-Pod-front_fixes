@@ -44,24 +44,16 @@
   composes: filter-button from "../../shared/filters-common.module.css";
 }
 
-.filter-chip-label,
+.filter-chip-label {
+  composes: filter-chip-label from "../../shared/filters-common.module.css";
+}
+
 .filter-control-icon {
   color: inherit;
 }
 
 .filter-chip-close {
-  margin-left: 4px;
-  font-size: 1.1rem;
-  color: inherit;
-  opacity: 0.8;
-  transition:
-    opacity 0.2s ease,
-    color 0.2s ease;
-}
-
-.filter-chip-close:hover {
-  opacity: 1;
-  color: var(--color-red-500);
+  composes: filter-chip-close from "../../shared/filters-common.module.css";
 }
 
 .search-field {
@@ -95,45 +87,11 @@
 }
 
 .active-filters-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: var(--radius-lg);
-  gap: var(--radius-md);
-  padding-top: var(--radius-md);
-  border-top: 1px solid rgba(var(--color-black-rgb), 0.12);
+  composes: active-filters-row from "../../shared/filters-common.module.css";
 }
 
-.filter-button:hover {
-  border-color: var(--color-light-primaryimary) !important;
-  background-color: rgba(var(--color-light-primary-rgb), 0.04) !important;
-}
-
-.filter-button.active {
-  border: 1.5px solid var(--color-light-primary) !important;
-  background-color: var(--background-primary-subtle) !important;
-  color: var(--color-primary-text) !important;
-  font-weight: 600 !important;
-  box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
-}
-
-html[data-theme="dark"] .filter-button {
-  background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-50) !important;
-  border-color: var(--color-slate-700) !important;
-}
-
-html[data-theme="dark"] .filter-button:hover {
-  background-color: var(--color-slate-700) !important;
-  border-color: var(--color-dark-primary) !important;
-}
-
-html[data-theme="dark"] .filter-button.active {
-  background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
-  border: 1.5px solid var(--color-primary-accent) !important;
-  color: var(--color-white) !important;
-  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-primary-accent-rgb), 0.25) !important;
+.active {
+  composes: filter-button-active from "../../shared/filters-common.module.css";
 }
 
 .filter-menu {
@@ -263,9 +221,11 @@ html[data-theme="dark"] .filter-chevron-active {
 }
 
 .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  composes: chips from "../../shared/filters-common.module.css";
+}
+
+.clear-filters-btn {
+  composes: clear-filters-btn from "../../shared/filters-common.module.css";
 }
 
 .searchF-field {
@@ -318,41 +278,6 @@ html[data-theme="dark"] .filter-chevron-active {
 /* DARK MODE OVERRIDES FOR FILTERS                                            */
 /* ========================================================================== */
 
-html[data-theme="dark"] .filter-button {
-  background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-400) !important;
-  border-color: var(--color-slate-700) !important;
-}
-
-html[data-theme="dark"] .filter-button:hover {
-  background-color: var(--color-slate-700) !important;
-  border-color: var(--color-dark-primary) !important;
-  color: var(--color-slate-50) !important;
-}
-
-html[data-theme="dark"] .filter-button.active {
-  background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
-  border-color: var(--color-primary-accent) !important;
-  color: var(--color-white) !important;
-  box-shadow: 0 0 10px rgba(var(--color-primary-accent-rgb), 0.3) !important;
-}
-
-html[data-theme="dark"] .filter-button.active p,
-html[data-theme="dark"] .filter-button.active svg,
-html[data-theme="dark"] .filter-button.active span {
-  color: var(--color-white) !important;
-}
-
-html[data-theme="dark"] .filter-menu {
-  background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-50) !important;
-  border-color: var(--color-slate-700) !important;
-}
-
 html[data-theme="dark"] .filter-option:hover {
   background-color: rgba(var(--color-white-rgb), 0.08) !important;
-}
-
-:global(html[data-theme="dark"]) .clear-filters-btn {
-  color: var(--color-dark-primary) !important;
 }

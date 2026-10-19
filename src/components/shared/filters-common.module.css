@@ -41,12 +41,52 @@
   background-color: rgba(var(--color-light-primary-rgb), 0.04) !important;
 }
 
-.filter-button.active {
+.filter-button-active {
+  composes: filter-button;
+}
+
+.filter-button.filter-button-active {
   border: 1.5px solid var(--color-light-primary) !important;
   background-color: var(--background-primary-subtle) !important;
   color: var(--color-primary-text) !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
+}
+
+.filter-chip-label {
+  color: inherit;
+}
+
+.filter-chip-close {
+  margin-left: 4px;
+  font-size: 1.1rem;
+  color: inherit;
+  opacity: 0.8;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.filter-chip-close:hover {
+  opacity: 1;
+  color: var(--c--contextuals--content--semantic--error--secondary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.active-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--radius-lg);
+  gap: var(--radius-md);
+  padding-top: var(--radius-md);
+  border-top: 1px solid rgba(var(--color-black-rgb), 0.12);
 }
 
 .filter-menu {
@@ -60,6 +100,37 @@
   ) !important;
 }
 
+:global(html[data-theme="dark"]) .filter-button {
+  background-color: var(--color-slate-800) !important;
+  color: var(--color-slate-400) !important;
+  border-color: var(--color-slate-700) !important;
+}
+
+:global(html[data-theme="dark"]) .filter-button:hover {
+  background-color: var(--color-slate-700) !important;
+  border-color: var(--color-dark-primary) !important;
+  color: var(--color-slate-50) !important;
+}
+
+:global(html[data-theme="dark"]) .filter-button.filter-button-active {
+  background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
+  border-color: var(--color-primary-accent) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 0 10px rgba(var(--color-primary-accent-rgb), 0.3) !important;
+}
+
+:global(html[data-theme="dark"]) .filter-button.filter-button-active p,
+:global(html[data-theme="dark"]) .filter-button.filter-button-active svg,
+:global(html[data-theme="dark"]) .filter-button.filter-button-active span {
+  color: var(--color-white) !important;
+}
+
+:global(html[data-theme="dark"]) .filter-menu {
+  background-color: var(--color-slate-800) !important;
+  color: var(--color-slate-50) !important;
+  border-color: var(--color-slate-700) !important;
+}
+
 .clear-filters-btn {
   color: var(--color-light-primary) !important;
   font-weight: 600 !important;
@@ -70,4 +141,8 @@
 .clear-filters-btn:hover {
   color: var(--color-red-500) !important;
   text-decoration: underline !important;
+}
+
+:global(html[data-theme="dark"]) .clear-filters-btn {
+  color: var(--color-dark-primary) !important;
 }

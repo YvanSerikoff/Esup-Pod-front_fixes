@@ -57,6 +57,10 @@ Extra Large Screens: min-width: 1441px
   --text-color: var(--c--contextuals--content--semantic--neutral--primary);
   --text-color-brand: var(--c--contextuals--content--semantic--brand--primary);
 
+  --bg-public-rgba: 34, 197, 94, 0.15;
+  --bg-restricted-rgba: 245, 158, 11, 0.18;
+  --bg-password-rgba: 59, 130, 246, 0.15;
+
   /* Modern Design Tokens */
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -81,6 +85,26 @@ body,
 #root {
   min-height: 100vh;
 }
+
+/* [SUCCESS / WARNING / ERROR] Colors example */
+/* 
+.success {
+  background: var(--c--contextuals--background--semantic--success--primary);
+  color: var(--c--contextuals--content--semantic--success--primary);
+  border-color: var(--c--contextuals--border--semantic--success--primary);
+}
+
+.warning {
+  background: var(--c--contextuals--background--semantic--warning--primary);
+  color: var(--c--contextuals--content--semantic--warning--primary);
+  border-color: var(--c--contextuals--border--semantic--warning--primary);
+}
+
+.error {
+  background: var(--c--contextuals--background--semantic--error--primary);
+  color: var(--c--contextuals--content--semantic--error--primary);
+  border-color: var(--c--contextuals--border--semantic--error--primary);
+} */
 
 body {
   background-color: var(--background);

@@ -60,11 +60,11 @@
 }
 
 .socialNetworksSuccess {
-  color: var(--color-green-800);
+  color: var(--c--contextuals--background--semantic--success--primary);
 }
 
 .socialNetworksError {
-  color: var(--color-red-700);
+  color: var(--c--contextuals--background--semantic--error--primary);
 }
 
 .socialNetworksGrid {

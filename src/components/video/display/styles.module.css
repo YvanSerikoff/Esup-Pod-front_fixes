@@ -145,8 +145,8 @@
 }
 
 .status-public {
-  background: rgba(34, 197, 94, 0.15);
-  color: #16a34a;
+  background: rgba(var(--bg-public-rgba));
+  color: var(--color-green-500);
 }
 
 :global(html[data-theme="dark"]) .status-public {
@@ -154,16 +154,16 @@
 }
 
 .status-restricted {
-  background: rgba(245, 158, 11, 0.18);
-  color: #d97706;
+  background: rgba(var(--bg-restricted-rgba));
+  color: var(--color-amber-500);
 }
 
 :global(html[data-theme="dark"]) .status-restricted {
-  color: #fbbf24;
+  color: var(--color-amber-500);
 }
 
 .status-password {
-  background: rgba(var(--color-primary-accent-rgb), 0.15);
+  background: rgba(var(--bg-password-rgba));
   color: var(--color-light-primary);
 }
 
