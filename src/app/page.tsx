@@ -15,6 +15,8 @@ import WebTVLayout from "../components/WebTV/WebTVLayout";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 
+const appTitle = process.env.NEXT_PUBLIC_APP_TITLE;
+
 export default function Accueil() {
   const router = useRouter();
   const mounted = useMounted();
@@ -54,7 +56,7 @@ export default function Accueil() {
 
   return (
     <div>
-      <h1 className={`title`}>Pod Univ</h1>
+      <h1 className={`title`}>{appTitle}</h1>
       <h2 className={"subtitle"}>{t("home.welcomeSubtitle")}</h2>
 
       <div>
