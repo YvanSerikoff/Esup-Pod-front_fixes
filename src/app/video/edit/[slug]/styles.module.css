@@ -333,7 +333,7 @@
 }
 
 /* -------  Form fields  --------- */
-.restreint-fields {
+.restricted-fields {
   padding: var(--c--globals--spacings--sm);
   display: flex;
   flex-direction: column;
@@ -342,7 +342,7 @@
   border-radius: 10px;
 }
 
-.restreint-fields p {
+.restricted-fields p {
   font-weight: var(--c--globals--font--weights--bold);
   margin: 0 0 4px;
 }

@@ -449,7 +449,7 @@ html[data-theme="dark"] div[style*="background: rgb(249, 250, 251)"],
 html[data-theme="dark"] div[style*="background: #fdfdfd"],
 html[data-theme="dark"]
   div[style*="background: var(--c--globals--colors--gray-050)"],
-html[data-theme="dark"] div[class*="restreint-fields"],
+html[data-theme="dark"] div[class*="restricted-fields"],
 html[data-theme="dark"] div[class*="element-card"] {
   background-color: var(--color-slate-900) !important;
   border-color: var(--color-slate-700) !important;

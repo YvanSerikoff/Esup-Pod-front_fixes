@@ -1,8 +1,8 @@
-.restreint-fields {
+.restricted-fields {
   composes: restrictedFields from "../../../components/shared/playlist-form-common.module.css";
 }
 
-.restreint-fields p {
+.restricted-fields p {
 }
 
 .thumbnail-field {
