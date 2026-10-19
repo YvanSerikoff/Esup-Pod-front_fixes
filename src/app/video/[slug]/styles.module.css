@@ -170,17 +170,7 @@
 }
 
 .read-more-btn {
-  background: none;
-  border: none;
-  color: var(--c--globals--colors--brand-600);
-  font-weight: var(--c--globals--font--weights--medium);
-  cursor: pointer;
-  padding: 0;
-  margin-top: var(--c--globals--spacings--xs);
-  font-size: var(--c--globals--font--sizes--sm);
-}
-.read-more-btn:hover {
-  text-decoration: underline;
+  composes: read-more-btn from "../../shared/common.module.css";
 }
 
 .sidebar-card {
@@ -288,55 +278,35 @@
 }
 
 .skeleton-back-button {
-  width: 100px;
-  height: 40px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  background-color: var(--color-gray-300);
+  composes: skeleton-back-button from "../../shared/common.module.css";
 }
 
 .skeleton-main-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  min-width: 70%;
-  padding: 10px;
+  composes: skeleton-main-section from "../../shared/common.module.css";
 }
 
 .skeleton-video {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-sm);
+  composes: skeleton-video from "../../shared/common.module.css";
 }
 
 .skeleton-title {
-  width: 60%;
-  height: 32px;
-  border-radius: 4px;
+  composes: skeleton-title from "../../shared/common.module.css";
 }
 
 .skeleton-info-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  composes: skeleton-info-row from "../../shared/common.module.css";
 }
 
 .skeleton-info {
-  width: 20%;
-  height: 24px;
-  border-radius: 4px;
+  composes: skeleton-info from "../../shared/common.module.css";
 }
 
 .skeleton-actions {
-  width: 30%;
-  height: 32px;
-  border-radius: 4px;
+  composes: skeleton-actions from "../../shared/common.module.css";
 }
 
 .skeleton-sidebar {
-  width: 100%;
-  height: 300px;
-  border-radius: var(--radius-sm);
+  composes: skeleton-sidebar from "../../shared/common.module.css";
 }
 
 .message-container {
@@ -407,7 +377,7 @@
 }
 
 .read-more-icon {
-  vertical-align: middle;
+  composes: read-more-icon from "../../shared/common.module.css";
 }
 
 .sidebar-section-spacing {

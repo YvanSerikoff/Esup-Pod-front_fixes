@@ -63,7 +63,7 @@ export default function DressingPage() {
           type="file"
           accept="image/png, image/jpeg"
           ref={fileInputRef}
-          className={styles["image"]}
+          className={styles["dressing-image"]}
           onChange={handleFileChange}
         />
         <Button

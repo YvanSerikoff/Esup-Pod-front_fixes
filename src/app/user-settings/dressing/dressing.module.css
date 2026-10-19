@@ -81,22 +81,18 @@
 }
 
 .content-box {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1.5rem;
+  composes: content-box from "../../shared/common.module.css";
 }
 
 .desc {
-  color: var(--c--globals--colors--gray-500);
-  margin-bottom: 2rem;
-  line-height: 2;
+  composes: desc from "../../shared/common.module.css";
 }
 
 .error {
-  margin-bottom: 1rem;
+  composes: error from "../../shared/common.module.css";
 }
 
-.image {
+.dressing-image {
   display: none;
 }
 

@@ -72,7 +72,7 @@ html[data-theme="dark"] .navbar-logo img {
 }
 
 .button-close {
-  align-self: flex-end;
+  composes: button-close from "../../app/shared/common.module.css";
 }
 
 .navbar-profil-menu-name-user {
