@@ -1,5 +1,12 @@
 {
   "css.lint.unknownProperties": "ignore",
   "scss.lint.unknownProperties": "ignore",
-  "less.lint.unknownProperties": "ignore"
+  "less.lint.unknownProperties": "ignore",
+
+  "postcssSorting.config": {
+    "properties-order": "alphabetical"
+  },
+
+  "sortcss.sortOnSave": true,
+  "sortcss.sortingStrategy": "alphabetical"
 }
