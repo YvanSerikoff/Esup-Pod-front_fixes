@@ -53,10 +53,7 @@ export default function DeletePlaylistPage() {
 
         {usePlaylistError ? (
           <div>
-            <Alert
-              type={VariantType.ERROR}
-              className="deleteAlert"
-            >
+            <Alert type={VariantType.ERROR} className="deleteAlert">
               {usePlaylistError ?? `${t("playlists.notFound")}`}
             </Alert>
             <Button
