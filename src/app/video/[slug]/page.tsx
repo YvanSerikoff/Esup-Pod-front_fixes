@@ -601,13 +601,13 @@ export default function Video() {
                   {config?.video?.active_video_comment !== false && (
                     <Tab
                       label={t("comments.title")}
-                      value="commentaires"
+                      value="comments"
                       className={styles["mobile-tab"]}
                     />
                   )}
                   <Tab
                     label={t("videoPage.about")}
-                    value="apropos"
+                    value="about"
                     className={styles["mobile-tab"]}
                   />
                   {video.documents && video.documents.length > 0 && (
@@ -761,7 +761,7 @@ export default function Video() {
                     </div>
                   </section>
                 )}
-                {mobileTab === "ressources" &&
+                {mobileTab === "resources" &&
                   video.documents &&
                   video.documents.length > 0 && (
                     <section className={styles["sidebar-card"]}>
