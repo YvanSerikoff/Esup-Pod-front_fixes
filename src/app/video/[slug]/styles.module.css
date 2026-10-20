@@ -169,10 +169,6 @@
   overflow: hidden;
 }
 
-.read-more-btn {
-  composes: read-more-btn from "../../shared/common.module.css";
-}
-
 .sidebar-card {
   background: white;
   border: 1px solid var(--c--globals--colors--gray-200);
@@ -277,38 +273,6 @@
   align-items: center;
 }
 
-.skeleton-back-button {
-  composes: skeleton-back-button from "../../shared/common.module.css";
-}
-
-.skeleton-main-section {
-  composes: skeleton-main-section from "../../shared/common.module.css";
-}
-
-.skeleton-video {
-  composes: skeleton-video from "../../shared/common.module.css";
-}
-
-.skeleton-title {
-  composes: skeleton-title from "../../shared/common.module.css";
-}
-
-.skeleton-info-row {
-  composes: skeleton-info-row from "../../shared/common.module.css";
-}
-
-.skeleton-info {
-  composes: skeleton-info from "../../shared/common.module.css";
-}
-
-.skeleton-actions {
-  composes: skeleton-actions from "../../shared/common.module.css";
-}
-
-.skeleton-sidebar {
-  composes: skeleton-sidebar from "../../shared/common.module.css";
-}
-
 .message-container {
   display: flex;
   flex-direction: column;
@@ -376,9 +340,7 @@
   color: var(--c--globals--colors--gray-500);
 }
 
-.read-more-icon {
-  composes: read-more-icon from "../../shared/common.module.css";
-}
+
 
 .sidebar-section-spacing {
   margin-bottom: 1.5rem;

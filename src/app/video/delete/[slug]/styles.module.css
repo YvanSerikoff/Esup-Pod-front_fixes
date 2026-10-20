@@ -1,23 +1,5 @@
-.delete-container {
-  composes: deleteContainer from "../../../shared/common.module.css";
-}
-
 .delete-paper {
   width: 100%;
   max-width: 520px;
   padding: var(--c--globals--spacings--xl);
-}
-
-.delete-alert {
-  composes: deleteAlert from "../../../shared/common.module.css";
-}
-
-.delete-container p {
-  font-size: var(--c--globals--font--sizes--md);
-  margin: var(--c--globals--spacings--md) 0;
-  gap: 7rem;
-}
-
-.buttons-action {
-  composes: buttonsAction from "../../../shared/common.module.css";
 }

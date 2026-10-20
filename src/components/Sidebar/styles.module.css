@@ -153,10 +153,6 @@
   flex-direction: column;
 }
 
-.button-close {
-  align-self: flex-end;
-}
-
 .menu-item,
 .menu-dropdown-item {
   position: relative;

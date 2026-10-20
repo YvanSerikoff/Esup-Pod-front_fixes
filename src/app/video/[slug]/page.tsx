@@ -76,18 +76,18 @@ function VideoPageSkeleton() {
   return (
     // Skeleton loading blocks
     <div>
-      <div className={`skeleton-block ${styles["skeleton-back-button"]}`} />
+      <div className="skeleton-block skeleton-back-button" />
       <div className={styles["main-video-content"]}>
-        <section className={styles["skeleton-main-section"]}>
-          <div className={`skeleton-block ${styles["skeleton-video"]}`} />
-          <div className={`skeleton-block ${styles["skeleton-title"]}`} />
-          <div className={styles["skeleton-info-row"]}>
-            <div className={`skeleton-block ${styles["skeleton-info"]}`} />
-            <div className={`skeleton-block ${styles["skeleton-actions"]}`} />
+        <section className="skeleton-main-section">
+          <div className="skeleton-block skeleton-video" />
+          <div className="skeleton-block skeleton-title" />
+          <div className="skeleton-info-row">
+            <div className="skeleton-block skeleton-info" />
+            <div className="skeleton-block skeleton-actions" />
           </div>
         </section>
         <aside className={styles["sidebar"]}>
-          <div className={`skeleton-block ${styles["skeleton-sidebar"]}`} />
+          <div className="skeleton-block skeleton-sidebar" />
         </aside>
       </div>
     </div>
@@ -636,7 +636,7 @@ export default function Video() {
                           </p>
                         </div>
                         <button
-                          className={styles["read-more-btn"]}
+                          className="read-more-btn"
                           onClick={() =>
                             setIsDescriptionExpanded(!isDescriptionExpanded)
                           }
@@ -647,12 +647,12 @@ export default function Video() {
                           {isDescriptionExpanded ? (
                             <KeyboardArrowUpIcon
                               fontSize="inherit"
-                              className={styles["read-more-icon"]}
+                              className="read-more-icon"
                             />
                           ) : (
                             <KeyboardArrowDownIcon
                               fontSize="inherit"
-                              className={styles["read-more-icon"]}
+                              className="read-more-icon"
                             />
                           )}
                         </button>
@@ -843,7 +843,7 @@ export default function Video() {
                     </p>
                   </div>
                   <button
-                    className={styles["read-more-btn"]}
+                    className="read-more-btn"
                     onClick={() =>
                       setIsDescriptionExpanded(!isDescriptionExpanded)
                     }
@@ -854,12 +854,12 @@ export default function Video() {
                     {isDescriptionExpanded ? (
                       <KeyboardArrowUpIcon
                         fontSize="inherit"
-                        className={styles["read-more-icon"]}
+                        className="read-more-icon"
                       />
                     ) : (
                       <KeyboardArrowDownIcon
                         fontSize="inherit"
-                        className={styles["read-more-icon"]}
+                        className="read-more-icon"
                       />
                     )}
                   </button>

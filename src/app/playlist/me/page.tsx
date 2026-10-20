@@ -11,7 +11,6 @@ import CollectionFilters from "@/src/components/collection/filters/CollectionFil
 import { useCollectionListFilters } from "@/src/hooks/useCollectionListFilters";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
-import styles from "./styles.module.css";
 
 export const breadcrumbLabel = "Mes listes de lecture";
 
@@ -60,9 +59,9 @@ export default function MyPlaylistsPage() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <div className={styles["title-row"]}>
+      <div className="titleRow">
         <h1 className="title">{t("playlists.myTitle")}</h1>
-        <Link href="/playlist/add" className={styles["add-playlist-button"]}>
+        <Link href="/playlist/add" className="actionLink">
           <Button color="brand" variant="primary" size="small">
             {t("playlists.addPlaylist")}
           </Button>

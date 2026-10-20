@@ -1,11 +1,3 @@
-.title-row {
-  composes: titleRow from "../shared/common.module.css";
-}
-
-.start-favorites-button {
-  composes: actionLink from "../shared/common.module.css";
-}
-
 .fav-error {
   display: flex;
   flex-direction: column;

@@ -80,18 +80,6 @@
   background-color: #222;
 }
 
-.content-box {
-  composes: content-box from "../../shared/common.module.css";
-}
-
-.desc {
-  composes: desc from "../../shared/common.module.css";
-}
-
-.error {
-  composes: error from "../../shared/common.module.css";
-}
-
 .dressing-image {
   display: none;
 }

@@ -1250,10 +1250,6 @@ html[data-theme="dark"] .visibility-section {
   opacity: 0.45;
 }
 
-.restriction-options {
-  composes: restriction-options from "../../../shared/common.module.css";
-}
-
 .restriction-options-title {
   margin: 0 0 var(--radius-sm);
   font-size: 0.875rem;

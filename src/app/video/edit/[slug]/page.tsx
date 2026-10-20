@@ -1658,7 +1658,7 @@ export default function EditVideo() {
                 )}
               />
               {selectedStatus === "RE" && hasSource && (
-                <div className={styles["restriction-options"]}>
+                <div className="restriction-options">
                   <p className={styles["restriction-options-title"]}>
                     {t("videoEdit.restrictionOptions")}
                   </p>

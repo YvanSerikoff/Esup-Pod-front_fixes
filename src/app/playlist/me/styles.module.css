@@ -1,7 +1,0 @@
-.title-row {
-  composes: titleRow from "../../shared/common.module.css";
-}
-
-.add-playlist-button {
-  composes: actionLink from "../../shared/common.module.css";
-}

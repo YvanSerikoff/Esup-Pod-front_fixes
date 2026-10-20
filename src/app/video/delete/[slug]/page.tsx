@@ -46,7 +46,7 @@ export default function DeleteVideoPage() {
   }
 
   return (
-    <div className={styles["delete-container"]}>
+    <div className="deleteContainer">
       <Paper className={styles["delete-paper"]}>
         <h2>{t("videoEdit.deleteVideo")}</h2>
 
@@ -54,7 +54,7 @@ export default function DeleteVideoPage() {
 
         {useVideoError ? (
           <div>
-            <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
+            <Alert type={VariantType.ERROR} className="deleteAlert">
               {useVideoError ?? t("videoPage.notFound")}
             </Alert>
             <Button
@@ -66,7 +66,7 @@ export default function DeleteVideoPage() {
             </Button>
           </div>
         ) : !isOwnerOrCoOwner ? (
-          <Alert type={VariantType.ERROR} className={styles["delete-alert"]}>
+          <Alert type={VariantType.ERROR} className="deleteAlert">
             {t("errors.accessDenied")}
           </Alert>
         ) : video ? (
@@ -77,7 +77,7 @@ export default function DeleteVideoPage() {
               {t("common.permanentAction")}
             </p>
 
-            <div className={styles["buttons-action"]}>
+            <div className="buttonsAction">
               <Button
                 color="brand"
                 variant="secondary"

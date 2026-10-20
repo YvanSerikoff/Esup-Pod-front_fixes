@@ -37,7 +37,7 @@ export function ProfileMenuContent({
       {/* ---------- Close button (mobile) ---------- */}
       {isMobile && (
         <Button
-          className={styles["button-close"]}
+          className="button-close"
           onClick={onClose}
           aria-label={t("sidebar.closeMenu")}
         >

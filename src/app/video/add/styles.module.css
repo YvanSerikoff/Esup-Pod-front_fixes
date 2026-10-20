@@ -18,10 +18,6 @@
   flex-direction: column;
 }
 
-.form {
-  composes: form from "../../shared/common.module.css";
-}
-
 .linear-progress {
   margin: var(--c--globals--spacings--xl) 0;
   padding: 5px;

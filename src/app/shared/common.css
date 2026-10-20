@@ -1,3 +1,4 @@
+/* Shared global utility styles. */
 .socialNetworksForm {
   display: flex;
   flex-direction: column;
@@ -22,6 +23,12 @@ html[data-theme="dark"] .restriction-options {
   display: flex;
   justify-content: center;
   margin-top: var(--c--globals--spacings--md);
+}
+
+.deleteContainer p {
+  font-size: var(--c--globals--font--sizes--md);
+  margin: var(--c--globals--spacings--md) 0;
+  gap: 7rem;
 }
 
 .deleteAlert {
@@ -164,8 +171,8 @@ html[data-theme="dark"] .restriction-options {
     width: 100%;
   }
 
-  .actionLink :global(button),
-  .actionLink :global(.c__button) {
+  .actionLink button,
+  .actionLink .c__button {
     width: 100%;
     justify-content: center;
   }

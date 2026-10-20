@@ -49,10 +49,10 @@ export default function DressingSettings() {
   return (
     <div>
       <h1 className="title">{t("sidebar.videoBranding")}</h1>
-      <p className={styles["desc"]}>{t("dressingPage.pageDescription")}</p>
+      <p className="desc">{t("dressingPage.pageDescription")}</p>
 
       {error && (
-        <div className={styles["error"]}>
+        <div className="error">
           <Alert type={VariantType.ERROR}>{t("dressingPage.loadError")}</Alert>
         </div>
       )}

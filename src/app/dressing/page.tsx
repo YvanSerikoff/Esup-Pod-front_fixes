@@ -47,12 +47,12 @@ export default function DressingPage() {
   };
 
   return (
-    <div className={styles["content-box"]}>
+    <div className="content-box">
       <h1 className="title">{t("dressingPage.title")}</h1>
-      <p className={styles["desc"]}>{t("dressingPage.pageDescription")}</p>
+      <p className="desc">{t("dressingPage.pageDescription")}</p>
 
       {error && (
-        <div className={styles["error"]}>
+        <div className="error">
           <Alert type={VariantType.ERROR}>{t("dressingPage.loadError")}</Alert>
         </div>
       )}

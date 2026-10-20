@@ -36,7 +36,7 @@ export default function FlatPage() {
       <BackButton label={t("common.back")} />
       <h1 className={styles["title"]}>{page.title}</h1>
       <div
-        className={styles["content-box"]}
+        className="content-box"
         dangerouslySetInnerHTML={{ __html: page.content }}
       />
     </div>

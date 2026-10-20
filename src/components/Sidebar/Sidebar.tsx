@@ -122,7 +122,7 @@ const SideBar = () => {
       {/* ----- Close button (mobile) ----- */}
       {isMobile && (
         <Button
-          className={styles["button-close"]}
+          className="button-close"
           onClick={handleFixSidebar}
           aria-label={t("sidebar.closeMenu")}
         >

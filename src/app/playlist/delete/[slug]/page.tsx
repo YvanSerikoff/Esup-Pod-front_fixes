@@ -45,7 +45,7 @@ export default function DeletePlaylistPage() {
   }
 
   return (
-    <div className={styles["delete-container"]}>
+    <div className="deleteContainer">
       <Paper className={styles["paper"]}>
         <h2 className="subtitle">{t("playlists.delete")}</h2>
 
@@ -55,7 +55,7 @@ export default function DeletePlaylistPage() {
           <div>
             <Alert
               type={VariantType.ERROR}
-              className={styles["delete-error-alert"]}
+              className="deleteAlert"
             >
               {usePlaylistError ?? `${t("playlists.notFound")}`}
             </Alert>
@@ -78,7 +78,7 @@ export default function DeletePlaylistPage() {
               {t("common.permanentAction")}
             </p>
 
-            <div className={styles["buttons-action"]}>
+            <div className="buttonsAction">
               <Button
                 color="brand"
                 variant="secondary"

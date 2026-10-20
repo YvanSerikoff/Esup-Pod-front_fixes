@@ -71,10 +71,6 @@ html[data-theme="dark"] .navbar-logo img {
   flex-direction: column;
 }
 
-.button-close {
-  composes: button-close from "../../app/shared/common.module.css";
-}
-
 .navbar-profil-menu-name-user {
   margin-left: var(--radius-lg);
   margin-bottom: var(--c--globals--spacings--xs);

@@ -60,7 +60,7 @@ export default function VideoSocialNetworksForm({
   };
 
   return (
-    <div className={styles.socialNetworksForm}>
+    <div className="socialNetworksForm">
       <div className={styles.socialNetworksHeader}>
         <ShareIcon className={styles.socialNetworksIcon} />
         <h3 className={styles.socialNetworksTitle}>
