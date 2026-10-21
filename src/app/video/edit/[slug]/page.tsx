@@ -1994,7 +1994,7 @@ export default function EditVideo() {
         <form className={styles.form} noValidate onSubmit={onFormSubmit}>
           {/* Header */}
           <div className={styles["page-header"]}>
-            <h1 className={styles["page-title"]}>
+            <h1 className="title">
               {video?.title
                 ? t("videoEdit.pageTitle", { title: video.title })
                 : t("videoEdit.pageTitleDefault")}
@@ -2425,7 +2425,7 @@ export default function EditVideo() {
       <form className={styles.form} noValidate onSubmit={onFormSubmit}>
         {/* Page header: title + action buttons */}
         <div className={styles["page-header"]}>
-          <h1 className={styles["page-title"]}>
+          <h1 className="title">
             {video?.title
               ? t("videoEdit.pageTitle", { title: video.title })
               : t("videoEdit.pageTitleDefault")}

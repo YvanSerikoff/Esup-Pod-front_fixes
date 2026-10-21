@@ -123,8 +123,8 @@ body {
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 /* ========================================================================== */
@@ -172,11 +172,11 @@ button:active,
 }
 
 .main {
-  padding-top: var(--navbar-height);
-  transition: all 0.4s ease;
+  flex: 1 1 auto;
   margin-left: 70px;
   min-height: 100vh;
-  flex: 1 1 auto;
+  padding-top: var(--navbar-height);
+  transition: all 0.4s ease;
 }
 
 .c__alert--success {
@@ -188,36 +188,36 @@ button:active,
 }
 
 .content {
-  padding: var(--c--globals--spacings--lg);
-  max-width: 1600px;
   margin: 0 auto;
+  max-width: 1600px;
+  padding: var(--c--globals--spacings--lg);
 }
 
 /** TITLES **/
 
 .title {
-  margin-bottom: var(--c--globals--spacings--xs);
   color: var(--text-color-brand);
   font-size: var(--title-size);
   font-weight: var(--c--globals--font--weights--bold);
-  margin-top: var(--radius-lg);
   margin: 0;
+  margin-bottom: var(--c--globals--spacings--xs);
+  margin-top: var(--radius-lg);
 }
 
 .subtitle {
   font-size: var(--subtitle-size);
-  margin-top: 0;
-  margin-bottom: var(--c--globals--spacings--md);
   font-weight: var(--c--globals--font--weights--bold);
+  margin-bottom: var(--c--globals--spacings--md);
+  margin-top: 0;
 }
 
 .pod-image-banner {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
   border-radius: var(--radius-sm);
+  display: block;
+  height: 200px;
   margin-bottom: 2rem;
+  object-fit: cover;
+  width: 100%;
 }
 
 .cunningham-theme--dark .MuiBreadcrumbs-separator {
@@ -267,16 +267,16 @@ button:active,
 
 /* Accessibility */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
   background: var(--background-brand, var(--color-black));
   color: var(--color-white);
-  padding: var(--radius-sm) var(--radius-lg);
-  z-index: 100000;
-  transition: top 0.2s;
-  text-decoration: none;
   font-weight: bold;
+  left: 0;
+  padding: var(--radius-sm) var(--radius-lg);
+  position: absolute;
+  text-decoration: none;
+  top: -40px;
+  transition: top 0.2s;
+  z-index: 100000;
 }
 
 .skip-link:focus {
@@ -297,8 +297,8 @@ button:active,
 }
 
 .skeleton-block {
-  background-color: var(--color-gray-300);
   animation: pulse 1.5s infinite;
+  background-color: var(--color-gray-300);
 }
 
 html[data-theme="dark"] .skeleton-block {
@@ -358,8 +358,8 @@ html[data-theme="dark"] a {
 html[data-theme="dark"] .MuiPaper-root,
 html[data-theme="dark"] .MuiCard-root {
   background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-50) !important;
   border-color: var(--color-slate-700) !important;
+  color: var(--color-slate-50) !important;
 }
 
 /* Flat layout for Settings & Preferences: no background boxes, no borders */
@@ -393,15 +393,15 @@ html[data-theme="dark"] .c__input__field,
 html[data-theme="dark"] .c__field,
 html[data-theme="dark"] .MuiInputBase-root {
   background-color: var(--color-slate-800) !important;
-  color: var(--color-white) !important;
   border-color: var(--color-slate-700) !important;
+  color: var(--color-white) !important;
 }
 
 html[data-theme="dark"] .c__input__label,
 html[data-theme="dark"] .c__field__label,
 html[data-theme="dark"] .MuiInputLabel-root {
-  color: var(--color-slate-400) !important;
   background-color: transparent !important;
+  color: var(--color-slate-400) !important;
 }
 
 html[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
@@ -430,8 +430,8 @@ html[data-theme="dark"] .MuiDialogTitle-root,
 html[data-theme="dark"] .MuiDialogContent-root,
 html[data-theme="dark"] .MuiDialogActions-root {
   background-color: var(--color-slate-800) !important;
-  color: var(--color-slate-50) !important;
   border-color: var(--color-slate-700) !important;
+  color: var(--color-slate-50) !important;
 }
 
 html[data-theme="dark"] .MuiDialogContent-dividers {
@@ -486,12 +486,12 @@ html[data-theme="dark"] div[class*="element-card"] {
 
 .c__datagrid,
 div[class*="dataGrid"] {
-  border-radius: var(--radius-md) !important;
-  border: none !important;
-  overflow: hidden !important;
-  box-shadow: none !important;
   background: transparent !important;
   background-color: transparent !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
 }
 
 .c__datagrid table,
@@ -524,23 +524,23 @@ html[data-theme="dark"] div[class*="dataGrid"] thead tr {
 .c__datagrid th,
 .c__datagrid__header-cell,
 div[class*="dataGrid"] th {
-  text-transform: uppercase !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.06em !important;
-  color: var(--color-slate-600) !important;
-  padding: 14px var(--radius-lg) !important;
   background: transparent !important;
   background-color: transparent !important;
   border-bottom: 2px solid
     var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
+  color: var(--color-slate-600) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  padding: 14px var(--radius-lg) !important;
+  text-transform: uppercase !important;
 }
 
 html[data-theme="dark"] .c__datagrid th,
 html[data-theme="dark"] .c__datagrid__header-cell,
 html[data-theme="dark"] div[class*="dataGrid"] th {
-  color: var(--color-slate-400) !important;
   border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12) !important;
+  color: var(--color-slate-400) !important;
 }
 
 .c__datagrid tr,
@@ -549,9 +549,9 @@ div[class*="dataGrid"] tr,
 div[class*="dataGrid"] tbody tr {
   background: transparent !important;
   background-color: transparent !important;
-  transition: background-color 0.2s ease !important;
   border-bottom: 1px solid
     var(--c--globals--colors--gray-200, var(--color-slate-200)) !important;
+  transition: background-color 0.2s ease !important;
 }
 
 html[data-theme="dark"] .c__datagrid tr,
@@ -566,9 +566,9 @@ html[data-theme="dark"] div[class*="dataGrid"] tbody tr {
 div[class*="dataGrid"] td {
   background: transparent !important;
   background-color: transparent !important;
+  color: var(--color-slate-900) !important;
   padding: var(--radius-md) var(--radius-lg) !important;
   vertical-align: middle !important;
-  color: var(--color-slate-900) !important;
 }
 
 html[data-theme="dark"] .c__datagrid td,

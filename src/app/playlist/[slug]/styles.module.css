@@ -15,9 +15,9 @@
 }
 
 .playlist-meta {
-  gap: 0.5rem 1.5rem;
   color: var(--c--theme--colors--text--secondary);
   font-size: var(--c--globals--font--sizes--sm);
+  gap: 0.5rem 1.5rem;
 }
 
 .playlist-metaInfo {
@@ -27,41 +27,42 @@
 }
 
 .playlist-infos-details {
+  border: 1px solid
+    var(--c--contextuals--background--semantic--brand--secondary);
+  border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   gap: var(--c--globals--spacings--xs);
   padding: var(--c--globals--spacings--md);
-  border-radius: var(--radius-sm);
-  border: 1px solid
-    var(--c--contextuals--background--semantic--brand--secondary);
 }
 
 .playlist-infos-details > div {
+  align-items: flex-start;
+  column-gap: var(--c--globals--spacings--sm);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-start;
-  column-gap: var(--c--globals--spacings--sm);
   padding-block: var(--c--globals--spacings--xxs);
 }
 
 .playlist-infos-details dt {
-  margin: 0;
+  color: var(--c--globals--colors--gray-700);
   font-size: var(--c--globals--font--sizes--sm);
   font-weight: var(--c--globals--font--weights--medium);
-  color: var(--c--globals--colors--gray-700);
+  margin: 0;
 }
 
 .playlist-infos-details dd {
-  margin: 0;
-  font-size: var(--c--globals--font--sizes--sm);
   color: var(--text-color-brand);
+  font-size: var(--c--globals--font--sizes--sm);
+  margin: 0;
 }
 
 .playlist-actions {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--c--globals--spacings--sm);
+  padding-bottom: var(--c--globals--spacings--sm);
   padding-top: var(--c--globals--spacings--md);
 }
 
@@ -81,18 +82,18 @@
 
 @media (max-width: 768px) {
   .playlist-header-row {
-    flex-direction: column;
     align-items: stretch;
+    flex-direction: column;
   }
 
   .playlist-meta {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     gap: 0.75rem;
   }
 
   .playlist-actions {
-    justify-content: flex-start;
     flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }

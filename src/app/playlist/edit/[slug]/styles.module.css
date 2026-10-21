@@ -1,22 +1,19 @@
 .restricted-fields {
-  composes: restrictedFields from "../../../components/shared/playlist-form-common.module.css";
-}
-
-.restricted-fields p {
+  composes: restrictedFields from "../../../../components/shared/playlist-form-common.module.css";
 }
 
 .thumbnail-field {
+  align-items: center;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
 }
 
 .form-actions {
-  composes: formActions from "../../../components/shared/playlist-form-common.module.css";
+  composes: formActions from "../../../../components/shared/playlist-form-common.module.css";
 }
 
 .form-actions-buttons {
-  composes: formActionButtons from "../../../components/shared/playlist-form-common.module.css";
+  composes: formActionButtons from "../../../../components/shared/playlist-form-common.module.css";
 }
 
 .form {

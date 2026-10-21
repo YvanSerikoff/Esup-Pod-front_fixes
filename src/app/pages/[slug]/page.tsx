@@ -23,7 +23,7 @@ export default function FlatPage() {
     return (
       <div className={styles.main}>
         <BackButton label={t("common.back")} />
-        <h1 className={styles["error-title"]}>{t("errors.notFound")}</h1>
+        <h1 className="title">{t("errors.notFound")}</h1>
         <Alert type={VariantType.ERROR}>
           {error?.message || t("errors  .notConfigured")}
         </Alert>
@@ -34,7 +34,7 @@ export default function FlatPage() {
   return (
     <div className={styles["pages-box"]}>
       <BackButton label={t("common.back")} />
-      <h1 className={styles["title"]}>{page.title}</h1>
+      <h1 className="title">{page.title}</h1>
       <div
         className="content-box"
         dangerouslySetInnerHTML={{ __html: page.content }}

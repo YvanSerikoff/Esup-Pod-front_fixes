@@ -166,8 +166,8 @@ export const fr = {
     deleteSubtitleError: "Erreur lors de la suppression du sous-titre",
 
     // Playlists
-    loadPlaylist:
-      "Erreur de chargement {count, plural, one {de la playlist} other {des playlists}}.",
+    loadPlaylist: "Erreur lors du chargement de la playlist.",
+    loadPlaylists: "Erreur lors du chargement des playlists.",
     updatePlaylist: "Erreur lors de la modification de la playlist",
     deletePlaylist: "Erreur lors de la suppression de la playlist",
     addVideoToPlaylist: "Erreur lors de l'ajout de la vidéo à la playlist",

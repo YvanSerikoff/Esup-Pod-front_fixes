@@ -13,7 +13,7 @@ export default function UserSettings() {
 
   return (
     <div className={"content-box"}>
-      <h1 className={`title`}>{t("preferences.title")}</h1>
+      <h1 className="title">{t("preferences.title")}</h1>
 
       {/* Section 1: Application language */}
       <div>

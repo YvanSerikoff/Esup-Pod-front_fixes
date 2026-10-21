@@ -88,7 +88,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 className={`title`}>{t("sidebar.dashboard")}</h1>
+      <h1 className="title">{t("sidebar.dashboard")}</h1>
 
       {useVideoError && (
         <Alert canClose type={VariantType.ERROR}>

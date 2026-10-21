@@ -1,0 +1,9 @@
+.formActions {
+  display: flex;
+}
+
+.formActionsEnd {
+  composes: formActions;
+  align-items: center;
+  justify-content: flex-end;
+}

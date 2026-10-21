@@ -1,15 +1,11 @@
 .formActions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  composes: formActionsEnd from "./form-actions.module.css";
   margin-top: var(--c--globals--spacings--xl);
   gap: var(--c--globals--spacings--sm);
 }
 
 .formActionButtons {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  composes: formActionsEnd from "./form-actions.module.css";
   gap: var(--c--globals--spacings--sm);
 }
 

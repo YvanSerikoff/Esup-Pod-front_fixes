@@ -164,8 +164,8 @@ export const en: TranslationKeys = {
     deleteSubtitleError: "Error while deleting the subtitle",
 
     // Playlists
-    loadPlaylist:
-      "Error while loading {count, plural, one {the playlist} other {the playlists}}.",
+    loadPlaylist: "Error while loading the playlist.",
+    loadPlaylists: "Error while loading playlists.",
     updatePlaylist: "Error while updating the playlist",
     deletePlaylist: "Error while deleting the playlist",
     addVideoToPlaylist: "Error while adding the video to the playlist",

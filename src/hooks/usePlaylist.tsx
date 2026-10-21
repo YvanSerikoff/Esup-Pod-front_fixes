@@ -41,7 +41,7 @@ export function usePlaylistList(
         accessToken,
         onRefresh: refresh,
       });
-      if (!res.ok) throw new Error(t("errors.loadPlaylist"));
+      if (!res.ok) throw new Error(t("errors.loadPlaylists"));
 
       return requestJson<
         Playlist[] | { results?: Playlist[]; count?: number; next?: string }

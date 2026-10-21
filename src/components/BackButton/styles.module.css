@@ -1,29 +1,29 @@
 .back-button {
-  min-height: 38px;
+  align-items: center;
+  background-color: var(--c--theme--colors--card-bg, var(--color-white));
   border: 1px solid var(--border-color, rgba(var(--color-black-rgb), 0.2));
   border-radius: 9999px;
-  background-color: var(--c--theme--colors--card-bg, var(--color-white));
-  padding: 6px var(--radius-lg);
-  transition: all 0.2s ease-in-out;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: none;
+  color: var(--text-color);
   cursor: pointer;
+  display: inline-flex;
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-color);
+  gap: 0.5rem;
   margin-bottom: var(--c--globals--spacings--md);
+  min-height: 38px;
+  padding: 6px var(--radius-lg);
+  text-transform: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .back-button:hover {
-  border-color: var(--c--globals--colors--brand--main);
   background-color: color-mix(
     in srgb,
     var(--c--globals--colors--brand--main) 4%,
     transparent
   );
+  border-color: var(--c--globals--colors--brand--main);
   color: var(--c--globals--colors--brand--main);
 }
 
@@ -33,12 +33,12 @@
 
 html[data-theme="dark"] .back-button {
   background-color: var(--color-slate-800);
-  color: var(--color-slate-50);
   border-color: var(--color-slate-700);
+  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] .back-button:hover {
   background-color: var(--color-slate-700);
-  color: var(--color-dark-primary);
   border-color: var(--color-dark-primary);
+  color: var(--color-dark-primary);
 }

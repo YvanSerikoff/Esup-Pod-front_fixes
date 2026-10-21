@@ -1,8 +1,8 @@
 .bloc-terms {
-  margin: var(--c--globals--spacings--md) 0;
-  padding: var(--c--globals--spacings--md);
   border: 1px solid var(--background-brand);
   border-radius: var(--radius-sm);
+  margin: var(--c--globals--spacings--md) 0;
+  padding: var(--c--globals--spacings--md);
 }
 .bloc-terms legend {
   color: var(--text-color-brand);
@@ -23,23 +23,17 @@
   padding: 5px;
 }
 
-.page-title {
-  margin-bottom: var(--radius-lg);
-  font-size: 1.5rem;
-}
-
-.page-title,
 .empty-record-dialog-title {
   font-weight: 700;
 }
 
 .field-error {
+  color: var(--c--contextuals--content--semantic--error--secondary);
   margin-top: 0.25rem;
-  color: red;
 }
 
 .form-actions {
-  display: flex;
+  composes: formActions from "../../../components/shared/form-actions.module.css";
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: var(--radius-sm);
@@ -47,8 +41,11 @@
 
 .form-actions,
 .empty-record-dialog-title {
-  display: flex;
   align-items: center;
+}
+
+.empty-record-dialog-title {
+  display: flex;
 }
 
 .create-empty-icon {
@@ -73,9 +70,9 @@
 }
 
 .empty-record-warning {
-  margin: 0;
   color: var(--color-gray-500);
   font-size: 0.875rem;
+  margin: 0;
 }
 
 .empty-record-title-input {

@@ -166,8 +166,8 @@ export const es: TranslationKeys = {
     deleteSubtitleError: "Error al eliminar el subtítulo",
 
     // Playlists
-    loadPlaylist:
-      "Error al cargar {count, plural, one {la lista de reproducción} other {las listas de reproducción}}.",
+    loadPlaylist: "Error al cargar la lista de reproducción.",
+    loadPlaylists: "Error al cargar las listas de reproducción.",
     updatePlaylist: "Error al modificar la lista de reproducción",
     deletePlaylist: "Error al eliminar la lista de reproducción",
     addVideoToPlaylist: "Error al añadir el vídeo a la lista de reproducción",

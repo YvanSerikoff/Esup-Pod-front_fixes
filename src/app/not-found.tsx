@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <div>
       <BackButton label={t("common.back")} />
-      <h1>{t("errors.notFound")} ☹️</h1>
+      <h1 className="title">{t("errors.notFound")} ☹️</h1>
       <Alert type={VariantType.WARNING}>{t("errors.notConfigured")}</Alert>
       <Link href="/">
         <Button variant="primary">{t("common.backToHomepage")}</Button>
