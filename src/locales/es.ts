@@ -414,21 +414,28 @@ export const es: TranslationKeys = {
     collectionTypeLabel: "Tipo de colección que se mostrará",
     collectionTypeChannels: "Canales",
     collectionTypeThemes: "Temas (Categorías)",
+    collectionTypePlaylists: "Listas de reproducción",
     collectionTypeAll: "Todas las colecciones",
     collectionIdsLabel:
       "Identificadores o Slugs de las colecciones que se mostrarán (separados por comas)",
+    collectionIdsPlaceholder: "p. ej. 1, 5, noticias-2026",
+    collectionSortLabel: "Orden de visualización",
+    collectionSortTitle: "Título (A-Z)",
     collectionSortCreated: "Fecha de creación (Más recientes)",
 
     // Custom text block
+    customTextTitle: "Bloque de texto libre / HTML",
     customTextDescription: "Muestra un párrafo o contenido personalizado.",
     customTextContentLabel: "Contenido de texto o HTML",
 
     // Live streams block
+    liveTitle: "Bloque de directos",
     liveDescription:
       "Muestra la lista de directos en curso con un indicador rojo activo.",
     liveSortLabel: "Orden de los directos",
     liveSortStartUpcoming: "Fecha de inicio (Próximos)",
     liveSortStartRecent: "Fecha de inicio (Recientes)",
+    liveSortTitle: "Título (A-Z)",
     liveSortPopularity: "Popularidad (Número de espectadores)",
 
     // Video grid block
@@ -437,6 +444,8 @@ export const es: TranslationKeys = {
       "Muestra una fila o cuadrícula configurable de tarjetas de vídeo.",
     videoGridSortLabel: "Orden de los vídeos",
     videoGridSortLatest: "Añadidos recientemente",
+    videoGridSortMostViewed: "Más vistos",
+    videoGridSortTitle: "Título (A-Z)",
   },
 
   preferences: {

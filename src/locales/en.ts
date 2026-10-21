@@ -410,20 +410,27 @@ export const en: TranslationKeys = {
     collectionTypeLabel: "Collection type to display",
     collectionTypeChannels: "Channels",
     collectionTypeThemes: "Themes (Categories)",
+    collectionTypePlaylists: "Playlists",
     collectionTypeAll: "All collections",
     collectionIdsLabel: "Collection IDs or slugs to display (comma-separated)",
+    collectionIdsPlaceholder: "e.g. 1, 5, news-2026",
+    collectionSortLabel: "Display order",
+    collectionSortTitle: "Title (A-Z)",
     collectionSortCreated: "Creation date (Newest)",
 
     // Custom text block
+    customTextTitle: "Free Text / HTML Block",
     customTextDescription: "Displays a paragraph or custom content.",
     customTextContentLabel: "Text or HTML content",
 
     // Live streams block
+    liveTitle: "Live Streams Block",
     liveDescription:
       "Displays the list of ongoing live streams with an active red indicator.",
     liveSortLabel: "Live stream sorting order",
     liveSortStartUpcoming: "Start date (Upcoming)",
     liveSortStartRecent: "Start date (Recent)",
+    liveSortTitle: "Title (A-Z)",
     liveSortPopularity: "Popularity (Number of viewers)",
 
     // Video grid block
@@ -431,6 +438,8 @@ export const en: TranslationKeys = {
     videoGridDescription: "Displays a configurable row or grid of video cards.",
     videoGridSortLabel: "Video sorting order",
     videoGridSortLatest: "Recently added",
+    videoGridSortMostViewed: "Most viewed",
+    videoGridSortTitle: "Title (A-Z)",
   },
 
   preferences: {

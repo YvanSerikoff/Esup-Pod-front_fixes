@@ -3,10 +3,11 @@ import CollectionBlockComponent from "../WebTV/CollectionBlockComponent";
 import VideoGridBlockComponent from "../WebTV/VideoGridBlockComponent";
 import CustomTextBlock from "./CustomTextBlock";
 
-import { LiveBlockManifest } from "./manifests/LiveBlock.manifest";
-import { CollectionBlockManifest } from "./manifests/CollectionBlock.manifest";
-import { VideoGridBlockManifest } from "./manifests/VideoGridBlock.manifest";
-import { CustomTextBlockManifest } from "./manifests/CustomTextBlock.manifest";
+import { getLiveBlockManifest } from "./manifests/LiveBlock.manifest";
+import { getCollectionBlockManifest } from "./manifests/CollectionBlock.manifest";
+import { getVideoGridBlockManifest } from "./manifests/VideoGridBlock.manifest";
+import { getCustomTextBlockManifest } from "./manifests/CustomTextBlock.manifest";
+import type { SupportedLocale } from "@/src/locales";
 
 export interface BlockRegistration {
   component: React.ComponentType<any>;
@@ -16,22 +17,52 @@ export interface BlockRegistration {
 export const blockRegistry: Record<string, BlockRegistration> = {
   "webtv-hero-direct": {
     component: LiveBlockComponent,
-    manifest: LiveBlockManifest,
+    manifest: getLiveBlockManifest("fr"),
   },
-  "live-block": { component: LiveBlockComponent, manifest: LiveBlockManifest },
+  "live-block": {
+    component: LiveBlockComponent,
+    manifest: getLiveBlockManifest("fr"),
+  },
   "collection-block": {
     component: CollectionBlockComponent,
-    manifest: CollectionBlockManifest,
+    manifest: getCollectionBlockManifest("fr"),
   },
   "video-grid-block": {
     component: VideoGridBlockComponent,
-    manifest: VideoGridBlockManifest,
+    manifest: getVideoGridBlockManifest("fr"),
   },
   "custom-text-block": {
     component: CustomTextBlock,
-    manifest: CustomTextBlockManifest,
+    manifest: getCustomTextBlockManifest("fr"),
   },
 };
+
+export function getLocalizedBlockRegistry(
+  locale: SupportedLocale,
+): Record<string, BlockRegistration> {
+  return {
+    "webtv-hero-direct": {
+      component: LiveBlockComponent,
+      manifest: getLiveBlockManifest(locale),
+    },
+    "live-block": {
+      component: LiveBlockComponent,
+      manifest: getLiveBlockManifest(locale),
+    },
+    "collection-block": {
+      component: CollectionBlockComponent,
+      manifest: getCollectionBlockManifest(locale),
+    },
+    "video-grid-block": {
+      component: VideoGridBlockComponent,
+      manifest: getVideoGridBlockManifest(locale),
+    },
+    "custom-text-block": {
+      component: CustomTextBlock,
+      manifest: getCustomTextBlockManifest(locale),
+    },
+  };
+}
 
 /**
  * Resolves the matching React component for a given frontend_id key.

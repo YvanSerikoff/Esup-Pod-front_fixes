@@ -1,17 +1,23 @@
-export const VideoGridBlockManifest = {
-  frontend_id: "video-grid-block",
-  name: "Bloc Grille de Vidéos",
-  description: "Affiche une rangée ou grille de cartes vidéos paramétrable.",
-  fields: {
-    order_by: {
-      type: "select",
-      label: "Ordre de tri des vidéos",
-      options: [
-        { label: "Dernières ajoutées", value: "-created_at" },
-        { label: "Les plus vues", value: "-views_count" },
-        { label: "Titre (A-Z)", value: "title" },
-      ],
-      default: "-created_at",
+import { dictionaries, type SupportedLocale } from "@/src/locales";
+
+export function getVideoGridBlockManifest(locale: SupportedLocale) {
+  const t = dictionaries[locale].blocks;
+
+  return {
+    frontend_id: "video-grid-block",
+    name: t.videoGridTitle,
+    description: t.videoGridDescription,
+    fields: {
+      order_by: {
+        type: "select",
+        label: t.videoGridSortLabel,
+        options: [
+          { label: t.videoGridSortLatest, value: "-created_at" },
+          { label: t.videoGridSortMostViewed, value: "-views_count" },
+          { label: t.videoGridSortTitle, value: "title" },
+        ],
+        default: "-created_at",
+      },
     },
-  },
-};
+  };
+}

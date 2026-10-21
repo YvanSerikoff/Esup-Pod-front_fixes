@@ -406,21 +406,28 @@ export const fr = {
     collectionTypeLabel: "Type de collection à afficher",
     collectionTypeChannels: "Chaînes (Channels)",
     collectionTypeThemes: "Thèmes (Catégories)",
+    collectionTypePlaylists: "Playlists",
     collectionTypeAll: "Toutes les collections",
     collectionIdsLabel:
       "Identifiants ou Slugs de collections à afficher (séparés par virgule)",
+    collectionIdsPlaceholder: "ex. : 1, 5, actualites-2026",
+    collectionSortLabel: "Ordre d'affichage",
+    collectionSortTitle: "Titre (A-Z)",
     collectionSortCreated: "Date de création (Récents)",
 
     // Custom text block
+    customTextTitle: "Bloc Texte Libre / HTML",
     customTextDescription: "Affiche un paragraphe ou contenu personnalisé.",
     customTextContentLabel: "Contenu texte ou HTML",
 
     // Live streams block
+    liveTitle: "Bloc Directs",
     liveDescription:
       "Affiche la liste des directs en cours avec un indicateur actif rouge.",
     liveSortLabel: "Ordre de tri des directs",
     liveSortStartUpcoming: "Date de début (Prochainement)",
     liveSortStartRecent: "Date de début (Récents)",
+    liveSortTitle: "Titre (A-Z)",
     liveSortPopularity: "Popularité (Nombre de spectateurs)",
 
     // Video grid block
@@ -429,6 +436,8 @@ export const fr = {
       "Affiche une rangée ou grille de cartes vidéos paramétrable.",
     videoGridSortLabel: "Ordre de tri des vidéos",
     videoGridSortLatest: "Dernières ajoutées",
+    videoGridSortMostViewed: "Les plus vues",
+    videoGridSortTitle: "Titre (A-Z)",
   },
   preferences: {
     settingsHeader: "Paramètres",

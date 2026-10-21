@@ -1,35 +1,39 @@
-export const CollectionBlockManifest = {
-  frontend_id: "collection-block",
-  name: "Bloc Générale de Collections",
-  description:
-    "Affiche une sélection paramétrable de collections (chaînes, thèmes, playlists).",
-  fields: {
-    collection_type: {
-      type: "select",
-      label: "Type de collection à afficher",
-      options: [
-        { label: "Chaînes (Channels)", value: "channel" },
-        { label: "Thèmes (Catégories)", value: "theme" },
-        { label: "Playlists", value: "playlist" },
-        { label: "Toutes les collections", value: "all" },
-      ],
-      default: "channel",
+import { dictionaries, type SupportedLocale } from "@/src/locales";
+
+export function getCollectionBlockManifest(locale: SupportedLocale) {
+  const t = dictionaries[locale].blocks;
+
+  return {
+    frontend_id: "collection-block",
+    name: t.collectionTitle,
+    description: t.collectionDescription,
+    fields: {
+      collection_type: {
+        type: "select",
+        label: t.collectionTypeLabel,
+        options: [
+          { label: t.collectionTypeChannels, value: "channel" },
+          { label: t.collectionTypeThemes, value: "theme" },
+          { label: t.collectionTypePlaylists, value: "playlist" },
+          { label: t.collectionTypeAll, value: "all" },
+        ],
+        default: "channel",
+      },
+      collection_ids: {
+        type: "text",
+        label: t.collectionIdsLabel,
+        placeholder: t.collectionIdsPlaceholder,
+        default: "",
+      },
+      order_by: {
+        type: "select",
+        label: t.collectionSortLabel,
+        options: [
+          { label: t.collectionSortTitle, value: "title" },
+          { label: t.collectionSortCreated, value: "-created_at" },
+        ],
+        default: "title",
+      },
     },
-    collection_ids: {
-      type: "text",
-      label:
-        "Identifiants ou Slugs de collections à afficher (séparés par virgule)",
-      placeholder: "ex: 1, 5, actualites-2026",
-      default: "",
-    },
-    order_by: {
-      type: "select",
-      label: "Ordre d'affichage",
-      options: [
-        { label: "Titre (A-Z)", value: "title" },
-        { label: "Date de création (Récents)", value: "-created_at" },
-      ],
-      default: "title",
-    },
-  },
-};
+  };
+}
