@@ -158,7 +158,7 @@ export default function AddVideo() {
           </Alert>
           <LinearProgress
             className={styles["linear-progress"]}
-            aria-label="Loading..."
+            aria-label={t("common.loading")}
           />
         </div>
       ) : (
