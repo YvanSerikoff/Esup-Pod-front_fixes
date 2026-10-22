@@ -9,6 +9,7 @@ import "video.js/dist/video-js.css";
 import "videojs-hotkeys";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { getThumbnailUrl } from "@/src/utils/url";
 
 type Props = {
   video: Video;
@@ -58,7 +59,7 @@ export default function VideoPlayer({
   // Stable serialized keys
   const videoId = video.id;
   const videoTitle = video.title;
-  const poster = video.thumbnail_url ?? video.thumbnail ?? "";
+  const poster = getThumbnailUrl(video.thumbnail_url || video.thumbnail);
 
   const chapters: Chapter[] = useMemo(() => {
     return [...(video.chapters ?? [])].sort(
@@ -305,11 +306,11 @@ export default function VideoPlayer({
           <Image
             unoptimized
             src={poster}
-            alt="" //
-            className="styles.playerErrorPoster"
+            alt=""
+            className={styles.playerErrorPoster}
             width={0}
             height={0}
-            loading={"eager"}
+            loading="eager"
           />
         )}
         <div className={styles.playerErrorMessage}>

@@ -184,7 +184,7 @@ button:active,
 }
 
 .sidebarFixed {
-  margin-left: var(--sidebar-open) !important;
+  margin-left: var(--sidebar-open);
 }
 
 .content {
@@ -237,7 +237,7 @@ button:active,
 }
 
 .css-1ljffdk-MuiFormLabel-asterisk {
-  color: red;
+  color: var(--c--contextuals--content--semantic--error--secondary);
 }
 
 @media (max-width: 1024px) {
@@ -255,14 +255,14 @@ button:active,
   }
 }
 .c__app {
-  overflow: visible !important;
-  overflow-x: visible !important;
+  overflow: visible;
+  overflow-x: visible;
 }
 
 /* Video.js Poster Fix */
 .video-js .vjs-poster img {
-  object-fit: cover !important;
-  object-position: left center !important;
+  object-fit: cover;
+  object-position: left center;
 }
 
 /* Accessibility */
@@ -461,23 +461,16 @@ html[data-theme="dark"] div[class*="dropzone"] {
 }
 
 html[data-theme="dark"] .c__file-uploader__label,
-html[data-theme="dark"] div[class*="vignette-empty-title"],
-html[data-theme="dark"] div[class*="vignette-empty-hint"] {
+html[data-theme="dark"] div.vignette-empty-title,
+html[data-theme="dark"] div.vignette-empty-hint {
   color: var(--color-dark-primary) !important;
 }
 
 /* Container boxes inside edit form & modals in Dark Mode */
-html[data-theme="dark"] div[style*="background: white"],
-html[data-theme="dark"] div[style*="background: #f9fafb"],
-html[data-theme="dark"] div[style*="background: rgb(249, 250, 251)"],
-html[data-theme="dark"] div[style*="background: #fdfdfd"],
-html[data-theme="dark"]
-  div[style*="background: var(--c--globals--colors--gray-050)"],
-html[data-theme="dark"] div[class*="restricted-fields"],
 html[data-theme="dark"] div[class*="element-card"] {
-  background-color: var(--color-slate-900) !important;
-  border-color: var(--color-slate-700) !important;
-  color: var(--color-slate-50) !important;
+  background-color: var(--color-slate-900) z;
+  border-color: var(--color-slate-700);
+  color: var(--color-slate-50);
 }
 
 /* ========================================================================== */

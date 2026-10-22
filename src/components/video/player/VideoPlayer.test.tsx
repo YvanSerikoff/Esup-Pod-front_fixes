@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { dictionaries } from "@/src/locales";
 import VideoPlayer from "./VideoPlayer";
+import { getThumbnailUrl } from "@/src/utils/url";
 
 vi.mock("video.js", () => {
   return {
@@ -42,5 +43,30 @@ describe("VideoPlayer", () => {
       </NextIntlClientProvider>,
     );
     expect(container.querySelector("div")).not.toBeNull();
+  });
+
+  it("resolves and displays the thumbnail when the stream is unavailable", () => {
+    const queryClient = new QueryClient();
+    const videoMock = {
+      id: 1,
+      title: "Test video",
+      slug: "test-video",
+      subtitles: [],
+      thumbnail_url: "/media/thumbnails/test.jpg",
+    } as any;
+    const { container } = render(
+      <NextIntlClientProvider locale="fr" messages={dictionaries.fr}>
+        <QueryClientProvider client={queryClient}>
+          <VideoPlayer video={videoMock} streamUrl="" />
+        </QueryClientProvider>
+      </NextIntlClientProvider>,
+    );
+
+    const thumbnail = container.querySelector("img");
+    expect(thumbnail).not.toBeNull();
+    expect(thumbnail?.getAttribute("src")).toBe(
+      getThumbnailUrl(videoMock.thumbnail_url),
+    );
+    expect(thumbnail?.className).not.toBe("styles.playerErrorPoster");
   });
 });

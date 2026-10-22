@@ -987,8 +987,7 @@ html[data-theme="dark"] .source-upload-card {
 html[data-theme="dark"] .step-title,
 html[data-theme="dark"] .input-label,
 html[data-theme="dark"] .live-card-title,
-html[data-theme="dark"] .element-card-title,
-html[data-theme="dark"] .visibility-section-header {
+html[data-theme="dark"] .element-card-title {
   color: var(--color-slate-50);
 }
 
@@ -1000,13 +999,6 @@ html[data-theme="dark"] .element-card-desc,
 html[data-theme="dark"] .radio-option-content p,
 html[data-theme="dark"] .vignette-helper-text {
   color: var(--color-slate-400);
-}
-
-html[data-theme="dark"] .action-pill-btn,
-html[data-theme="dark"] .step-nav-btn {
-  background-color: var(--color-slate-800);
-  border-color: var(--color-slate-700);
-  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] .action-pill-btn:hover:not(:disabled),
@@ -1024,6 +1016,8 @@ html[data-theme="dark"] .step-nav-btn:disabled {
   opacity: 0.4;
 }
 
+html[data-theme="dark"] .action-pill-btn,
+html[data-theme="dark"] .step-nav-btn,
 html[data-theme="dark"] .live-card-container,
 html[data-theme="dark"] .element-card,
 html[data-theme="dark"] .visibility-section-header,
