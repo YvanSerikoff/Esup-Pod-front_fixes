@@ -115,7 +115,9 @@ export default function Comments({ videoSlug }: CommentsProps) {
           </div>
         </div>
       ) : (
-        <Alert type={VariantType.INFO}>{t("comments.loginToComment")}</Alert>
+        <Alert type={VariantType.INFO} aria-live="polite">
+          {t("comments.loginToComment")}
+        </Alert>
       )}
 
       {useCommentsLoading ? (

@@ -65,7 +65,7 @@ export function getCollectionGridColumns({
   if (hasChannelRows) {
     columns.push({
       field: "themesCount",
-      headerName: `${t!("common.theme")}`,
+      headerName: `${t!("common.themes")}`,
       renderCell: ({ row }) => (
         <span className={styles["count-badge"]}>{row.themesCount}</span>
       ),

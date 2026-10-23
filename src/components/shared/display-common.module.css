@@ -18,6 +18,7 @@
   border: 1px solid var(--background-brand-secondary);
   max-width: 100%;
   background-color: var(--background-brand-secondary);
+  justify-content: space-between;
 }
 
 .toolbar {
@@ -89,8 +90,10 @@
 }
 
 .date-text {
+  color: var(--color-slate-400);
   font-size: 0.8rem;
 }
+
 
 @media (max-width: 640px) {
   .toggle-wrapper {

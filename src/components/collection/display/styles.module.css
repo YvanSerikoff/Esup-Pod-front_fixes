@@ -1,25 +1,9 @@
 .toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.toggle-wrapper {
   composes: toggle-wrapper from "../../shared/display-common.module.css";
 }
 
 .toolbar {
   composes: toolbar from "../../shared/display-common.module.css";
-}
-
-.toggle-group {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  border: 1px solid var(--background-brand-secondary);
-  max-width: 100%;
-  justify-content: space-between;
 }
 
 .toggle-label {
@@ -115,8 +99,7 @@
 }
 
 .date-text {
-  color: var(--color-slate-400);
-  font-size: 0.8rem;
+  composes: date-text from "../../shared/display-common.module.css";
 }
 
 @media (max-width: 640px) {
