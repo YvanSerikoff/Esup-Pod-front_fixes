@@ -62,6 +62,10 @@ html[data-theme="dark"] .navbar-logo img {
   font-size: var(--c--globals--font--sizes--h2);
 }
 
+html[data-theme="dark"] .navbar-logo strong {
+  color: var(--color-slate-50);
+}
+
 .navbar-profil {
   margin-right: var(--c--globals--spacings--xxl);
 }

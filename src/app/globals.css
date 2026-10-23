@@ -302,7 +302,7 @@ button:active,
 }
 
 html[data-theme="dark"] .skeleton-block {
-  background-color: var(--color-slate-800) !important;
+  background-color: var(--color-slate-800);
 }
 
 /* ========================================================================== */
@@ -311,26 +311,23 @@ html[data-theme="dark"] .skeleton-block {
 
 html[data-theme="dark"],
 body.dark-mode {
-  --background: var(--color-slate-900) !important;
-  --text-color: var(--color-slate-50) !important;
-  --text-color-brand: var(--color-primary-highlight) !important;
-  --c--contextuals--content--semantic--neutral--primary: var(
-    --color-slate-50
-  ) !important;
+  --background: var(--color-slate-900);
+  --text-color: var(--color-slate-50);
+  --text-color-brand: var(--color-primary-highlight);
+  --c--contextuals--content--semantic--neutral--primary: var(--color-slate-50);
   --c--contextuals--background--semantic--brand--primary: var(
     --color-light-primary
-  ) !important;
+  );
   --c--contextuals--background--semantic--brand--secondary: var(
     --color-slate-800
-  ) !important;
+  );
 
-  background-color: var(--color-slate-900) !important;
-  color: var(--color-slate-50) !important;
+  background-color: var(--color-slate-900);
+  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] body {
-  background-color: var(--color-slate-900) !important;
-  color: var(--color-slate-50) !important;
+  background-color: var(--color-slate-900);
 }
 
 html[data-theme="dark"] h1,
@@ -339,7 +336,7 @@ html[data-theme="dark"] h3,
 html[data-theme="dark"] h4,
 html[data-theme="dark"] h5,
 html[data-theme="dark"] h6 {
-  color: var(--color-slate-50) !important;
+  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] p,
@@ -364,23 +361,22 @@ html[data-theme="dark"] .MuiCard-root {
 
 /* Flat layout for Settings & Preferences: no background boxes, no borders */
 html[data-theme="dark"] div[class*="settings-container"],
-html[data-theme="dark"] div[class*="settings-content"],
 html[data-theme="dark"] .flat-container {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 html[data-theme="dark"] nav[class*="sidebar"] {
-  background-color: var(--color-slate-800) !important;
+  background-color: var(--color-slate-800);
   border-right: 1px solid var(--color-slate-700);
 }
 
 /* Navbar in Dark Mode */
 html[data-theme="dark"] header,
 html[data-theme="dark"] nav[class*="navbar"] {
-  background-color: var(--color-slate-900) !important;
-  border-bottom: 1px solid var(--color-slate-700) !important;
+  background-color: var(--color-slate-900);
+  border-bottom: 1px solid var(--color-slate-700);
 }
 
 /* Form Inputs, Selects & Buttons in Dark Mode */

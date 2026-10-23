@@ -6,11 +6,11 @@
 
 .socialNetworksForm,
 .restriction-options {
-  padding: var(--radius-lg);
   background-color: var(--color-gray-50);
-  border-radius: var(--radius-sm);
   border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
   gap: var(--radius-lg);
+  padding: var(--radius-lg);
 }
 
 html[data-theme="dark"] .socialNetworksForm,
@@ -27,8 +27,8 @@ html[data-theme="dark"] .restriction-options {
 
 .deleteContainer p {
   font-size: var(--c--globals--font--sizes--md);
-  margin: var(--c--globals--spacings--md) 0;
   gap: 7rem;
+  margin: var(--c--globals--spacings--md) 0;
 }
 
 .deleteAlert {
@@ -45,10 +45,10 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .titleRow {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   gap: var(--c--globals--spacings--sm);
+  justify-content: space-between;
   padding-bottom: var(--c--globals--spacings--md);
 }
 
@@ -65,14 +65,13 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .content-box {
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
   padding: 1.5rem;
 }
 
 .desc {
   color: var(--c--globals--colors--gray-500);
-  margin-bottom: 2rem;
   line-height: 2;
 }
 
@@ -84,11 +83,11 @@ html[data-theme="dark"] .restriction-options {
   background: none;
   border: none;
   color: var(--color-light-primary);
-  font-weight: var(--c--globals--font--weights--medium);
   cursor: pointer;
-  padding: 0;
-  margin-top: var(--c--globals--spacings--xs);
   font-size: var(--c--globals--font--sizes--sm);
+  font-weight: var(--c--globals--font--weights--medium);
+  margin-top: var(--c--globals--spacings--xs);
+  padding: 0;
 }
 
 .read-more-btn:hover {
@@ -100,20 +99,19 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .form {
-  gap: 1rem;
-  padding: 0 var(--c--globals--spacings--md);
-  margin: var(--c--globals--spacings--xxl);
   align-items: center;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin: var(--c--globals--spacings--xxl);
+  padding: 0 var(--c--globals--spacings--md);
 }
 
 .skeleton-back-button {
-  width: 100px;
+  border-radius: 4px;
   height: 40px;
   margin-bottom: 20px;
-  border-radius: 4px;
-  background-color: var(--color-gray-300);
+  width: 100px;
 }
 
 .skeleton-main-section {
@@ -125,45 +123,45 @@ html[data-theme="dark"] .restriction-options {
 }
 
 .skeleton-video {
-  width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-sm);
+  width: 100%;
 }
 
 .skeleton-title {
-  width: 60%;
-  height: 32px;
   border-radius: 4px;
+  height: 32px;
+  width: 60%;
 }
 
 .skeleton-info-row {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 }
 
 .skeleton-info {
-  width: 20%;
-  height: 24px;
   border-radius: 4px;
+  height: 24px;
+  width: 20%;
 }
 
 .skeleton-actions {
-  width: 30%;
-  height: 32px;
   border-radius: 4px;
+  height: 32px;
+  width: 30%;
 }
 
 .skeleton-sidebar {
-  width: 100%;
-  height: 300px;
   border-radius: var(--radius-sm);
+  height: 300px;
+  width: 100%;
 }
 
 @media (max-width: 600px) {
   .titleRow {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     gap: var(--c--globals--spacings--xs);
   }
 
@@ -173,7 +171,7 @@ html[data-theme="dark"] .restriction-options {
 
   .actionLink button,
   .actionLink .c__button {
-    width: 100%;
     justify-content: center;
+    width: 100%;
   }
 }
