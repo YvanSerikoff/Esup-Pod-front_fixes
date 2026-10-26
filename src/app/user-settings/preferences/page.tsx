@@ -4,7 +4,6 @@ import { Switch } from "@openfun/cunningham-react";
 import { useCunninghamTheme } from "@/src/context/CunninghamProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import { LanguageSelector } from "@/src/components/Language/LanguageSelector";
-import Divider from "@mui/material/Divider";
 
 export const breadcrumbLabel = "Affichage et accessibilité";
 

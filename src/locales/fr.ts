@@ -1,5 +1,3 @@
-import { Description } from "@mui/icons-material";
-
 export const fr = {
   // === Common ===
   common: {

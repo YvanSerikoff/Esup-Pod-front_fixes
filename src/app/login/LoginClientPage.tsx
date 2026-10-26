@@ -87,7 +87,7 @@ function LoginContent() {
       <div className={styles["sso-button"]}>
         {config?.authentication?.use_cas && (
           <Button
-            onClick={() => (window.location.href = `${backUrl}/login/cas/`)}
+            onClick={() => router.push(`${backUrl}/login/cas/`)}
             variant="secondary"
           >
             {t("navbar.login", {
@@ -97,9 +97,7 @@ function LoginContent() {
         )}
         {config?.authentication?.use_shib && (
           <Button
-            onClick={() =>
-              (window.location.href = `${backUrl}/login/shibboleth/`)
-            }
+            onClick={() => router.push(`${backUrl}/login/shibboleth/`)}
             variant="secondary"
           >
             {t("navbar.login", {
@@ -110,7 +108,7 @@ function LoginContent() {
         )}
         {config?.authentication?.use_oidc && (
           <Button
-            onClick={() => (window.location.href = `${backUrl}/login/oidc/`)}
+            onClick={() => router.push(`${backUrl}/login/oidc/`)}
             variant="secondary"
           >
             {t("navbar.login", {
