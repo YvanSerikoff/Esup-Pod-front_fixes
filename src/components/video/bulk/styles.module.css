@@ -5,21 +5,21 @@
   );
   border: 1px solid var(--border-color, rgba(var(--color-black-rgb), 0.12));
   border-radius: var(--radius-md);
-  padding: var(--radius-lg) 20px;
   margin-bottom: 24px;
+  padding: var(--radius-lg) 20px;
 }
 
 .bulkActionBarContent {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: flex;
   flex-wrap: wrap;
   gap: var(--radius-lg);
+  justify-content: space-between;
 }
 
 .bulkActionTitleGroup {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-md);
 }
 
@@ -30,48 +30,48 @@
 }
 
 .bulkSelectionGroup {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-sm);
 }
 
 .bulkSelectionBadge {
   background-color: var(--c--contextuals--background--semantic--brand--primary);
+  border-radius: var(--radius-md);
   color: var(--color-white);
   font-size: 0.8rem;
   font-weight: 600;
-  border-radius: var(--radius-md);
   padding: 2px 10px;
 }
 
 .bulkEncodingWarning {
-  display: flex;
   align-items: center;
-  gap: 4px;
   color: #e67e22;
+  cursor: help;
+  display: flex;
   font-size: 0.8rem;
   font-weight: 600;
-  cursor: help;
+  gap: 4px;
 }
 
 .bulkSelectionPrompt {
-  display: flex;
   align-items: center;
-  gap: 6px;
   color: var(--c--globals--colors--gray-500);
+  display: flex;
   font-size: 0.85rem;
+  gap: 6px;
 }
 
 .bulkActionControls {
-  display: flex;
   align-items: center;
-  gap: var(--radius-md);
+  display: flex;
   flex-wrap: wrap;
+  gap: var(--radius-md);
 }
 
 .bulkActionDropdown {
-  min-width: 270px;
   justify-content: space-between;
+  min-width: 270px;
 }
 
 .bulkActionDropdownDisabled {
@@ -79,9 +79,9 @@
 }
 
 .bulkActionsPopper {
-  z-index: 1300;
   min-width: 320px;
   width: var(--bulk-action-width, 320px);
+  z-index: 1300;
 }
 
 .bulkActionsMenuContent {
@@ -89,18 +89,18 @@
 }
 
 .bulkMenuGroupHeading {
+  color: var(--color-slate-500);
   display: block;
   font-weight: 700;
-  color: var(--color-slate-500);
+  letter-spacing: 0.5px;
   padding: var(--radius-sm) var(--radius-md) 6px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .bulkMenuDangerHeading {
   color: var(--c--contextuals--content--semantic--error--secondary);
-  padding-top: 4px;
   padding-bottom: 4px;
+  padding-top: 4px;
 }
 
 .bulkMenuItemTooltipTarget {
@@ -108,44 +108,44 @@
 }
 
 .bulkMenuItem {
-  border-radius: 6px !important;
-  padding: 7.2px var(--radius-md) !important;
-  font-size: 0.875rem !important;
-  display: flex !important;
   align-items: center !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  font-size: 0.875rem !important;
   gap: 9.6px !important;
+  padding: 7.2px var(--radius-md) !important;
   white-space: nowrap !important;
 }
 
 .bulkMenuItemEnabled {
-  color: var(--text-color, var(--color-slate-900)) !important;
+  color: var(--text-color, var(--bg-dark-primary)) !important;
 }
 
 .bulkMenuItemDisabled,
 .bulkMenuItemDisabled:global(.Mui-disabled) {
-  opacity: 0.75 !important;
   color: var(--color-slate-500) !important;
+  opacity: 0.75 !important;
 }
 
 .bulkMenuLockIcon {
-  font-size: 0.9rem !important;
   color: var(--color-slate-500) !important;
+  font-size: 0.9rem !important;
   opacity: 0.9;
 }
 
 .bulkMenuDivider {
-  margin-top: var(--radius-md) !important;
-  margin-bottom: var(--radius-md) !important;
   border-color: var(
     --border-color,
     rgba(var(--color-black-rgb), 0.12)
   ) !important;
+  margin-bottom: var(--radius-md) !important;
+  margin-top: var(--radius-md) !important;
 }
 
 .bulkMenuDangerItem {
   color: var(--c--contextuals--content--semantic--error--secondary) !important;
-  margin-bottom: 4px !important;
   font-weight: 600 !important;
+  margin-bottom: 4px !important;
 }
 
 .bulkModalContent {
@@ -161,18 +161,18 @@
 
 .bulkFieldLabel {
   display: block;
+  font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 10px;
-  font-size: 0.95rem;
 }
 
 .bulkFormControl {
-  width: 100%;
-  padding: 10px var(--radius-md);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--c--globals--colors--gray-300);
-  font-size: 0.9rem;
   background-color: var(--color-white);
+  border: 1px solid var(--c--globals--colors--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  padding: 10px var(--radius-md);
+  width: 100%;
 }
 
 .bulkDescriptionInput {
@@ -181,8 +181,8 @@
 }
 
 .bulkScheduleNotice {
-  margin-bottom: var(--radius-md) !important;
   font-size: 0.85rem !important;
+  margin-bottom: var(--radius-md) !important;
 }
 
 .bulkKeywordsHelper {
@@ -192,53 +192,53 @@
 }
 
 .bulkAffectedTitle {
-  font-weight: 600;
   font-size: 0.9rem;
+  font-weight: 600;
   margin-bottom: var(--radius-sm);
 }
 
 html[data-theme="dark"] .bulkAffectedVideos {
-  background-color: var(--color-slate-900);
+  background-color: var(--bg-dark-primary);
 }
 
 .bulkAffectedVideos {
-  max-height: 140px;
-  overflow-y: auto;
+  background-color: var(--c--globals--colors--gray-050);
   border: 1px solid var(--c--globals--colors--gray-200);
   border-radius: var(--radius-sm);
-  padding: var(--radius-sm) var(--radius-md);
-  background-color: var(--c--globals--colors--gray-050);
   display: flex;
   flex-direction: column;
   gap: 5px;
+  max-height: 140px;
+  overflow-y: auto;
+  padding: var(--radius-sm) var(--radius-md);
 }
 
 .bulkAffectedVideo {
-  font-size: 0.85rem;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 0.85rem;
   gap: var(--radius-sm);
 }
 
 .bulkVideoId {
-  font-weight: 600;
   color: var(--c--contextuals--background--semantic--brand--primary);
+  font-weight: 600;
   min-width: 32px;
 }
 
 .bulkVideoTitle {
   flex: 1;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .bulkEncodingBadge,
 .bulkEncodingErrorBadge {
-  font-size: 0.7rem;
   border-radius: 6px;
-  padding: 1px 6px;
+  font-size: 0.7rem;
   font-weight: 600;
+  padding: 1px 6px;
   white-space: nowrap;
 }
 
@@ -264,20 +264,20 @@ html[data-theme="dark"] .bulkEncodingErrorBadge {
 
 .bulkModalActions {
   display: flex;
-  justify-content: flex-end;
   gap: var(--radius-md);
+  justify-content: flex-end;
   margin-top: 4px;
 }
 
 .bulkProcessing {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-sm);
 }
 
 .bulkToast {
-  min-width: 320px !important;
   border-radius: 10px !important;
+  min-width: 320px !important;
 }
 
 @media (max-width: 600px) {

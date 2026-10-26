@@ -629,7 +629,7 @@
   width: 100%;
 }
 
-.vignette-upload-container :global(.c__file-uploader) {
+.vignette-upload-container {
   background: transparent;
   border: none;
   min-height: unset;
@@ -709,7 +709,7 @@
   background: var(--color-white);
   border: 2px solid var(--c--globals--colors--gray-400, var(--color-slate-400));
   border-radius: 50%;
-  color: var(--c--globals--colors--gray-700, var(--color-slate-700));
+  color: var(--c--globals--colors--gray-700, var(--border-dark));
   display: flex;
   flex-shrink: 0;
   font-size: 0.8rem;
@@ -721,7 +721,7 @@
 }
 
 .stepper-title {
-  color: var(--c--globals--colors--gray-700, var(--color-slate-700));
+  color: var(--c--globals--colors--gray-700, var(--border-dark));
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
@@ -783,7 +783,7 @@
 
 /* Dark Mode Overrides */
 html[data-theme="dark"] .stepper-line-bg {
-  background-color: var(--color-slate-700);
+  background-color: var(--border-dark);
 }
 
 html[data-theme="dark"] .stepper-line-progress {
@@ -792,11 +792,11 @@ html[data-theme="dark"] .stepper-line-progress {
 
 html[data-theme="dark"] .stepper-item-header {
   background: var(--video-edit-color-stepper-dark-background);
-  border-color: var(--color-slate-700);
+  border-color: var(--border-dark);
 }
 
 html[data-theme="dark"] .stepper-dot {
-  background: var(--color-slate-800);
+  background: var(--bg-dark-secondary);
   border-color: var(--color-slate-600);
   color: var(--color-slate-400);
 }
@@ -844,8 +844,8 @@ html[data-theme="dark"] .source-status-title-success {
 }
 
 html[data-theme="dark"] .source-upload-card {
-  background: var(--c--theme--colors--card-bg, var(--color-slate-900));
-  border: 1.5px solid var(--border-color, var(--color-slate-700));
+  background: var(--c--theme--colors--card-bg, var(--bg-dark-primary));
+  border: 1.5px solid var(--border-color, var(--border-dark));
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -1003,15 +1003,15 @@ html[data-theme="dark"] .vignette-helper-text {
 
 html[data-theme="dark"] .action-pill-btn:hover:not(:disabled),
 html[data-theme="dark"] .step-nav-btn:hover:not(:disabled) {
-  background-color: var(--color-slate-700);
+  background-color: var(--border-dark);
   border-color: var(--color-dark-primarymary);
   color: var(--color-dark-primarymary);
 }
 
 html[data-theme="dark"] .action-pill-btn:disabled,
 html[data-theme="dark"] .step-nav-btn:disabled {
-  background-color: var(--color-slate-800);
-  border-color: var(--color-slate-700);
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
   color: var(--color-slate-500);
   opacity: 0.4;
 }
@@ -1022,8 +1022,8 @@ html[data-theme="dark"] .live-card-container,
 html[data-theme="dark"] .element-card,
 html[data-theme="dark"] .visibility-section-header,
 html[data-theme="dark"] .visibility-section {
-  background-color: var(--color-slate-800);
-  border-color: var(--color-slate-700);
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
   color: var(--color-slate-50);
 }
 

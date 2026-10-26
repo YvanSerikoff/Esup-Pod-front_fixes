@@ -37,7 +37,7 @@
   background-color: var(--background, var(--color-white));
   border: 1px solid
     var(--border-color, rgba(var(--color-neutral-border-rgb), 0.2));
-  color: var(--text-color, var(--color-slate-900));
+  color: var(--text-color, var(--bg-dark-primary));
   margin-top: var(--radius-sm);
   min-width: 140px;
   padding: 4px;
@@ -46,7 +46,7 @@
 .language-menu-item {
   align-items: center;
   border-radius: 6px;
-  color: var(--text-color, var(--color-slate-900));
+  color: var(--text-color, var(--bg-dark-primary));
   display: flex;
   font-size: 0.85rem;
   font-weight: 500;

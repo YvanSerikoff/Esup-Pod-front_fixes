@@ -1,15 +1,15 @@
 .filters-content {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(var(--color-black-rgb), 0.12);
   margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .row {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  align-items: flex-start;
 }
 
 .filter-item {
@@ -18,27 +18,27 @@
 }
 
 .filter-button {
-  min-height: 38px;
-  border: 1px solid rgba(var(--color-black-rgb), 0.2) !important;
-  border-radius: 9999px !important;
+  align-items: center !important;
   background-color: var(
     --c--theme--colors--card-bg,
     var(--color-white)
   ) !important;
-  color: var(--text-color, var(--color-slate-900)) !important;
-  padding: 6px var(--radius-lg) !important;
-  transition: all 0.2s ease-in-out !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  text-transform: none !important;
+  border: 1px solid rgba(var(--color-black-rgb), 0.2) !important;
+  border-radius: 9999px !important;
+  color: var(--text-color, var(--bg-dark-primary)) !important;
   cursor: pointer !important;
+  display: flex !important;
   font-family: inherit !important;
+  gap: 0.5rem !important;
+  min-height: 38px;
+  padding: 6px var(--radius-lg) !important;
+  text-transform: none !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 .filter-button:hover {
-  border-color: var(--color-light-primary) !important;
   background-color: rgba(var(--color-light-primary-rgb), 0.04) !important;
+  border-color: var(--color-light-primary) !important;
 }
 
 .filter-button-active {
@@ -46,11 +46,11 @@
 }
 
 .filter-button.filter-button-active {
-  border: 1.5px solid var(--color-light-primary) !important;
   background-color: var(--background-primary-subtle) !important;
+  border: 1.5px solid var(--color-light-primary) !important;
+  box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
   color: var(--color-primary-text) !important;
   font-weight: 600 !important;
-  box-shadow: 0 1px 3px rgba(var(--color-light-primary-rgb), 0.12) !important;
 }
 
 .filter-chip-label {
@@ -58,9 +58,9 @@
 }
 
 .filter-chip-close {
-  margin-left: 4px;
-  font-size: 1.1rem;
   color: inherit;
+  font-size: 1.1rem;
+  margin-left: 4px;
   opacity: 0.8;
   transition:
     opacity 0.2s ease,
@@ -68,8 +68,8 @@
 }
 
 .filter-chip-close:hover {
-  opacity: 1;
   color: var(--c--contextuals--content--semantic--error--secondary);
+  opacity: 1;
 }
 
 .chips {
@@ -79,35 +79,35 @@
 }
 
 .active-filters-row {
+  align-items: center;
+  border-top: 1px solid rgba(var(--color-black-rgb), 0.12);
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  gap: var(--radius-md);
   justify-content: space-between;
   margin-top: var(--radius-lg);
-  gap: var(--radius-md);
   padding-top: var(--radius-md);
-  border-top: 1px solid rgba(var(--color-black-rgb), 0.12);
 }
 
 .filter-menu {
-  padding: 0.75rem;
-  border-radius: var(--radius-sm) !important;
-  border: 1px solid rgba(var(--color-black-rgb), 0.15) !important;
-  box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.1) !important;
   background-color: var(
     --c--theme--colors--card-bg,
     var(--color-white)
   ) !important;
+  border: 1px solid rgba(var(--color-black-rgb), 0.15) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.1) !important;
+  padding: 0.75rem;
 }
 
 :global(html[data-theme="dark"]) .filter-button {
-  background-color: var(--color-slate-800) !important;
+  background-color: var(--bg-dark-secondary) !important;
+  border-color: var(--border-dark) !important;
   color: var(--color-slate-400) !important;
-  border-color: var(--color-slate-700) !important;
 }
 
 :global(html[data-theme="dark"]) .filter-button:hover {
-  background-color: var(--color-slate-700) !important;
+  background-color: var(--border-dark) !important;
   border-color: var(--color-dark-primary) !important;
   color: var(--color-slate-50) !important;
 }
@@ -115,8 +115,8 @@
 :global(html[data-theme="dark"]) .filter-button.filter-button-active {
   background-color: rgba(var(--color-primary-accent-rgb), 0.25) !important;
   border-color: var(--color-primary-accent) !important;
-  color: var(--color-white) !important;
   box-shadow: 0 0 10px rgba(var(--color-primary-accent-rgb), 0.3) !important;
+  color: var(--color-white) !important;
 }
 
 :global(html[data-theme="dark"]) .filter-button.filter-button-active p,
@@ -126,15 +126,15 @@
 }
 
 :global(html[data-theme="dark"]) .filter-menu {
-  background-color: var(--color-slate-800) !important;
+  background-color: var(--bg-dark-secondary) !important;
+  border-color: var(--border-dark) !important;
   color: var(--color-slate-50) !important;
-  border-color: var(--color-slate-700) !important;
 }
 
 .clear-filters-btn {
   color: var(--color-light-primary) !important;
-  font-weight: 600 !important;
   font-size: 0.85rem !important;
+  font-weight: 600 !important;
   transition: color 0.2s ease !important;
 }
 

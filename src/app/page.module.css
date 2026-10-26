@@ -30,7 +30,7 @@
   border: 1px solid var(--c--globals--colors--gray-200, var(--color-slate-200));
   border-radius: var(--radius-md);
   box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.05);
-  color: var(--text-color, var(--color-slate-900));
+  color: var(--text-color, var(--bg-dark-primary));
   display: flex;
   flex: 1 1 300px;
   gap: var(--c--globals--spacings--sm);
@@ -42,8 +42,8 @@
 }
 
 html[data-theme="dark"] .welcome-box {
-  background-color: var(--color-slate-800);
-  border-color: var(--color-slate-700);
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
   color: var(--color-slate-50);
 }
 

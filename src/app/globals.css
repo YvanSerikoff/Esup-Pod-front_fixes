@@ -24,9 +24,6 @@ Extra Large Screens: min-width: 1441px
   --color-slate-200: #e2e8f0;
   --color-slate-400: #94a3b8;
   --color-slate-500: #64748b;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
   --color-slate-300: #cbd5e1;
   --color-slate-600: #475569;
   --color-slate-400-rgb: 148, 163, 184;
@@ -77,6 +74,12 @@ Extra Large Screens: min-width: 1441px
   --color-primary-accent: #3b82f6;
   --color-light-primary-rgb: 37, 99, 235;
   --color-primary-accent-rgb: 59, 130, 246;
+
+  /* Dark */
+  --bg-dark-primary: #0f172a;
+  --bg-dark-secondary: #1e293b;
+  --border-dark: #334155;
+  --content-dark-primary: #60a5fa;
 }
 
 html,
@@ -136,8 +139,8 @@ button,
 .c__button,
 input[type="button"],
 input[type="submit"],
-a[class*="btn"],
-button[class*="btn"] {
+a.btn,
+button.btn {
   border-radius: 9999px !important;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
@@ -302,7 +305,7 @@ button:active,
 }
 
 html[data-theme="dark"] .skeleton-block {
-  background-color: var(--color-slate-800);
+  background-color: var(--bg-dark-secondary);
 }
 
 /* ========================================================================== */
@@ -311,7 +314,7 @@ html[data-theme="dark"] .skeleton-block {
 
 html[data-theme="dark"],
 body.dark-mode {
-  --background: var(--color-slate-900);
+  --background: var(--bg-dark-primary);
   --text-color: var(--color-slate-50);
   --text-color-brand: var(--color-primary-highlight);
   --c--contextuals--content--semantic--neutral--primary: var(--color-slate-50);
@@ -319,15 +322,15 @@ body.dark-mode {
     --color-light-primary
   );
   --c--contextuals--background--semantic--brand--secondary: var(
-    --color-slate-800
+    --bg-dark-secondary
   );
 
-  background-color: var(--color-slate-900);
+  background-color: var(--bg-dark-primary);
   color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] body {
-  background-color: var(--color-slate-900);
+  background-color: var(--bg-dark-primary);
 }
 
 html[data-theme="dark"] h1,
@@ -354,13 +357,13 @@ html[data-theme="dark"] a {
 /* Cards & Containers in Dark Mode */
 html[data-theme="dark"] .MuiPaper-root,
 html[data-theme="dark"] .MuiCard-root {
-  background-color: var(--color-slate-800) !important;
-  border-color: var(--color-slate-700) !important;
-  color: var(--color-slate-50) !important;
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
+  color: var(--color-slate-50);
 }
 
 /* Flat layout for Settings & Preferences: no background boxes, no borders */
-html[data-theme="dark"] div[class*="settings-container"],
+html[data-theme="dark"] div.settings-container,
 html[data-theme="dark"] .flat-container {
   background: transparent;
   border: none;
@@ -368,15 +371,15 @@ html[data-theme="dark"] .flat-container {
 }
 
 html[data-theme="dark"] nav[class*="sidebar"] {
-  background-color: var(--color-slate-800);
-  border-right: 1px solid var(--color-slate-700);
+  background-color: var(--bg-dark-secondary);
+  border-right: 1px solid var(--border-dark);
 }
 
 /* Navbar in Dark Mode */
 html[data-theme="dark"] header,
 html[data-theme="dark"] nav[class*="navbar"] {
-  background-color: var(--color-slate-900);
-  border-bottom: 1px solid var(--color-slate-700);
+  background-color: var(--bg-dark-primary);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 /* Form Inputs, Selects & Buttons in Dark Mode */
@@ -388,20 +391,20 @@ html[data-theme="dark"] .c__input__wrapper,
 html[data-theme="dark"] .c__input__field,
 html[data-theme="dark"] .c__field,
 html[data-theme="dark"] .MuiInputBase-root {
-  background-color: var(--color-slate-800) !important;
-  border-color: var(--color-slate-700) !important;
-  color: var(--color-white) !important;
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
+  color: var(--color-white);
 }
 
 html[data-theme="dark"] .c__input__label,
 html[data-theme="dark"] .c__field__label,
 html[data-theme="dark"] .MuiInputLabel-root {
-  background-color: transparent !important;
-  color: var(--color-slate-400) !important;
+  background-color: transparent;
+  color: var(--color-slate-400);
 }
 
 html[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
-  border-color: var(--color-slate-600) !important;
+  border-color: var(--color-slate-600);
 }
 
 html[data-theme="dark"] .MuiSvgIcon-root {
@@ -410,10 +413,10 @@ html[data-theme="dark"] .MuiSvgIcon-root {
 
 /* Secondary & Muted Typography in Dark Mode */
 html[data-theme="dark"] .MuiTypography-colorTextSecondary,
-html[data-theme="dark"] .MuiTypography-root[class*="secondary"],
-html[data-theme="dark"] span[class*="cardMeta"],
-html[data-theme="dark"] div[class*="cardBody"] span {
-  color: var(--color-slate-400) !important;
+html[data-theme="dark"] .MuiTypography-root.secondary,
+html[data-theme="dark"] span.cardMeta,
+html[data-theme="dark"] div.cardBody span {
+  color: var(--color-slate-400);
 }
 
 /* ========================================================================== */
@@ -425,13 +428,13 @@ html[data-theme="dark"] .MuiDialog-paper,
 html[data-theme="dark"] .MuiDialogTitle-root,
 html[data-theme="dark"] .MuiDialogContent-root,
 html[data-theme="dark"] .MuiDialogActions-root {
-  background-color: var(--color-slate-800) !important;
-  border-color: var(--color-slate-700) !important;
-  color: var(--color-slate-50) !important;
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
+  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] .MuiDialogContent-dividers {
-  border-color: var(--color-slate-700) !important;
+  border-color: var(--border-dark);
 }
 
 html[data-theme="dark"] .MuiTypography-root:not(.MuiLink-root),
@@ -439,33 +442,33 @@ html[data-theme="dark"] .MuiFormLabel-root,
 html[data-theme="dark"] .MuiFormControlLabel-label,
 html[data-theme="dark"] .c__checkbox__label,
 html[data-theme="dark"] label {
-  color: var(--color-slate-50) !important;
+  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] .MuiFormHelperText-root {
-  color: var(--color-slate-400) !important;
+  color: var(--color-slate-400);
 }
 
 /* File Uploaders & Drag-and-Drop Zones in Dark Mode */
 html[data-theme="dark"] .c__file-uploader,
-html[data-theme="dark"] div[class*="vignette-upload"],
-html[data-theme="dark"] div[class*="vignette-empty-zone"],
-html[data-theme="dark"] div[class*="dropzone"] {
-  background-color: rgba(var(--color-primary-accent-rgb), 0.08) !important;
-  border-color: var(--color-primary-accent) !important;
+html[data-theme="dark"] div.vignette-upload,
+html[data-theme="dark"] div.vignette-empty-zone,
+html[data-theme="dark"] div.dropzone {
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08);
+  border-color: var(--color-primary-accent);
   color: var(--color-dark-primary) !important;
 }
 
 html[data-theme="dark"] .c__file-uploader__label,
 html[data-theme="dark"] div.vignette-empty-title,
 html[data-theme="dark"] div.vignette-empty-hint {
-  color: var(--color-dark-primary) !important;
+  color: var(--color-dark-primary);
 }
 
 /* Container boxes inside edit form & modals in Dark Mode */
-html[data-theme="dark"] div[class*="element-card"] {
-  background-color: var(--color-slate-900) z;
-  border-color: var(--color-slate-700);
+html[data-theme="dark"] div.element-card {
+  background-color: var(--bg-dark-primary);
+  border-color: var(--border-dark);
   color: var(--color-slate-50);
 }
 
@@ -474,101 +477,101 @@ html[data-theme="dark"] div[class*="element-card"] {
 /* ========================================================================== */
 
 .c__datagrid,
-div[class*="dataGrid"] {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: var(--radius-md) !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
+div.dataGrid {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .c__datagrid table,
-div[class*="dataGrid"] table {
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-  width: 100% !important;
+div.dataGrid table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
 }
 
 .c__datagrid thead,
 .c__datagrid__header,
 div[class*="dataGrid"] thead {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: transparent;
+  background-color: transparent;
 }
 
 .c__datagrid thead tr,
 .c__datagrid__header-row,
-div[class*="dataGrid"] thead tr {
+div.dataGrid thead tr {
   border-bottom: 2px solid
-    var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
+    var(--c--globals--colors--gray-300, var(--color-slate-300));
 }
 
 html[data-theme="dark"] .c__datagrid thead tr,
 html[data-theme="dark"] .c__datagrid__header-row,
-html[data-theme="dark"] div[class*="dataGrid"] thead tr {
-  border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12) !important;
+html[data-theme="dark"] div.dataGrid thead tr {
+  border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12);
 }
 
 .c__datagrid th,
 .c__datagrid__header-cell,
-div[class*="dataGrid"] th {
-  background: transparent !important;
-  background-color: transparent !important;
+div.dataGrid th {
+  background: transparent;
+  background-color: transparent;
   border-bottom: 2px solid
-    var(--c--globals--colors--gray-300, var(--color-slate-300)) !important;
-  color: var(--color-slate-600) !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.06em !important;
-  padding: 14px var(--radius-lg) !important;
-  text-transform: uppercase !important;
+    var(--c--globals--colors--gray-300, var(--color-slate-300));
+  color: var(--color-slate-600);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 14px var(--radius-lg);
+  text-transform: uppercase;
 }
 
 html[data-theme="dark"] .c__datagrid th,
 html[data-theme="dark"] .c__datagrid__header-cell,
-html[data-theme="dark"] div[class*="dataGrid"] th {
-  border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12) !important;
-  color: var(--color-slate-400) !important;
+html[data-theme="dark"] div.dataGrid th {
+  border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12);
+  color: var(--color-slate-400);
 }
 
 .c__datagrid tr,
 .c__datagrid__row,
-div[class*="dataGrid"] tr,
-div[class*="dataGrid"] tbody tr {
-  background: transparent !important;
-  background-color: transparent !important;
+div.dataGrid tr,
+div.dataGrid tbody tr {
+  background: transparent;
+  background-color: transparent;
   border-bottom: 1px solid
-    var(--c--globals--colors--gray-200, var(--color-slate-200)) !important;
-  transition: background-color 0.2s ease !important;
+    var(--c--globals--colors--gray-200, var(--color-slate-200));
+  transition: background-color 0.2s ease;
 }
 
 html[data-theme="dark"] .c__datagrid tr,
 html[data-theme="dark"] .c__datagrid__row,
-html[data-theme="dark"] div[class*="dataGrid"] tr,
-html[data-theme="dark"] div[class*="dataGrid"] tbody tr {
-  border-bottom: 1px solid rgba(var(--color-white-rgb), 0.06) !important;
+html[data-theme="dark"] div.dataGrid tr,
+html[data-theme="dark"] div.dataGrid tbody tr {
+  border-bottom: 1px solid rgba(var(--color-white-rgb), 0.06);
 }
 
 .c__datagrid td,
 .c__datagrid__cell,
-div[class*="dataGrid"] td {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: var(--color-slate-900) !important;
-  padding: var(--radius-md) var(--radius-lg) !important;
-  vertical-align: middle !important;
+div.dataGrid td {
+  background: transparent;
+  background-color: transparent;
+  color: var(--bg-dark-primary);
+  padding: var(--radius-md) var(--radius-lg);
+  vertical-align: middle;
 }
 
 html[data-theme="dark"] .c__datagrid td,
 html[data-theme="dark"] .c__datagrid__cell,
-html[data-theme="dark"] div[class*="dataGrid"] td {
-  color: var(--color-slate-50) !important;
+html[data-theme="dark"] div.dataGrid td {
+  color: var(--color-slate-50);
 }
 
 .c__datagrid tbody tr:hover,
 .c__datagrid__row:hover,
-div[class*="dataGrid"] tbody tr:hover,
-div[class*="dataGrid"] tbody tr:hover td {
-  background-color: rgba(var(--color-primary-accent-rgb), 0.08) !important;
+div.dataGrid tbody tr:hover,
+div.dataGrid tbody tr:hover td {
+  background-color: rgba(var(--color-primary-accent-rgb), 0.08);
 }

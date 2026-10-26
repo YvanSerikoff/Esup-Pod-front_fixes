@@ -1,19 +1,19 @@
 .breadcrumb {
-  display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: var(--c--globals--font--sizes--sm);
-  margin-bottom: var(--c--globals--spacings--sm);
   background-color: var(--background);
-  padding: var(--radius-sm) var(--c--globals--spacings--md);
   border-bottom: 1px solid var(--c--globals--colors--gray-200);
+  display: flex;
+  font-size: var(--c--globals--font--sizes--sm);
+  gap: 6px;
+  margin-bottom: var(--c--globals--spacings--sm);
+  padding: var(--radius-sm) var(--c--globals--spacings--md);
   position: -webkit-sticky;
   position: sticky;
   top: var(--navbar-height);
-  z-index: 898;
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
+  z-index: 898;
 }
 
 .breadcrumb-link {
@@ -26,8 +26,8 @@
 }
 
 html[data-theme="dark"] .breadcrumb {
-  background-color: var(--color-slate-800);
-  border-bottom-color: var(--color-slate-700);
+  background-color: var(--bg-dark-secondary);
+  border-bottom-color: var(--border-dark);
 }
 
 html[data-theme="dark"] .breadcrumb-link {
