@@ -311,7 +311,7 @@
 }
 
 .videoActionItemIcon {
-  color: var(--text-color-muted, var(--color-slate-500));
+  color: var(--text-color);
   min-width: auto !important;
 }
 
@@ -325,7 +325,9 @@
 }
 
 .videoActionDeleteItem:hover {
-  background-color: rgba(239, 68, 68, 0.12) !important;
+  background: var(
+    --c--contextuals--background--semantic--error--secondary
+  ) !important;
 }
 
 .videoActionDeleteIcon {

@@ -43,8 +43,7 @@
   }
 }
 
-.toggle-button,
-.toggle-button-active {
+.toggle-button {
   composes: toggle-button from "../../shared/display-common.module.css";
 }
 
@@ -189,9 +188,4 @@
 
 :global(html[data-theme="dark"]) .pagination-info {
   color: var(--color-slate-400);
-}
-
-.scroll-top-btn {
-  margin-top: 0.5rem !important;
-  text-transform: none !important;
 }

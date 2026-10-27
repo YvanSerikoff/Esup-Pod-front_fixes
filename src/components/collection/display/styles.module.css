@@ -16,60 +16,37 @@
 
 @media (max-width: 600px) {
   .toolbar {
-    flex-direction: column;
     align-items: stretch;
+    flex-direction: column;
   }
 }
 
-.toggle-button,
-.toggle-button-active {
+.toggle-button {
   composes: toggle-button from "../../shared/display-common.module.css";
 }
 
-.toggle-button {
-  background: transparent !important;
-  color: var(--background-brand) !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
 .toggle-button-active {
-  background: var(--background-brand) !important;
-  color: white !important;
+  composes: toggle-button-active from "../../shared/display-common.module.css";
 }
 
 .toggle-button-content {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
+  composes: toggle-button-content from "../../shared/display-common.module.css";
 }
 
 .toggle-text {
-  display: inline;
+  composes: toggle-text from "../../shared/display-common.module.css";
 }
 
 .thumbnail-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  composes: thumbnail-wrapper from "../../shared/display-common.module.css";
 }
 
 .thumbnail {
-  height: 34px;
-  width: 56px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
+  composes: thumbnail from "../../shared/display-common.module.css";
 }
 
 .table-title-link {
-  color: var(--text-color, var(--color-slate-50));
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: color 0.2s ease;
+  composes: table-title-link from "../../shared/display-common.module.css";
 }
 
 .table-title-link:hover {
@@ -78,24 +55,24 @@
 }
 
 .type-badge {
-  display: inline-block;
   background: rgba(var(--color-primary-accent-rgb), 0.15);
-  color: var(--color-dark-primary);
   border-radius: 9999px;
-  padding: 3px 10px;
-  font-weight: 600;
+  color: var(--color-dark-primary);
+  display: inline-block;
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
+  padding: 3px 10px;
 }
 
 .count-badge {
-  display: inline-block;
   background: rgba(var(--color-white-rgb), 0.08);
-  color: var(--text-color, var(--color-slate-200));
   border-radius: var(--radius-sm);
-  padding: 2px var(--radius-sm);
-  font-weight: 600;
+  color: var(--text-color, var(--color-slate-200));
+  display: inline-block;
   font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px var(--radius-sm);
 }
 
 .date-text {
@@ -104,8 +81,8 @@
 
 @media (max-width: 640px) {
   .toggle-wrapper {
-    width: 100%;
     justify-content: flex-end;
+    width: 100%;
   }
 
   .toggle-label {

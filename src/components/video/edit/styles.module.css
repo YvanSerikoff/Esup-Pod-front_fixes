@@ -1,13 +1,13 @@
 .element-card {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--radius-md) var(--radius-lg);
+  background: white;
   border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
   border-radius: 10px;
-  background: white;
-  gap: var(--c--globals--spacings--sm);
+  display: flex;
   flex-wrap: wrap;
+  gap: var(--c--globals--spacings--sm);
+  justify-content: space-between;
+  padding: var(--radius-md) var(--radius-lg);
 }
 
 .element-card_info {
@@ -17,19 +17,19 @@
 }
 
 .element-card_title {
-  font-weight: 600;
-  font-size: 0.9rem;
   color: var(--c--globals--colors--gray-900);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .element-card_desc {
-  font-size: var(--c--globals--font--sizes--xs);
   color: var(--c--globals--colors--gray-500);
+  font-size: var(--c--globals--font--sizes--xs);
 }
 
 .socialNetworksHeader {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-sm);
 }
 
@@ -38,21 +38,21 @@
 }
 
 .socialNetworksTitle {
-  margin: 0;
   font-size: 1rem;
   font-weight: 600;
+  margin: 0;
 }
 
 .socialNetworksDescription {
-  margin: 0;
-  font-size: 0.85rem;
   color: var(--color-gray-500);
+  font-size: 0.85rem;
+  margin: 0;
 }
 
 .socialNetworksMessage,
 .socialNetworksLoading {
-  margin: 0;
   font-size: 0.85rem;
+  margin: 0;
 }
 
 .socialNetworksSuccess {
@@ -65,8 +65,8 @@
 
 .socialNetworksGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: var(--radius-sm);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
 .socialNetworkLabel {
@@ -81,32 +81,32 @@
 }
 
 .chapterPlayer {
+  background: var(--color-black);
+  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
-  background: var(--color-black);
   position: relative;
 }
 
 .chapterVideo {
-  width: 100%;
+  background: var(--color-black);
   display: block;
   max-height: 320px;
-  background: var(--color-black);
+  width: 100%;
 }
 
 .chapterProgress {
-  position: relative;
-  height: var(--radius-sm);
   background: rgba(var(--color-white-rgb), 0.25);
   cursor: pointer;
+  height: var(--radius-sm);
+  position: relative;
 }
 
 .chapterProgressFill {
-  position: absolute;
-  inset: 0;
-  right: var(--chapter-progress-right);
   background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  inset: 0;
+  position: absolute;
+  right: var(--chapter-progress-right);
   transition: right 0.1s linear;
 }
 
@@ -115,48 +115,48 @@
 }
 
 .chapterMarker {
-  position: absolute;
-  top: -2px;
-  bottom: -2px;
-  left: var(--chapter-marker-left);
-  width: 2px;
   background: var(--color-white);
   border-radius: 2px;
+  bottom: -2px;
+  left: var(--chapter-marker-left);
+  position: absolute;
+  top: -2px;
+  width: 2px;
   z-index: 2;
 }
 
 .chapterPlayhead {
-  position: absolute;
-  top: 50%;
-  left: var(--chapter-playhead-left);
-  transform: translate(-50%, -50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
   background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   border: 2px solid white;
-  z-index: 3;
-  pointer-events: none;
+  border-radius: 50%;
   box-shadow: 0 0 4px rgba(var(--color-black-rgb), 0.5);
+  height: 14px;
+  left: var(--chapter-playhead-left);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  z-index: 3;
 }
 
 .chapterControls {
-  display: flex;
   align-items: center;
-  gap: var(--radius-md);
-  padding: var(--radius-sm) 14px;
   background: #111;
   color: var(--color-white);
+  display: flex;
+  gap: var(--radius-md);
+  padding: var(--radius-sm) 14px;
 }
 
 .chapterPlayButton,
 .chapterDeleteButton {
   background: none;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   padding: 4px;
-  border-radius: 4px;
 }
 
 .chapterPlayButton {
@@ -164,9 +164,9 @@
 }
 
 .chapterTime {
+  color: rgba(var(--color-white-rgb), 0.85);
   font-family: monospace;
   font-size: 0.875rem;
-  color: rgba(var(--color-white-rgb), 0.85);
   min-width: 90px;
 }
 
@@ -175,33 +175,33 @@
 }
 
 .chapterCaptureButton {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--c--globals--colors--primary-400, #4db6bd);
   background: rgba(var(--color-brand-teal-rgb), 0.15);
+  border: 1.5px solid var(--c--globals--colors--primary-400, #4db6bd);
+  border-radius: 999px;
   color: var(--c--globals--colors--primary-300, #7dd4d8);
+  cursor: pointer;
+  display: inline-flex;
   font-size: 0.82rem;
   font-weight: 600;
-  cursor: pointer;
+  gap: 6px;
+  padding: 5px 14px;
   transition: all 0.15s;
   white-space: nowrap;
 }
 
 .chapterUnavailable {
+  align-items: center;
   aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+  color: rgba(var(--color-white-rgb), 0.6);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--radius-sm);
-  color: rgba(var(--color-white-rgb), 0.6);
   font-size: 0.9rem;
+  gap: var(--radius-sm);
+  justify-content: center;
   padding: 24px;
   text-align: center;
-  background: #1a1a1a;
 }
 
 .chapterUnavailableIcon {
@@ -226,26 +226,26 @@
 }
 
 .chapterListHeader {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-sm);
   margin-bottom: 4px;
 }
 
 .chapterListIcon {
-  font-size: 18px;
   color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  font-size: 18px;
 }
 
 .chapterListTitle {
-  font-weight: 600;
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .chapterListEmpty {
-  margin: 0;
-  font-size: 0.85rem;
   color: var(--c--globals--colors--gray-500);
+  font-size: 0.85rem;
+  margin: 0;
   padding: var(--radius-md) 0;
 }
 
@@ -259,14 +259,14 @@
 }
 
 .chapterRow {
-  display: flex;
   align-items: center;
-  gap: var(--radius-md);
-  padding: var(--radius-sm) var(--radius-md);
   background: var(--c--globals--colors--gray-050, var(--color-gray-50));
   border: 1px solid var(--c--globals--colors--gray-200, var(--color-gray-200));
   border-radius: var(--radius-sm);
   cursor: default;
+  display: flex;
+  gap: var(--radius-md);
+  padding: var(--radius-sm) var(--radius-md);
   transition: background 0.15s;
 }
 
@@ -275,35 +275,35 @@
 }
 
 .chapterIndex {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  align-items: center;
   background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  border-radius: 50%;
   color: var(--color-white);
+  display: flex;
+  flex-shrink: 0;
   font-size: 0.75rem;
   font-weight: 700;
-  display: flex;
-  align-items: center;
+  height: 24px;
   justify-content: center;
-  flex-shrink: 0;
+  width: 24px;
 }
 
 .chapterTimestamp {
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  border-radius: 4px;
+  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   font-family: monospace;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   padding: 2px 6px;
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
-  border-radius: 4px;
   white-space: nowrap;
 }
 
 .chapterTitle {
+  color: var(--c--globals--colors--gray-900);
   flex: 1;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--c--globals--colors--gray-900);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -321,33 +321,33 @@
 }
 
 .chapterAddPanel {
-  padding: var(--radius-lg);
   background: rgba(var(--color-brand-teal-rgb), 0.04);
   border: 1.5px solid var(--c--globals--colors--primary-200, #b2dfdb);
   border-radius: 10px;
+  padding: var(--radius-lg);
 }
 
 .chapterAddHeading {
-  margin: 0 0 var(--radius-md);
-  font-size: 0.85rem;
-  font-weight: 600;
+  align-items: center;
   color: var(--c--globals--colors--primary-700, #005f65);
   display: flex;
-  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
   gap: 6px;
+  margin: 0 0 var(--radius-md);
 }
 
 .chapterFormError {
-  margin: 0 0 10px;
   color: var(--color-red-700);
   font-size: 0.82rem;
+  margin: 0 0 10px;
 }
 
 .chapterForm {
-  display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 10px;
   align-items: flex-end;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 120px 1fr auto;
 }
 
 .chapterFormField {
@@ -357,22 +357,22 @@
 }
 
 .chapterFormLabel {
+  color: var(--c--globals--colors--gray-600);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--c--globals--colors--gray-600);
-  text-transform: uppercase;
   letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
 .chapterInput {
-  font-size: 0.95rem;
+  background: var(--color-white);
   border: 1.5px solid var(--c--globals--colors--gray-300, #ccc);
   border-radius: var(--radius-sm);
-  padding: var(--radius-sm) var(--radius-md);
-  outline: none;
-  background: var(--color-white);
-  width: 100%;
   box-sizing: border-box;
+  font-size: 0.95rem;
+  outline: none;
+  padding: var(--radius-sm) var(--radius-md);
+  width: 100%;
 }
 
 .chapterInput:focus {
@@ -380,27 +380,27 @@
 }
 
 .chapterTimestampInput {
+  color: var(--c--globals--colors--primary-700, #005f65);
   font-family: monospace;
   font-size: 1rem;
   font-weight: 700;
   padding: var(--radius-sm) 10px;
-  color: var(--c--globals--colors--primary-700, #005f65);
 }
 
 .chapterSubmitButton {
-  display: inline-flex;
   align-items: center;
+  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-white);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 600;
   gap: 6px;
   padding: 9px 20px;
-  border-radius: var(--radius-sm);
-  border: none;
-  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
-  color: var(--color-white);
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  white-space: nowrap;
   transition: background 0.15s;
+  white-space: nowrap;
 }
 
 .chapterSubmitDisabled {
@@ -423,15 +423,15 @@
 }
 
 .dressingBackButton {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
   background: none;
   border: none;
-  cursor: pointer;
   color: var(--color-brand-teal);
-  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
   font-size: 0.9rem;
+  font-weight: 600;
+  gap: 6px;
   padding: 0;
 }
 
@@ -439,48 +439,48 @@
   background: var(--color-gray-50);
   border: 1.5px solid var(--color-gray-200);
   border-radius: 10px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  padding: 20px;
 }
 
 .dressingSectionHeader {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--radius-sm);
 }
 
 .dressingMainSectionHeader {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 10px;
 }
 
 .dressingCreateIconCircle,
 .dressingMainIconCircle,
 .dressingSmallIconCircle {
-  border-radius: 50%;
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  border-radius: 50%;
+  display: flex;
   flex-shrink: 0;
+  justify-content: center;
 }
 
 .dressingCreateIconCircle {
-  width: 36px;
   height: 36px;
+  width: 36px;
 }
 
 .dressingMainIconCircle {
-  width: 38px;
   height: 38px;
+  width: 38px;
 }
 
 .dressingSmallIconCircle {
-  width: 32px;
   height: 32px;
+  width: 32px;
 }
 
 .dressingPrimaryIcon {
@@ -494,23 +494,23 @@
 }
 
 .dressingSectionTitle {
-  font-weight: 700;
-  font-size: 0.95rem;
   color: #111;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .dressingSectionDescription {
-  font-size: 0.8rem;
   color: var(--color-gray-500);
+  font-size: 0.8rem;
 }
 
 .dressingError {
   background: #fef2f2;
   border: 1.5px solid #fecaca;
   border-radius: 10px;
-  padding: 10px 14px;
   color: #b91c1c;
   font-size: 0.85rem;
+  padding: 10px 14px;
 }
 
 .dressingTitleField :global(.MuiOutlinedInput-root),
@@ -519,21 +519,21 @@
 }
 
 .dressingOpacityHeader {
+  color: var(--color-gray-700);
   display: flex;
+  font-size: 0.85rem;
+  font-weight: 500;
   justify-content: space-between;
   margin-bottom: 6px;
-  font-size: 0.85rem;
-  color: var(--color-gray-700);
-  font-weight: 500;
 }
 
 .dressingOpacityValue {
   background: rgba(var(--color-brand-teal-rgb), 0.08);
-  color: var(--color-brand-teal);
   border-radius: 999px;
-  padding: 2px 10px;
-  font-weight: 700;
+  color: var(--color-brand-teal);
   font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 10px;
 }
 
 .dressingOpacitySlider {
@@ -545,9 +545,9 @@
 }
 
 .dressingHint {
-  font-size: 0.8rem;
-  color: var(--color-gray-400);
   border-top: 1px solid #f3f4f6;
+  color: var(--color-gray-400);
+  font-size: 0.8rem;
   padding-top: var(--radius-md);
 }
 
@@ -559,28 +559,28 @@
 
 .dressingCancelButton,
 .dressingCreateButton {
-  padding: var(--radius-sm) 20px;
   border-radius: 10px;
-  font-weight: 500;
   cursor: pointer;
   font-size: 0.9rem;
+  font-weight: 500;
+  padding: var(--radius-sm) 20px;
 }
 
 .dressingCancelButton {
-  border: 1.5px solid var(--color-gray-200);
   background: white;
+  border: 1.5px solid var(--color-gray-200);
   color: var(--color-gray-700);
 }
 
 .dressingCreateButton {
-  padding: var(--radius-sm) 24px;
-  border: none;
-  background: var(--color-brand-teal);
-  color: white;
-  font-weight: 600;
-  display: inline-flex;
   align-items: center;
+  background: var(--color-brand-teal);
+  border: none;
+  color: white;
+  display: inline-flex;
+  font-weight: 600;
   gap: var(--radius-sm);
+  padding: var(--radius-sm) 24px;
   transition: background 0.15s;
 }
 
@@ -599,31 +599,31 @@
 }
 
 .dressingMainHeader {
-  display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  display: flex;
   gap: var(--radius-md);
+  justify-content: space-between;
 }
 
 .dressingHeaderCreateButton,
 .dressingEmptyCreateButton {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  border-radius: 10px;
-  border: 1.5px solid var(--color-brand-teal);
   background: white;
+  border: 1.5px solid var(--color-brand-teal);
+  border-radius: 10px;
   color: var(--color-brand-teal);
-  font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 6px;
   transition: background 0.15s;
   white-space: nowrap;
 }
 
 .dressingHeaderCreateButton {
-  padding: 7px var(--radius-lg);
-  font-size: 0.85rem;
   flex-shrink: 0;
+  font-size: 0.85rem;
+  padding: 7px var(--radius-lg);
 }
 
 .dressingHeaderCreateButton:hover {
@@ -631,12 +631,12 @@
 }
 
 .dressingFeedback {
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 0.85rem;
-  display: flex;
   align-items: center;
+  border-radius: 10px;
+  display: flex;
+  font-size: 0.85rem;
   gap: var(--radius-sm);
+  padding: 10px 14px;
 }
 
 .dressingFeedbackSuccess {
@@ -652,10 +652,10 @@
 }
 
 .dressingLoading {
-  display: flex;
   align-items: center;
-  gap: 10px;
   color: var(--color-gray-500);
+  display: flex;
+  gap: 10px;
   padding: var(--radius-lg) 0;
 }
 
@@ -664,29 +664,29 @@
 }
 
 .dressingEmpty {
-  text-align: center;
-  padding: 32px var(--radius-lg);
   border: 2px dashed #d1d5db;
   border-radius: 10px;
   color: var(--color-gray-400);
+  padding: 32px var(--radius-lg);
+  text-align: center;
 }
 
 .dressingEmptyIcon {
-  font-size: 40px;
   color: #d1d5db;
+  font-size: 40px;
   margin-bottom: var(--radius-sm);
 }
 
 .dressingEmptyText {
-  margin: 0 0 var(--radius-md);
   font-weight: 500;
+  margin: 0 0 var(--radius-md);
 }
 
 .dressingEmptyCreateButton {
-  padding: var(--radius-sm) 18px;
   background: var(--color-brand-teal);
   color: white;
   font-size: 0.875rem;
+  padding: var(--radius-sm) 18px;
 }
 
 .dressingCards {
@@ -696,22 +696,22 @@
 }
 
 .dressingCard {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: var(--radius-md) 14px;
-  border-radius: 10px;
-  border: 1.5px solid var(--color-gray-200);
   background: white;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: 10px;
   cursor: pointer;
+  display: block;
+  padding: var(--radius-md) 14px;
+  text-align: left;
   transition:
     border-color 0.15s,
     background 0.15s;
+  width: 100%;
 }
 
 .dressingCardSelected {
-  border: 2px solid var(--color-brand-teal);
   background: rgba(var(--color-brand-teal-rgb), 0.08);
+  border: 2px solid var(--color-brand-teal);
 }
 
 .dressingCardDisabled {
@@ -720,8 +720,8 @@
 }
 
 .dressingCardRow {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 10px;
 }
 
@@ -740,14 +740,14 @@
 }
 
 .dressingCardTitle {
-  font-weight: 600;
-  font-size: 0.9rem;
   color: #111;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .dressingCardDescription {
-  font-size: 0.78rem;
   color: var(--color-gray-400);
+  font-size: 0.78rem;
   margin-top: 2px;
 }
 
@@ -757,19 +757,19 @@
 }
 
 .dressingDetails {
-  padding: 14px var(--radius-lg);
   background: rgba(var(--color-brand-teal-rgb), 0.08);
-  border-radius: 10px;
   border: 1.5px solid rgba(var(--color-brand-teal-rgb), 0.19);
+  border-radius: 10px;
+  color: var(--color-gray-700);
   display: flex;
   flex-direction: column;
-  gap: 6px;
   font-size: 0.83rem;
-  color: var(--color-gray-700);
+  gap: 6px;
+  padding: 14px var(--radius-lg);
 }
 
 .dressingDetailsTitle {
-  font-weight: 700;
   color: var(--color-brand-teal);
   font-size: 0.875rem;
+  font-weight: 700;
 }

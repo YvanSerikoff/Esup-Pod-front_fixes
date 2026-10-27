@@ -1,57 +1,57 @@
 .toggle-wrapper {
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
+  display: flex;
   flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .toggle-label {
+  color: var(--background-brand);
   font-size: var(--c--globals--font--sizes--sm);
   font-weight: var(--c--globals--font--weights--bold);
-  color: var(--background-brand);
 }
 
 .toggle-group {
-  display: inline-flex;
   align-items: center;
-  border-radius: 999px;
-  border: 1px solid var(--background-brand-secondary);
-  max-width: 100%;
   background-color: var(--background-brand-secondary);
+  border: 1px solid var(--background-brand-secondary);
+  border-radius: 999px;
+  display: inline-flex;
   justify-content: space-between;
+  max-width: 100%;
 }
 
 .toolbar {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 1rem;
 }
 
 .toggle-button,
 .toggle-button-active {
-  border-radius: 999px !important;
+  border-radius: 999px;
+  font-weight: var(--c--globals--font--weights--bold);
   min-width: 0;
-  font-weight: var(--c--globals--font--weights--bold) !important;
 }
 
 .toggle-button {
   background: transparent !important;
-  color: var(--background-brand) !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
+  color: var(--color-light-primary);
 }
 
 .toggle-button-active {
-  background: var(--background-brand) !important;
-  color: white !important;
+  background: var(--color-light-primary);
+  color: white;
 }
 
 .toggle-button-content {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  display: inline-flex;
   gap: 0.5rem;
+  justify-content: center;
   white-space: nowrap;
 }
 
@@ -60,33 +60,33 @@
 }
 
 .thumbnail-wrapper {
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   justify-content: center;
 }
 
 .thumbnail {
-  height: 34px;
-  width: 56px;
-  object-fit: cover;
   border-radius: var(--radius-sm);
   box-shadow: 0 2px var(--radius-sm) rgba(var(--color-black-rgb), 0.25);
+  height: 34px;
+  object-fit: cover;
   transition: transform 0.2s ease;
+  width: 56px;
 }
 
 .table-title-link {
-  text-decoration: none;
-  font-weight: 600;
   font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .count-badge {
-  display: inline-block;
   border-radius: var(--radius-sm);
-  padding: 2px var(--radius-sm);
-  font-weight: 600;
+  display: inline-block;
   font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px var(--radius-sm);
 }
 
 .date-text {
@@ -96,8 +96,8 @@
 
 @media (max-width: 640px) {
   .toggle-wrapper {
-    width: 100%;
     justify-content: flex-end;
+    width: 100%;
   }
 
   .toggle-label {
