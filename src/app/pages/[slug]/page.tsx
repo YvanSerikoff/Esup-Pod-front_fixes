@@ -25,7 +25,7 @@ export default function FlatPage() {
         <BackButton label={t("common.back")} />
         <h1 className="title">{t("errors.notFound")}</h1>
         <Alert type={VariantType.ERROR}>
-          {error?.message || t("errors  .notConfigured")}
+          {error?.message || t("errors.notConfigured")}
         </Alert>
       </div>
     );
