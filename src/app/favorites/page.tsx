@@ -18,7 +18,7 @@ import { useRequireAuth } from "@/src/hooks/useRequireAuth";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "./styles.module.css";
 
-export const breadcrumbLabel = "Mes vidéos favorites";
+export const breadcrumbLabel = "My favorites videos";
 
 export default function FavoritesPlaylistPage() {
   const router = useRouter();

@@ -5,7 +5,7 @@ import { useCunninghamTheme } from "@/src/context/CunninghamProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import { LanguageSelector } from "@/src/components/Language/LanguageSelector";
 
-export const breadcrumbLabel = "Affichage et accessibilité";
+export const breadcrumbLabel = "Display and accessibility";
 
 export default function UserSettings() {
   const { theme, handleTheme } = useCunninghamTheme();

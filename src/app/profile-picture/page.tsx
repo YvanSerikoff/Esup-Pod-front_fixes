@@ -14,7 +14,7 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "./styles.module.css";
 
-export const breadcrumbLabel = "Changer ma photo de profil";
+export const breadcrumbLabel = "Change my profile picture";
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACK_URL ?? "";
 
 export default function UserProfilePicture() {
@@ -188,7 +188,9 @@ export default function UserProfilePicture() {
             text={
               error
                 ? error
-                : `${t("a11y.supportedFormats")} jpg, jpeg, png, webp`
+                : t("a11y.supportedFormats", {
+                    formats: "jpg, jpeg, png, webp",
+                  })
             }
           />
           <div></div>

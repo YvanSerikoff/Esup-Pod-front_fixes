@@ -16,7 +16,7 @@ import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import { usePlaylistCreationContext } from "@/src/context/PlaylistCreationContext";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Ajouter une liste de lecture";
+export const breadcrumbLabel = "Add a playlist";
 
 type AddPlaylistFormValues = {
   title: string;
@@ -35,10 +35,10 @@ export default function AddPlaylist() {
   > = {
     title: t("common.title"),
     description: t("common.description"),
-    is_password_required: t("common.isPasswordRequired"),
-    is_public: t("common.isPublic"),
-    password: t("common.password"),
-    default_order: t("common.defaultOrder"),
+    is_password_required: t("playlists.protectWithPassword"),
+    is_public: t("playlists.publicPlaylist"),
+    password: t("playlists.passwordLabel"),
+    default_order: t("playlists.defaultSortLabel"),
   };
 
   const router = useRouter();

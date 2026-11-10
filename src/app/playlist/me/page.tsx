@@ -12,7 +12,7 @@ import { useCollectionListFilters } from "@/src/hooks/useCollectionListFilters";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Mes listes de lecture";
+export const breadcrumbLabel = "My playlists";
 
 export default function MyPlaylistsPage() {
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();

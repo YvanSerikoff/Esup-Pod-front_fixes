@@ -28,7 +28,7 @@ import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Ajouter une vidéo";
+export const breadcrumbLabel = "Add a video";
 
 type AddVideoFormValues = {
   acceptTerm: boolean;
@@ -200,7 +200,11 @@ export default function AddVideo() {
             aria-required="true"
             text={
               errors.videoFile?.message ??
-              `${t("a11y.supportedFormats")} : ${config?.encoding?.allowed_extensions?.join(", ") || "mp4, avi, mkv"}.`
+              t("a11y.supportedFormats", {
+                formats:
+                  config?.encoding?.allowed_extensions?.join(", ") ||
+                  "mp4, avi, mkv",
+              })
             }
           />
           {errors.videoFile && (

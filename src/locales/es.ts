@@ -253,7 +253,7 @@ export const es: TranslationKeys = {
     chooseFile: "Selecciona un archivo de vídeo",
     chooseVideo: "Seleccionar este vídeo",
     chooseVideoOrAudioFile: "Selecciona un archivo de audio o vídeo",
-    supportedFormats: "Formatos compatibles: ",
+    supportedFormats: "Formatos compatibles: {formats}",
     fileSizeLimit:
       "El tamaño del archivo debe ser <bold>inferior a {maxSize} GB.</bold>",
     uploadTimeInfo:
@@ -329,6 +329,7 @@ export const es: TranslationKeys = {
     myProfileImage: "Cambiar mi foto de perfil",
     administration: "Administración",
     openProfileMenu: "Abrir el menú de perfil",
+    openSearch: "Abrir la búsqueda",
     closeSearch: "Cerrar la búsqueda",
   },
 

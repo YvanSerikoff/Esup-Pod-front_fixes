@@ -158,6 +158,39 @@ html[data-theme="dark"] .restriction-options {
   width: 100%;
 }
 
+/* Pill-shaped buttons matching the mockup */
+.action-pill-btn {
+  align-items: center;
+  background: transparent;
+  border: 1.5px solid
+    var(--c--globals--colors--gray-400, var(--color-neutral-400));
+  border-radius: 999px;
+  color: var(--c--globals--colors--gray-800);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--c--globals--font--sizes--sm);
+  font-weight: 500;
+  gap: 6px;
+  padding: 6px var(--radius-lg);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.action-pill-btn:hover {
+  background: var(--c--globals--colors--gray-050);
+  border-color: var(--c--globals--colors--gray-600);
+}
+
+.action-pill-btn.primary {
+  background: var(--action-pill-btn-background);
+  border-color: var(--action-pill-btn-background);
+  color: var(--color-white);
+}
+
+.action-pill-btn.primary:hover {
+  background: var(--action-pill-btn-hover);
+}
+
 @media (max-width: 600px) {
   .titleRow {
     align-items: flex-start;

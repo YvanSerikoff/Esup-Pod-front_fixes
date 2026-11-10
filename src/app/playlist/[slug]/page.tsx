@@ -129,7 +129,7 @@ export default function PlaylistPage() {
   if (!slug) {
     return (
       <Alert type={VariantType.ERROR} canClose>
-        {t("errors.notFound")}
+        {t("playlists.notFound")}
       </Alert>
     );
   }

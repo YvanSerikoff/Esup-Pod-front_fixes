@@ -12,7 +12,6 @@ Extra Large Screens: min-width: 1441px
 */
 
 :root {
-  --color-brand-teal: #00818a;
   --color-brand-teal-rgb: 0, 129, 138;
   --color-white: #ffffff;
   --color-white-rgb: 255, 255, 255;
@@ -70,16 +69,26 @@ Extra Large Screens: min-width: 1441px
   --color-light-primary: #2563eb;
   --color-primary-text: #1d4ed8;
   --color-primary-highlight: #93c5fd;
-  --background-primary-subtle: #eff6ff;
   --color-primary-accent: #3b82f6;
   --color-light-primary-rgb: 37, 99, 235;
   --color-primary-accent-rgb: 59, 130, 246;
+  
+  /* Other Colors */
+  --background-active-element: #eff6ff;
+  --background-highlight: #efefef;
+  --border-highlight: #bfbfbf;
+
+  --action-pill-btn-background: #00818a;
+  --action-pill-btn-hover: #006b72;
 
   /* Dark */
   --bg-dark-primary: #0f172a;
   --bg-dark-secondary: #1e293b;
   --border-dark: #334155;
   --content-dark-primary: #60a5fa;
+
+  /*Error Elements*/
+  --bg-error-rgb: 239, 68, 68,0.25
 }
 
 html,
@@ -89,7 +98,7 @@ body,
   min-height: 100vh;
 }
 
-/* [SUCCESS / WARNING / ERROR] Colors example */
+/* [SUCCESS / WARNING / ERROR] Cunningham Colors example */
 /* 
 .success {
   background: var(--c--contextuals--background--semantic--success--primary);

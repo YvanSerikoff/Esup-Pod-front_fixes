@@ -93,7 +93,7 @@ import VideoSocialNetworksForm from "@/src/components/video/edit/VideoSocialNetw
 import VideoContributorsForm from "@/src/components/video/VideoContributorsForm";
 import { useDuplicate } from "@/src/hooks/useDuplicate";
 
-export const breadcrumbLabel = "Éditer la vidéo";
+export const breadcrumbLabel = "Edit video";
 
 function getUserLabel(user: User, config?: any) {
   const fullName = getUserDisplayName(user, config?.authentication, false);
@@ -891,7 +891,7 @@ export default function EditVideo() {
 
           <button
             type="button"
-            className={`${styles["action-pill-btn"]} ${styles.primary} ${styles["source-upload-button"]}`}
+            className={`action-pill-btn primary ${styles["source-upload-button"]}`}
             disabled={!sourceFile || sourceUploading}
             onClick={handleSourceChange}
           >
@@ -1119,7 +1119,7 @@ export default function EditVideo() {
             id="thumbnail-input"
             type="file"
             accept=".jpg,.jpeg,.png"
-            className={styles["visually-hidden"]}
+            className={styles["d-none"]}
             onChange={(e) => {
               const file = e.target.files?.[0] ?? null;
               handleThumbnailChange(file);
@@ -1494,7 +1494,7 @@ export default function EditVideo() {
             </div>
           </div>
 
-          {/* Chapitrage */}
+          {/* Chaptering */}
           <div
             className={`${styles["element-card"]} ${!hasEncodedSource ? styles["element-card-disabled"] : ""}`}
           >
@@ -1519,7 +1519,7 @@ export default function EditVideo() {
             </div>
           </div>
 
-          {/* Habillage */}
+          {/* Dressing */}
           {config?.dressing?.use_dressing !== false && (
             <div
               className={`${styles["element-card"]} ${!hasEncodedSource ? styles["element-card-disabled"] : ""}`}
@@ -2002,7 +2002,7 @@ export default function EditVideo() {
             <div className={styles["header-actions"]}>
               <button
                 type="submit"
-                className={`${styles["action-pill-btn"]} ${styles.primary}`}
+                className="action-pill-btn primary"
                 disabled={isSubmitting}
               >
                 <SaveIcon fontSize="small" /> {t("videoEdit.save")}
@@ -2434,7 +2434,7 @@ export default function EditVideo() {
             {config?.video?.use_duplicate !== false && (
               <button
                 type="button"
-                className={styles["action-pill-btn"]}
+                className="action-pill-btn"
                 onClick={handleDuplicate}
                 disabled={isDuplicating}
               >
@@ -2446,14 +2446,14 @@ export default function EditVideo() {
             )}
             <button
               type="submit"
-              className={`${styles["action-pill-btn"]} ${styles.primary}`}
+              className="action-pill-btn primary"
               disabled={isSubmitting}
             >
               <SaveIcon fontSize="small" /> {t("videoEdit.save")}
             </button>
             <button
               type="button"
-              className={styles["action-pill-btn"]}
+              className="action-pill-btn"
               onClick={() =>
                 openConfirmLeave(() => router.push(`/video/${getVideoSlug}`))
               }
@@ -2757,7 +2757,7 @@ export default function EditVideo() {
                     <Button
                       type="button"
                       size="small"
-                      color="warning"
+                      color="error"
                       variant="secondary"
                       disabled={useSubtitleLoading}
                       onClick={() => handleDeleteSubtitle(s.id)}

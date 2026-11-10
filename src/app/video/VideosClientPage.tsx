@@ -13,7 +13,7 @@ import { useMounted } from "@/src/hooks/useMounted";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 
-export const breadcrumbLabel = "Toutes les vidéos";
+export const breadcrumbLabel = "All videos";
 
 function VideosList() {
   const { user, isInitializing } = useAuth();

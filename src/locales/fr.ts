@@ -248,7 +248,7 @@ export const fr = {
     chooseFile: "Veuillez sélectionner un fichier vidéo",
     chooseVideo: "Sélectionner cette vidéo",
     chooseVideoOrAudioFile: "Choisissez un fichier audio ou vidéo",
-    supportedFormats: "Formats supportés : ",
+    supportedFormats: "Formats supportés : {formats}",
     fileSizeLimit:
       "La taille du fichier doit être <bold>inférieure à {maxSize} Go.</bold>",
     uploadTimeInfo:
@@ -321,6 +321,7 @@ export const fr = {
     myProfileImage: "Modifier mon image de profil",
     administration: "Administration",
     openProfileMenu: "Ouvrir le menu de profil",
+    openSearch: "Ouvrir la recherche",
     closeSearch: "Fermer la recherche",
   },
   sidebar: {

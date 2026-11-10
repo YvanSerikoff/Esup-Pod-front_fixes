@@ -25,7 +25,7 @@ import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "../styles.module.css";
 
-export const breadcrumbLabel = "Thème";
+export const breadcrumbLabel = "Theme";
 
 export default function Theme() {
   const { t } = useTranslation();

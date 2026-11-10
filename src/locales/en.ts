@@ -250,7 +250,7 @@ export const en: TranslationKeys = {
     chooseFile: "Please select a video file",
     chooseVideo: "Select this video",
     chooseVideoOrAudioFile: "Choose an audio or video file",
-    supportedFormats: "Supported formats: ",
+    supportedFormats: "Supported formats: {formats}",
     fileSizeLimit: "The file size must be <bold>less than {maxSize} GB.</bold>",
     uploadTimeInfo:
       "Upload time depends on the size of your file and your upload speed.",
@@ -325,6 +325,7 @@ export const en: TranslationKeys = {
     myProfileImage: "Change my profile picture",
     administration: "Administration",
     openProfileMenu: "Open profile menu",
+    openSearch: "Open search",
     closeSearch: "Close search",
   },
 
