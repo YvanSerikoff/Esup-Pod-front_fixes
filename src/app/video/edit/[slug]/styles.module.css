@@ -126,7 +126,7 @@
 }
 
 .live-card-media-wrapper {
-  aspect-ratio: 16 / 9;;
+  aspect-ratio: 16 / 9;
   position: relative;
   width: 100%;
 }
@@ -1006,8 +1006,7 @@ html[data-theme="dark"] .visibility-section {
 
 .source-upload-card {
   background: var(--background-highlight);
-  border: 1.5px solid
-    var(--border-color, var(--border-highlight));
+  border: 1.5px solid var(--border-color, var(--border-highlight));
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -1268,7 +1267,7 @@ html[data-theme="dark"] .visibility-section {
 }
 
 .stepper-description-error {
-  color: var(--c--contextuals--content--semantic--error--secondary);;
+  color: var(--c--contextuals--content--semantic--error--secondary);
 }
 
 .modal-paper:global(.MuiPaper-root) {
