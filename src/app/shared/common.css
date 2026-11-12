@@ -15,7 +15,10 @@
 
 html[data-theme="dark"] .socialNetworksForm,
 html[data-theme="dark"] .restriction-options {
-  background-color: var(--c--theme--colors--card-bg, var(--background-dark-primary));
+  background-color: var(
+    --c--theme--colors--card-bg,
+    var(--background-dark-primary)
+  );
   border-color: var(--border-dark);
 }
 

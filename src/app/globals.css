@@ -540,8 +540,7 @@ div.dataGrid tr,
 div.dataGrid tbody tr {
   background: transparent;
   background-color: transparent;
-  border-bottom: 1px solid
-    var(--c--globals--colors--gray-200);
+  border-bottom: 1px solid var(--c--globals--colors--gray-200);
   transition: background-color 0.2s ease;
 }
 

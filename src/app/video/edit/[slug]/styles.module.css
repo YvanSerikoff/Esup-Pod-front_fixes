@@ -172,7 +172,7 @@
   position: absolute;
 }
 
-[data-theme="dark"] .live-card-encoding-overlay{
+[data-theme="dark"] .live-card-encoding-overlay {
   background: rgba(var(--color-black-rgb), 0.9);
 }
 
@@ -275,7 +275,8 @@
 .element-card {
   align-items: center;
   background: var(--color-white);
-  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-neutral-150));
+  border: 1.5px solid
+    var(--c--globals--colors--gray-200, var(--color-neutral-150));
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -616,7 +617,8 @@
 .stepper-item-header {
   align-items: center;
   background: var(--c--globals--colors--gray-050, var(--text-color));
-  border: 1px solid var(--c--globals--colors--gray-300, var(--color-neutral-200));
+  border: 1px solid
+    var(--c--globals--colors--gray-300, var(--color-neutral-200));
   border-radius: 999px;
   display: flex;
   gap: var(--radius-sm);
@@ -627,7 +629,8 @@
 .stepper-dot {
   align-items: center;
   background: var(--color-white);
-  border: 2px solid var(--c--globals--colors--gray-400, var(--color-neutral-350));
+  border: 2px solid
+    var(--c--globals--colors--gray-400, var(--color-neutral-350));
   border-radius: 50%;
   color: var(--c--globals--colors--gray-700, var(--border-dark));
   display: flex;
