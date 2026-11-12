@@ -24,7 +24,7 @@
 
 .search-icon,
 .search-clear-button {
-  color: var(--text-color-muted, var(--color-slate-400));
+  color: var(--text-color-muted, var(--color-neutral-350));
 }
 
 .search-icon {
@@ -39,6 +39,6 @@
 }
 
 .search-input-base input::placeholder {
-  color: var(--text-color-muted, var(--color-slate-400));
+  color: var(--text-color-muted, var(--color-neutral-350));
   opacity: 0.8;
 }

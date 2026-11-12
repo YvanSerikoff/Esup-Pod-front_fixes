@@ -63,7 +63,7 @@ html[data-theme="dark"] .navbar-logo img {
 }
 
 html[data-theme="dark"] .navbar-logo strong {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 .navbar-profil {
@@ -112,7 +112,7 @@ html[data-theme="dark"] .navbar-logo strong {
 }
 
 .preferences-sun-icon {
-  color: var(--color-amber-500);
+  color: var(--c--contextuals--content--semantic--warning--secondary);
 }
 
 .preferences-menu-paper {

@@ -12,37 +12,28 @@ Extra Large Screens: min-width: 1441px
 */
 
 :root {
-  --color-brand-teal-rgb: 0, 129, 138;
   --color-white: #ffffff;
   --color-white-rgb: 255, 255, 255;
   --color-black: #000000;
   --color-black-rgb: 0, 0, 0;
   --color-neutral-rgb: 128, 128, 128;
   --color-neutral-border-rgb: 140, 140, 140;
-  --color-slate-50: #f8fafc;
-  --color-slate-200: #e2e8f0;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-300: #cbd5e1;
-  --color-slate-600: #475569;
-  --color-slate-400-rgb: 148, 163, 184;
-  --color-red-500: #ef4444;
-  --color-red-700: #d32f2f;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #eeeeee;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #e0e0e0;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-700: #374151;
-  --color-neutral-400: #bdbdbd;
-  --color-green-500: #10b981;
-  --color-green-400: #4ade80;
-  --color-green-800: #2e7d32;
-  --color-amber-500: #f59e0b;
+
+  --color-neutral-025: var(--c--globals--colors--gray-025);
+  --color-neutral-050: var(--c--globals--colors--gray-050);
+  --color-neutral-100: var(--c--globals--colors--gray-100);
+  --color-neutral-150: var(--c--globals--colors--gray-150);
+  --color-neutral-200: var(--c--globals--colors--gray-200);
+  --color-neutral-250: var(--c--globals--colors--gray-250);
+  --color-neutral-350: var(--c--globals--colors--gray-350);
+  --color-neutral-550: var(--c--globals--colors--gray-550);
+  --color-neutral-700: var(--c--globals--colors--gray-700);
+  --color-neutral-800: var(--c--globals--colors--gray-800);
+
   --navbar-height: 80px;
   --image-size: 80px;
   --sidebar-open: 285px;
+
   --background: var(--c--globals--colors--gray-025);
   --background-brand: var(
     --c--contextuals--background--semantic--brand--primary
@@ -50,12 +41,18 @@ Extra Large Screens: min-width: 1441px
   --background-brand-secondary: var(
     --c--contextuals--background--semantic--brand--secondary
   );
+
+  /* Text Colors */
   --text-color: var(--c--contextuals--content--semantic--neutral--primary);
   --text-color-brand: var(--c--contextuals--content--semantic--brand--primary);
 
-  --bg-public-rgba: 34, 197, 94, 0.15;
-  --bg-restricted-rgba: 245, 158, 11, 0.18;
-  --bg-password-rgba: 59, 130, 246, 0.15;
+  /* Video Badge Status */
+  --background-public-rgba: 34, 197, 94, 0.15;
+  --color-public: var(--c--contextuals--content--palette--green--primary);
+  --background-restricted-rgba: 245, 158, 11, 0.18;
+  --color-restricted: var(--c--contextuals--content--palette--yellow--primary);
+  --background-password-rgba: 59, 130, 246, 0.15;
+  --color-password: var(--c--contextuals--content--palette--blue-1--primary);
 
   /* Modern Design Tokens */
   --radius-sm: 8px;
@@ -80,15 +77,15 @@ Extra Large Screens: min-width: 1441px
 
   --action-pill-btn-background: #00818a;
   --action-pill-btn-hover: #006b72;
+  --action-pill-btn-hover-rgb: 0, 129, 138;
 
   /* Dark */
-  --bg-dark-primary: #0f172a;
-  --bg-dark-secondary: #1e293b;
-  --border-dark: #334155;
-  --content-dark-primary: #60a5fa;
+  --background-dark-primary: var(--c--globals--colors--brand-900);
+  --background-dark-secondary: var(--c--globals--colors--brand-850);
+  --border-dark: var(--c--globals--colors--blue-1-800);
 
   /*Error Elements*/
-  --bg-error-rgb: 239, 68, 68, 0.25;
+  --background-error-rgb: 239, 68, 68;
 }
 
 html,
@@ -310,11 +307,11 @@ button:active,
 
 .skeleton-block {
   animation: pulse 1.5s infinite;
-  background-color: var(--color-gray-300);
+  background-color: var(--color-neutral-150);
 }
 
 html[data-theme="dark"] .skeleton-block {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
 }
 
 /* ========================================================================== */
@@ -323,23 +320,16 @@ html[data-theme="dark"] .skeleton-block {
 
 html[data-theme="dark"],
 body.dark-mode {
-  --background: var(--bg-dark-primary);
-  --text-color: var(--color-slate-50);
-  --text-color-brand: var(--color-primary-highlight);
-  --c--contextuals--content--semantic--neutral--primary: var(--color-slate-50);
   --c--contextuals--background--semantic--brand--primary: var(
     --color-light-primary
   );
   --c--contextuals--background--semantic--brand--secondary: var(
-    --bg-dark-secondary
+    --background-dark-secondary
   );
-
-  background-color: var(--bg-dark-primary);
-  color: var(--color-slate-50);
 }
 
 html[data-theme="dark"] body {
-  background-color: var(--bg-dark-primary);
+  background-color: var(--background-dark-primary);
 }
 
 html[data-theme="dark"] h1,
@@ -348,7 +338,7 @@ html[data-theme="dark"] h3,
 html[data-theme="dark"] h4,
 html[data-theme="dark"] h5,
 html[data-theme="dark"] h6 {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] p,
@@ -356,7 +346,7 @@ html[data-theme="dark"] span:not([class*="badge"]),
 html[data-theme="dark"] label,
 html[data-theme="dark"] dt,
 html[data-theme="dark"] dd {
-  color: var(--color-slate-200);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] a {
@@ -366,9 +356,9 @@ html[data-theme="dark"] a {
 /* Cards & Containers in Dark Mode */
 html[data-theme="dark"] .MuiPaper-root,
 html[data-theme="dark"] .MuiCard-root {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 /* Flat layout for Settings & Preferences: no background boxes, no borders */
@@ -380,14 +370,14 @@ html[data-theme="dark"] .flat-container {
 }
 
 html[data-theme="dark"] nav[class*="sidebar"] {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-right: 1px solid var(--border-dark);
 }
 
 /* Navbar in Dark Mode */
 html[data-theme="dark"] header,
 html[data-theme="dark"] nav[class*="navbar"] {
-  background-color: var(--bg-dark-primary);
+  background-color: var(--background-dark-primary);
   border-bottom: 1px solid var(--border-dark);
 }
 
@@ -400,7 +390,7 @@ html[data-theme="dark"] .c__input__wrapper,
 html[data-theme="dark"] .c__input__field,
 html[data-theme="dark"] .c__field,
 html[data-theme="dark"] .MuiInputBase-root {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
   color: var(--color-white);
 }
@@ -409,15 +399,15 @@ html[data-theme="dark"] .c__input__label,
 html[data-theme="dark"] .c__field__label,
 html[data-theme="dark"] .MuiInputLabel-root {
   background-color: transparent;
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 html[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
-  border-color: var(--color-slate-600);
+  border-color: var(--color-neutral-700);
 }
 
 html[data-theme="dark"] .MuiSvgIcon-root {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 /* Secondary & Muted Typography in Dark Mode */
@@ -425,7 +415,7 @@ html[data-theme="dark"] .MuiTypography-colorTextSecondary,
 html[data-theme="dark"] .MuiTypography-root.secondary,
 html[data-theme="dark"] span.cardMeta,
 html[data-theme="dark"] div.cardBody span {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 /* ========================================================================== */
@@ -437,9 +427,9 @@ html[data-theme="dark"] .MuiDialog-paper,
 html[data-theme="dark"] .MuiDialogTitle-root,
 html[data-theme="dark"] .MuiDialogContent-root,
 html[data-theme="dark"] .MuiDialogActions-root {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] .MuiDialogContent-dividers {
@@ -451,11 +441,11 @@ html[data-theme="dark"] .MuiFormLabel-root,
 html[data-theme="dark"] .MuiFormControlLabel-label,
 html[data-theme="dark"] .c__checkbox__label,
 html[data-theme="dark"] label {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] .MuiFormHelperText-root {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 /* File Uploaders & Drag-and-Drop Zones in Dark Mode */
@@ -476,9 +466,9 @@ html[data-theme="dark"] div.vignette-empty-hint {
 
 /* Container boxes inside edit form & modals in Dark Mode */
 html[data-theme="dark"] div.element-card {
-  background-color: var(--bg-dark-primary);
+  background-color: var(--background-dark-primary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 /* ========================================================================== */
@@ -513,7 +503,7 @@ div[class*="dataGrid"] thead {
 .c__datagrid__header-row,
 div.dataGrid thead tr {
   border-bottom: 2px solid
-    var(--c--globals--colors--gray-300, var(--color-slate-300));
+    var(--c--globals--colors--gray-300, var(--color-neutral-200));
 }
 
 html[data-theme="dark"] .c__datagrid thead tr,
@@ -528,8 +518,8 @@ div.dataGrid th {
   background: transparent;
   background-color: transparent;
   border-bottom: 2px solid
-    var(--c--globals--colors--gray-300, var(--color-slate-300));
-  color: var(--color-slate-600);
+    var(--c--globals--colors--gray-300, var(--color-neutral-200));
+  color: var(--color-neutral-700);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -541,7 +531,7 @@ html[data-theme="dark"] .c__datagrid th,
 html[data-theme="dark"] .c__datagrid__header-cell,
 html[data-theme="dark"] div.dataGrid th {
   border-bottom: 2px solid rgba(var(--color-white-rgb), 0.12);
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 .c__datagrid tr,
@@ -551,7 +541,7 @@ div.dataGrid tbody tr {
   background: transparent;
   background-color: transparent;
   border-bottom: 1px solid
-    var(--c--globals--colors--gray-200, var(--color-slate-200));
+    var(--c--globals--colors--gray-200);
   transition: background-color 0.2s ease;
 }
 
@@ -567,7 +557,7 @@ html[data-theme="dark"] div.dataGrid tbody tr {
 div.dataGrid td {
   background: transparent;
   background-color: transparent;
-  color: var(--bg-dark-primary);
+  color: var(--background-dark-primary);
   padding: var(--radius-md) var(--radius-lg);
   vertical-align: middle;
 }
@@ -575,7 +565,7 @@ div.dataGrid td {
 html[data-theme="dark"] .c__datagrid td,
 html[data-theme="dark"] .c__datagrid__cell,
 html[data-theme="dark"] div.dataGrid td {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 .c__datagrid tbody tr:hover,

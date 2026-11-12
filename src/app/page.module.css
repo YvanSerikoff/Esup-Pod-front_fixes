@@ -26,11 +26,11 @@
 
 .welcome-box {
   align-items: center;
-  background-color: var(--c--globals--colors--gray-050, var(--color-slate-50));
-  border: 1px solid var(--c--globals--colors--gray-200, var(--color-slate-200));
+  background-color: var(--c--globals--colors--gray-050);
+  border: 1px solid var(--c--globals--colors--gray-200);
   border-radius: var(--radius-md);
   box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.05);
-  color: var(--text-color, var(--bg-dark-primary));
+  color: var(--text-color);
   display: flex;
   flex: 1 1 300px;
   gap: var(--c--globals--spacings--sm);
@@ -38,13 +38,13 @@
 }
 
 .welcome-box span[class*="material-icons"] {
-  color: var(--c--globals--colors--primary-600, var(--color-light-primary));
+  color: var(--color-light-primary);
 }
 
 html[data-theme="dark"] .welcome-box {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] .welcome-box span[class*="material-icons"] {
@@ -52,7 +52,7 @@ html[data-theme="dark"] .welcome-box span[class*="material-icons"] {
 }
 
 .welcome-link-title {
-  color: var(--c--globals--colors--primary-600, var(--color-light-primary));
+  color: var(--color-light-primary);
   display: block;
   font-size: 1rem;
   font-weight: 700;

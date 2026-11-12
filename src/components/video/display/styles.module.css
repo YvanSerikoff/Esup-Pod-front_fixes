@@ -101,7 +101,7 @@
 }
 
 :global(html[data-theme="dark"]) .table-title-link {
-  color: var(--color-dark-primarymary);
+  color: var(--color-dark-primary);
 }
 
 .table-title-link:hover {
@@ -109,7 +109,7 @@
   text-decoration: underline;
 }
 
-:global(html[data-theme="dark"]) .table-title-link:hover {
+html[data-theme="dark"] .table-title-link:hover {
   color: var(--color-primary-highlight);
 }
 
@@ -121,17 +121,17 @@
 
 :global(html[data-theme="dark"]) .count-badge {
   background: rgba(var(--color-white-rgb), 0.08);
-  color: var(--color-slate-200);
+  color: var(--c--globals--colors--gray-200);
 }
 
 .date-text {
   composes: date-text from "../../shared/display-common.module.css";
-  color: var(--color-slate-500);
+  color: var(--color-neutral-550);
   font-weight: 500;
 }
 
 :global(html[data-theme="dark"]) .date-text {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 .status-badge {
@@ -144,30 +144,18 @@
 }
 
 .status-public {
-  background: rgba(var(--bg-public-rgba));
-  color: var(--color-green-500);
-}
-
-:global(html[data-theme="dark"]) .status-public {
-  color: var(--color-green-400);
+  background: rgba(var(--background-public-rgba));
+  color: var(--color-public);
 }
 
 .status-restricted {
-  background: rgba(var(--bg-restricted-rgba));
-  color: var(--color-amber-500);
-}
-
-:global(html[data-theme="dark"]) .status-restricted {
-  color: var(--color-amber-500);
+  background: rgba(var(--background-restricted-rgba));
+  color: var(--color-restricted);
 }
 
 .status-password {
-  background: rgba(var(--bg-password-rgba));
-  color: var(--color-light-primary);
-}
-
-:global(html[data-theme="dark"]) .status-password {
-  color: var(--color-dark-primary);
+  background: rgba(var(--background-password-rgba));
+  color: var(--color-password);
 }
 
 .pagination-wrapper {
@@ -181,11 +169,11 @@
 }
 
 .pagination-info {
-  color: var(--color-slate-500);
+  color: var(--color-neutral-550);
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 :global(html[data-theme="dark"]) .pagination-info {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }

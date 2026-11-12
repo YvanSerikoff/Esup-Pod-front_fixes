@@ -89,7 +89,7 @@
 }
 
 .bulkMenuGroupHeading {
-  color: var(--color-slate-500);
+  color: var(--color-neutral-550);
   display: block;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -118,17 +118,17 @@
 }
 
 .bulkMenuItemEnabled {
-  color: var(--text-color, var(--bg-dark-primary)) !important;
+  color: var(--text-color, var(--background-dark-primary)) !important;
 }
 
 .bulkMenuItemDisabled,
 .bulkMenuItemDisabled:global(.Mui-disabled) {
-  color: var(--color-slate-500) !important;
+  color: var(--color-neutral-550) !important;
   opacity: 0.75 !important;
 }
 
 .bulkMenuLockIcon {
-  color: var(--color-slate-500) !important;
+  color: var(--color-neutral-550) !important;
   font-size: 0.9rem !important;
   opacity: 0.9;
 }
@@ -198,7 +198,7 @@
 }
 
 html[data-theme="dark"] .bulkAffectedVideos {
-  background-color: var(--bg-dark-primary);
+  background-color: var(--background-dark-primary);
 }
 
 .bulkAffectedVideos {

@@ -26,10 +26,10 @@
 }
 
 html[data-theme="dark"] .breadcrumb {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-bottom-color: var(--border-dark);
 }
 
 html[data-theme="dark"] .breadcrumb-link {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }

@@ -13,7 +13,7 @@
 
 .playerError {
   align-items: center;
-  background-color: var(--bg-dark-primary);
+  background-color: var(--background-dark-primary);
   display: flex;
   justify-content: center;
 }
@@ -39,7 +39,7 @@
   border: 1px solid rgba(var(--color-white-rgb), 0.12);
   border-radius: 9999px;
   box-shadow: 0 4px var(--radius-md) rgba(var(--color-black-rgb), 0.25);
-  color: var(--color-slate-200);
+  color: var(--c--globals--colors--gray-200);
   display: inline-flex;
   font-size: 0.85rem;
   gap: 10px;
@@ -49,7 +49,7 @@
 }
 
 .playerErrorIcon {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
   font-size: 1.1rem;
 }
 

@@ -44,7 +44,7 @@
   );
   --c--contextuals--background--semantic--brand--secondary: #f5f5f5;
   --c--contextuals--background--semantic--brand--tertiary: var(
-    --color-gray-100
+    --color-neutral-050
   );
   --c--contextuals--content--semantic--brand--primary: var(--color-black);
 

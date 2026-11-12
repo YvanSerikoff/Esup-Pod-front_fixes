@@ -196,7 +196,7 @@ html[data-theme="dark"] .filter-chevron-active {
 }
 
 .date-text {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
   font-size: 0.8rem;
 }
 

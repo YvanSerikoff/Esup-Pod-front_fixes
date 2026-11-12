@@ -1,7 +1,7 @@
 .element-card {
   align-items: center;
   background: white;
-  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
+  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-neutral-150));
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +44,7 @@
 }
 
 .socialNetworksDescription {
-  color: var(--color-gray-500);
+  color: var(--color-neutral-550);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -82,7 +82,7 @@
 
 .chapterPlayer {
   background: var(--color-black);
-  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-gray-300));
+  border: 1.5px solid var(--c--globals--colors--gray-200, var(--color-neutral-150));
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
@@ -176,7 +176,7 @@
 
 .chapterCaptureButton {
   align-items: center;
-  background: rgba(var(--color-brand-teal-rgb), 0.15);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.15);
   border: 1.5px solid var(--c--globals--colors--primary-400, #4db6bd);
   border-radius: 999px;
   color: var(--c--globals--colors--primary-300, #7dd4d8);
@@ -260,8 +260,8 @@
 
 .chapterRow {
   align-items: center;
-  background: var(--c--globals--colors--gray-050, var(--color-gray-50));
-  border: 1px solid var(--c--globals--colors--gray-200, var(--color-gray-200));
+  background: var(--c--globals--colors--gray-050, var(--color-neutral-025));
+  border: 1px solid var(--c--globals--colors--gray-200, var(--color-neutral-100));
   border-radius: var(--radius-sm);
   cursor: default;
   display: flex;
@@ -289,7 +289,7 @@
 }
 
 .chapterTimestamp {
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border-radius: 4px;
   color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
   font-family: monospace;
@@ -310,7 +310,7 @@
 }
 
 .chapterDeleteButton {
-  color: var(--color-red-500);
+  color: var(--c--contextuals--content--semantic--error--secondary);
   flex-shrink: 0;
   opacity: 0.7;
   transition: opacity 0.15s;
@@ -321,7 +321,7 @@
 }
 
 .chapterAddPanel {
-  background: rgba(var(--color-brand-teal-rgb), 0.04);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.04);
   border: 1.5px solid var(--c--globals--colors--primary-200, #b2dfdb);
   border-radius: 10px;
   padding: var(--radius-lg);
@@ -338,7 +338,7 @@
 }
 
 .chapterFormError {
-  color: var(--color-red-700);
+  color: var(--c--contextuals--content--semantic--error--secondary);
   font-size: 0.82rem;
   margin: 0 0 10px;
 }
@@ -389,7 +389,7 @@
 
 .chapterSubmitButton {
   align-items: center;
-  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  background: var(--action-pill-btn-background);
   border: none;
   border-radius: var(--radius-sm);
   color: var(--color-white);
@@ -436,8 +436,8 @@
 }
 
 .dressingCreateCard {
-  background: var(--color-gray-50);
-  border: 1.5px solid var(--color-gray-200);
+  background: var(--color-neutral-025);
+  border: 1.5px solid var(--color-neutral-100);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -461,7 +461,7 @@
 .dressingMainIconCircle,
 .dressingSmallIconCircle {
   align-items: center;
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border-radius: 50%;
   display: flex;
   flex-shrink: 0;
@@ -500,7 +500,7 @@
 }
 
 .dressingSectionDescription {
-  color: var(--color-gray-500);
+  color: var(--color-neutral-550);
   font-size: 0.8rem;
 }
 
@@ -519,7 +519,7 @@
 }
 
 .dressingOpacityHeader {
-  color: var(--color-gray-700);
+  color: var(--color-neutral-800);
   display: flex;
   font-size: 0.85rem;
   font-weight: 500;
@@ -528,7 +528,7 @@
 }
 
 .dressingOpacityValue {
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border-radius: 999px;
   color: var(--color-brand-teal);
   font-size: 0.8rem;
@@ -546,7 +546,7 @@
 
 .dressingHint {
   border-top: 1px solid #f3f4f6;
-  color: var(--color-gray-400);
+  color: var(--color-neutral-350);
   font-size: 0.8rem;
   padding-top: var(--radius-md);
 }
@@ -568,8 +568,8 @@
 
 .dressingCancelButton {
   background: white;
-  border: 1.5px solid var(--color-gray-200);
-  color: var(--color-gray-700);
+  border: 1.5px solid var(--color-neutral-100);
+  color: var(--color-neutral-800);
 }
 
 .dressingCreateButton {
@@ -627,7 +627,7 @@
 }
 
 .dressingHeaderCreateButton:hover {
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
 }
 
 .dressingFeedback {
@@ -653,7 +653,7 @@
 
 .dressingLoading {
   align-items: center;
-  color: var(--color-gray-500);
+  color: var(--color-neutral-550);
   display: flex;
   gap: 10px;
   padding: var(--radius-lg) 0;
@@ -666,7 +666,7 @@
 .dressingEmpty {
   border: 2px dashed #d1d5db;
   border-radius: 10px;
-  color: var(--color-gray-400);
+  color: var(--color-neutral-350);
   padding: 32px var(--radius-lg);
   text-align: center;
 }
@@ -697,7 +697,7 @@
 
 .dressingCard {
   background: white;
-  border: 1.5px solid var(--color-gray-200);
+  border: 1.5px solid var(--color-neutral-100);
   border-radius: 10px;
   cursor: pointer;
   display: block;
@@ -710,7 +710,7 @@
 }
 
 .dressingCardSelected {
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border: 2px solid var(--color-brand-teal);
 }
 
@@ -726,11 +726,11 @@
 }
 
 .dressingMutedIcon {
-  color: var(--color-gray-400);
+  color: var(--color-neutral-350);
 }
 
 .dressingNoneLabel {
-  color: var(--color-gray-500);
+  color: var(--color-neutral-550);
   font-style: italic;
 }
 
@@ -746,7 +746,7 @@
 }
 
 .dressingCardDescription {
-  color: var(--color-gray-400);
+  color: var(--color-neutral-350);
   font-size: 0.78rem;
   margin-top: 2px;
 }
@@ -757,10 +757,10 @@
 }
 
 .dressingDetails {
-  background: rgba(var(--color-brand-teal-rgb), 0.08);
-  border: 1.5px solid rgba(var(--color-brand-teal-rgb), 0.19);
+  background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
+  border: 1.5px solid rgba(var(--action-pill-btn-hover-rgb), 0.19);
   border-radius: 10px;
-  color: var(--color-gray-700);
+  color: var(--color-neutral-800);
   display: flex;
   flex-direction: column;
   font-size: 0.83rem;

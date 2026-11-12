@@ -1,5 +1,8 @@
 .formActions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: var(--radius-sm);
 }
 
 .formActionsEnd {

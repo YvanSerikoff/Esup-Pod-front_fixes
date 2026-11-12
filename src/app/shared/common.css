@@ -6,8 +6,8 @@
 
 .socialNetworksForm,
 .restriction-options {
-  background-color: var(--color-gray-50);
-  border: 1px solid var(--color-gray-200);
+  background-color: var(--color-neutral-025);
+  border: 1px solid var(--color-neutral-100);
   border-radius: var(--radius-sm);
   gap: var(--radius-lg);
   padding: var(--radius-lg);
@@ -15,7 +15,7 @@
 
 html[data-theme="dark"] .socialNetworksForm,
 html[data-theme="dark"] .restriction-options {
-  background-color: var(--c--theme--colors--card-bg, var(--bg-dark-primary));
+  background-color: var(--c--theme--colors--card-bg, var(--background-dark-primary));
   border-color: var(--border-dark);
 }
 
@@ -163,7 +163,7 @@ html[data-theme="dark"] .restriction-options {
   align-items: center;
   background: transparent;
   border: 1.5px solid
-    var(--c--globals--colors--gray-400, var(--color-neutral-400));
+    var(--c--globals--colors--gray-400, var(--color-neutral-250));
   border-radius: 999px;
   color: var(--c--globals--colors--gray-800);
   cursor: pointer;

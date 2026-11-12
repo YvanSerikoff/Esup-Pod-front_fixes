@@ -34,9 +34,6 @@
 
 .form-actions {
   composes: formActions from "../../../components/shared/form-actions.module.css";
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: var(--radius-sm);
 }
 
 .form-actions,
@@ -70,7 +67,7 @@
 }
 
 .empty-record-warning {
-  color: var(--color-gray-500);
+  color: var(--color-neutral-550);
   font-size: 0.875rem;
   margin: 0;
 }

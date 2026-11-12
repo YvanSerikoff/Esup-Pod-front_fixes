@@ -117,7 +117,7 @@
   align-items: center;
   gap: 0.6rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--color-gray-100);
+  border-bottom: 1px solid var(--color-neutral-050);
   color: #222222;
   font-size: 0.88rem;
   font-weight: 500;
@@ -255,7 +255,7 @@
 }
 
 .collection-banner-color-4 {
-  background-color: var(--color-slate-500);
+  background-color: var(--color-neutral-550);
 }
 
 .collection-banner-color-5 {
@@ -362,7 +362,7 @@
 }
 
 .video-placeholder-color-1 {
-  background-color: var(--color-slate-500);
+  background-color: var(--color-neutral-550);
 }
 
 .video-placeholder-color-2 {
@@ -448,7 +448,7 @@
 .nav-item {
   display: flex;
   align-items: center;
-  color: var(--color-gray-300);
+  color: var(--color-neutral-150);
   font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;

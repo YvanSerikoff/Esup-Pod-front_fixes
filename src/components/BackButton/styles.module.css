@@ -32,9 +32,9 @@
 }
 
 html[data-theme="dark"] .back-button {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 html[data-theme="dark"] .back-button:hover {

@@ -394,7 +394,7 @@
 }
 
 .playlist-info-message {
-  border-top: 1px solid var(--color-gray-100);
+  border-top: 1px solid var(--color-neutral-050);
   font-size: 0.75rem;
   max-width: 280px;
   padding: 0.5rem 1rem;
@@ -435,15 +435,15 @@
 /* ========================================================================== */
 
 :global(html[data-theme="dark"]) .sidebar-card {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 :global(html[data-theme="dark"]) .sidebar-card-title,
 :global(html[data-theme="dark"]) .video-title-row h1,
 :global(html[data-theme="dark"]) .video-infos-details dd {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 :global(html[data-theme="dark"]) .video-views,
@@ -451,7 +451,7 @@
 :global(html[data-theme="dark"]) .video-infos-details dt,
 :global(html[data-theme="dark"]) .sidebar-list-item h4,
 :global(html[data-theme="dark"]) .sidebar-list-item ul {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
 
 html[data-theme="dark"] .sidebar-text {
@@ -459,15 +459,15 @@ html[data-theme="dark"] .sidebar-text {
 }
 
 :global(html[data-theme="dark"]) .video-infos-description {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border: 1px solid var(--border-dark);
-  color: var(--color-slate-200);
+  color: var(--c--globals--colors--gray-200);
 }
 
 :global(html[data-theme="dark"]) .action-pill {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 :global(html[data-theme="dark"]) .action-pill:hover {
@@ -475,7 +475,7 @@ html[data-theme="dark"] .sidebar-text {
 }
 
 :global(html[data-theme="dark"]) .document-item {
-  background-color: var(--bg-dark-secondary);
+  background-color: var(--background-dark-secondary);
   border: 1px solid var(--border-dark);
 }
 
@@ -484,9 +484,9 @@ html[data-theme="dark"] .sidebar-text {
 }
 
 :global(html[data-theme="dark"]) .document-title {
-  color: var(--color-slate-50);
+  color: var(--text-color);
 }
 
 :global(html[data-theme="dark"]) .document-date {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-350);
 }
