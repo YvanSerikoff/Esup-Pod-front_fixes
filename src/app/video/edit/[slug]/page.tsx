@@ -2255,7 +2255,9 @@ export default function EditVideo() {
                   />
                 </div>
                 <FileUploader
-                  text={t("videoEdit.subtitleSupportedFormat", {format:allowedSubtitleExtensions})}
+                  text={t("videoEdit.subtitleSupportedFormat", {
+                    format: allowedSubtitleExtensions,
+                  })}
                   accept={allowedSubtitleExtensions}
                   onChange={(e: any) =>
                     setSubtitleFile(e?.target?.files?.[0] || e || null)
@@ -2819,7 +2821,9 @@ export default function EditVideo() {
                 />
               </div>
               <FileUploader
-                text={t("videoEdit.subtitleSupportedFormat", {format:allowedSubtitleExtensions})}
+                text={t("videoEdit.subtitleSupportedFormat", {
+                  format: allowedSubtitleExtensions,
+                })}
                 accept={allowedSubtitleExtensions}
                 onChange={(e: any) =>
                   setSubtitleFile(e?.target?.files?.[0] || e || null)

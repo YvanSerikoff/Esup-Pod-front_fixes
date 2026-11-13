@@ -200,8 +200,8 @@ export default function UserProfilePicture() {
               error
                 ? error
                 : t("a11y.supportedFormats", {
-                  formats: allowedImgExtensions
-                })
+                    formats: allowedImgExtensions,
+                  })
             }
           />
           <div></div>
