@@ -22,6 +22,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import { formatTime, secondToMinute } from "@/src/constants/date";
+import {
+  DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  DEFAULT_ALLOWED_SUBTITLE_EXTENSIONS,
+  DEFAULT_ALLOWED_VIDEO_EXTENSIONS,
+  getAllowedFileExtensions,
+} from "@/src/constants/extension";
 import { useTags } from "@/src/hooks/useTags";
 import {
   Alert,
@@ -405,6 +411,19 @@ export default function EditVideo() {
   const tagOptions = useMemo(
     () => tags.map((t) => t.name).filter(Boolean),
     [tags],
+  );
+
+  const allowedImgExtensions = getAllowedFileExtensions(
+    config?.encoding?.img_allowed_extensions,
+    DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  );
+  const allowedSubtitleExtensions = getAllowedFileExtensions(
+    config?.encoding?.subtitle_allowed_extensions,
+    DEFAULT_ALLOWED_SUBTITLE_EXTENSIONS,
+  );
+  const allowedVideoExtensions = getAllowedFileExtensions(
+    config?.encoding?.video_allowed_extensions,
+    DEFAULT_ALLOWED_VIDEO_EXTENSIONS,
   );
 
   useEffect(() => {
@@ -870,11 +889,7 @@ export default function EditVideo() {
 
           <FileUploader
             text={t("videoEdit.selectVideoFile")}
-            accept={
-              config?.encoding?.allowed_extensions
-                ?.map((ext: string) => `.${ext}`)
-                .join(", ") || ".mp4,.avi,.mkv"
-            }
+            accept={allowedVideoExtensions}
             onChange={(e: any) => {
               const file = e?.target?.files?.[0] || e || null;
               setSourceFile(file);
@@ -1118,7 +1133,7 @@ export default function EditVideo() {
           <input
             id="thumbnail-input"
             type="file"
-            accept=".jpg,.jpeg,.png"
+            accept={allowedImgExtensions}
             className={styles["d-none"]}
             onChange={(e) => {
               const file = e.target.files?.[0] ?? null;
@@ -2240,8 +2255,8 @@ export default function EditVideo() {
                   />
                 </div>
                 <FileUploader
-                  text={t("videoEdit.subtitleFileHint")}
-                  accept=".vtt,.srt"
+                  text={t("videoEdit.subtitleSupportedFormat", {format:allowedSubtitleExtensions})}
+                  accept={allowedSubtitleExtensions}
                   onChange={(e: any) =>
                     setSubtitleFile(e?.target?.files?.[0] || e || null)
                   }
@@ -2357,11 +2372,7 @@ export default function EditVideo() {
               </p>
               <FileUploader
                 text={t("videoEdit.selectNewVideoFile")}
-                accept={
-                  config?.encoding?.allowed_extensions
-                    ?.map((ext: string) => `.${ext}`)
-                    .join(", ") || ".mp4,.avi,.mkv"
-                }
+                accept={allowedVideoExtensions}
                 onChange={(e: any) =>
                   setSourceFile(e?.target?.files?.[0] || e || null)
                 }
@@ -2808,8 +2819,8 @@ export default function EditVideo() {
                 />
               </div>
               <FileUploader
-                text={t("videoEdit.subtitleFileHint")}
-                accept=".vtt,.srt"
+                text={t("videoEdit.subtitleSupportedFormat", {format:allowedSubtitleExtensions})}
+                accept={allowedSubtitleExtensions}
                 onChange={(e: any) =>
                   setSubtitleFile(e?.target?.files?.[0] || e || null)
                 }
@@ -2931,11 +2942,7 @@ export default function EditVideo() {
             )}
             <FileUploader
               text={t("videoEdit.selectNewVideoFile")}
-              accept={
-                config?.encoding?.allowed_extensions
-                  ?.map((ext: string) => `.${ext}`)
-                  .join(", ") || ".mp4,.avi,.mkv"
-              }
+              accept={allowedVideoExtensions}
               onChange={(e: any) =>
                 setSourceFile(e?.target?.files?.[0] || e || null)
               }

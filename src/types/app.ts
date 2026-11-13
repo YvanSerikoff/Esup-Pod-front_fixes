@@ -48,9 +48,11 @@ export interface AppConfig {
   };
   encoding?: {
     max_upload_size_gb: number;
-    allowed_extensions: string[];
+    video_allowed_extensions: string[];
     video_required_fields: string[];
     user_quota_size_gb: number;
+    img_allowed_extensions: string[];
+    subtitle_allowed_extensions: string[];
   };
   collection?: {
     use_channels: boolean;

@@ -13,11 +13,17 @@ import { getRoutes } from "@/src/api/routes";
 import { useAuth } from "@/src/context/AuthProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "./styles.module.css";
+import { useAppConfig } from "@/src/hooks/useAppConfig";
+import {
+  DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  getAllowedFileExtensions,
+} from "@/src/constants/extension";
 
 export const breadcrumbLabel = "Change my profile picture";
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACK_URL ?? "";
 
 export default function UserProfilePicture() {
+  const { config } = useAppConfig();
   const { user, accessToken, refresh, reloadAuthData, isInitializing } =
     useAuth();
   const [file, setFile] = useState<File | null>(null);
@@ -30,6 +36,11 @@ export default function UserProfilePicture() {
   const currentPictureUrl = user?.userpicture
     ? `${BACKEND_URL.replace(/\/$/, "")}/${user.userpicture.replace(/^\//, "")}`
     : null;
+
+  const allowedImgExtensions = getAllowedFileExtensions(
+    config?.encoding?.img_allowed_extensions,
+    DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  );
 
   useEffect(() => {
     return () => {
@@ -184,13 +195,13 @@ export default function UserProfilePicture() {
                 selectedFile ? URL.createObjectURL(selectedFile) : null,
               );
             }}
-            accept=".jpg, .jpeg, .png, .webp"
+            accept={allowedImgExtensions}
             text={
               error
                 ? error
                 : t("a11y.supportedFormats", {
-                    formats: "jpg, jpeg, png, webp",
-                  })
+                  formats: allowedImgExtensions
+                })
             }
           />
           <div></div>

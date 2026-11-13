@@ -9,6 +9,11 @@ import styles from "./dressing.module.css";
 import Image from "next/image";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import { useAppConfig } from "@/src/hooks/useAppConfig";
+import {
+  DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  getAllowedFileExtensions,
+} from "@/src/constants/extension";
 
 export default function DressingSettings() {
   const { isAuthenticated, isInitializing } = useRequireAuth("/login");
@@ -17,6 +22,12 @@ export default function DressingSettings() {
   const { t } = useTranslation();
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { config } = useAppConfig();
+
+  const allowedImgExtensions = getAllowedFileExtensions(
+    config?.encoding?.img_allowed_extensions,
+    DEFAULT_ALLOWED_IMAGE_EXTENSIONS,
+  );
 
   if (isInitializing || !isAuthenticated) {
     return null; // or a loader
@@ -61,7 +72,7 @@ export default function DressingSettings() {
         <h2 className="subtitle">{t("dressingPage.myWatermarks")}</h2>
         <input
           type="file"
-          accept="image/png, image/jpeg"
+          accept={allowedImgExtensions}
           ref={fileInputRef}
           hidden={true}
           onChange={handleFileChange}

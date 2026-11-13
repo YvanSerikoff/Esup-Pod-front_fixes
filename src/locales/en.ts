@@ -952,7 +952,7 @@ export const en: TranslationKeys = {
     subtitleDescription:
       "Add subtitle files in .vtt or .srt format. Each file corresponds to a language.",
     subtitleLanguageLabel: "Language",
-    subtitleFileHint: "Select a .vtt or .srt file",
+    subtitleSupportedFormat: "Supported format: {format}",
     addSubtitleBtn: "Add subtitle",
     cannotAddSubtitle: "Unable to add a subtitle to this video.",
     selectSubtitleFile: "Please select a subtitle file.",

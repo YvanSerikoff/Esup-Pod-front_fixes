@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import "./shared/common.css";
 import Navbar from "../components/Navbar/Navbar";
@@ -54,7 +55,9 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
         />
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

@@ -953,7 +953,7 @@ export const fr = {
     subtitleDescription:
       "Ajoutez des fichiers de sous-titres au format .vtt ou .srt. Chaque fichier correspond à une langue.",
     subtitleLanguageLabel: "Langue",
-    subtitleFileHint: "Sélectionner un fichier .vtt ou .srt",
+    subtitleSupportedFormat: "Format supporté : {format}",
     addSubtitleBtn: "Ajouter le sous-titre",
     cannotAddSubtitle: "Impossible d’ajouter un sous-titre à cette vidéo.",
     selectSubtitleFile: "Veuillez sélectionner un fichier de sous-titre.",

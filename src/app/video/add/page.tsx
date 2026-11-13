@@ -27,6 +27,10 @@ import styles from "./styles.module.css";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import { useTranslation } from "@/src/hooks/useTranslation";
+import {
+  DEFAULT_ALLOWED_VIDEO_EXTENSIONS,
+  getAllowedFileExtensions,
+} from "@/src/constants/extension";
 
 export const breadcrumbLabel = "Add a video";
 
@@ -44,6 +48,11 @@ export default function AddVideo() {
   const { config } = useAppConfig();
 
   const [isEmptyModalOpen, setIsEmptyModalOpen] = useState(false);
+
+  const allowedVideoExtensions = getAllowedFileExtensions(
+    config?.encoding?.video_allowed_extensions,
+    DEFAULT_ALLOWED_VIDEO_EXTENSIONS,
+  );
 
   const {
     register,
@@ -190,11 +199,7 @@ export default function AddVideo() {
               setValue("videoFile", file, { shouldValidate: true });
               if (file) clearErrors("videoFile");
             }}
-            accept={
-              config?.encoding?.allowed_extensions
-                ?.map((ext: string) => `.${ext}`)
-                .join(", ") || ".mp4, .avi, .mkv"
-            }
+            accept={allowedVideoExtensions}
             aria-label={t("a11y.chooseVideoOrAudioFile")}
             aria-describedby="videoFile-error"
             aria-required="true"
@@ -202,7 +207,7 @@ export default function AddVideo() {
               errors.videoFile?.message ??
               t("a11y.supportedFormats", {
                 formats:
-                  config?.encoding?.allowed_extensions?.join(", ") ||
+                  config?.encoding?.video_allowed_extensions?.join(", ") ||
                   "mp4, avi, mkv",
               })
             }
