@@ -318,13 +318,12 @@ html[data-theme="dark"] .skeleton-block {
   display: none;
 }
 
-.actions{
+.actions {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: var(--c--globals--spacings--xs);
 }
-
 
 /* ========================================================================== */
 /* ACCESSIBLE HIGH-CONTRAST DARK MODE OVERRIDES (WCAG AA/AAA COMPLIANT)      */
