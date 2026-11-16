@@ -80,10 +80,6 @@
   background-color: #222;
 }
 
-.dressing-image {
-  display: none;
-}
-
 .watermark-preview-image {
   object-fit: contain;
 }

@@ -57,12 +57,6 @@
   white-space: nowrap;
 }
 
-.sidebar-welcome-hidden,
-.menu-title-hidden,
-.menu-item-text-hidden {
-  display: none;
-}
-
 .sidebar-list-open {
   margin-top: var(--radius-lg);
 }

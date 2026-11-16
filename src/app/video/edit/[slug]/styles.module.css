@@ -1232,10 +1232,6 @@ html[data-theme="dark"] .visibility-section {
   font-size: 32px;
 }
 
-.d-none {
-  display: none;
-}
-
 .vignette-error {
   color: var(--c--contextuals--content--semantic--error--secondary);
   font-size: 0.8rem;

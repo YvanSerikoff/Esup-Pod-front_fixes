@@ -135,7 +135,7 @@ const SideBar = () => {
           <>
             <Chip
               className={`${styles["sidebar-welcome"]} ${
-                sidebarOpen ? "" : styles["sidebar-welcome-hidden"]
+                sidebarOpen ? "" : "d-none"
               }`}
               label={`${t("sidebar.welcome")} ${user?.first_name || user?.username || "admin"} 👋`}
             />
@@ -158,7 +158,7 @@ const SideBar = () => {
             <h3
               id="sidebar-title"
               className={`${styles["menu-title"]} ${
-                sidebarOpen ? "" : styles["menu-title-hidden"]
+                sidebarOpen ? "" : "d-none"
               }`}
             >
               {t("sidebar.mainMenu")}

@@ -314,6 +314,12 @@ html[data-theme="dark"] .skeleton-block {
   background-color: var(--background-dark-secondary);
 }
 
+.d-none {
+  display: none;
+}
+
+
+
 /* ========================================================================== */
 /* ACCESSIBLE HIGH-CONTRAST DARK MODE OVERRIDES (WCAG AA/AAA COMPLIANT)      */
 /* ========================================================================== */

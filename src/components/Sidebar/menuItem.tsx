@@ -89,7 +89,7 @@ const MenuItem = (props: MenuItemProps) => {
       )}
       <ListItemText
         className={`${styles["menu-item-text"]} ${
-          sidebarOpen ? "" : styles["menu-item-text-hidden"]
+          sidebarOpen ? "" : "d-none"
         } ${isChildItem ? styles["menu-item-text-child"] : ""} ${
           isSelfActive ? styles["menu-item-text-active"] : ""
         }`}
