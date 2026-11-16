@@ -75,7 +75,7 @@ export default function DressingPage() {
           type="file"
           accept={allowedImgExtensions}
           ref={fileInputRef}
-          className={"d-none"}
+          className="d-none"
           onChange={handleFileChange}
         />
         <Button

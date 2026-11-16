@@ -82,10 +82,6 @@
 }
 
 .video-actions-row {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--c--globals--spacings--xs);
   margin-left: auto;
 }
 

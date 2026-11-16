@@ -5,10 +5,7 @@
 }
 
 .page-header {
-  align-items: center;
-  display: flex;
-  gap: var(--radius-lg);
-  margin-bottom: var(--radius-lg);
+  composes: page-header from "../../page.module.css";
 }
 
 .page-stack {

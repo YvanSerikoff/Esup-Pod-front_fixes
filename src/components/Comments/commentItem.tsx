@@ -142,7 +142,7 @@ export default function CommentItem({
         <Avatar src={profilePictureUrl}>{initials}</Avatar>
 
         <div className={styles.body}>
-          <div className={styles.meta}>
+          <div className="actions">
             <strong>
               {comment.author_name && comment.author_name.trim()
                 ? getAuthorDisplayName(comment.author_name)

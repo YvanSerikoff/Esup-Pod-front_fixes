@@ -12,7 +12,6 @@
 
 .filter-item {
   composes: filter-item from "../../shared/filters-common.module.css";
-  min-width: 150px;
 }
 
 .filter-button {

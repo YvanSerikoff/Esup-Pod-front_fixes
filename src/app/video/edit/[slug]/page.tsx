@@ -1134,7 +1134,7 @@ export default function EditVideo() {
             id="thumbnail-input"
             type="file"
             accept={allowedImgExtensions}
-            className={styles["d-none"]}
+            className="d-none"
             onChange={(e) => {
               const file = e.target.files?.[0] ?? null;
               handleThumbnailChange(file);
@@ -2014,7 +2014,7 @@ export default function EditVideo() {
                 ? t("videoEdit.pageTitle", { title: video.title })
                 : t("videoEdit.pageTitleDefault")}
             </h1>
-            <div className={styles["header-actions"]}>
+            <div className={"actions"}>
               <button
                 type="submit"
                 className="action-pill-btn primary"
@@ -2443,7 +2443,7 @@ export default function EditVideo() {
               ? t("videoEdit.pageTitle", { title: video.title })
               : t("videoEdit.pageTitleDefault")}
           </h1>
-          <div className={styles["header-actions"]}>
+          <div className={"actions"}>
             {config?.video?.use_duplicate !== false && (
               <button
                 type="button"

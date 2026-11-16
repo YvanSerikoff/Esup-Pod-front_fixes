@@ -75,13 +75,6 @@
   padding-bottom: var(--c--globals--spacings--sm);
 }
 
-.meta {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--c--globals--spacings--xs);
-}
-
 .meta strong {
   color: var(--c--contextuals--content--semantic--neutral--primary);
   font-size: var(--c--globals--font--sizes--sm);

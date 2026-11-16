@@ -542,7 +542,7 @@ export default function Video() {
                 {formatTime(time)}
               </div>
 
-              <div className={styles["video-actions-row"]}>
+              <div className={`actions ${styles["video-actions-row"]}` }>
                 {config?.video?.hide_share !== true && (
                   <VideoShareMenu
                     video={video}

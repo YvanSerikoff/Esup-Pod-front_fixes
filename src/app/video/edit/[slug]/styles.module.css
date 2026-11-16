@@ -4,19 +4,9 @@
 
 /* -------  Page header --------- */
 .page-header {
-  align-items: center;
-  display: flex;
+  composes: page-header from "../../../page.module.css";
   flex-wrap: wrap;
-  gap: var(--c--globals--spacings--sm);
   justify-content: space-between;
-  margin-bottom: var(--c--globals--spacings--md);
-}
-
-.header-actions {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--c--globals--spacings--xs);
 }
 
 /* -------  Stepper (Desktop) --------- */

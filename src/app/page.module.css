@@ -130,6 +130,13 @@ html[data-theme="dark"] .welcome-link {
   padding: 2rem;
 }
 
+.page-header {
+  align-items: center;
+  display: flex;
+  gap: var(--c--globals--spacings--sm);
+  margin-bottom: var(--c--globals--spacings--md);
+}
+
 @media (max-width: 1024px) {
   .welcome-text p,
   .welcome-box {
