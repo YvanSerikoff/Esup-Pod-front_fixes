@@ -211,7 +211,7 @@
 }
 
 .sidebar-text {
-  color: var(--color-brand-teal); /* Teal/Blue color matching the mockup */
+  color: var(--color-light-primary);
   padding-left: 28px;
 }
 .sidebar-list-item ul li.sidebar-text {
@@ -269,12 +269,6 @@
   margin: auto;
 }
 
-.message-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .password-page-container {
   align-items: center;
   display: flex;
@@ -329,11 +323,6 @@
 
 .description-text {
   margin: 0;
-}
-
-.description-updated-at {
-  color: var(--c--globals--colors--gray-500);
-  margin: var(--radius-sm) 0 0;
 }
 
 .sidebar-section-spacing {
@@ -430,23 +419,23 @@
 /* DARK MODE OVERRIDES FOR VIDEO DETAIL PAGE                                  */
 /* ========================================================================== */
 
-:global(html[data-theme="dark"]) .sidebar-card {
+html[data-theme="dark"] .sidebar-card {
   background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
   color: var(--text-color);
 }
 
-:global(html[data-theme="dark"]) .sidebar-card-title,
-:global(html[data-theme="dark"]) .video-title-row h1,
-:global(html[data-theme="dark"]) .video-infos-details dd {
+html[data-theme="dark"] .sidebar-card-title,
+html[data-theme="dark"] .video-title-row h1,
+html[data-theme="dark"] .video-infos-details dd {
   color: var(--text-color);
 }
 
-:global(html[data-theme="dark"]) .video-views,
-:global(html[data-theme="dark"]) .video-infos-header-time,
-:global(html[data-theme="dark"]) .video-infos-details dt,
-:global(html[data-theme="dark"]) .sidebar-list-item h4,
-:global(html[data-theme="dark"]) .sidebar-list-item ul {
+html[data-theme="dark"] .video-views,
+html[data-theme="dark"] .video-infos-header-time,
+html[data-theme="dark"] .video-infos-details dt,
+html[data-theme="dark"] .sidebar-list-item h4,
+html[data-theme="dark"] .sidebar-list-item ul {
   color: var(--color-neutral-350);
 }
 
@@ -454,35 +443,35 @@ html[data-theme="dark"] .sidebar-text {
   color: var(--color-dark-primary);
 }
 
-:global(html[data-theme="dark"]) .video-infos-description {
+html[data-theme="dark"] .video-infos-description {
   background-color: var(--background-dark-secondary);
   border: 1px solid var(--border-dark);
   color: var(--c--globals--colors--gray-200);
 }
 
-:global(html[data-theme="dark"]) .action-pill {
+html[data-theme="dark"] .action-pill {
   background-color: var(--background-dark-secondary);
   border-color: var(--border-dark);
   color: var(--text-color);
 }
 
-:global(html[data-theme="dark"]) .action-pill:hover {
+html[data-theme="dark"] .action-pill:hover {
   background-color: var(--border-dark);
 }
 
-:global(html[data-theme="dark"]) .document-item {
+html[data-theme="dark"] .document-item {
   background-color: var(--background-dark-secondary);
   border: 1px solid var(--border-dark);
 }
 
-:global(html[data-theme="dark"]) .document-item:hover {
+html[data-theme="dark"] .document-item:hover {
   background-color: var(--border-dark);
 }
 
-:global(html[data-theme="dark"]) .document-title {
+html[data-theme="dark"] .document-title {
   color: var(--text-color);
 }
 
-:global(html[data-theme="dark"]) .document-date {
+html[data-theme="dark"] .document-date {
   color: var(--color-neutral-350);
 }

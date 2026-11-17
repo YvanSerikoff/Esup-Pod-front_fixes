@@ -9,11 +9,11 @@
 }
 
 .form-actions {
-  composes: formActions from "../../../../components/shared/playlist-form-common.module.css";
+  composes: form-actions from "../../../../components/shared/form-actions.module.css";
 }
 
 .form-actions-buttons {
-  composes: formActionButtons from "../../../../components/shared/playlist-form-common.module.css";
+  composes: form-actions-end from "../../../../components/shared/form-actions.module.css";
 }
 
 .form {

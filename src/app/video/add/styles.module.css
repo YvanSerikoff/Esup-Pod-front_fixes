@@ -13,27 +13,17 @@
   margin-top: var(--c--globals--spacings--lg);
 }
 
-.empty-record-dialog-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .linear-progress {
   margin: var(--c--globals--spacings--xl) 0;
   padding: 5px;
 }
 
-.empty-record-dialog-title {
-  font-weight: 700;
-}
-
 .field-error {
-  color: var(--c--contextuals--content--semantic--error--secondary);
-  margin-top: 0.25rem;
+  padding: 10px;
 }
 
 .form-actions {
-  composes: formActions from "../../../components/shared/form-actions.module.css";
+  composes: form-actions from "../../../components/shared/form-actions.module.css";
 }
 
 .form-actions,
@@ -43,6 +33,8 @@
 
 .empty-record-dialog-title {
   display: flex;
+  gap: var(--radius-sm);
+  font-weight: 700;
 }
 
 .create-empty-icon {
@@ -53,10 +45,6 @@
   border-radius: var(--radius-md);
 }
 
-.empty-record-dialog-title {
-  gap: var(--radius-sm);
-}
-
 .empty-record-dialog-icon {
   color: var(--color-brand-teal);
 }
@@ -64,6 +52,8 @@
 .empty-record-dialog-content {
   gap: var(--radius-lg);
   padding: var(--radius-sm) 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .empty-record-warning {

@@ -1,14 +1,3 @@
-.formActions {
-  composes: formActionsEnd from "./form-actions.module.css";
-  gap: var(--c--globals--spacings--sm);
-  margin-top: var(--c--globals--spacings--xl);
-}
-
-.formActionButtons {
-  composes: formActionsEnd from "./form-actions.module.css";
-  gap: var(--c--globals--spacings--sm);
-}
-
 .restrictedFields {
   border-radius: var(--radius-sm);
   display: flex;

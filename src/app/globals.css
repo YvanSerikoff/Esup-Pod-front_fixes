@@ -95,25 +95,28 @@ body,
   min-height: 100vh;
 }
 
-/* [SUCCESS / WARNING / ERROR] Cunningham Colors example */
-/* 
+/* [SUCCESS / WARNING / ERROR] Cunningham Colors */
+ 
 .success {
-  background: var(--c--contextuals--background--semantic--success--primary);
-  color: var(--c--contextuals--content--semantic--success--primary);
-  border-color: var(--c--contextuals--border--semantic--success--primary);
+  background: var(--c--contextuals--background--semantic--success--secondary);
+  color: var(--c--contextuals--content--semantic--success--secondary);
+  border: solid 1px var(--c--contextuals--border--semantic--success--secondary);
 }
 
 .warning {
-  background: var(--c--contextuals--background--semantic--warning--primary);
-  color: var(--c--contextuals--content--semantic--warning--primary);
-  border-color: var(--c--contextuals--border--semantic--warning--primary);
+  background: var(--c--contextuals--background--semantic--warning--secondary);
+  color: var(--c--contextuals--content--semantic--warning--secondary);
+  border: solid 1px var(--c--contextuals--border--semantic--warning--secondary);
 }
 
 .error {
-  background: var(--c--contextuals--background--semantic--error--primary);
-  color: var(--c--contextuals--content--semantic--error--primary);
-  border-color: var(--c--contextuals--border--semantic--error--primary);
-} */
+  background: var(--c--contextuals--background--semantic--error--secondary);
+  color: var(--c--contextuals--content--semantic--error--secondary);
+  border: solid 1px var(--c--contextuals--border--semantic--error--secondary);
+  border-radius: var(--radius-md);
+}
+
+/* ----------------------------------------------- */
 
 body {
   background-color: var(--background);

@@ -213,7 +213,7 @@ export default function AddVideo() {
             }
           />
           {errors.videoFile && (
-            <p id="videoFile-error" className={styles["field-error"]}>
+            <p id="videoFile-error" className={`${styles["field-error"]} error`}>
               {errors.videoFile.message}
             </p>
           )}
@@ -244,7 +244,7 @@ export default function AddVideo() {
             )}
           </fieldset>
 
-          <div className={styles["form-actions"]}>
+          <div className="form-actions">
             <Button
               type="submit"
               color="success"

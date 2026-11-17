@@ -35,7 +35,7 @@
 }
 
 .socialNetworksIcon {
-  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  color:var(--action-pill-btn-background);
 }
 
 .socialNetworksTitle {
@@ -105,7 +105,7 @@
 }
 
 .chapterProgressFill {
-  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  background: var(--action-pill-btn-background);
   inset: 0;
   position: absolute;
   right: var(--chapter-progress-right);
@@ -128,7 +128,7 @@
 }
 
 .chapterPlayhead {
-  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  background: var(--action-pill-btn-background);
   border: 2px solid white;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(var(--color-black-rgb), 0.5);
@@ -235,7 +235,7 @@
 }
 
 .chapterListIcon {
-  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  color: var(--action-pill-btn-background);
   font-size: 18px;
 }
 
@@ -279,7 +279,7 @@
 
 .chapterIndex {
   align-items: center;
-  background: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  background: var(--action-pill-btn-background);
   border-radius: 50%;
   color: var(--color-white);
   display: flex;
@@ -294,7 +294,7 @@
 .chapterTimestamp {
   background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border-radius: 4px;
-  color: var(--c--globals--colors--primary-600, var(--color-brand-teal));
+  color: var(--action-pill-btn-background);
   font-family: monospace;
   font-size: 0.82rem;
   font-weight: 700;
@@ -379,7 +379,7 @@
 }
 
 .chapterInput:focus {
-  border-color: var(--color-brand-teal);
+  border-color: var(--action-pill-btn-background);
 }
 
 .chapterTimestampInput {
@@ -429,7 +429,7 @@
   align-items: center;
   background: none;
   border: none;
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   cursor: pointer;
   display: inline-flex;
   font-size: 0.9rem;
@@ -487,12 +487,12 @@
 }
 
 .dressingPrimaryIcon {
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   font-size: 20px;
 }
 
 .dressingPaletteIcon {
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   font-size: var(--radius-lg);
 }
 
@@ -533,14 +533,14 @@
 .dressingOpacityValue {
   background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
   border-radius: 999px;
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   font-size: 0.8rem;
   font-weight: 700;
   padding: 2px 10px;
 }
 
 .dressingOpacitySlider {
-  color: var(--color-brand-teal) !important;
+  color: var(--action-pill-btn-background) !important;
 }
 
 .dressingOpacitySlider :global(.MuiSlider-thumb) {
@@ -577,7 +577,7 @@
 
 .dressingCreateButton {
   align-items: center;
-  background: var(--color-brand-teal);
+  background: var(--action-pill-btn-background);
   border: none;
   color: white;
   display: inline-flex;
@@ -612,9 +612,9 @@
 .dressingEmptyCreateButton {
   align-items: center;
   background: white;
-  border: 1.5px solid var(--color-brand-teal);
+  border: 1.5px solid var(--action-pill-btn-background);
   border-radius: 10px;
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   cursor: pointer;
   display: inline-flex;
   font-weight: 600;
@@ -635,23 +635,11 @@
 
 .dressingFeedback {
   align-items: center;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   display: flex;
   font-size: 0.85rem;
   gap: var(--radius-sm);
   padding: 10px 14px;
-}
-
-.dressingFeedbackSuccess {
-  background: #f0fdf4;
-  border: 1.5px solid #bbf7d0;
-  color: #15803d;
-}
-
-.dressingFeedbackError {
-  background: #fef2f2;
-  border: 1.5px solid #fecaca;
-  color: #b91c1c;
 }
 
 .dressingLoading {
@@ -663,7 +651,7 @@
 }
 
 .dressingPrimaryProgress {
-  color: var(--color-brand-teal) !important;
+  color: var(--action-pill-btn-background);
 }
 
 .dressingEmpty {
@@ -686,7 +674,7 @@
 }
 
 .dressingEmptyCreateButton {
-  background: var(--color-brand-teal);
+  background: var(--action-pill-btn-background);
   color: white;
   font-size: 0.875rem;
   padding: var(--radius-sm) 18px;
@@ -714,7 +702,7 @@
 
 .dressingCardSelected {
   background: rgba(var(--action-pill-btn-hover-rgb), 0.08);
-  border: 2px solid var(--color-brand-teal);
+  border: 2px solid var(--action-pill-btn-background);
 }
 
 .dressingCardDisabled {
@@ -755,7 +743,7 @@
 }
 
 .dressingSelectedIcon {
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   flex-shrink: 0;
 }
 
@@ -772,7 +760,7 @@
 }
 
 .dressingDetailsTitle {
-  color: var(--color-brand-teal);
+  color: var(--action-pill-btn-background);
   font-size: 0.875rem;
   font-weight: 700;
 }

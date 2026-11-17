@@ -427,7 +427,7 @@ export default function Video() {
 
   if (useVideoError || !video) {
     return (
-      <div className={styles["message-container"]}>
+      <div>
         <Alert canClose type={VariantType.ERROR}>
           {useVideoError ?? t("videoPage.unableToLoad")}
         </Alert>
@@ -630,7 +630,7 @@ export default function Video() {
                           <p className={styles["description-text"]}>
                             {video.description}
                           </p>
-                          <p className={styles["description-updated-at"]}>
+                          <p className="updated-date">
                             {t("videoPage.updatedAt")}{" "}
                             {formatDateWithTime(video.updated_at, locale)}
                           </p>
@@ -837,7 +837,7 @@ export default function Video() {
                     <p className={styles["description-text"]}>
                       {video.description}
                     </p>
-                    <p className={styles["description-updated-at"]}>
+                    <p className="updated-date">
                       {t("videoPage.updatedAt")}{" "}
                       {formatDateWithTime(video.updated_at, locale)}
                     </p>

@@ -67,6 +67,17 @@ html[data-theme="dark"] .restriction-options {
   text-decoration: none;
 }
 
+.form-actions{
+  display: flex;
+}
+
+.form-actions {
+  flex-wrap: wrap;
+  gap: var(--c--globals--spacings--sm);
+  margin-top: var(--c--globals--spacings--xl);
+}
+
+
 .content-box {
   margin: 0 auto;
   max-width: 1000px;
@@ -76,6 +87,11 @@ html[data-theme="dark"] .restriction-options {
 .desc {
   color: var(--c--globals--colors--gray-500);
   line-height: 2;
+}
+
+.updated-date {
+  color: var(--color-neutral-350);
+  margin: var(--radius-sm) 0 0;
 }
 
 .error {

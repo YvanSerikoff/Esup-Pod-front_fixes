@@ -53,8 +53,8 @@ export function PlaylistForm({
 
   return (
     <>
-      <div className={styles.playlistFormActions}>
-        <div className={styles.playlistFormActionButtons}>
+      <div className={styles["playlist-form-actions"]}>
+        <div className={styles["playlist-form-action-buttons"]}>
           {secondaryActions}
           <Button
             fullWidth={isMobile}

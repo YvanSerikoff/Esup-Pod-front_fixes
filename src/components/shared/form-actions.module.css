@@ -1,12 +1,11 @@
-.formActions {
+.form-actions-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: var(--radius-sm);
+  gap: var(--c--globals--spacings--sm);
+  margin-top: var(--c--globals--spacings--sm);
 }
 
-.formActionsEnd {
-  composes: formActions;
-  align-items: center;
-  justify-content: flex-end;
+.form-actions-end {
+    display: flex;
+    justify-content: end;
 }
