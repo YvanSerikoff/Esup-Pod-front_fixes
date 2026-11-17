@@ -22,10 +22,6 @@
   padding: 10px;
 }
 
-.form-actions {
-  composes: form-actions from "../../../components/shared/form-actions.module.css";
-}
-
 .form-actions,
 .empty-record-dialog-title {
   align-items: center;
