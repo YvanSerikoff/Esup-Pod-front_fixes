@@ -2435,7 +2435,11 @@ export default function EditVideo() {
         </Alert>
       )}
 
-      <form className={styles.form + styles["video-edit-form"]} noValidate onSubmit={onFormSubmit}>
+      <form
+        className={styles.form + styles["video-edit-form"]}
+        noValidate
+        onSubmit={onFormSubmit}
+      >
         {/* Page header: title + action buttons */}
         <div className={`page-header ${styles["video-edit-header"]}`}>
           <h1 className="title">
@@ -2582,24 +2586,16 @@ export default function EditVideo() {
           <div>
             <h2 className="subtitle">{ALL_STEPS[activeStep]}</h2>
             {activeStep === 0 && (
-              <p className="desc">
-                {t("videoEdit.importHeaderSub")}
-              </p>
+              <p className="desc">{t("videoEdit.importHeaderSub")}</p>
             )}
             {activeStep === 1 && (
-              <p className="desc">
-                {t("videoEdit.requiredFieldsPrompt")}
-              </p>
+              <p className="desc">{t("videoEdit.requiredFieldsPrompt")}</p>
             )}
             {activeStep === 2 && (
-              <p className="desc">
-                {t("videoEdit.elementsHeaderSub")}
-              </p>
+              <p className="desc">{t("videoEdit.elementsHeaderSub")}</p>
             )}
             {activeStep === 3 && (
-              <p className="desc">
-                {t("videoEdit.visibilityHeaderSub")}
-              </p>
+              <p className="desc">{t("videoEdit.visibilityHeaderSub")}</p>
             )}
           </div>
           <div className="actions">

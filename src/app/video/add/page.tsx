@@ -171,7 +171,10 @@ export default function AddVideo() {
           />
         </div>
       ) : (
-        <form className={`form ${styles["video-add-form"]}`} onSubmit={handleSubmit(onSubmitImport)}>
+        <form
+          className={`form ${styles["video-add-form"]}`}
+          onSubmit={handleSubmit(onSubmitImport)}
+        >
           <Alert
             additional={
               <>

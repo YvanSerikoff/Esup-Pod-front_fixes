@@ -345,7 +345,6 @@
 
 /* -------  Mobile layout --------- */
 @media (max-width: 932px) {
-
   .header-actions {
     justify-content: flex-start;
     width: 100%;

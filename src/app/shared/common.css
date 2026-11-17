@@ -122,7 +122,7 @@ html[data-theme="dark"] .restriction-options {
   vertical-align: middle;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   gap: var(--c--globals--spacings--md);
