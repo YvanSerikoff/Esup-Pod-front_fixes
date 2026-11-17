@@ -79,13 +79,6 @@ html[data-theme="dark"] .welcome-link {
   text-decoration: underline;
 }
 
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--c--globals--spacings--md);
-  margin-bottom: var(--c--globals--spacings--xxl);
-}
-
 .latest-videos-section {
   margin-top: var(--c--globals--spacings--xxl);
 }
@@ -128,13 +121,6 @@ html[data-theme="dark"] .welcome-link {
   margin: 0 auto;
   max-width: 800px;
   padding: 2rem;
-}
-
-.page-header {
-  align-items: center;
-  display: flex;
-  gap: var(--c--globals--spacings--sm);
-  margin-bottom: var(--c--globals--spacings--md);
 }
 
 @media (max-width: 1024px) {

@@ -22,6 +22,10 @@
   padding: 10px;
 }
 
+.video-add-form{
+  align-items: center;
+}
+
 .form-actions,
 .empty-record-dialog-title {
   align-items: center;

@@ -156,8 +156,8 @@ export default function UserProfilePicture() {
           {success}
         </Alert>
       )}
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles["picture-form"]}>
+      <form onSubmit={handleSubmit}>
+        <div className={`form styles["picture-form"]`}>
           <div className={styles["picture-preview"]}>
             {previewUrl ? (
               <Image

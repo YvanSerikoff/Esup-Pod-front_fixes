@@ -272,7 +272,7 @@ export default function EditPlaylist() {
       )}
 
       <form
-        className={styles.form}
+        className="form"
         noValidate
         onSubmit={handleSubmit(onSubmit, onInvalid)}
       >

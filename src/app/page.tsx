@@ -93,7 +93,7 @@ export default function Accueil() {
         </div>
 
         {/* Buttons Row */}
-        <div className={styles["action-buttons"]}>
+        <div className="actions">
           {user &&
             ((config as any)?.video?.allow_authenticated_upload !== false ||
               user?.is_staff) && (

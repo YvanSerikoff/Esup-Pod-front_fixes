@@ -22,6 +22,17 @@ html[data-theme="dark"] .restriction-options {
   border-color: var(--border-dark);
 }
 
+.required-star {
+  color: var(--c--contextuals--content--semantic--error--secondary);
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  gap: var(--c--globals--spacings--sm);
+  margin-bottom: var(--c--globals--spacings--md);
+}
+
 .deleteContainer {
   display: flex;
   justify-content: center;
@@ -83,11 +94,6 @@ html[data-theme="dark"] .restriction-options {
   padding: 1.5rem;
 }
 
-.desc {
-  color: var(--c--globals--colors--gray-500);
-  line-height: 2;
-}
-
 .updated-date {
   color: var(--color-neutral-350);
   margin: var(--radius-sm) 0 0;
@@ -116,13 +122,12 @@ html[data-theme="dark"] .restriction-options {
   vertical-align: middle;
 }
 
-.form {
-  align-items: center;
+.form{
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: var(--c--globals--spacings--xxl);
+  gap: var(--c--globals--spacings--md);
   padding: 0 var(--c--globals--spacings--md);
+  margin: var(--c--globals--spacings--md);
 }
 
 .skeleton-back-button {
@@ -207,6 +212,13 @@ html[data-theme="dark"] .restriction-options {
 
 .action-pill-btn.primary:hover {
   background: var(--action-pill-btn-hover);
+}
+
+@media (max-width: 932px) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {

@@ -223,6 +223,11 @@ button:active,
   margin-top: 0;
 }
 
+.desc {
+  color: var(--c--globals--colors--gray-500);
+  line-height: 2;
+}
+
 .pod-image-banner {
   border-radius: var(--radius-sm);
   display: block;

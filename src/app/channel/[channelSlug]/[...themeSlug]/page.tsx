@@ -264,7 +264,7 @@ export default function Theme() {
           className="pod-image-banner"
           fill
         />{" "}
-        <Box className={styles["page-header"]}>
+        <Box className="page-header">
           <Box className={styles["page-stack"]}>
             {channel && <h1 className="title">{channel.title}</h1>}
             {parentTheme ? (

@@ -931,7 +931,7 @@ export default function EditVideo() {
           <div className={styles["input-group"]}>
             <label className={styles["input-label"]}>
               {t("videoEdit.titleLabel")}{" "}
-              <span className={styles["required-star"]}>*</span>
+              <span className="required-star">*</span>
             </label>
             <TextField
               {...field}
@@ -977,7 +977,7 @@ export default function EditVideo() {
           <div className={styles["input-group"]}>
             <label className={styles["input-label"]}>
               {t("videoEdit.mainLanguageLabel")}{" "}
-              <span className={styles["required-star"]}>*</span>
+              <span className="required-star">*</span>
             </label>
             <TextField
               {...field}
@@ -1159,7 +1159,7 @@ export default function EditVideo() {
             <div className={styles["input-group"]}>
               <label className={styles["input-label"]}>
                 {t("videoEdit.ownerLabel")}{" "}
-                <span className={styles["required-star"]}>*</span>
+                <span className="required-star">*</span>
               </label>
               <Autocomplete
                 options={users}
@@ -2008,7 +2008,7 @@ export default function EditVideo() {
 
         <form className={styles.form} noValidate onSubmit={onFormSubmit}>
           {/* Header */}
-          <div className={styles["page-header"]}>
+          <div className={`page-header ${styles["video-edit-header"]}`}>
             <h1 className="title">
               {video?.title
                 ? t("videoEdit.pageTitle", { title: video.title })
@@ -2435,9 +2435,9 @@ export default function EditVideo() {
         </Alert>
       )}
 
-      <form className={styles.form} noValidate onSubmit={onFormSubmit}>
+      <form className={styles.form + styles["video-edit-form"]} noValidate onSubmit={onFormSubmit}>
         {/* Page header: title + action buttons */}
-        <div className={styles["page-header"]}>
+        <div className={`page-header ${styles["video-edit-header"]}`}>
           <h1 className="title">
             {video?.title
               ? t("videoEdit.pageTitle", { title: video.title })
@@ -2578,31 +2578,31 @@ export default function EditVideo() {
         </div>
 
         {/* Step header: step title + Previous/Next */}
-        <div className={styles["step-header"]}>
+        <div className={`page-header ${styles["video-edit-header"]}`}>
           <div>
-            <h2 className={styles["step-title"]}>{ALL_STEPS[activeStep]}</h2>
+            <h2 className="subtitle">{ALL_STEPS[activeStep]}</h2>
             {activeStep === 0 && (
-              <p className={styles["step-sub-title"]}>
+              <p className="desc">
                 {t("videoEdit.importHeaderSub")}
               </p>
             )}
             {activeStep === 1 && (
-              <p className={styles["step-sub-title"]}>
+              <p className="desc">
                 {t("videoEdit.requiredFieldsPrompt")}
               </p>
             )}
             {activeStep === 2 && (
-              <p className={styles["step-sub-title"]}>
+              <p className="desc">
                 {t("videoEdit.elementsHeaderSub")}
               </p>
             )}
             {activeStep === 3 && (
-              <p className={styles["step-sub-title"]}>
+              <p className="desc">
                 {t("videoEdit.visibilityHeaderSub")}
               </p>
             )}
           </div>
-          <div className={styles["step-nav"]}>
+          <div className="actions">
             <button
               type="button"
               className={styles["step-nav-btn"]}

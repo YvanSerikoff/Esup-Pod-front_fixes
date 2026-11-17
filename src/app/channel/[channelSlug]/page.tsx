@@ -211,7 +211,7 @@ export default function Channel() {
             height={0}
             loading={"eager"}
           />{" "}
-          <Box className={styles["page-header"]}>
+          <Box className="page-header">
             <Avatar
               className={styles["page-avatar"]}
               alt={t("a11y.channelLogo", { title: channel.title })}

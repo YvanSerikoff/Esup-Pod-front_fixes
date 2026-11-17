@@ -16,13 +16,6 @@
   composes: form-actions-end from "../../../../components/shared/form-actions.module.css";
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--c--globals--spacings--md);
-  padding: 0 var(--c--globals--spacings--lg);
-}
-
 .c__input {
   margin-bottom: var(--c--globals--spacings--md);
 }

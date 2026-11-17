@@ -185,7 +185,7 @@ export default function AddPlaylist() {
         </Alert>
       )}
       <form
-        className={styles.form}
+        className="form"
         noValidate
         onSubmit={handleSubmit(onSubmit, onInvalid)}
       >
