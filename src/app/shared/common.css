@@ -67,7 +67,7 @@ html[data-theme="dark"] .restriction-options {
   text-decoration: none;
 }
 
-.form-actions{
+.form-actions {
   display: flex;
 }
 
@@ -76,7 +76,6 @@ html[data-theme="dark"] .restriction-options {
   gap: var(--c--globals--spacings--sm);
   margin-top: var(--c--globals--spacings--xl);
 }
-
 
 .content-box {
   margin: 0 auto;

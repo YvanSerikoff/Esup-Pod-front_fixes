@@ -96,7 +96,7 @@ body,
 }
 
 /* [SUCCESS / WARNING / ERROR] Cunningham Colors */
- 
+
 .success {
   background: var(--c--contextuals--background--semantic--success--secondary);
   color: var(--c--contextuals--content--semantic--success--secondary);

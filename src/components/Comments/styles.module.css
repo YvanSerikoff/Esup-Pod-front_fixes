@@ -46,7 +46,7 @@
 }
 
 .form-actions {
-  composes: form-actions-end from "../shared/form-actions.module.css"
+  composes: form-actions-end from "../shared/form-actions.module.css";
 }
 
 .comment-highlight {

@@ -277,9 +277,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
       {msg && (
         <div
           className={`${styles.dressingFeedback} ${
-            msg.ok
-              ? "success"
-              : "error"
+            msg.ok ? "success" : "error"
           }`}
         >
           {msg.ok ? <CheckCircleOutlineIcon fontSize="small" /> : null}

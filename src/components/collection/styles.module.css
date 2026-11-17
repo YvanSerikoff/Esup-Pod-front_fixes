@@ -309,7 +309,7 @@ html[data-theme="dark"] .menuButton {
 }
 
 .playlist-form-action-buttons {
-  composes: form-actions-buttons from "../shared/form-actions.module.css"
+  composes: form-actions-buttons from "../shared/form-actions.module.css";
 }
 
 .playlistRestrictedFields {
