@@ -26,7 +26,7 @@ export default function ErrorBoundary({
         <br />
         {error.message || t("errors.unableToSection")}
       </Alert>
-      <div className={styles["error-button"]}>
+      <div className="actions">
         <BackButton label={t("common.back")} />
         <Button variant="primary" color="brand" onClick={() => reset()}>
           {t("videoPlayer.retry")}

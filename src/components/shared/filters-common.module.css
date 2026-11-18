@@ -143,6 +143,6 @@
   text-decoration: underline !important;
 }
 
-:global(html[data-theme="dark"]) .clear-filters-btn {
+html[data-theme="dark"] .clear-filters-btn {
   color: var(--color-dark-primary) !important;
 }
