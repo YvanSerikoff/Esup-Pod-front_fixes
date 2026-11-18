@@ -364,7 +364,7 @@ export default function Channel() {
                         !loading &&
                         hasLoadedBaseThemes ? (
                           <Alert type={VariantType.INFO}>
-                            {t("themes.noThemes")}
+                            {t("channels.noTheme")}
                           </Alert>
                         ) : channelThemes.length === 0 &&
                           !loading &&

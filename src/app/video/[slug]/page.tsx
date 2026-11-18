@@ -429,7 +429,7 @@ export default function Video() {
     return (
       <div>
         <Alert canClose type={VariantType.ERROR}>
-          {useVideoError ?? t("videoPage.unableToLoad")}
+          {useVideoError ?? t("videoPlayer.unableToLoad")}
         </Alert>
       </div>
     );
@@ -449,7 +449,7 @@ export default function Video() {
         )}
         <div className={styles["unlock-form"]}>
           <Input
-            label={t("videoPage.password")}
+            label={t("auth.password")}
             required={true}
             type="password"
             autoComplete="current-password"
@@ -719,7 +719,7 @@ export default function Video() {
                     <div className={styles["sidebar-list-item"]}>
                       <h4>
                         <PieChartIcon fontSize="small" />{" "}
-                        {t("videoPage.disciplines")}
+                        {t("videoPage.discipline")}
                       </h4>
                       <ul>
                         {video.discipline_details?.length ? (

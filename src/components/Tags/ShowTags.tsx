@@ -85,7 +85,7 @@ export default function ShowTags({ onTagClick, limit, videos }: ShowTagsProps) {
   }
 
   if (!displayedTags.length) {
-    return <Alert type={VariantType.INFO}>{t("videoPage.noKeywords")}</Alert>;
+    return <Alert type={VariantType.INFO}>{t("errors.noKeywords")}</Alert>;
   }
 
   return (

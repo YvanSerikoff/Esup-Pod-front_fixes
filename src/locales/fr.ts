@@ -661,7 +661,7 @@ export const fr = {
     mainLanguage: "Langue principale",
     keywords: "Mots clés",
     keywordsloading: "Chargement des mots-clés…",
-    discipline: "Discipline(s)",
+    discipline: "Disciplines",
     contributors: "Intervenants",
     license: "Licence",
     cursus: "Cursus",
