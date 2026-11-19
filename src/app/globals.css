@@ -99,21 +99,21 @@ body,
 
 .success {
   background: var(--c--contextuals--background--semantic--success--secondary);
-  color: var(--c--contextuals--content--semantic--success--secondary);
   border: solid 1px var(--c--contextuals--border--semantic--success--secondary);
+  color: var(--c--contextuals--content--semantic--success--secondary);
 }
 
 .warning {
   background: var(--c--contextuals--background--semantic--warning--secondary);
-  color: var(--c--contextuals--content--semantic--warning--secondary);
   border: solid 1px var(--c--contextuals--border--semantic--warning--secondary);
+  color: var(--c--contextuals--content--semantic--warning--secondary);
 }
 
 .error {
   background: var(--c--contextuals--background--semantic--error--secondary);
-  color: var(--c--contextuals--content--semantic--error--secondary);
   border: solid 1px var(--c--contextuals--border--semantic--error--secondary);
   border-radius: var(--radius-md);
+  color: var(--c--contextuals--content--semantic--error--secondary);
 }
 
 /* ----------------------------------------------- */
@@ -474,7 +474,7 @@ html[data-theme="dark"] div.vignette-empty-zone,
 html[data-theme="dark"] div.dropzone {
   background-color: rgba(var(--color-primary-accent-rgb), 0.08);
   border-color: var(--color-primary-accent);
-  color: var(--color-dark-primary) !important;
+  color: var(--color-dark-primary);
 }
 
 html[data-theme="dark"] .c__file-uploader__label,

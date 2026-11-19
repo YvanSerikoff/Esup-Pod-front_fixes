@@ -2,6 +2,7 @@
   "css.lint.unknownProperties": "ignore",
   "scss.lint.unknownProperties": "ignore",
   "less.lint.unknownProperties": "ignore",
-  "sortcss.sortOnSave": true,
-  "sortcss.sortingStrategy": "alphabetical"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  }
 }
