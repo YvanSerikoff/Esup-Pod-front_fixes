@@ -244,7 +244,7 @@ export default function AddVideo() {
               })}
             />
             {errors.acceptTerm && (
-              <p id="acceptTerm-error" className={styles["field-error"]}>
+              <p id="acceptTerm-error" className={`${styles["add-video-error"]} error`}>
                 {errors.acceptTerm.message}
               </p>
             )}
