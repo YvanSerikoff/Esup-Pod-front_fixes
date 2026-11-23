@@ -218,7 +218,7 @@ export default function AddVideo() {
           {errors.videoFile && (
             <p
               id="videoFile-error"
-              className={`${styles["field-error"]} error`}
+              className={`${styles["add-video-error"]} error`}
             >
               {errors.videoFile.message}
             </p>
