@@ -32,8 +32,6 @@ import {
   getAllowedFileExtensions,
 } from "@/src/constants/extension";
 
-export const breadcrumbLabel = "Add a video";
-
 type AddVideoFormValues = {
   acceptTerm: boolean;
   videoFile: File | null;

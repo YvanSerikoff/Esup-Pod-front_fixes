@@ -15,8 +15,6 @@ import { useTranslation } from "@/src/hooks/useTranslation";
 import { useAuth } from "../../context/AuthProvider";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 
-export const breadcrumbLabel = "Login to my POD account";
-
 function LoginContent() {
   const { logIn } = useAuth();
   const { t } = useTranslation();

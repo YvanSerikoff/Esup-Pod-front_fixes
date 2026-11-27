@@ -10,8 +10,6 @@ import styles from "./styles.module.css";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "delete playlist";
-
 export default function DeletePlaylistPage() {
   const router = useRouter();
   const params = useParams();

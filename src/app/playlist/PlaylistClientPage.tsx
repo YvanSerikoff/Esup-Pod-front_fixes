@@ -11,8 +11,6 @@ import { useAuth } from "@/src/context/AuthProvider";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import CollectionDisplay from "@/src/components/collection/display/CollectionDisplay";
 
-export const breadcrumbLabel = "Listes de lecture";
-
 export default function PlaylistsPage() {
   const {
     filters,

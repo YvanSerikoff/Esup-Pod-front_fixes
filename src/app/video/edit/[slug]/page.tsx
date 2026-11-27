@@ -99,8 +99,6 @@ import VideoSocialNetworksForm from "@/src/components/video/edit/VideoSocialNetw
 import VideoContributorsForm from "@/src/components/video/VideoContributorsForm";
 import { useDuplicate } from "@/src/hooks/useDuplicate";
 
-export const breadcrumbLabel = "Edit video";
-
 function getUserLabel(user: User, config?: any) {
   const fullName = getUserDisplayName(user, config?.authentication, false);
   return fullName || user.username;

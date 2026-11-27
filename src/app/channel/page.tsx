@@ -13,8 +13,6 @@ import { useMemo } from "react";
 import CollectionDisplay from "@/src/components/collection/display/CollectionDisplay";
 import { useMounted } from "@/src/hooks/useMounted";
 
-export const breadcrumbLabel = "Chaines";
-
 export default function Channels() {
   const { user } = useAuth();
   const { t } = useTranslation();

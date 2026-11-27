@@ -19,7 +19,6 @@ import {
   getAllowedFileExtensions,
 } from "@/src/constants/extension";
 
-export const breadcrumbLabel = "Change my profile picture";
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACK_URL ?? "";
 
 export default function UserProfilePicture() {

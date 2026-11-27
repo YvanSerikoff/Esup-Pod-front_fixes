@@ -11,8 +11,6 @@ import { useVideoPermissions } from "@/src/hooks/useVideoPermission";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Delete video";
-
 export default function DeleteVideoPage() {
   const router = useRouter();
   const params = useParams();

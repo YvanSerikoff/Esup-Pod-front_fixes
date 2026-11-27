@@ -31,8 +31,6 @@ import Image from "next/image";
 import { useTranslation } from "@/src/hooks/useTranslation";
 import styles from "./styles.module.css";
 
-export const breadcrumbLabel = "Chaine";
-
 export default function Channel() {
   const { t } = useTranslation();
   const [value, setValue] = useState("themes");

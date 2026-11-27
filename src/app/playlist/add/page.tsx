@@ -16,8 +16,6 @@ import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import { usePlaylistCreationContext } from "@/src/context/PlaylistCreationContext";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Add a playlist";
-
 type AddPlaylistFormValues = {
   title: string;
   description: string;

@@ -22,8 +22,6 @@ import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import type { CollectionOrder } from "@/src/constants/collection";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Edit playlist";
-
 type EditPlaylistFormValues = {
   title: string;
   description: string;

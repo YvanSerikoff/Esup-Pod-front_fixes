@@ -14,8 +14,6 @@ import { Alert, VariantType } from "@openfun/cunningham-react";
 
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Tableau de bord";
-
 export default function Dashboard() {
   const { isAuthenticated, isInitializing, mounted } = useRequireAuth();
   const { user } = useAuth();

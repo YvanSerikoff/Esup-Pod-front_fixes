@@ -54,8 +54,6 @@ import { useFavorites } from "@/src/hooks/useFavorites";
 import { useAppConfig } from "@/src/hooks/useAppConfig";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
-export const breadcrumbLabel = "Video";
-
 const getDownloadFilename = (
   contentDisposition: string | null,
   videoSlug: string,
