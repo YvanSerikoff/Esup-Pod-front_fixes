@@ -32,14 +32,14 @@ vi.mock("../hooks/useAppConfig", () => ({
 describe("AuthProvider", () => {
   it("renders children without crashing and defaults to disconnected", () => {
     render(
-      <NextIntlClientProvider locale="fr" messages={dictionaries.fr}>
+      <NextIntlClientProvider locale="en" messages={dictionaries.en}>
         <AuthProvider>
           <TestComponent />
         </AuthProvider>
       </NextIntlClientProvider>,
     );
     expect(screen.getByTestId("auth-status").textContent).toBe(
-      dictionaries.fr.common.disconnected,
+      dictionaries.en.common.disconnected,
     );
   });
 });

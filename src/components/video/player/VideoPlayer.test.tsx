@@ -36,7 +36,7 @@ describe("VideoPlayer", () => {
       subtitles: [],
     } as any;
     const { container } = render(
-      <NextIntlClientProvider locale="fr" messages={dictionaries.fr}>
+      <NextIntlClientProvider locale="en" messages={dictionaries.en}>
         <QueryClientProvider client={queryClient}>
           <VideoPlayer video={videoMock} streamUrl="http://test/stream.mp4" />
         </QueryClientProvider>
@@ -55,7 +55,7 @@ describe("VideoPlayer", () => {
       thumbnail_url: "/media/thumbnails/test.jpg",
     } as any;
     const { container } = render(
-      <NextIntlClientProvider locale="fr" messages={dictionaries.fr}>
+      <NextIntlClientProvider locale="en" messages={dictionaries.en}>
         <QueryClientProvider client={queryClient}>
           <VideoPlayer video={videoMock} streamUrl="" />
         </QueryClientProvider>

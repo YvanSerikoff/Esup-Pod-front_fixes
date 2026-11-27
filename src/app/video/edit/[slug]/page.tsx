@@ -192,7 +192,7 @@ export default function EditVideo() {
     null | (() => void)
   >(null);
   const [subtitleLanguage, setSubtitleLanguage] =
-    useState<LanguageSubtitle>("fr");
+    useState<LanguageSubtitle>("en");
   const [subtitleFile, setSubtitleFile] = useState<File | null>(null);
   const [subtitleIsDefault, setSubtitleIsDefault] = useState(false);
   const [tagInputValue, setTagInputValue] = useState("");
@@ -312,7 +312,7 @@ export default function EditVideo() {
       title: "",
       description: "",
       status: "PU",
-      language: "fr",
+      language: "en",
       thumbnail: null,
       license: "_NONE_",
       owner: "",
@@ -430,7 +430,7 @@ export default function EditVideo() {
       title: video.title ?? "",
       description: video.description ?? "",
       status: video.status ?? "PU",
-      language: video.language ?? "fr",
+      language: video.language ?? "en",
       thumbnail: null,
       license:
         video.license === "" || video.license == null
@@ -653,7 +653,7 @@ export default function EditVideo() {
     });
     if (created) {
       setSubtitleFile(null);
-      setSubtitleLanguage("fr");
+      setSubtitleLanguage("en");
       setSubtitleIsDefault(false);
       await refetch();
     }

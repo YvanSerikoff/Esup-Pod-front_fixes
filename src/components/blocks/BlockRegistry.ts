@@ -17,23 +17,23 @@ export interface BlockRegistration {
 export const blockRegistry: Record<string, BlockRegistration> = {
   "webtv-hero-direct": {
     component: LiveBlockComponent,
-    manifest: getLiveBlockManifest("fr"),
+    manifest: getLiveBlockManifest("en"),
   },
   "live-block": {
     component: LiveBlockComponent,
-    manifest: getLiveBlockManifest("fr"),
+    manifest: getLiveBlockManifest("en"),
   },
   "collection-block": {
     component: CollectionBlockComponent,
-    manifest: getCollectionBlockManifest("fr"),
+    manifest: getCollectionBlockManifest("en"),
   },
   "video-grid-block": {
     component: VideoGridBlockComponent,
-    manifest: getVideoGridBlockManifest("fr"),
+    manifest: getVideoGridBlockManifest("en"),
   },
   "custom-text-block": {
     component: CustomTextBlock,
-    manifest: getCustomTextBlockManifest("fr"),
+    manifest: getCustomTextBlockManifest("en"),
   },
 };
 
