@@ -172,7 +172,7 @@ export default function PlaylistPage() {
                 size="small"
                 onClick={handleStartPlaylist}
               >
-                <PlayArrowIcon />
+                <PlayArrowIcon aria-hidden="true" />
                 {t("favorites.startPlaylist")}
               </Button>
               {isOwner && (

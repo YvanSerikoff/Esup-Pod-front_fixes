@@ -154,11 +154,13 @@ export default function FilterDropdown({
 
         {open ? (
           <ExpandLessIcon
+            aria-hidden="true" 
             fontSize="small"
             className={`${styles["filter-chevron"]} ${selectedCount > 0 ? styles["filter-chevron-active"] : ""}`}
           />
         ) : (
           <ExpandMoreIcon
+            aria-hidden="true" 
             fontSize="small"
             className={`${styles["filter-chevron"]} ${selectedCount > 0 ? styles["filter-chevron-active"] : ""}`}
           />
@@ -206,7 +208,7 @@ export default function FilterDropdown({
                       InputProps={{
                         startAdornment: (
                           <InputAdornment position="start">
-                            <SearchIcon fontSize="small" />
+                            <SearchIcon aria-hidden="true" fontSize="small" />
                           </InputAdornment>
                         ),
                         endAdornment: loading ? (
@@ -234,8 +236,8 @@ export default function FilterDropdown({
                             />
                           ) : (
                             <Checkbox
-                              checkedIcon={<RadioButtonCheckedIcon />}
-                              icon={<RadioButtonUncheckedIcon />}
+                              checkedIcon={<RadioButtonCheckedIcon aria-hidden="true" />}
+                              icon={<RadioButtonUncheckedIcon aria-hidden="true" />}
                               checked={selectedValues.includes(option.value)}
                               onChange={() => handleToggle(option.value)}
                               size="small"

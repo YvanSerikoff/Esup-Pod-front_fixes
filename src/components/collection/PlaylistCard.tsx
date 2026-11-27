@@ -68,13 +68,13 @@ export default function PlaylistCard({
             <Box className={styles.titleActions}>
               {playlist.is_protected && (
                 <Tooltip title={t("playlists.passwordProtected")}>
-                  <span className="material-icons">key</span>
+                  <span aria-hidden="true" className="material-icons">key</span>
                 </Tooltip>
               )}
 
               {!playlist.is_public && (
                 <Tooltip title={t("playlists.private")}>
-                  <span className="material-icons">visibility_off</span>
+                  <span aria-hidden="true" className="material-icons">visibility_off</span>
                 </Tooltip>
               )}
               {isOwner && (
@@ -95,6 +95,7 @@ export default function PlaylistCard({
             <Box className={styles.playlistMetadataRow}>
               <Box className={styles.metadataItem}>
                 <VideoLibraryIcon
+                  aria-hidden="true" 
                   fontSize="small"
                   className={styles.metadataIcon}
                 />

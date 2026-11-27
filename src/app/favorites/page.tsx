@@ -232,7 +232,7 @@ export default function FavoritesPlaylistPage() {
                 size="small"
                 onClick={handleStartFavoritesPlaylist}
               >
-                <PlayArrowIcon />
+                <PlayArrowIcon aria-hidden="true" />
                 {t("favorites.startPlaylist")}
               </Button>
             </div>

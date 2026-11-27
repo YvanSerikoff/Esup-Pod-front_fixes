@@ -67,13 +67,14 @@ export function PreferencesMenu() {
       <Tooltip title={t("preferences.settingsHeader")} arrow>
         <IconButton
           onClick={handleClick}
+          aria-hidden="true" 
           aria-label={t("preferences.settingsHeader")}
           aria-controls={open ? "preferences-menu" : undefined}
           aria-expanded={open ? "true" : undefined}
           size="small"
           className={styles["preferences-button"]}
         >
-          <SettingsIcon className={styles["preferences-icon"]} />
+          <SettingsIcon aria-hidden="true" className={styles["preferences-icon"]} />
         </IconButton>
       </Tooltip>
 
@@ -96,9 +97,9 @@ export function PreferencesMenu() {
           className={styles["preferences-menu-item"]}
         >
           {isDark ? (
-            <LightModeOutlinedIcon className={styles["preferences-sun-icon"]} />
+            <LightModeOutlinedIcon aria-hidden="true" className={styles["preferences-sun-icon"]} />
           ) : (
-            <DarkModeOutlinedIcon className={styles["preferences-icon"]} />
+            <DarkModeOutlinedIcon aria-hidden="true" className={styles["preferences-icon"]} />
           )}
           <Typography variant="body2" fontWeight={500}>
             {isDark
@@ -119,7 +120,7 @@ export function PreferencesMenu() {
           onClick={handleClose}
           className={styles["preferences-menu-item"]}
         >
-          <SettingsIcon className={styles["preferences-icon"]} />
+          <SettingsIcon aria-hidden="true" className={styles["preferences-icon"]} />
           <Typography variant="body2" fontWeight={500}>
             {t("preferences.title")}
           </Typography>
@@ -195,6 +196,7 @@ export function AuthMenu({
           <IconButton
             onClick={handleClickMenu}
             size="small"
+            aria-hidden="true" 
             aria-controls={openMenu ? "account-menu" : undefined}
             aria-expanded={openMenu ? "true" : undefined}
             aria-label={t("navbar.openProfileMenu")}

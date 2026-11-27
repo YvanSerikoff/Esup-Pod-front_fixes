@@ -199,7 +199,7 @@ export default function VideoContributorsForm({
                 {contributions.map((c) => (
                   <Box key={c.id} className={videoStyles.contributorItem}>
                     <Box className={videoStyles.contributorIdentity}>
-                      <PersonIcon color="action" />
+                      <PersonIcon aria-hidden="true" color="action" />
                       <Box>
                         <div className={videoStyles.contributorName}>
                           {c.contributor_details.first_name}{" "}
@@ -219,7 +219,7 @@ export default function VideoContributorsForm({
                       onClick={() => removeContribution.mutate(c.id)}
                       disabled={removeContribution.isPending}
                     >
-                      <DeleteIcon fontSize="small" />
+                      <DeleteIcon aria-hidden="true" fontSize="small" />
                     </IconButton>
                   </Box>
                 ))}

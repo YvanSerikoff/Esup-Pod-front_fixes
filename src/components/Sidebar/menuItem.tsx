@@ -74,6 +74,7 @@ const MenuItem = (props: MenuItemProps) => {
       {/* Display an icon if any */}
       {!!Icon && (
         <ListItemIcon
+          aria-hidden="true" 
           className={`${styles["menu-item-icon"]} ${
             sidebarOpen
               ? styles["menu-item-icon-open"]
@@ -81,6 +82,7 @@ const MenuItem = (props: MenuItemProps) => {
           }`}
         >
           <Icon
+          aria-hidden="true" 
             className={`${styles["menu-item-icon-svg"]} ${
               isSelfActive ? styles["menu-item-icon-svg-active"] : ""
             }`}
@@ -99,6 +101,7 @@ const MenuItem = (props: MenuItemProps) => {
       {/* Display the expand menu if the item has children */}
       {isExpandable && sidebarOpen && !isOpen && (
         <IconExpandMore
+          aria-hidden="true" 
           className={`${styles["menu-expand-icon"]} ${
             isChildActive ? styles["menu-expand-icon-active"] : ""
           }`}
@@ -106,6 +109,7 @@ const MenuItem = (props: MenuItemProps) => {
       )}
       {isExpandable && sidebarOpen && isOpen && (
         <IconExpandLess
+          aria-hidden="true" 
           className={`${styles["menu-expand-icon"]} ${
             isChildActive ? styles["menu-expand-icon-active"] : ""
           }`}

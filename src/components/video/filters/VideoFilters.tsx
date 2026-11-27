@@ -91,7 +91,7 @@ const FilterChip = ({
     >
       {label}
     </Typography>
-    <CloseIcon fontSize="small" className={styles["filter-chip-close"]} />
+    <CloseIcon aria-hidden="true" fontSize="small" className={styles["filter-chip-close"]} />
   </div>
 );
 
@@ -286,7 +286,7 @@ export default function VideoFilters({
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon fontSize="small" />
+                <SearchIcon aria-hidden="true" fontSize="small" />
               </InputAdornment>
             ),
           }}
@@ -359,6 +359,7 @@ export default function VideoFilters({
             className={styles["advanced-badge"]}
           >
             <TuneIcon
+              aria-hidden="true" 
               fontSize="small"
               className={styles["filter-control-icon"]}
             />
@@ -372,11 +373,13 @@ export default function VideoFilters({
           </Typography>
           {showAdvanced ? (
             <ExpandLessIcon
+              aria-hidden="true" 
               fontSize="small"
               className={styles["filter-control-icon"]}
             />
           ) : (
             <ExpandMoreIcon
+              aria-hidden="true" 
               fontSize="small"
               className={styles["filter-control-icon"]}
             />

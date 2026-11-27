@@ -567,7 +567,7 @@ export default function Video() {
                   disabled
                   title={t("common.commingSoon")}
                 >
-                  <FlagIcon fontSize="small" /> {t("videoPage.report")}
+                  <FlagIcon aria-hidden="true" fontSize="small" /> {t("videoPage.report")}
                 </button>
                 {isOwnerOrCoOwner && canEdit && (
                   <Button
@@ -575,7 +575,7 @@ export default function Video() {
                     size="small"
                     color="brand"
                     variant="primary"
-                    icon={<EditIcon fontSize="small" />}
+                    icon={<EditIcon aria-hidden="true" fontSize="small" />}
                   >
                     {t("videoPage.editVideo")}
                   </Button>
@@ -646,11 +646,13 @@ export default function Video() {
                             : t("videoPage.seeMore")}
                           {isDescriptionExpanded ? (
                             <KeyboardArrowUpIcon
+                              aria-hidden="true" 
                               fontSize="inherit"
                               className="read-more-icon"
                             />
                           ) : (
                             <KeyboardArrowDownIcon
+                              aria-hidden="true" 
                               fontSize="inherit"
                               className="read-more-icon"
                             />
@@ -709,7 +711,7 @@ export default function Video() {
                     <Divider className={styles["sidebar-divider"]} />
                     <div className={styles["sidebar-list-item"]}>
                       <h4>
-                        <LibraryBooksIcon fontSize="small" />{" "}
+                        <LibraryBooksIcon aria-hidden="true" fontSize="small" />{" "}
                         {t("videoPage.type")}
                       </h4>
                       <p className={styles["sidebar-text"]}>
@@ -718,7 +720,7 @@ export default function Video() {
                     </div>
                     <div className={styles["sidebar-list-item"]}>
                       <h4>
-                        <PieChartIcon fontSize="small" />{" "}
+                        <PieChartIcon aria-hidden="true" fontSize="small" />{" "}
                         {t("videoPage.discipline")}
                       </h4>
                       <ul>
@@ -737,7 +739,7 @@ export default function Video() {
                     </div>
                     <div className={styles["sidebar-list-item"]}>
                       <h4>
-                        <SchoolIcon fontSize="small" />{" "}
+                        <SchoolIcon aria-hidden="true" fontSize="small" />{" "}
                         {t("videoPage.contributors")}
                       </h4>
                       <p className={styles["sidebar-text"]}>
@@ -778,6 +780,7 @@ export default function Video() {
                             className={styles["document-item"]}
                           >
                             <InsertDriveFileIcon
+                              aria-hidden="true" 
                               className={styles["document-icon"]}
                             />
                             <div className={styles["document-info"]}>
@@ -853,11 +856,13 @@ export default function Video() {
                       : t("videoPage.seeMore")}
                     {isDescriptionExpanded ? (
                       <KeyboardArrowUpIcon
+                        aria-hidden="true" 
                         fontSize="inherit"
                         className="read-more-icon"
                       />
                     ) : (
                       <KeyboardArrowDownIcon
+                        aria-hidden="true" 
                         fontSize="inherit"
                         className="read-more-icon"
                       />
@@ -922,7 +927,7 @@ export default function Video() {
               <br />
               <div className={styles["sidebar-list-item"]}>
                 <h3>
-                  <LibraryBooksIcon fontSize="small" /> {t("videoPage.type")}
+                  <LibraryBooksIcon aria-hidden="true"  fontSize="small" /> {t("videoPage.type")}
                 </h3>
                 <p className={styles["sidebar-text"]}>
                   {video.type_name || t("videoPage.none")}
@@ -963,7 +968,7 @@ export default function Video() {
 
               <div className={styles["sidebar-list-item"]}>
                 <h3>
-                  <SchoolIcon fontSize="small" /> {t("videoPage.contributors")}
+                  <SchoolIcon aria-hidden="true" fontSize="small" /> {t("videoPage.contributors")}
                 </h3>
                 <p className={styles["sidebar-text"]}>
                   {getVideoOwnerDisplayName(

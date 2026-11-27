@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
         <div className={styles["footer-extra-link"]}>
           <div className={styles["footer-extra-link-icons"]}>
-            <span className={styles["footer-extra-link-icon"]}>
+            <span aria-hidden="true" className={styles["footer-extra-link-icon"]}>
               <a
                 className={styles["footer-extra-link-anchor"]}
                 href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(currentUri)}`}
@@ -74,7 +74,7 @@ export default function Footer() {
                 />
               </a>
             </span>
-            <span className={styles["footer-extra-link-icon"]}>
+            <span aria-hidden="true" className={styles["footer-extra-link-icon"]}>
               <a
                 className={styles["footer-extra-link-anchor"]}
                 href={`https://twitter.com/share?url=${encodeURIComponent(currentUri)}`}
@@ -88,7 +88,7 @@ export default function Footer() {
                 />
               </a>
             </span>
-            <span className={styles["footer-extra-link-icon"]}>
+            <span aria-hidden="true" className={styles["footer-extra-link-icon"]}>
               <a
                 className={styles["footer-extra-link-anchor"]}
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUri)}`}
@@ -102,7 +102,7 @@ export default function Footer() {
                 />
               </a>
             </span>
-            <span className={styles["footer-extra-link-icon"]}>
+            <span aria-hidden="true" className={styles["footer-extra-link-icon"]}>
               <a
                 className={styles["footer-extra-link-anchor"]}
                 href={`https://bsky.app/intent/compose?text=${encodeURIComponent(currentUri)}`}
@@ -116,7 +116,7 @@ export default function Footer() {
                 />
               </a>
             </span>
-            <span className={styles["footer-extra-link-icon"]}>
+            <span aria-hidden="true" className={styles["footer-extra-link-icon"]}>
               <a
                 className={styles["footer-extra-link-anchor"]}
                 href={`${encodeURIComponent(currentUri)}`}

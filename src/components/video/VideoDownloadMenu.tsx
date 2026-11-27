@@ -66,7 +66,7 @@ export default function VideoDownloadMenu({
   return (
     <>
       <button className={className} onClick={handleClick} type="button">
-        <DownloadIcon fontSize="small" /> {t("videoPage.download")}
+        <DownloadIcon aria-hidden="true" fontSize="small" /> {t("videoPage.download")}
       </button>
 
       {options.length > 0 && (
@@ -82,7 +82,7 @@ export default function VideoDownloadMenu({
           {options.map((opt, idx) => (
             <MenuItem key={idx} onClick={() => handleSelectQuality(opt)}>
               <ListItemIcon>
-                <HighQualityIcon fontSize="small" />
+                <HighQualityIcon aria-hidden="true" fontSize="small" />
               </ListItemIcon>
               <ListItemText>{opt.label || opt.resolution}</ListItemText>
             </MenuItem>

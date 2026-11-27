@@ -223,10 +223,10 @@ export default function EditVideo() {
     [t],
   );
   const MOBILE_STEPS = [
-    { label: ALL_STEPS[0], icon: <UploadFileIcon />, index: 0 },
-    { label: ALL_STEPS[1], icon: <ListAltIcon />, index: 1 },
-    { label: ALL_STEPS[2], icon: <TuneIcon />, index: 2 },
-    { label: ALL_STEPS[3], icon: <VisibilityIcon />, index: 3 },
+    { label: ALL_STEPS[0], icon: <UploadFileIcon aria-hidden="true" />, index: 0 },
+    { label: ALL_STEPS[1], icon: <ListAltIcon aria-hidden="true" />, index: 1 },
+    { label: ALL_STEPS[2], icon: <TuneIcon aria-hidden="true" />, index: 2 },
+    { label: ALL_STEPS[3], icon: <VisibilityIcon aria-hidden="true" />, index: 3 },
   ];
   const formFieldLabels: Record<keyof EditVideoFormValues, string> = {
     title: t("videoEdit.titleLabel"),
@@ -910,7 +910,7 @@ export default function EditVideo() {
             disabled={!sourceFile || sourceUploading}
             onClick={handleSourceChange}
           >
-            <SwitchVideoIcon fontSize="small" />
+            <SwitchVideoIcon aria-hidden="true" fontSize="small" />
             {sourceUploading
               ? t("common.loading")
               : t("videoEdit.addVideoFileBtn")}
@@ -1102,14 +1102,14 @@ export default function EditVideo() {
                   htmlFor="thumbnail-input"
                   className={styles["vignette-overlay-btn"]}
                 >
-                  <UploadFileIcon fontSize="small" /> {t("videoEdit.changeBtn")}
+                  <UploadFileIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.changeBtn")}
                 </label>
                 <button
                   type="button"
                   className={`${styles["vignette-overlay-btn"]} ${styles["vignette-overlay-btn-danger"]}`}
                   onClick={removeThumbnail}
                 >
-                  <DeleteOutlineIcon fontSize="small" />{" "}
+                  <DeleteOutlineIcon aria-hidden="true" fontSize="small" />{" "}
                   {t("videoEdit.deleteBtn")}
                 </button>
               </div>
@@ -1120,7 +1120,7 @@ export default function EditVideo() {
               className={styles["vignette-empty-zone"]}
             >
               <div className={styles["vignette-empty-icon"]}>
-                <UploadFileIcon className={styles["vignette-upload-icon"]} />
+                <UploadFileIcon aria-hidden="true" className={styles["vignette-upload-icon"]} />
               </div>
               <span className={styles["vignette-empty-title"]}>
                 {t("videoEdit.uploadThumbnailBtn")}
@@ -1457,7 +1457,7 @@ export default function EditVideo() {
                 disabled={!video}
                 onClick={() => setSubtitlesModalOpen(true)}
               >
-                <SubtitlesIcon fontSize="small" />{" "}
+                <SubtitlesIcon aria-hidden="true" fontSize="small" />{" "}
                 {t("videoEdit.subtitlesTitle")}
               </button>
             </div>
@@ -1480,7 +1480,7 @@ export default function EditVideo() {
                 disabled={!video}
                 onClick={() => setDocumentsModalOpen(true)}
               >
-                <AttachFileIcon fontSize="small" />{" "}
+                <AttachFileIcon aria-hidden="true" fontSize="small" />{" "}
                 {t("videoEdit.documentsTitle")}
               </button>
             </div>
@@ -1503,7 +1503,7 @@ export default function EditVideo() {
                 disabled={!video}
                 onClick={() => setContributorsModalOpen(true)}
               >
-                <GroupIcon fontSize="small" />{" "}
+                <GroupIcon aria-hidden="true" fontSize="small" />{" "}
                 {t("videoEdit.contributorsTitle")}
               </button>
             </div>
@@ -1528,7 +1528,7 @@ export default function EditVideo() {
                 disabled={!hasEncodedSource}
                 onClick={() => setChaptersModalOpen(true)}
               >
-                <BookmarksIcon fontSize="small" />{" "}
+                <BookmarksIcon aria-hidden="true" fontSize="small" />{" "}
                 {t("videoEdit.chaptersTitle")}
               </button>
             </div>
@@ -1554,7 +1554,7 @@ export default function EditVideo() {
                   disabled={!hasEncodedSource}
                   onClick={() => setDressingModalOpen(true)}
                 >
-                  <StyleIcon fontSize="small" /> {t("videoEdit.dressingTitle")}
+                  <StyleIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.dressingTitle")}
                 </button>
               </div>
             </div>
@@ -1579,7 +1579,7 @@ export default function EditVideo() {
                 disabled={!hasEncodedSource}
                 onClick={() => router.push(`/video/edit/${getVideoSlug}/trim`)}
               >
-                <ContentCutIcon fontSize="small" /> {t("videoEdit.trimTitle")}
+                <ContentCutIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.trimTitle")}
               </button>
             </div>
           </div>
@@ -1601,7 +1601,7 @@ export default function EditVideo() {
 
         {!hasSource && (
           <div className={styles["no-source-notice"]}>
-            <PriorityHighIcon className={styles["no-source-notice-icon"]} />
+            <PriorityHighIcon aria-hidden="true" className={styles["no-source-notice-icon"]} />
             <span>{t("videoEdit.noSourceDraftNotice")}</span>
           </div>
         )}
@@ -1615,7 +1615,7 @@ export default function EditVideo() {
           >
             <span>{t("videoEdit.restrictionsHeader")}</span>
             <ExpandMoreIcon
-              className={`${styles["expand-icon"]} ${restrictionExpanded ? styles.expanded : ""}`}
+              aria-hidden="true" className={`${styles["expand-icon"]} ${restrictionExpanded ? styles.expanded : ""}`}
             />
           </button>
           {restrictionExpanded && (
@@ -1756,7 +1756,7 @@ export default function EditVideo() {
               <span>{t("videoEdit.diffusionTitle")}</span>
             </div>
             <ExpandMoreIcon
-              className={`${styles["expand-icon"]} ${diffusionExpanded ? styles.expanded : ""}`}
+              aria-hidden="true" className={`${styles["expand-icon"]} ${diffusionExpanded ? styles.expanded : ""}`}
             />
           </button>
           {diffusionExpanded && (
@@ -1826,7 +1826,7 @@ export default function EditVideo() {
               <span>{t("videoEdit.advancedOptionsTitle")}</span>
             </div>
             <ExpandMoreIcon
-              className={`${styles["expand-icon"]} ${advancedExpanded ? styles.expanded : ""}`}
+              aria-hidden="true" className={`${styles["expand-icon"]} ${advancedExpanded ? styles.expanded : ""}`}
             />
           </button>
           {advancedExpanded && (
@@ -1891,7 +1891,7 @@ export default function EditVideo() {
             ) : (
               <div className={styles["live-card-media-placeholder"]}>
                 <OndemandVideoIcon
-                  className={styles["live-card-placeholder-icon"]}
+                  aria-hidden="true" className={styles["live-card-placeholder-icon"]}
                 />
               </div>
             )}
@@ -1937,7 +1937,7 @@ export default function EditVideo() {
                   {statusVal === "DR" && (
                     <Tooltip title={t("videoEdit.privateVideoTooltip")}>
                       <span
-                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                        aria-hidden="true" className={`material-icons ${styles["live-card-badge-icon"]}`}
                       >
                         visibility_off
                       </span>
@@ -1948,7 +1948,7 @@ export default function EditVideo() {
                       title={t("videoEdit.passwordProtectedVideoTooltip")}
                     >
                       <span
-                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                        aria-hidden="true" className={`material-icons ${styles["live-card-badge-icon"]}`}
                       >
                         key
                       </span>
@@ -1957,7 +1957,7 @@ export default function EditVideo() {
                   {isAuthRequiredVal && (
                     <Tooltip title={t("videoEdit.authRequiredLabel")}>
                       <span
-                        className={`material-icons ${styles["live-card-badge-icon"]}`}
+                        aria-hidden="true" className={`material-icons ${styles["live-card-badge-icon"]}`}
                       >
                         verified_user
                       </span>
@@ -2020,7 +2020,7 @@ export default function EditVideo() {
                 className="action-pill-btn primary"
                 disabled={isSubmitting}
               >
-                <SaveIcon fontSize="small" /> {t("videoEdit.save")}
+                <SaveIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.save")}
               </button>
             </div>
           </div>
@@ -2033,7 +2033,7 @@ export default function EditVideo() {
             <span className={styles["mobile-video-title"]}>{video?.title}</span>
             {config?.video?.show_views !== false && video?.views != null && (
               <span className={styles["mobile-video-views"]}>
-                <VisibilityIcon fontSize="small" /> {video?.views}
+                <VisibilityIcon aria-hidden="true" fontSize="small" /> {video?.views}
               </span>
             )}
           </div>
@@ -2051,12 +2051,12 @@ export default function EditVideo() {
                   disabled={step.index < 0}
                   className={`${styles["mobile-menu-item"]} ${step.index < 0 ? styles["mobile-menu-item-disabled"] : ""}`}
                 >
-                  <span className={styles["mobile-menu-item-icon"]}>
+                  <span aria-hidden="true" className={styles["mobile-menu-item-icon"]}>
                     {step.icon}
                   </span>
                   <span>{step.label}</span>
                   <ChevronRightIcon
-                    className={styles["mobile-menu-item-chevron"]}
+                    aria-hidden="true" className={styles["mobile-menu-item-chevron"]}
                   />
                 </button>
               ))}
@@ -2068,7 +2068,7 @@ export default function EditVideo() {
                 className={styles["mobile-back-btn"]}
                 onClick={() => setMobilePanelIndex(null)}
               >
-                <ChevronLeftIcon fontSize="small" />
+                <ChevronLeftIcon aria-hidden="true" fontSize="small" />
                 {MOBILE_STEPS.find((s) => s.index === mobilePanelIndex)
                   ?.label ?? t("common.back")}
               </button>
@@ -2120,7 +2120,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <BookmarksIcon className={styles["modal-title-icon"]} />
+            <BookmarksIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.chaptersDialogTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2147,7 +2147,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <StyleIcon className={styles["modal-title-icon"]} />
+            <StyleIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.dressingTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2179,7 +2179,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <SubtitlesIcon className={styles["modal-title-icon"]} />
+            <SubtitlesIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.subtitlesTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2305,7 +2305,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <AttachFileIcon className={styles["modal-title-icon"]} />
+            <AttachFileIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.documentsTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2332,7 +2332,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <GroupIcon className={styles["modal-title-icon"]} />
+            <GroupIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.contributorsTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2362,7 +2362,7 @@ export default function EditVideo() {
           PaperProps={{ className: styles["modal-paper"] }}
         >
           <DialogTitle className={styles["modal-title"]}>
-            <SwitchVideoIcon className={styles["modal-title-icon"]} />
+            <SwitchVideoIcon aria-hidden="true" className={styles["modal-title-icon"]} />
             {t("videoEdit.changeSourceTitle")}
           </DialogTitle>
           <DialogContent dividers>
@@ -2455,7 +2455,7 @@ export default function EditVideo() {
                 onClick={handleDuplicate}
                 disabled={isDuplicating}
               >
-                <FileCopyIcon fontSize="small" />{" "}
+                <FileCopyIcon aria-hidden="true" fontSize="small" />{" "}
                 {isDuplicating
                   ? t("videoAction.duplicating")
                   : t("videoEdit.duplicate")}
@@ -2466,7 +2466,7 @@ export default function EditVideo() {
               className="action-pill-btn primary"
               disabled={isSubmitting}
             >
-              <SaveIcon fontSize="small" /> {t("videoEdit.save")}
+              <SaveIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.save")}
             </button>
             <button
               type="button"
@@ -2475,7 +2475,7 @@ export default function EditVideo() {
                 openConfirmLeave(() => router.push(`/video/${getVideoSlug}`))
               }
             >
-              <CloseIcon fontSize="small" /> {t("videoEdit.quit")}
+              <CloseIcon aria-hidden="true" fontSize="small" /> {t("videoEdit.quit")}
             </button>
           </div>
         </div>
@@ -2552,10 +2552,10 @@ export default function EditVideo() {
                     <div className={styles["stepper-dot"]}>
                       {isError ? (
                         <PriorityHighIcon
-                          className={styles["stepper-status-icon"]}
+                          aria-hidden="true" className={styles["stepper-status-icon"]}
                         />
                       ) : isCompleted && !isActive ? (
-                        <CheckIcon className={styles["stepper-status-icon"]} />
+                        <CheckIcon aria-hidden="true" className={styles["stepper-status-icon"]} />
                       ) : (
                         index + 1
                       )}
@@ -2680,7 +2680,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <BookmarksIcon className={styles["modal-title-icon"]} />
+          <BookmarksIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.chaptersDialogTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2707,7 +2707,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <StyleIcon className={styles["modal-title-icon"]} />
+          <StyleIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.dressingTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2739,7 +2739,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <SubtitlesIcon className={styles["modal-title-icon"]} />
+          <SubtitlesIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.subtitlesTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2867,7 +2867,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <AttachFileIcon className={styles["modal-title-icon"]} />
+          <AttachFileIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.documentsTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2894,7 +2894,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <GroupIcon className={styles["modal-title-icon"]} />
+          <GroupIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.contributorsTitle")}
         </DialogTitle>
         <DialogContent dividers>
@@ -2924,7 +2924,7 @@ export default function EditVideo() {
         PaperProps={{ className: styles["modal-paper"] }}
       >
         <DialogTitle className={styles["modal-title"]}>
-          <SwitchVideoIcon className={styles["modal-title-icon"]} />
+          <SwitchVideoIcon aria-hidden="true" className={styles["modal-title-icon"]} />
           {t("videoEdit.changeSourceTitle")}
         </DialogTitle>
         <DialogContent dividers>

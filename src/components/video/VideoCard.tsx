@@ -133,6 +133,7 @@ export default function VideoCard(props: VideosCardProps) {
                 {video.encoding_status == "ER" && isOwner && (
                   <Tooltip title={t("table.encodingError")}>
                     <ErrorIcon
+                      aria-hidden="true" 
                       color="error"
                       className={styles["encoding-icon"]}
                     />
@@ -141,6 +142,7 @@ export default function VideoCard(props: VideosCardProps) {
                 {video.encoding_status == "PE" && isOwner && (
                   <Tooltip title={t("table.pendingEncoding")}>
                     <PauseCircleFilledIcon
+                      aria-hidden="true" 
                       color="warning"
                       className={styles["encoding-icon"]}
                     />
@@ -148,12 +150,13 @@ export default function VideoCard(props: VideosCardProps) {
                 )}
                 {video.encoding_status == "PR" && isOwner && (
                   <Tooltip title={t("videoPlayer.encodingInProgress")}>
-                    <DownloadingIcon className={styles["downloading-icon"]} />
+                    <DownloadingIcon aria-hidden="true" className={styles["downloading-icon"]} />
                   </Tooltip>
                 )}
                 {video.encoding_status == "DO" && isOwner && (
                   <Tooltip title={t("table.encodingCompleted")}>
                     <CheckCircleOutlinedIcon
+                      aria-hidden="true" 
                       color="success"
                       className={styles["encoding-icon"]}
                     />
@@ -162,18 +165,18 @@ export default function VideoCard(props: VideosCardProps) {
                 {video.status === "DR" && (
                   <Tooltip title={t("videoEdit.draftPrivateTitle")}>
                     <VisibilityOffOutlinedIcon
-                      className={styles["status-icon"]}
+                      aria-hidden="true" className={styles["status-icon"]}
                     />
                   </Tooltip>
                 )}
                 {video.has_password && (
                   <Tooltip title={t("common.passwordProtected")}>
-                    <LockOutlinedIcon className={styles["status-icon"]} />
+                    <LockOutlinedIcon aria-hidden="true" className={styles["status-icon"]} />
                   </Tooltip>
                 )}
                 {video.is_auth_required && (
                   <Tooltip title={t("videoEdit.authUserOnly")}>
-                    <ShieldOutlinedIcon className={styles["status-icon"]} />
+                    <ShieldOutlinedIcon aria-hidden="true" className={styles["status-icon"]} />
                   </Tooltip>
                 )}
                 {isOwner && (

@@ -74,14 +74,14 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
         onClick={onBack}
         className={styles.dressingBackButton}
       >
-        <ArrowBackIcon fontSize="small" />
+        <ArrowBackIcon aria-hidden="true" fontSize="small" />
         {t("common.selectionReturn")}
       </button>
 
       <div className={styles.dressingCreateCard}>
         <div className={styles.dressingSectionHeader}>
           <div className={styles.dressingCreateIconCircle}>
-            <AddCircleOutlineIcon className={styles.dressingPrimaryIcon} />
+            <AddCircleOutlineIcon aria-hidden="true" className={styles.dressingPrimaryIcon} />
           </div>
           <div>
             <div className={styles.dressingSectionTitle}>
@@ -169,7 +169,7 @@ function CreateDressingPanel({ onBack, onCreated }: CreatePanelProps) {
               className={styles.dressingWhiteProgress}
             />
           ) : (
-            <CheckCircleOutlineIcon fontSize="small" />
+            <CheckCircleOutlineIcon aria-hidden="true" fontSize="small" />
           )}
           {saving ? t("videoDressing.creation") : t("videoDressing.create")}
         </button>
@@ -249,7 +249,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
       <div className={styles.dressingMainHeader}>
         <div className={styles.dressingMainSectionHeader}>
           <div className={styles.dressingMainIconCircle}>
-            <StyleIcon className={styles.dressingPrimaryIcon} />
+            <StyleIcon aria-hidden="true" className={styles.dressingPrimaryIcon} />
           </div>
           <div>
             <div className={styles.dressingSectionTitle}>
@@ -268,7 +268,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
           onClick={() => setView("create")}
           className={styles.dressingHeaderCreateButton}
         >
-          <AddCircleOutlineIcon fontSize="small" />
+          <AddCircleOutlineIcon aria-hidden="true" fontSize="small" />
           {t("videoDressing.create")}
         </button>
       </div>
@@ -280,7 +280,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             msg.ok ? "success" : "error"
           }`}
         >
-          {msg.ok ? <CheckCircleOutlineIcon fontSize="small" /> : null}
+          {msg.ok ? <CheckCircleOutlineIcon aria-hidden="true" fontSize="small" /> : null}
           {msg.text}
         </div>
       )}
@@ -296,7 +296,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
         </div>
       ) : dressings.length === 0 ? (
         <div className={styles.dressingEmpty}>
-          <StyleIcon className={styles.dressingEmptyIcon} />
+          <StyleIcon aria-hidden="true" className={styles.dressingEmptyIcon} />
           <p className={styles.dressingEmptyText}>
             {t("videoDressing.noDressing")}
           </p>
@@ -305,7 +305,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             onClick={() => setView("create")}
             className={styles.dressingEmptyCreateButton}
           >
-            <AddCircleOutlineIcon fontSize="small" />
+            <AddCircleOutlineIcon aria-hidden="true" fontSize="small" />
             {t("videoDressing.create")}
           </button>
         </div>
@@ -318,7 +318,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             disabled={isUpdating}
           >
             <div className={styles.dressingCardRow}>
-              <DeleteOutlineIcon className={styles.dressingMutedIcon} />
+              <DeleteOutlineIcon aria-hidden="true" className={styles.dressingMutedIcon} />
               <span className={styles.dressingNoneLabel}>
                 {t("videoDressing.noDressing")}
               </span>
@@ -335,7 +335,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
             >
               <div className={styles.dressingCardRow}>
                 <div className={styles.dressingSmallIconCircle}>
-                  <PaletteIcon className={styles.dressingPaletteIcon} />
+                  <PaletteIcon aria-hidden="true" className={styles.dressingPaletteIcon} />
                 </div>
                 <div className={styles.dressingCardContent}>
                   <div className={styles.dressingCardTitle}>{d.title}</div>
@@ -351,7 +351,7 @@ export default function VideoDressingForm({ video, onDressingUpdated }: Props) {
                 </div>
                 {selectedDressingId === d.id && (
                   <CheckCircleOutlineIcon
-                    className={styles.dressingSelectedIcon}
+                    aria-hidden="true" className={styles.dressingSelectedIcon}
                   />
                 )}
               </div>

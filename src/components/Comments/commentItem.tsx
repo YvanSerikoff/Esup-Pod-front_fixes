@@ -162,12 +162,12 @@ export default function CommentItem({
                 onClick={() => onVote(comment.id)}
                 aria-label={t("comments.voteForComment")}
               >
-                <ThumbUpOffAltIcon fontSize="small" />
+                <ThumbUpOffAltIcon aria-hidden="true" fontSize="small" />
                 <span>{comment.nbr_vote}</span>
               </Button>
             ) : (
               <div className={styles["action-button-static"]}>
-                <ThumbUpOffAltIcon fontSize="small" />
+                <ThumbUpOffAltIcon aria-hidden="true" fontSize="small" />
                 <span>{comment.nbr_vote}</span>
               </div>
             )}
@@ -191,7 +191,7 @@ export default function CommentItem({
                 variant="tertiary"
                 onClick={() => onDelete(comment.id)}
               >
-                <DeleteOutlineIcon fontSize="small" />
+                <DeleteOutlineIcon aria-hidden="true" fontSize="small" />
                 {t("comments.delete")}
               </Button>
             )}
@@ -239,9 +239,9 @@ export default function CommentItem({
                   ? t("comments.showReplies", { count: children.length })
                   : t("comments.showRepliesPlural", { count: children.length })}
               {isRepliesOpen ? (
-                <KeyboardArrowUpIcon />
+                <KeyboardArrowUpIcon aria-hidden="true" />
               ) : (
-                <KeyboardArrowDownIcon />
+                <KeyboardArrowDownIcon aria-hidden="true" />
               )}
             </Button>
           )}

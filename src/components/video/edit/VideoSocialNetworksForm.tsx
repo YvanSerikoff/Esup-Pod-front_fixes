@@ -62,7 +62,7 @@ export default function VideoSocialNetworksForm({
   return (
     <div className="socialNetworksForm">
       <div className={styles.socialNetworksHeader}>
-        <ShareIcon className={styles.socialNetworksIcon} />
+        <ShareIcon aria-hidden="true" className={styles.socialNetworksIcon} />
         <h3 className={styles.socialNetworksTitle}>
           {t("socialNetworks.authorizedShare")}
         </h3>

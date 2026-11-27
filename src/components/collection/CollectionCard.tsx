@@ -63,6 +63,7 @@ export default function CollectionCard(props: CollectionCardProps) {
             <Box className={styles.statistics}>
               <Box className={styles.statistic}>
                 <VideoLibraryIcon
+                  aria-hidden="true" 
                   fontSize="small"
                   className={styles.statisticIcon}
                 />
@@ -75,7 +76,7 @@ export default function CollectionCard(props: CollectionCardProps) {
                 </Typography>
               </Box>
               <Box className={styles.statistic}>
-                <StyleIcon fontSize="small" className={styles.statisticIcon} />
+                <StyleIcon aria-hidden="true" fontSize="small" className={styles.statisticIcon} />
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -128,6 +129,7 @@ export default function CollectionCard(props: CollectionCardProps) {
           <Box className={styles.statistics}>
             <Box className={styles.statistic}>
               <VideoLibraryIcon
+                aria-hidden="true" 
                 fontSize="small"
                 className={styles.statisticIcon}
               />
@@ -140,7 +142,7 @@ export default function CollectionCard(props: CollectionCardProps) {
               </Typography>
             </Box>
             <Box className={styles.statistic}>
-              <StyleIcon fontSize="small" className={styles.statisticIcon} />
+              <StyleIcon aria-hidden="true" fontSize="small" className={styles.statisticIcon} />
               <Typography
                 variant="body2"
                 color="text.secondary"

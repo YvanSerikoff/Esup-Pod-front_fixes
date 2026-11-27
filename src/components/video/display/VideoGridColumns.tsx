@@ -58,7 +58,7 @@ export function getVideoGridColumns(
           ) : (
             <div className={styles["default-thumbnail-poster"]}>
               <span
-                className={`material-icons ${styles["thumbnail-play-icon"]}`}
+                aria-hidden="true" className={`material-icons ${styles["thumbnail-play-icon"]}`}
               >
                 play_arrow
               </span>
@@ -134,24 +134,24 @@ export function getVideoGridColumns(
               <Tooltip
                 title={tr("table.pendingEncoding", "Video awaiting encoding")}
               >
-                <PauseCircleFilledIcon color="warning" />
+                <PauseCircleFilledIcon aria-hidden="true" color="warning" />
               </Tooltip>
             )}
             {row.statusEncoding == "ER" && (
               <Tooltip title={tr("table.encodingError", "Encoding error")}>
-                <ErrorIcon color="error" />
+                <ErrorIcon aria-hidden="true" color="error" />
               </Tooltip>
             )}
             {row.statusEncoding == "DO" && (
               <Tooltip
                 title={tr("table.encodingCompleted", "Encoding completed")}
               >
-                <CheckCircleOutlinedIcon color="success" />
+                <CheckCircleOutlinedIcon aria-hidden="true" color="success" />
               </Tooltip>
             )}
             {row.statusEncoding == "DR" && (
               <Tooltip title={tr("table.privateVideo", "Private video")}>
-                <span className="material-icons">visibility_off</span>
+                <span aria-hidden="true" className="material-icons">visibility_off</span>
               </Tooltip>
             )}
           </>

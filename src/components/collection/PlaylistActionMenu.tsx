@@ -23,6 +23,7 @@ export default function PlaylistCardActionMenu({
   return (
     <Dropdown>
       <MenuButton
+        aria-hidden="true" 
         className={styles.menuButton}
         slots={{ root: IconButton }}
         slotProps={{ root: { variant: "outlined" } }}

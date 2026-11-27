@@ -116,7 +116,7 @@ export default function VideoGridBlockComponent({
                       }`}
                     >
                       <span
-                        className={`material-icons ${styles["video-placeholder-icon"]}`}
+                        aria-hidden="true" className={`material-icons ${styles["video-placeholder-icon"]}`}
                       >
                         play_circle_outline
                       </span>
@@ -128,7 +128,7 @@ export default function VideoGridBlockComponent({
                   {showViews && video.views_count != null && (
                     <span className={styles["card-meta"]}>
                       <span
-                        className={`material-icons ${styles["video-meta-icon"]}`}
+                        aria-hidden="true" className={`material-icons ${styles["video-meta-icon"]}`}
                       >
                         visibility
                       </span>

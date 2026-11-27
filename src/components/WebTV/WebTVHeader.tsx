@@ -19,7 +19,7 @@ export default function WebTVHeader() {
     <header className={styles["header-container"]}>
       <div className={styles["left-section"]}>
         <Link href="/" className={styles["logo-link"]}>
-          <span className={`material-icons ${styles["icon-large"]}`}>
+          <span aria-hidden="true" className={`material-icons ${styles["icon-large"]}`}>
             layers
           </span>
           <span>{t("webtv.webtv")}</span>
@@ -69,7 +69,7 @@ export default function WebTVHeader() {
               {user.first_name || user.username}
             </span>
             <button onClick={logout} className={styles["login-btn"]}>
-              <span className={`material-icons ${styles["icon-small"]}`}>
+              <span aria-hidden="true" className={`material-icons ${styles["icon-small"]}`}>
                 logout
               </span>
               {t("common.logout")}
@@ -77,7 +77,7 @@ export default function WebTVHeader() {
           </div>
         ) : (
           <Link href="/login" className={styles["login-btn"]}>
-            <span className={`material-icons ${styles["icon-small"]}`}>
+            <span aria-hidden="true" className={`material-icons ${styles["icon-small"]}`}>
               login
             </span>
             {t("common.login")}
@@ -90,7 +90,7 @@ export default function WebTVHeader() {
           aria-label={t("common.search")}
         >
           {t("common.search")}
-          <span className={`material-icons ${styles["icon-small"]}`}>
+          <span aria-hidden="true" className={`material-icons ${styles["icon-small"]}`}>
             search
           </span>
         </button>
@@ -115,7 +115,7 @@ export default function WebTVHeader() {
               onClick={() => setIsSearchOpen(false)}
               className={styles["dialog-close"]}
             >
-              <span className="material-icons">close</span>
+              <span aria-hidden="true" className="material-icons">close</span>
             </button>
           </div>
           <SearchForm />

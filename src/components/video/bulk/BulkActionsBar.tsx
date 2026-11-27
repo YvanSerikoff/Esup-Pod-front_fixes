@@ -385,7 +385,7 @@ export default function BulkActionsBar({
                       arrow
                     >
                       <span className={styles.bulkEncodingWarning}>
-                        <WarningAmberIcon fontSize="small" />
+                        <WarningAmberIcon aria-hidden="true" fontSize="small" />
                         {t("pending.encoding")}
                       </span>
                     </Tooltip>
@@ -393,7 +393,7 @@ export default function BulkActionsBar({
                 </div>
               ) : (
                 <span className={styles.bulkSelectionPrompt}>
-                  <InfoOutlinedIcon fontSize="small" />
+                  <InfoOutlinedIcon aria-hidden="true" fontSize="small" />
                   {t("bulk.checkVideosPrompt")}
                 </span>
               )}
@@ -414,9 +414,9 @@ export default function BulkActionsBar({
                     {t("bulk.chooseAction")}
                   </Typography>
                   {dropdownOpen ? (
-                    <ExpandLessIcon fontSize="small" />
+                    <ExpandLessIcon aria-hidden="true" fontSize="small" />
                   ) : (
-                    <ExpandMoreIcon fontSize="small" />
+                    <ExpandMoreIcon aria-hidden="true" fontSize="small" />
                   )}
                 </ListItemButton>
 
@@ -482,7 +482,7 @@ export default function BulkActionsBar({
                                     >
                                       {!opt.enabled && (
                                         <LockIcon
-                                          className={styles.bulkMenuLockIcon}
+                                          aria-hidden="true" className={styles.bulkMenuLockIcon}
                                         />
                                       )}
                                       {opt.label}
@@ -548,7 +548,7 @@ export default function BulkActionsBar({
         <div className={styles.bulkModalContent}>
           {/* Deletion warning */}
           {selectedAction === "delete" && (
-            <Alert severity="warning" icon={<WarningAmberIcon />}>
+            <Alert severity="warning" icon={<WarningAmberIcon aria-hidden="true" />}>
               {t.rich("bulk.deleteVideosWarning", {
                 count,
                 strong: (chunks) => <strong>{chunks}</strong>,
@@ -844,9 +844,9 @@ export default function BulkActionsBar({
           variant="filled"
           icon={
             toast.severity === "success" ? (
-              <CheckCircleOutlineIcon />
+              <CheckCircleOutlineIcon aria-hidden="true" />
             ) : (
-              <ErrorOutlineIcon />
+              <ErrorOutlineIcon aria-hidden="true" />
             )
           }
           className={styles.bulkToast}

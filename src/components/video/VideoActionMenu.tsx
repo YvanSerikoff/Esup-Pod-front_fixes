@@ -68,13 +68,14 @@ export default function VideoCardActionMenu({
       <IconButton
         onClick={handleClick}
         size="small"
+        aria-hidden="true" 
         aria-label={t("a11y.videoActions")}
         aria-controls={open ? "video-action-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         className={styles.videoActionTrigger}
       >
-        <MoreVertIcon fontSize="small" />
+        <MoreVertIcon aria-hidden="true" fontSize="small" />
       </IconButton>
 
       <Menu
@@ -98,8 +99,8 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon className={styles.videoActionItemIcon}>
-              <EditIcon fontSize="small" />
+            <ListItemIcon aria-hidden="true" className={styles.videoActionItemIcon}>
+              <EditIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {t("videoAction.edit")}
           </MenuItem>
@@ -111,8 +112,8 @@ export default function VideoCardActionMenu({
             disabled={isDuplicating}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon className={styles.videoActionItemIcon}>
-              <ContentCopyIcon fontSize="small" />
+            <ListItemIcon aria-hidden="true" className={styles.videoActionItemIcon}>
+              <ContentCopyIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {isDuplicating
               ? t("videoAction.duplicating")
@@ -129,8 +130,8 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionDeleteItem}
           >
-            <ListItemIcon className={styles.videoActionDeleteIcon}>
-              <DeleteForeverIcon fontSize="small" />
+            <ListItemIcon aria-hidden="true" className={styles.videoActionDeleteIcon}>
+              <DeleteForeverIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {t("videoAction.delete")}
           </MenuItem>

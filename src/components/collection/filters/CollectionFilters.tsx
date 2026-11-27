@@ -91,7 +91,7 @@ const FilterChip = ({
     >
       {label}
     </Typography>
-    <CloseIcon fontSize="small" className={styles["filter-chip-close"]} />
+    <CloseIcon aria-hidden="true" fontSize="small" className={styles["filter-chip-close"]} />
   </div>
 );
 
@@ -186,7 +186,7 @@ export default function CollectionFilters({
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon fontSize="small" />
+                <SearchIcon aria-hidden="true" fontSize="small" />
               </InputAdornment>
             ),
           }}

@@ -78,17 +78,17 @@ export default function VideoShareMenu({ video, className }: Props) {
   const getIcon = (iconName: string) => {
     const name = iconName.toLowerCase();
     if (name.includes("x") || name.includes("twitter"))
-      return <XIcon fontSize="small" />;
-    if (name.includes("facebook")) return <FacebookIcon fontSize="small" />;
-    if (name.includes("linkedin")) return <LinkedInIcon fontSize="small" />;
-    if (name.includes("whatsapp")) return <WhatsAppIcon fontSize="small" />;
-    return <LanguageIcon fontSize="small" />;
+      return <XIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("facebook")) return <FacebookIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("linkedin")) return <LinkedInIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("whatsapp")) return <WhatsAppIcon aria-hidden="true" fontSize="small" />;
+    return <LanguageIcon aria-hidden="true" fontSize="small" />;
   };
 
   return (
     <>
       <button className={className} onClick={handleClick} type="button">
-        <ShareIcon fontSize="small" />{" "}
+        <ShareIcon aria-hidden="true" fontSize="small" />{" "}
         {isCopied ? `${t("videoPage.linkCopied")}` : `${t("videoPage.share")}`}
       </button>
 
@@ -100,7 +100,7 @@ export default function VideoShareMenu({ video, className }: Props) {
       >
         <MenuItem onClick={handleCopyLink}>
           <ListItemIcon>
-            <ContentCopyIcon fontSize="small" />
+            <ContentCopyIcon aria-hidden="true" fontSize="small" />
           </ListItemIcon>
           <ListItemText>{t("videoPage.copyLink")}</ListItemText>
         </MenuItem>

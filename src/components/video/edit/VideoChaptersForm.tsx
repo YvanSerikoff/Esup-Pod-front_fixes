@@ -239,7 +239,7 @@ export default function VideoChaptersForm({ video }: Props) {
                 className={styles.chapterPlayButton}
                 title={isPlaying ? "Pause" : "Lecture"}
               >
-                {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
+                {isPlaying ? <PauseIcon aria-hidden="true" /> : <PlayArrowIcon aria-hidden="true" />}
               </button>
 
               {/* Current time */}
@@ -258,7 +258,7 @@ export default function VideoChaptersForm({ video }: Props) {
                 className={styles.chapterCaptureButton}
                 title={t("chapters.captureTooltip")}
               >
-                <FlagIcon fontSize="small" />
+                <FlagIcon aria-hidden="true" fontSize="small" />
                 {t("chapters.captureMoment")}
               </button>
             </div>
@@ -266,7 +266,7 @@ export default function VideoChaptersForm({ video }: Props) {
         ) : (
           /* NOT ENCODED YET */
           <div className={styles.chapterUnavailable}>
-            <BookmarksIcon className={styles.chapterUnavailableIcon} />
+            <BookmarksIcon aria-hidden="true" className={styles.chapterUnavailableIcon} />
             <span className={styles.chapterUnavailableTitle}>
               {t("videoPlayer.encodingInProgress")}
             </span>
@@ -280,7 +280,7 @@ export default function VideoChaptersForm({ video }: Props) {
       {/* ── CHAPTER LIST ───────────────────────────────────────── */}
       <div className={styles.chapterList}>
         <div className={styles.chapterListHeader}>
-          <BookmarksIcon className={styles.chapterListIcon} />
+          <BookmarksIcon aria-hidden="true" className={styles.chapterListIcon} />
           <span className={styles.chapterListTitle}>
             {t("chapters.countLabel", { count: sortedChapters.length })}
           </span>
@@ -330,7 +330,7 @@ export default function VideoChaptersForm({ video }: Props) {
                   className={styles.chapterDeleteButton}
                   title={t("chapters.deleteChapter")}
                 >
-                  <DeleteOutlineIcon fontSize="small" />
+                  <DeleteOutlineIcon aria-hidden="true" fontSize="small" />
                 </button>
               </div>
             ))}
@@ -341,7 +341,7 @@ export default function VideoChaptersForm({ video }: Props) {
       {/* ── ADD CHAPTER FORM ────────────────────────────────────── */}
       <div className={styles.chapterAddPanel}>
         <p className={styles.chapterAddHeading}>
-          <AddIcon fontSize="small" />
+          <AddIcon aria-hidden="true" fontSize="small" />
           {t("chapters.addTitle")}
         </p>
 
@@ -385,7 +385,7 @@ export default function VideoChaptersForm({ video }: Props) {
               isSubmitting || !title.trim() ? styles.chapterSubmitDisabled : ""
             }`}
           >
-            <AddIcon fontSize="small" />
+            <AddIcon aria-hidden="true" fontSize="small" />
             {t("common.add")}
           </button>
         </form>

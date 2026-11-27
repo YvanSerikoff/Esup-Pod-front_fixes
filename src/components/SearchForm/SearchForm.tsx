@@ -24,7 +24,7 @@ export function SearchForm() {
   return (
     <form onSubmit={handleSubmit} className={styles["search-form"]}>
       <div className={styles["search-container"]}>
-        <SearchIcon className={styles["search-icon"]} />
+        <SearchIcon aria-hidden="true" className={styles["search-icon"]} />
         <InputBase
           className={styles["search-input-base"]}
           value={query}
@@ -38,7 +38,7 @@ export function SearchForm() {
             onClick={() => setQuery("")}
             className={styles["search-clear-button"]}
           >
-            <ClearIcon fontSize="small" />
+            <ClearIcon aria-hidden="true" fontSize="small" />
           </IconButton>
         )}
       </div>

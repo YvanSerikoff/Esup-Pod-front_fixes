@@ -99,7 +99,7 @@ export default function Accueil() {
               user?.is_staff) && (
               <Button
                 onClick={() => router.push("/video/add")}
-                icon={<span className="material-icons">add_circle</span>}
+                icon={<span aria-hidden="true" className="material-icons">add_circle</span>}
                 variant="primary"
               >
                 {t("common.addVideo")}
@@ -107,21 +107,21 @@ export default function Accueil() {
             )}
           <Button
             onClick={() => router.push("/pages/use-pod")}
-            icon={<span className="material-icons">play_circle</span>}
+            icon={<span aria-hidden="true" className="material-icons">play_circle</span>}
             variant="primary"
           >
             {t("home.btnUsePod")}
           </Button>
           <Button
             onClick={() => router.push("/pages/how-to")}
-            icon={<span className="material-icons">help_outline</span>}
+            icon={<span aria-hidden="true" className="material-icons">help_outline</span>}
             variant="primary"
           >
             {t("home.btnHowTo")}
           </Button>
           <Button
             onClick={() => router.push("/pages/copyright")}
-            icon={<span className="material-icons">security</span>}
+            icon={<span aria-hidden="true" className="material-icons">security</span>}
             variant="primary"
           >
             {t("home.btnCopyright")}
@@ -136,7 +136,7 @@ export default function Accueil() {
               <div className={styles["all-videos-action"]}>
                 <Link href="/video">
                   <Button
-                    icon={<span className="material-icons">play_circle</span>}
+                    icon={<span aria-hidden="true" className="material-icons">play_circle</span>}
                     iconPosition="right"
                     variant="primary"
                     size="medium"

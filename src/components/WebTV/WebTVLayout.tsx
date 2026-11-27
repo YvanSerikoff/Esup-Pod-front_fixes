@@ -82,7 +82,7 @@ export default function WebTVLayout() {
       {/* Footer */}
       <footer className={styles["web-tv-footer"]}>
         <div className={styles["footer-logo"]}>
-          <span className={`material-icons ${styles["footer-icon"]}`}>
+          <span aria-hidden="true" className={`material-icons ${styles["footer-icon"]}`}>
             school
           </span>
           <span>Université de Lille</span>

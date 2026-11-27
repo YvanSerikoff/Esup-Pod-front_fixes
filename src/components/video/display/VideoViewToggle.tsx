@@ -34,7 +34,7 @@ export default function VideoViewToggle({
           aria-pressed={view === "cards"}
         >
           <span className={styles["toggle-button-content"]}>
-            <GridViewIcon fontSize="small" />
+            <GridViewIcon aria-hidden="true" fontSize="small" />
             <span className={styles["toggle-text"]}>
               {t("common.viewCards")}
             </span>
@@ -53,7 +53,7 @@ export default function VideoViewToggle({
           aria-pressed={view === "grid"}
         >
           <span className={styles["toggle-button-content"]}>
-            <TableRowsIcon fontSize="small" />
+            <TableRowsIcon aria-hidden="true" fontSize="small" />
             <span className={styles["toggle-text"]}>
               {t("common.viewTable")}
             </span>

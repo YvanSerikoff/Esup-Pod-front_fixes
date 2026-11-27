@@ -78,7 +78,7 @@ export default function DressingSettings() {
           onChange={handleFileChange}
         />
         <Button
-          icon={<AddPhotoAlternateIcon />}
+          icon={<AddPhotoAlternateIcon aria-hidden="true" />}
           onClick={() => fileInputRef.current?.click()}
           disabled={isUploading}
         >
@@ -110,7 +110,7 @@ export default function DressingSettings() {
                 </span>
                 <Button
                   color="error"
-                  icon={<DeleteIcon />}
+                  icon={<DeleteIcon aria-hidden="true" />}
                   onClick={() => handleDelete(wm.id)}
                   aria-label={t("common.delete")}
                 />

@@ -139,7 +139,7 @@ export function VideoDocumentsForm({ videoId }: VideoDocumentsFormProps) {
                   onClick={() => handleDelete(doc.id)}
                   disabled={isDeleting}
                 >
-                  <DeleteOutlineIcon />
+                  <DeleteOutlineIcon aria-hidden="true" />
                 </IconButton>
               </ListItemSecondaryAction>
             </ListItem>
