@@ -43,8 +43,18 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         aria-label="Changer de langue"
-        startIcon={<LanguageIcon aria-hidden="true" className={styles["language-icon"]} />}
-        endIcon={<ExpandMoreIcon aria-hidden="true" className={styles["language-expand-icon"]} />}
+        startIcon={
+          <LanguageIcon
+            aria-hidden="true"
+            className={styles["language-icon"]}
+          />
+        }
+        endIcon={
+          <ExpandMoreIcon
+            aria-hidden="true"
+            className={styles["language-expand-icon"]}
+          />
+        }
         className={`${styles["language-button"]} ${className || ""}`}
       >
         <span>{locale.toUpperCase()}</span>
@@ -75,7 +85,10 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
             >
               <span>{loc.label}</span>
               {isSelected && (
-                <CheckIcon aria-hidden="true" className={styles["language-selected-icon"]} />
+                <CheckIcon
+                  aria-hidden="true"
+                  className={styles["language-selected-icon"]}
+                />
               )}
             </MenuItem>
           );

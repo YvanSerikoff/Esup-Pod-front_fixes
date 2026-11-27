@@ -27,7 +27,9 @@ export default function BackButton({
       className={[styles["back-button"], className].filter(Boolean).join(" ")}
       aria-label={displayLabel}
     >
-      <span aria-hidden="true" className="material-icons">arrow_back</span>
+      <span aria-hidden="true" className="material-icons">
+        arrow_back
+      </span>
       {displayLabel}
     </button>
   );

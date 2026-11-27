@@ -239,7 +239,11 @@ export default function VideoChaptersForm({ video }: Props) {
                 className={styles.chapterPlayButton}
                 title={isPlaying ? "Pause" : "Lecture"}
               >
-                {isPlaying ? <PauseIcon aria-hidden="true" /> : <PlayArrowIcon aria-hidden="true" />}
+                {isPlaying ? (
+                  <PauseIcon aria-hidden="true" />
+                ) : (
+                  <PlayArrowIcon aria-hidden="true" />
+                )}
               </button>
 
               {/* Current time */}
@@ -266,7 +270,10 @@ export default function VideoChaptersForm({ video }: Props) {
         ) : (
           /* NOT ENCODED YET */
           <div className={styles.chapterUnavailable}>
-            <BookmarksIcon aria-hidden="true" className={styles.chapterUnavailableIcon} />
+            <BookmarksIcon
+              aria-hidden="true"
+              className={styles.chapterUnavailableIcon}
+            />
             <span className={styles.chapterUnavailableTitle}>
               {t("videoPlayer.encodingInProgress")}
             </span>
@@ -280,7 +287,10 @@ export default function VideoChaptersForm({ video }: Props) {
       {/* ── CHAPTER LIST ───────────────────────────────────────── */}
       <div className={styles.chapterList}>
         <div className={styles.chapterListHeader}>
-          <BookmarksIcon aria-hidden="true" className={styles.chapterListIcon} />
+          <BookmarksIcon
+            aria-hidden="true"
+            className={styles.chapterListIcon}
+          />
           <span className={styles.chapterListTitle}>
             {t("chapters.countLabel", { count: sortedChapters.length })}
           </span>

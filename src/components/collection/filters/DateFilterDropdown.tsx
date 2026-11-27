@@ -83,13 +83,13 @@ export default function DateFilterDropdown({
         </Typography>
         {open ? (
           <ExpandLessIcon
-            aria-hidden="true" 
+            aria-hidden="true"
             fontSize="small"
             className={`${styles.filterChevron} ${isActive ? styles.filterChevronActive : ""}`}
           />
         ) : (
           <ExpandMoreIcon
-            aria-hidden="true" 
+            aria-hidden="true"
             fontSize="small"
             className={`${styles.filterChevron} ${isActive ? styles.filterChevronActive : ""}`}
           />

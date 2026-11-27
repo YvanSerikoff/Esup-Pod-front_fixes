@@ -482,7 +482,8 @@ export default function BulkActionsBar({
                                     >
                                       {!opt.enabled && (
                                         <LockIcon
-                                          aria-hidden="true" className={styles.bulkMenuLockIcon}
+                                          aria-hidden="true"
+                                          className={styles.bulkMenuLockIcon}
                                         />
                                       )}
                                       {opt.label}
@@ -548,7 +549,10 @@ export default function BulkActionsBar({
         <div className={styles.bulkModalContent}>
           {/* Deletion warning */}
           {selectedAction === "delete" && (
-            <Alert severity="warning" icon={<WarningAmberIcon aria-hidden="true" />}>
+            <Alert
+              severity="warning"
+              icon={<WarningAmberIcon aria-hidden="true" />}
+            >
               {t.rich("bulk.deleteVideosWarning", {
                 count,
                 strong: (chunks) => <strong>{chunks}</strong>,

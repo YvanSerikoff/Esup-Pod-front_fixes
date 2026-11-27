@@ -267,7 +267,7 @@ export default function AddVideo() {
               onClick={() => setIsEmptyModalOpen(true)}
             >
               <NoteAddIcon
-                aria-hidden="true" 
+                aria-hidden="true"
                 fontSize="small"
                 className={styles["create-empty-icon"]}
               />
@@ -286,7 +286,10 @@ export default function AddVideo() {
         PaperProps={{ className: styles["empty-record-dialog-paper"] }}
       >
         <DialogTitle className={styles["empty-record-dialog-title"]}>
-          <NoteAddIcon aria-hidden="true" className={styles["empty-record-dialog-icon"]} />
+          <NoteAddIcon
+            aria-hidden="true"
+            className={styles["empty-record-dialog-icon"]}
+          />
           {t("a11y.createEmptyRecord")}
         </DialogTitle>
         <DialogContent dividers>

@@ -58,7 +58,8 @@ export function getVideoGridColumns(
           ) : (
             <div className={styles["default-thumbnail-poster"]}>
               <span
-                aria-hidden="true" className={`material-icons ${styles["thumbnail-play-icon"]}`}
+                aria-hidden="true"
+                className={`material-icons ${styles["thumbnail-play-icon"]}`}
               >
                 play_arrow
               </span>
@@ -151,7 +152,9 @@ export function getVideoGridColumns(
             )}
             {row.statusEncoding == "DR" && (
               <Tooltip title={tr("table.privateVideo", "Private video")}>
-                <span aria-hidden="true" className="material-icons">visibility_off</span>
+                <span aria-hidden="true" className="material-icons">
+                  visibility_off
+                </span>
               </Tooltip>
             )}
           </>

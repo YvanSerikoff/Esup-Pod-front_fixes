@@ -79,9 +79,12 @@ export default function VideoShareMenu({ video, className }: Props) {
     const name = iconName.toLowerCase();
     if (name.includes("x") || name.includes("twitter"))
       return <XIcon aria-hidden="true" fontSize="small" />;
-    if (name.includes("facebook")) return <FacebookIcon aria-hidden="true" fontSize="small" />;
-    if (name.includes("linkedin")) return <LinkedInIcon aria-hidden="true" fontSize="small" />;
-    if (name.includes("whatsapp")) return <WhatsAppIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("facebook"))
+      return <FacebookIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("linkedin"))
+      return <LinkedInIcon aria-hidden="true" fontSize="small" />;
+    if (name.includes("whatsapp"))
+      return <WhatsAppIcon aria-hidden="true" fontSize="small" />;
     return <LanguageIcon aria-hidden="true" fontSize="small" />;
   };
 

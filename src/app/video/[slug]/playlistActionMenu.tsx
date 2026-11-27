@@ -189,7 +189,8 @@ export default function PlaylistActionMenu({
           aria-describedby={id}
           onClick={handlePlaylistButtonClick}
         >
-          <PlaylistAddIcon aria-hidden="true" fontSize="small" /> {t("common.playlist")}
+          <PlaylistAddIcon aria-hidden="true" fontSize="small" />{" "}
+          {t("common.playlist")}
         </button>
 
         <button

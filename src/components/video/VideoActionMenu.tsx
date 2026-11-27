@@ -68,7 +68,7 @@ export default function VideoCardActionMenu({
       <IconButton
         onClick={handleClick}
         size="small"
-        aria-hidden="true" 
+        aria-hidden="true"
         aria-label={t("a11y.videoActions")}
         aria-controls={open ? "video-action-menu" : undefined}
         aria-haspopup="true"
@@ -99,7 +99,10 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon aria-hidden="true" className={styles.videoActionItemIcon}>
+            <ListItemIcon
+              aria-hidden="true"
+              className={styles.videoActionItemIcon}
+            >
               <EditIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {t("videoAction.edit")}
@@ -112,7 +115,10 @@ export default function VideoCardActionMenu({
             disabled={isDuplicating}
             className={styles.videoActionMenuItem}
           >
-            <ListItemIcon aria-hidden="true" className={styles.videoActionItemIcon}>
+            <ListItemIcon
+              aria-hidden="true"
+              className={styles.videoActionItemIcon}
+            >
               <ContentCopyIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {isDuplicating
@@ -130,7 +136,10 @@ export default function VideoCardActionMenu({
             onClick={handleClose}
             className={styles.videoActionDeleteItem}
           >
-            <ListItemIcon aria-hidden="true" className={styles.videoActionDeleteIcon}>
+            <ListItemIcon
+              aria-hidden="true"
+              className={styles.videoActionDeleteIcon}
+            >
               <DeleteForeverIcon aria-hidden="true" fontSize="small" />
             </ListItemIcon>
             {t("videoAction.delete")}

@@ -91,7 +91,11 @@ const FilterChip = ({
     >
       {label}
     </Typography>
-    <CloseIcon aria-hidden="true" fontSize="small" className={styles["filter-chip-close"]} />
+    <CloseIcon
+      aria-hidden="true"
+      fontSize="small"
+      className={styles["filter-chip-close"]}
+    />
   </div>
 );
 

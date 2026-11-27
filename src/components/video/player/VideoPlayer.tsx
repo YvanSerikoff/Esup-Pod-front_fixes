@@ -314,7 +314,10 @@ export default function VideoPlayer({
           />
         )}
         <div className={styles.playerErrorMessage}>
-          <span aria-hidden="true" className={`material-icons ${styles.playerErrorIcon}`}>
+          <span
+            aria-hidden="true"
+            className={`material-icons ${styles.playerErrorIcon}`}
+          >
             {isEncoding ? "hourglass_empty" : "info"}
           </span>
           <span>
@@ -329,7 +332,10 @@ export default function VideoPlayer({
             }}
             className={styles.playerRetry}
           >
-            <span aria-hidden="true" className={`material-icons ${styles.playerRetryIcon}`}>
+            <span
+              aria-hidden="true"
+              className={`material-icons ${styles.playerRetryIcon}`}
+            >
               refresh
             </span>
             {t("videoPlayer.retry")}
@@ -392,7 +398,10 @@ export default function VideoPlayer({
       {/* Seek Indicator Overlay */}
       {seekIndicator && (
         <div className={styles.seekIndicator}>
-          <span aria-hidden="true" className={`material-icons ${styles.seekIcon}`}>
+          <span
+            aria-hidden="true"
+            className={`material-icons ${styles.seekIcon}`}
+          >
             {seekIndicator.type === "forward" ? "fast_forward" : "fast_rewind"}
           </span>
           <span className={styles.seekLabel}>

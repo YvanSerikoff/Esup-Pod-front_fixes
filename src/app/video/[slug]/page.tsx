@@ -565,7 +565,8 @@ export default function Video() {
                   disabled
                   title={t("common.commingSoon")}
                 >
-                  <FlagIcon aria-hidden="true" fontSize="small" /> {t("videoPage.report")}
+                  <FlagIcon aria-hidden="true" fontSize="small" />{" "}
+                  {t("videoPage.report")}
                 </button>
                 {isOwnerOrCoOwner && canEdit && (
                   <Button
@@ -644,13 +645,13 @@ export default function Video() {
                             : t("videoPage.seeMore")}
                           {isDescriptionExpanded ? (
                             <KeyboardArrowUpIcon
-                              aria-hidden="true" 
+                              aria-hidden="true"
                               fontSize="inherit"
                               className="read-more-icon"
                             />
                           ) : (
                             <KeyboardArrowDownIcon
-                              aria-hidden="true" 
+                              aria-hidden="true"
                               fontSize="inherit"
                               className="read-more-icon"
                             />
@@ -778,7 +779,7 @@ export default function Video() {
                             className={styles["document-item"]}
                           >
                             <InsertDriveFileIcon
-                              aria-hidden="true" 
+                              aria-hidden="true"
                               className={styles["document-icon"]}
                             />
                             <div className={styles["document-info"]}>
@@ -854,13 +855,13 @@ export default function Video() {
                       : t("videoPage.seeMore")}
                     {isDescriptionExpanded ? (
                       <KeyboardArrowUpIcon
-                        aria-hidden="true" 
+                        aria-hidden="true"
                         fontSize="inherit"
                         className="read-more-icon"
                       />
                     ) : (
                       <KeyboardArrowDownIcon
-                        aria-hidden="true" 
+                        aria-hidden="true"
                         fontSize="inherit"
                         className="read-more-icon"
                       />
@@ -925,7 +926,8 @@ export default function Video() {
               <br />
               <div className={styles["sidebar-list-item"]}>
                 <h3>
-                  <LibraryBooksIcon aria-hidden="true"  fontSize="small" /> {t("videoPage.type")}
+                  <LibraryBooksIcon aria-hidden="true" fontSize="small" />{" "}
+                  {t("videoPage.type")}
                 </h3>
                 <p className={styles["sidebar-text"]}>
                   {video.type_name || t("videoPage.none")}
@@ -966,7 +968,8 @@ export default function Video() {
 
               <div className={styles["sidebar-list-item"]}>
                 <h3>
-                  <SchoolIcon aria-hidden="true" fontSize="small" /> {t("videoPage.contributors")}
+                  <SchoolIcon aria-hidden="true" fontSize="small" />{" "}
+                  {t("videoPage.contributors")}
                 </h3>
                 <p className={styles["sidebar-text"]}>
                   {getVideoOwnerDisplayName(

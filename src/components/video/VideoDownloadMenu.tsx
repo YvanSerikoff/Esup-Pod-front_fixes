@@ -66,7 +66,8 @@ export default function VideoDownloadMenu({
   return (
     <>
       <button className={className} onClick={handleClick} type="button">
-        <DownloadIcon aria-hidden="true" fontSize="small" /> {t("videoPage.download")}
+        <DownloadIcon aria-hidden="true" fontSize="small" />{" "}
+        {t("videoPage.download")}
       </button>
 
       {options.length > 0 && (

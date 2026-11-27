@@ -175,7 +175,9 @@ export default function VideosDisplay({
             <Button
               size="small"
               variant="text"
-              startIcon={<ArrowUpwardIcon aria-hidden="true" fontSize="small" />}
+              startIcon={
+                <ArrowUpwardIcon aria-hidden="true" fontSize="small" />
+              }
               onClick={handleScrollToTop}
               className={styles.scrollTopBtn}
             >
