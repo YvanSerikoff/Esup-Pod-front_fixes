@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { Alert, Button, VariantType } from "@openfun/cunningham-react";
 import BackButton from "@/src/components/BackButton/BackButton";
 import { useTranslation } from "../hooks/useTranslation";
-import styles from "./page.module.css";
 
 export default function ErrorBoundary({
   error,

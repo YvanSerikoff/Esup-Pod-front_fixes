@@ -11,7 +11,6 @@ import type { PlaylistRequest } from "@/src/types";
 import type { CollectionOrder } from "@/src/constants/collection";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
-import styles from "./styles.module.css";
 import { PlaylistForm } from "@/src/components/collection/PlaylistForm";
 import { usePlaylistCreationContext } from "@/src/context/PlaylistCreationContext";
 import { useTranslation } from "@/src/hooks/useTranslation";

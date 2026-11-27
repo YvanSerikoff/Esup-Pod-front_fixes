@@ -11,7 +11,6 @@ import { usePlaylistPermissions } from "@/src/hooks/usePlaylistPermission";
 import CenteredLoader from "@/src/components/Loader/CenteredLoader";
 import type { PlaylistRequest } from "@/src/types";
 import Link from "next/link";
-import styles from "./styles.module.css";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Dialog from "@mui/material/Dialog";

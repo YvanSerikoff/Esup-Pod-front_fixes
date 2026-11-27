@@ -191,7 +191,7 @@ export default function VideoFilters({
           value: type.slug,
         };
       }),
-    [types, t],
+    [types],
   );
 
   const disciplineOptions = useMemo<SelectOption[]>(
@@ -202,7 +202,7 @@ export default function VideoFilters({
           value: String(discipline.id),
         };
       }),
-    [disciplines, t],
+    [disciplines],
   );
 
   const selectedChannelLabel = value.channel
