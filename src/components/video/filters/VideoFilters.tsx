@@ -182,9 +182,8 @@ export default function VideoFilters({
   const typeOptions = useMemo(
     () =>
       types.map((type) => {
-        const translated = t(`type.${type.slug}`);
         return {
-          label: translated !== `type.${type.slug}` ? translated : type.title,
+          label: type.title,
           value: type.slug,
         };
       }),
@@ -194,12 +193,8 @@ export default function VideoFilters({
   const disciplineOptions = useMemo<SelectOption[]>(
     () =>
       disciplines.map((discipline) => {
-        const translated = t(`discipline.${discipline.slug}`);
         return {
-          label:
-            translated !== `discipline.${discipline.slug}`
-              ? translated
-              : discipline.title,
+          label: discipline.title,
           value: String(discipline.id),
         };
       }),
